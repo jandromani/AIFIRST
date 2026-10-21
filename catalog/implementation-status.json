@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0.0",
+  "coverage_policy": "DESIGN != PROTOTYPE_OFFLINE != VERIFIED_PRODUCTION",
+  "domains": [
+    {
+      "domain": "comms",
+      "phase": "01–12 foundation",
+      "design_coverage": "complete",
+      "prototype_nodes": [
+        "comms.notifications"
+      ],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "Integraciones email/Teams/Slack/Calendar",
+        "webhooks firmados y recibos",
+        "consentimientos y preferencias privadas",
+        "portal WCAG verificado"
+      ]
+    },
+    {
+      "domain": "people",
+      "phase": "01–12 foundation",
+      "design_coverage": "complete",
+      "prototype_nodes": [
+        "people.team"
+      ],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "SSO real y alias↔identidad segregada",
+        "gestión de derechos y bajas real",
+        "gestión de consentimientos/preferencias por ley",
+        "validación de condiciones laborales"
+      ]
+    },
+    {
+      "domain": "submission",
+      "phase": "01–12 foundation",
+      "design_coverage": "complete",
+      "prototype_nodes": [
+        "submission.readme",
+        "submission.freeze"
+      ],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "Adaptadores Drive/SharePoint/S3",
+        "recibo persistente y reloj fiable",
+        "control de versiones/deduplicación privada",
+        "licencias y propiedad intelectual revisadas"
+      ]
+    },
+    {
+      "domain": "normalize",
+      "phase": "01–12 foundation",
+      "design_coverage": "complete",
+      "prototype_nodes": [
+        "normalize.schema",
+        "normalize.hash",
+        "normalize.reject",
+        "normalize.accept"
+      ],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "AV real con prueba",
+        "secret/PII scanners aprobados",
+        "extracción PDF/video y quality metrics",
+        "G3 firma externa verificada",
+        "storage privado multi-tenant"
+      ]
+    },
+    {
+      "domain": "orchestrate",
+      "phase": "01–12 foundation",
+      "design_coverage": "complete",
+      "prototype_nodes": [
+        "orchestrate.scheduler",
+        "orchestrate.budget",
+        "orchestrate.retry"
+      ],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "worker real + cola duradera",
+        "sandbox aislado sin red",
+        "gateway de modelos aprobado",
+        "OTEL/ledger inmutable",
+        "control identidad gate G3"
+      ]
+    },
+    {
+      "domain": "evaluate",
+      "phase": "01–12 foundation",
+      "design_coverage": "complete",
+      "prototype_nodes": [
+        "evaluate.tech_quality",
+        "evaluate.jury_review",
+        "evaluate.solution_rank",
+        "evaluate.signoff"
+      ],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "identidad/jurado independiente verificados",
+        "resolución de discrepancias y recursos",
+        "criterios evaluados por motor real",
+        "G4 firma auténtica y publicación auditable"
+      ]
+    },
+    {
+      "domain": "capability",
+      "phase": "01–12 foundation",
+      "design_coverage": "complete",
+      "prototype_nodes": [
+        "capability.claim",
+        "capability.attribution",
+        "capability.uncertainty",
+        "capability.aggregates",
+        "capability.human_review"
+      ],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "revisión real por persona habilitada",
+        "taxonomía de skills validada",
+        "derechos y borrado",
+        "modelo población/missingness robusto",
+        "propuesta de formación validada"
+      ]
+    }
+  ],
+  "counts": {
+    "domains": 12,
+    "components": 135,
+    "links": 68
+  }
+}

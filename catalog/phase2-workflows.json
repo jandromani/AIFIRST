@@ -1,0 +1,222 @@
+{
+  "schema_version": "1.0.0",
+  "workflows": [
+    {
+      "id": "comms",
+      "number": 6,
+      "title": "Canales y comunicaciones",
+      "owner": "Community / Customer Success",
+      "inputs": "ChallengeBrief publicado, audiencias por rol, plantilla versionada, opt-out, aprobación de canal",
+      "outputs": "DeliveryMessage, EventEnvelope, incidencias y estado de entrega",
+      "customer_journey": "El cliente decide canales autorizados y aprueba idioma/horarios; participantes reciben una versión única del mensaje y soporte accesible.",
+      "internal_workflow": "Preparar plantilla, resolver audiencia sin exponer listado, validar propósito, generar idempotency key, encolar, gestionar rebotes y confirmaciones, conservar trazas mínimas.",
+      "state_machine": "draft → reviewed → queued → sent|suppressed|failed → archived",
+      "stop_conditions": "Canal sin autorización; mensaje con secreto; SMS sin aprobación; duplicados.",
+      "acceptance": "No notificar dos veces; sin exponer datos; acceso multilingüe; evidencia de entrega desde proveedor.",
+      "cost_drivers": "Nº mensajes, idiomas, soporte/tickets, SMS, reuniones",
+      "contracts": [
+        "DeliveryMessage",
+        "EventEnvelope"
+      ],
+      "prototype_node_ids": [
+        "comms.notifications"
+      ],
+      "remaining": [
+        "Integraciones email/Teams/Slack/Calendar",
+        "webhooks firmados y recibos",
+        "consentimientos y preferencias privadas",
+        "portal WCAG verificado"
+      ],
+      "status": "PARTIAL_OFFLINE_PROTOTYPE"
+    },
+    {
+      "id": "people",
+      "number": 7,
+      "title": "Participantes y equipos",
+      "owner": "Operaciones / Responsable cliente",
+      "inputs": "Reglas G2, invitación, identidad autorizada, consentimiento o legitimación aplicable, elegibilidad, preferencias",
+      "outputs": "ParticipantRegistration y TeamRoster pseudonimizados",
+      "customer_journey": "Inscripción accesible, información de usos y derechos, elección de participación, composición de equipos y posibilidad de rectificación.",
+      "internal_workflow": "Verificar elegibilidad con cliente, registrar aceptación, crear alias en almacén privado, gestionar asignación y roles, verificar cambios/retirada, limitar visibilidad.",
+      "state_machine": "invited → informed → eligible → active|withdrawal_review → closed",
+      "stop_conditions": "Registro sin aviso; alias duplicado; equipo incoherente; uso de dato sensible en scoring.",
+      "acceptance": "Roster sin duplicados y sin identidad nominativa en capas de evaluación; cambios trazados.",
+      "cost_drivers": "Inscripciones, soporte, SSO, revisiones jurídicas y accesibilidad",
+      "contracts": [
+        "ParticipantRegistration",
+        "TeamRoster"
+      ],
+      "prototype_node_ids": [
+        "people.team"
+      ],
+      "remaining": [
+        "SSO real y alias↔identidad segregada",
+        "gestión de derechos y bajas real",
+        "gestión de consentimientos/preferencias por ley",
+        "validación de condiciones laborales"
+      ],
+      "status": "PARTIAL_OFFLINE_PROTOTYPE"
+    },
+    {
+      "id": "submission",
+      "number": 8,
+      "title": "Entregas y evidencias",
+      "owner": "Challenge Ops / Participantes",
+      "inputs": "Reto y rúbrica fija, participante/equipo válido, materiales, licencias y pruebas",
+      "outputs": "SubmissionManifest y snapshot contenido con huellas verificables",
+      "customer_journey": "El equipo rellena formulario/manifiesto, entrega README y artefactos en carpeta privada, recibe comprobante y puede corregir dentro de plazo.",
+      "internal_workflow": "Comprobar equipo/fecha, fijar snapshot, verificar rutas/hashes, licencia y contribuciones declaradas, emitir recibo con estado.",
+      "state_machine": "draft → uploaded → frozen → received → quarantined|rejected|accepted",
+      "stop_conditions": "Ruta insegura, symlink, digest incorrecto, falta README o licencia incoherente.",
+      "acceptance": "Toda entrega tiene ID, fecha, manifiesto, hash, archivos y motivos de rechazo.",
+      "cost_drivers": "Volumen bytes, número archivos, proveedores almacenamiento, soporte",
+      "contracts": [
+        "SubmissionManifest",
+        "IntakeReceipt"
+      ],
+      "prototype_node_ids": [
+        "submission.readme",
+        "submission.freeze"
+      ],
+      "remaining": [
+        "Adaptadores Drive/SharePoint/S3",
+        "recibo persistente y reloj fiable",
+        "control de versiones/deduplicación privada",
+        "licencias y propiedad intelectual revisadas"
+      ],
+      "status": "PARTIAL_OFFLINE_PROTOTYPE"
+    },
+    {
+      "id": "normalize",
+      "number": 9,
+      "title": "Ingesta y normalización",
+      "owner": "Data Engineering / Security",
+      "inputs": "Manifiestos y archivos no confiables",
+      "outputs": "NormalizedPackage, EvidenceClaim, incidencias, trazabilidad y dictamen G3",
+      "customer_journey": "Cliente conoce archivos rechazados y pasos de corrección, sin revelar datos de otro cliente.",
+      "internal_workflow": "Validar contrato, comprobar rutas e integridad, ejecutar AV/secret/PII en infraestructura controlada, clasificar, extraer, crear fuentes con localizador y preparar G3.",
+      "state_machine": "received → quarantined → scanned → canonicalized → G3_pending → approved|rejected",
+      "stop_conditions": "Escaneo desconocido o fallido; secretos detectados; permisos ambiguos; referencias rotas.",
+      "acceptance": "Cero ejecución de binarios antes de G3; hash y linaje verificables; doble control humano.",
+      "cost_drivers": "Archivos, tamaños, AV, OCR/parsers, revisiones manuales",
+      "contracts": [
+        "IntakeReceipt",
+        "NormalizedPackage",
+        "EvidenceClaim"
+      ],
+      "prototype_node_ids": [
+        "normalize.schema",
+        "normalize.hash",
+        "normalize.reject",
+        "normalize.accept"
+      ],
+      "remaining": [
+        "AV real con prueba",
+        "secret/PII scanners aprobados",
+        "extracción PDF/video y quality metrics",
+        "G3 firma externa verificada",
+        "storage privado multi-tenant"
+      ],
+      "status": "PARTIAL_OFFLINE_PROTOTYPE"
+    },
+    {
+      "id": "orchestrate",
+      "number": 10,
+      "title": "Motor de ejecución",
+      "owner": "AI Platform Lead",
+      "inputs": "NormalizedPackage con G3 firmado, JobSpec, presupuesto y política",
+      "outputs": "AgentTrace, logs auditables y resultados parciales",
+      "customer_journey": "El cliente puede consultar progreso agregado, límites de costes e incidencias, nunca prompts sensibles sin permiso.",
+      "internal_workflow": "Planificar DAG, fijar idempotencia, evitar duplicados, asignar presupuesto/tenant, ejecutar pruebas en sandbox real, recoger trazas, manejar retry y veto.",
+      "state_machine": "created → queued → running → completed|failed|blocked → reviewed",
+      "stop_conditions": "G3 no verificado, presupuesto agotado, ejecución no aislada, modelo no aprobado.",
+      "acceptance": "Rerun reproducible, costes imputables y ejecución imposible sin autorización.",
+      "cost_drivers": "Tokens, CPU, RAM, duración, sandboxes, reintentos, observabilidad",
+      "contracts": [
+        "JobSpec",
+        "AgentTrace",
+        "EventEnvelope"
+      ],
+      "prototype_node_ids": [
+        "orchestrate.scheduler",
+        "orchestrate.budget",
+        "orchestrate.retry"
+      ],
+      "remaining": [
+        "worker real + cola duradera",
+        "sandbox aislado sin red",
+        "gateway de modelos aprobado",
+        "OTEL/ledger inmutable",
+        "control identidad gate G3"
+      ],
+      "status": "PARTIAL_OFFLINE_PROTOTYPE"
+    },
+    {
+      "id": "evaluate",
+      "number": 11,
+      "title": "Evaluación de soluciones",
+      "owner": "Quality Lead / Jurado externo",
+      "inputs": "Rubric congelada, SubmissionManifest, claims verificados, resultados pruebas y revisiones",
+      "outputs": "EvaluationResult, JuryReview, discrepancias y G4",
+      "customer_journey": "Participantes conocen criterio, ven evidencia aplicable a su proyecto y disponen de canal de impugnación.",
+      "internal_workflow": "Relacionar criterio con fuentes, calcular nota provisional de SOLUCIÓN, bloquear si faltan claims, analizar desacuerdo, solicitar evaluación externa, resolver objeciones y firmar G4.",
+      "state_machine": "not_scored → draft → evidence_required|jury_pending → appeal_pending → signed|rejected",
+      "stop_conditions": "Criterio sin fuente; jurado recusado; rubric drift; fallo seguridad; firma no comprobada.",
+      "acceptance": "Ninguna nota huérfana; comparar solo retos/rúbricas/niveles compatibles con G4 real.",
+      "cost_drivers": "Jueces, doble lectura, pruebas, seguridad, recursos reclamaciones",
+      "contracts": [
+        "Rubric",
+        "EvidenceClaim",
+        "EvaluationResult",
+        "JuryReview"
+      ],
+      "prototype_node_ids": [
+        "evaluate.tech_quality",
+        "evaluate.jury_review",
+        "evaluate.solution_rank",
+        "evaluate.signoff"
+      ],
+      "remaining": [
+        "identidad/jurado independiente verificados",
+        "resolución de discrepancias y recursos",
+        "criterios evaluados por motor real",
+        "G4 firma auténtica y publicación auditable"
+      ],
+      "status": "PARTIAL_OFFLINE_PROTOTYPE"
+    },
+    {
+      "id": "capability",
+      "number": 12,
+      "title": "Evidencia de capacidades",
+      "owner": "People Analytics / Comité cliente",
+      "inputs": "Aportes corroborados, EvidenceClaim independientes, finalidad autorizada y preferencias",
+      "outputs": "CapabilityEvidence contextualizado y CapabilityAggregate con supresión",
+      "customer_journey": "Cada participante autorizado puede revisar su observación y solicitar corrección; dirección solo ve métricas agregadas permitidas.",
+      "internal_workflow": "Cruzar fuente + autoría corroborada + taxonomía, registrar incertidumbre/no respuesta, excluir ámbitos sensibles, enviar a revisión humana, agregar con umbral y retención.",
+      "state_machine": "proposed → awaiting_review → approved|disputed|withdrawn → aggregated",
+      "stop_conditions": "Atribución solo grupal; ausencia de consentimiento/base legal; mostrar grupos <k; uso para decisión laboral automática.",
+      "acceptance": "No inferir nivel de plantilla; evidencia trazada, revisión, privacidad y métricas de cobertura.",
+      "cost_drivers": "Revisiones, taxonomía, DPO, reclamaciones, informes",
+      "contracts": [
+        "EvidenceClaim",
+        "CapabilityEvidence",
+        "CapabilityAggregate"
+      ],
+      "prototype_node_ids": [
+        "capability.claim",
+        "capability.attribution",
+        "capability.uncertainty",
+        "capability.aggregates",
+        "capability.human_review"
+      ],
+      "remaining": [
+        "revisión real por persona habilitada",
+        "taxonomía de skills validada",
+        "derechos y borrado",
+        "modelo población/missingness robusto",
+        "propuesta de formación validada"
+      ],
+      "status": "PARTIAL_OFFLINE_PROTOTYPE"
+    }
+  ]
+}
