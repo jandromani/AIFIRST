@@ -1,0 +1,36 @@
+{
+  "quote_id": "quote-001",
+  "client_id": "demo-co",
+  "currency": "EUR",
+  "items": [
+    {
+      "label": "Diseño de reto",
+      "quantity": 20,
+      "unit_cost_eur": 60
+    },
+    {
+      "label": "Análisis y evaluación",
+      "quantity": 48,
+      "unit_cost_eur": 65
+    },
+    {
+      "label": "Revisión legal externa",
+      "quantity": 10,
+      "unit_cost_eur": 110
+    },
+    {
+      "label": "Jurado y premios",
+      "quantity": 1,
+      "unit_cost_eur": 4500
+    }
+  ],
+  "target_margin": 0.4,
+  "prizes_included": true,
+  "commercial_price_eur": 18900,
+  "assumptions": [
+    "50 participantes",
+    "10 equipos",
+    "Sin datos personales identificativos",
+    "No incluye horas de empleados del cliente"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "gate_id": "G0",
+  "decision": "approved",
+  "reviewer_role": "CEO / Growth",
+  "reviewer_reference": "DEMO-not-real-signature-G0",
+  "decision_at": "2026-10-21T12:00:00Z",
+  "evidence_refs": [
+    "demo-client",
+    "demo-quote"
+  ],
+  "conditions": []
+}

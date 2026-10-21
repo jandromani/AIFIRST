@@ -1,0 +1,11 @@
+{
+  "client_id": "demo-co",
+  "icp_fit": "yes",
+  "buyer_identified": true,
+  "problem_evidence": [
+    "business-source-01"
+  ],
+  "budget_band": "10000-50000",
+  "discovery_status": "qualified",
+  "next_action": "Demo ejecutiva sintética"
+}

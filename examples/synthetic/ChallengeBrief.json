@@ -1,0 +1,22 @@
+{
+  "challenge_id": "chall-001",
+  "client_id": "demo-co",
+  "title": "Automatización documental",
+  "problem_statement": "Diseñar una solución de clasificación sin datos reales",
+  "sponsor_role": "Operaciones",
+  "baseline_ref": "baseline-001",
+  "success_metrics": [
+    {
+      "name": "Precisión simulada",
+      "unit": "porcentaje",
+      "target": ">= 90"
+    }
+  ],
+  "allowed_resources": [
+    "Sandbox local"
+  ],
+  "data_policy": "Únicamente información sintética",
+  "difficulty": "intermediate",
+  "rubric_id": "rubric-001",
+  "accessibility_notes": "Documentación legible y alternativa accesible"
+}

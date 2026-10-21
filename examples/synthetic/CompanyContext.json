@@ -1,0 +1,48 @@
+{
+  "client_id": "demo-co",
+  "source_refs": [
+    "demo-source-01"
+  ],
+  "business_goals": [
+    {
+      "id": "goal-001",
+      "statement": "Reducir tareas repetitivas",
+      "sponsor_role": "Operaciones"
+    }
+  ],
+  "org_units": [
+    {
+      "id": "unit-ops",
+      "name": "Operaciones"
+    }
+  ],
+  "processes": [
+    {
+      "id": "process-001",
+      "name": "Clasificación documental",
+      "owner_role": "Operaciones",
+      "volume_estimate": 1000,
+      "baseline_ref": "baseline-001"
+    }
+  ],
+  "baselines": [
+    {
+      "id": "baseline-001",
+      "name": "Minutos por documento",
+      "value": 9,
+      "unit": "min/doc",
+      "source_ref": "demo-source-01"
+    }
+  ],
+  "technology": "Herramientas inventadas",
+  "approved_ai_tools": [
+    "Sandbox local"
+  ],
+  "restrictions": [
+    "Prohibido usar datos de clientes reales"
+  ],
+  "coverage_notes": "Fuente sintética, no extrapolable",
+  "unknowns": [
+    "Ahorro real"
+  ]
+}

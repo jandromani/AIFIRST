@@ -1,0 +1,13 @@
+{
+  "gate_id": "G1",
+  "decision": "approved",
+  "reviewer_role": "Legal / DPO",
+  "reviewer_reference": "DEMO-not-real-signature-G1",
+  "decision_at": "2026-10-21T12:30:00Z",
+  "evidence_refs": [
+    "demo-sow",
+    "demo-dpa",
+    "demo-risk"
+  ],
+  "conditions": []
+}

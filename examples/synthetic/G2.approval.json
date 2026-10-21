@@ -1,0 +1,12 @@
+{
+  "gate_id": "G2",
+  "decision": "approved",
+  "reviewer_role": "Challenge Lead",
+  "reviewer_reference": "DEMO-not-real-signature-G2",
+  "decision_at": "2026-10-21T13:00:00Z",
+  "evidence_refs": [
+    "demo-rubric",
+    "demo-challenge"
+  ],
+  "conditions": []
+}

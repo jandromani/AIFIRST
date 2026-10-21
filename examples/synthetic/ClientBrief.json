@@ -1,0 +1,14 @@
+{
+  "client_id": "demo-co",
+  "sector": "Servicios empresariales",
+  "employee_count_band": "500-1999",
+  "region": "ES",
+  "primary_goal": "Reducir tiempo de gestión documental",
+  "buyer_role": "Dirección General",
+  "decision_roles": [
+    "CEO",
+    "CIO",
+    "Legal"
+  ],
+  "scope_notes": "Empresa inventada; alcance ficticio"
+}

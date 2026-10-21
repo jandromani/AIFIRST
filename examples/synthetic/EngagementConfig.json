@@ -1,0 +1,16 @@
+{
+  "engagement_id": "eng-demo-01",
+  "client_id": "demo-co",
+  "scope_version": "sow-demo-01",
+  "services": [
+    "Discovery Challenge"
+  ],
+  "sow_approved": true,
+  "dpa_status": "approved",
+  "dpa_rationale": "Solo simulación; aprobación ficticia no es documento legal",
+  "processing_purpose": "Evaluar proyectos presentados de forma agregada",
+  "retention_days": 90,
+  "ip_terms_ref": "demo-ip-01",
+  "prize_terms_ref": "demo-prizes-01",
+  "liability_terms_ref": "demo-liability-01"
+}

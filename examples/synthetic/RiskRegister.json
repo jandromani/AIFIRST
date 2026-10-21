@@ -1,0 +1,16 @@
+{
+  "client_id": "demo-co",
+  "reviewed_by_role": "DPO (ficticio)",
+  "reviewed_at": "2026-10-21T12:00:00Z",
+  "risks": [
+    {
+      "risk_id": "risk-001",
+      "category": "security",
+      "severity": "low",
+      "status": "mitigated",
+      "mitigation": "Solo ficheros sintéticos",
+      "owner_role": "Responsable seguridad",
+      "evidence_ref": "demo-risk-01"
+    }
+  ]
+}
