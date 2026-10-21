@@ -64,9 +64,6 @@
     "aggregate_id",
     "unit_alias",
     "skill_id",
-    "sample_size",
-    "evidence_count",
-    "eligible_population",
     "k_threshold",
     "suppressed",
     "coverage_note"

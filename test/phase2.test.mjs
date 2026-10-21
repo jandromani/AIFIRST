@@ -74,5 +74,15 @@ test("12 aggregate suppresses small groups and ignores pending review",()=>{
  const b=base();const cap=deriveCapability(b.participants[0],b.manifest,b.claims,"skill:documentation",root).capability;
  assert.deepEqual(aggregateCapabilities([cap],"ops-unit",100,5),[]);
  const approved={...cap,human_review_state:"approved"};
- assert.equal(aggregateCapabilities([approved],"ops-unit",100,5)[0].suppressed,true);
+ const hidden=aggregateCapabilities([approved],"ops-unit",100,5)[0];
+ assert.equal(hidden.suppressed,true);
+ assert.equal(Object.hasOwn(hidden,"sample_size"),false);
+ assert.equal(Object.hasOwn(hidden,"evidence_count"),false);
+ assert.equal(Object.hasOwn(hidden,"eligible_population"),false);
+});
+
+test("12 cross-tenant skill aggregation blocked",()=>{
+ const b=base();const c=deriveCapability(b.participants[0],b.manifest,b.claims,"skill:documentation",root).capability;
+ const approved={...c,human_review_state:"approved"};
+ assert.throws(()=>aggregateCapabilities([approved,{...approved,tenant_id:"another-tenant"}],"ops-unit",100,5));
 });

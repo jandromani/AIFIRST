@@ -206,15 +206,26 @@ export function deriveCapability(participant,manifest,claims,skillId,root){
 }
 /** k-anonymity gate: suppress small cells and never expose per-person ordering. */
 export function aggregateCapabilities(capabilities,unitAlias,eligiblePopulation,k=5){
- if(!Number.isInteger(k)||k<5)throw Error("k must be >=5");
+ if(!Number.isInteger(k)||k<5)throw Error("k must be >= 5");
+ if(!checkId(unitAlias))throw Error("Invalid unit ID");
+ if(!Number.isInteger(eligiblePopulation)||eligiblePopulation<0)throw Error("Invalid population");
  const valid=capabilities.filter(c=>c.human_review_state==="approved");
+ const scopes=new Set(valid.map(c=>c.tenant_id+"|"+c.engagement_id));
+ if(scopes.size>1)throw Error("Cross-tenant or engagement aggregation forbidden");
  const groups=new Map();
  for(const x of valid){
-  const key=x.skill_id;const a=groups.get(key)||new Set();a.add(x.participant_alias);groups.set(key,a);
+  const list=groups.get(x.skill_id)||[];list.push(x);groups.set(x.skill_id,list);
  }
- return [...groups].map(([skill,aliases])=>({unit_alias:unitAlias,skill_id:skill,sample_size:aliases.size,evidence_count:valid.filter(x=>x.skill_id===skill).length,
- eligible_population:eligiblePopulation,k_threshold:k,suppressed:aliases.size<k,
- coverage_note:"Observed approved contributors only; not an estimate of workforce proficiency."}));
+ return [...groups].map(([skill,entries])=>{
+   const aliases=new Set(entries.map(x=>x.participant_alias));
+   const first=entries[0],suppressed=aliases.size<k;
+   const item={schema_version:EVENT_VERSION,tenant_id:first.tenant_id,engagement_id:first.engagement_id,
+    aggregate_id:"aggregate:"+unitAlias+":"+skill,unit_alias:unitAlias,skill_id:skill,
+    k_threshold:k,suppressed,
+    coverage_note:suppressed?"SMALL_CELL_SUPPRESSED: no counts or denominator exposed":"Observed reviewed contributors only; not representative of the total workforce."};
+   if(!suppressed){item.sample_size=aliases.size;item.evidence_count=entries.length;item.eligible_population=eligiblePopulation;}
+   return item;
+ });
 }
 export function compareSolutions(evaluations,verifiedG4=false){
  // This offline prototype cannot authenticate gate signers. Fail closed, even if JSON claims approval.
