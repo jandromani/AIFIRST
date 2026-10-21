@@ -1,0 +1,85 @@
+{
+  "version": "1.0.0",
+  "currency": "EUR",
+  "status": "UNVALIDATED_HYPOTHESES",
+  "source": "AI_FIRST_ATLAS_SPEC.json",
+  "packages": [
+    {
+      "id": "DISCOVERY",
+      "name": "Assessment Lite",
+      "min": 12000,
+      "max": 22000,
+      "participant_cap": 50,
+      "submission_cap": 15,
+      "includes": [
+        "Catálogo de soluciones",
+        "Informe ejecutivo",
+        "Matriz de evidencia agregada"
+      ],
+      "excludes": [
+        "Integraciones HRIS",
+        "Escenarios individuales",
+        "Implantación"
+      ]
+    },
+    {
+      "id": "BLUEPRINT",
+      "name": "Transformation Blueprint",
+      "min": 25000,
+      "max": 45000,
+      "participant_cap": 150,
+      "submission_cap": 40,
+      "includes": [
+        "Assessment",
+        "Grafo organización",
+        "Escenarios y roadmap",
+        "Taller validación"
+      ],
+      "excludes": [
+        "Producción de soluciones",
+        "Decisiones laborales automatizadas"
+      ]
+    },
+    {
+      "id": "ENTERPRISE",
+      "name": "Enterprise Multi-Cohort",
+      "min": 50000,
+      "max": 100000,
+      "participant_cap": 500,
+      "submission_cap": 120,
+      "includes": [
+        "Varias cohortes",
+        "Gobierno reforzado",
+        "Resultados comparables",
+        "Handoff extendido"
+      ],
+      "excludes": [
+        "Licencia anual de plataforma",
+        "Operación pilotos continuada"
+      ]
+    }
+  ],
+  "fixed_cost_drivers": [
+    "Preventa y discovery",
+    "Legal y DPA",
+    "Diseño de reto",
+    "Organización y comunicación",
+    "Jurado independiente",
+    "QA y revisión ejecutiva",
+    "PM y entrega",
+    "Infraestructura mínima"
+  ],
+  "variable_cost_drivers": [
+    "Nº proyectos y modalidades",
+    "Minutos de sandbox",
+    "Tokens de evaluación",
+    "Revisiones manuales excepcionales",
+    "Nº participantes",
+    "Sensibilidad de datos",
+    "Integraciones cliente",
+    "Soporte y seguimiento",
+    "Premios e impuestos"
+  ],
+  "pricing_rule": "floor_price=estimated_direct_cost/(1-target_gross_margin); price does not imply ROI",
+  "customer_roi_separate": true
+}

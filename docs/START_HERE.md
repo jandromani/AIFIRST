@@ -1,29 +1,20 @@
-# Inicio AIFIRST · Módulos 01–12
+# AIFIRST · Quickstart
 
-**Cero Vercel, cero despliegues, cero llamadas a servicios externos.** Node 20+ y lectura/escritura local de ejemplos sintéticos.
+**Módulos 01–20, 230 nodos en catálogo.** No Vercel. Solo código sintético, CLI offline y dependencias estándar Node.
 
-## 1. Comprender
-- Atlas: `web/atlas.html` (12 dominios, 135 componentes).
-- Definición 06–12: `docs/06-12_OPERATING_ACCEPTANCE.md`.
-- Inputs/outputs/gates: `catalog/phase2-workflows.json`, `catalog/gates.json` y `contracts/index.json`.
-- Implementación vs. pendiente: `catalog/implementation-status.json`.
-
-## 2. Ejecutar el prototipo
 ```bash
+git clone https://github.com/jandromani/AIFIRST.git
+cd AIFIRST
 npm test
 npm run check:catalog
 npm run check:synthetic
-npm run inspect:phase2
 npm run check:phase2
+npm run check:phase3
 npm run build:atlas
 ```
-Los ejemplos no representan validación jurídica real ni firma de revisor. `inspect:phase2` comprueba bytes y hashes pero **mantiene todos los artefactos en cuarentena**, porque no existe antivirus ni aprobación G3 operativa. `check:phase2` produce una propuesta documental **pendiente de jurado G4**.
 
-## 3. Reglas para desarrollar
-- Introducir cambios primero en contratos y catálogo, después en motor y tests, finalmente regenerar Atlas.
-- Añadir tests negativos para invalidación de estado, tenant equivocado, rutas peligrosas, precios, privacidad, rúbricas y signoffs.
-- Nada de credenciales o documentos reales en GitHub. Almacenamiento e identidad deberán estar aislados cuando existan.
-- No ejecutar repositorios participantes hasta contar con scanner, sandbox, políticas de red y autorización humana auténtica.
+Abrir `web/atlas.html` en el sistema de archivos. Ejecutar `node bin/phase3.mjs demo examples/phase3` para diagnóstico sintético de los módulos 13–20. Este comando no consume APIs externas, no crea datos reales, no firma gates ni ejecuta código de terceros.
 
-## Estado real
-Los módulos 01–12 están especificados; existe prototipo offline parcial, no producto completo. Los módulos 13–20 siguen pendiente de migrar desde el blueprint.
+[Guía de 13–20](13-20_OPERATING_ACCEPTANCE.md), [13–20 workflows](../catalog/phase3-workflows.json), [source parity](MASTER_COVERAGE.md), [QA](QA_REPORT.md), [issues](https://github.com/jandromani/AIFIRST/issues).
+
+No ejecutar código de participantes sin escáner, aislamiento y autorización. No usar notas de proyectos para decisiones laborales automáticas.

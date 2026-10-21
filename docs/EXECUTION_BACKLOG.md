@@ -1,30 +1,33 @@
-# Backlog de desarrollo · 01–20
+# Backlog maestro de AIFIRST
 
-## P0 · Verificación del prototipo
-- [x] 01–05: catálogo y contratos iniciales.
-- [x] 06–12: 81 nodos adicionales, catálogo 135/12, workflows, gates G3/G4 y 14 contratos adicionales.
-- [x] Referencia offline con datos ficticios: comunicaciones, equipos, snapshot, cuarentena, jobs, revisión de proyectos y capacidades.
-- [x] Atlas HTML regenerado, sin Vercel.
-- [ ] Ejecutar **realmente** los comandos npm/Node y una revisión visual en navegador, ver [issue 1](https://github.com/jandromani/AIFIRST/issues/1).
-- [ ] Implementar verificadores de aprobación humana y revisión jurídica, ver [issue 2](https://github.com/jandromani/AIFIRST/issues/2).
+Estado: **todos los 20 módulos están documentados**, el prototipo offline cubre partes funcionales y **ninguno está autorizado para producción real**. Los issues no deben cerrarse por el mero hecho de que exista código o documentación.
 
-## P0 · 06–12 pendientes para operar realmente
-- [ ] 06 Mensajería/autorizaciones/proveedores: [issue 7](https://github.com/jandromani/AIFIRST/issues/7).
-- [ ] 07 Identidad/SSO/gestión derechos: [issue 8](https://github.com/jandromani/AIFIRST/issues/8).
-- [ ] 08 Ingesta cloud/portabilidad/recibos: [issue 9](https://github.com/jandromani/AIFIRST/issues/9).
-- [ ] 09 AV/PII/secrets/linaje/G3 real: [issue 10](https://github.com/jandromani/AIFIRST/issues/10).
-- [ ] 10 Ejecución aislada, workers, trazas/costes: [issue 11](https://github.com/jandromani/AIFIRST/issues/11).
-- [ ] 11 Jurado externo, recusaciones, reclamaciones y firma G4: [issue 12](https://github.com/jandromani/AIFIRST/issues/12).
-- [ ] 12 Evaluación contextual, revisión, sesgos y privacidad: [issue 13](https://github.com/jandromani/AIFIRST/issues/13).
+## Cierre de diseño logrado
+- [x] 01–05: captación, contrato, contexto, confianza, reto.
+- [x] 06–12: comunicaciones, participantes, entregas, ingesta, orquestación, evaluación de soluciones, capacidades.
+- [x] 13–20: grafo, escenarios, outputs, activación, operaciones, plataforma, economics, assurance.
+- [x] 230 nodos del blueprint original migrados con ID idéntico, criterio de aceptación, dueño y contrato.
+- [x] G0–G7 definidos, 11 productos de salida, 41 contratos JSON Schema, three-pricing-SKUs hipótesis.
+- [x] Atlas HTML autónomo generado; ausencia de Vercel y de remotos.
+- [x] Fichas de 20 dominios y catálogo de workflows 06–20.
 
-## P1 · Operativa comercial previa al primer cliente
-- [ ] Motor comercial y casos de ahorro con medición ([issue 3](https://github.com/jandromani/AIFIRST/issues/3)).
-- [ ] Contexto por formulario y CSV/XLSX con almacenamiento seguro ([issue 4](https://github.com/jandromani/AIFIRST/issues/4)).
-- [ ] Retos congelados y jurado con identidad ([issue 5](https://github.com/jandromani/AIFIRST/issues/5)).
-- [ ] Mapa de costes directos y tiempo del cliente; medir 3 pilotos antes de fijar precio definitivo.
+## P0 — Cierre real del producto
+- [ ] Ejecución Node 20+/22 real de suites; registro de resultados y navegador offline. [#1](https://github.com/jandromani/AIFIRST/issues/1)
+- [ ] Firma, identidad, alcance y conformidad jurídico-laboral; datos reales solo en entorno protegido. [#2](https://github.com/jandromani/AIFIRST/issues/2)
+- [ ] Dominio 06 [#7](https://github.com/jandromani/AIFIRST/issues/7), 07 [#8](https://github.com/jandromani/AIFIRST/issues/8), 08 [#9](https://github.com/jandromani/AIFIRST/issues/9), 09 [#10](https://github.com/jandromani/AIFIRST/issues/10), 10 [#11](https://github.com/jandromani/AIFIRST/issues/11), 11 [#12](https://github.com/jandromani/AIFIRST/issues/12), 12 [#13](https://github.com/jandromani/AIFIRST/issues/13).
+- [ ] Dominio 13 [#14](https://github.com/jandromani/AIFIRST/issues/14), 14 [#15](https://github.com/jandromani/AIFIRST/issues/15), 15 [#16](https://github.com/jandromani/AIFIRST/issues/16), 16 [#17](https://github.com/jandromani/AIFIRST/issues/17), 17 [#18](https://github.com/jandromani/AIFIRST/issues/18), 18 [#19](https://github.com/jandromani/AIFIRST/issues/19), 19 [#20](https://github.com/jandromani/AIFIRST/issues/20), 20 [#21](https://github.com/jandromani/AIFIRST/issues/21).
 
-## P2 · Próximos módulos
-- [ ] 13 Grafo de conocimiento → 14 Escenarios → 15 Informes → 16 Activación → 17 Operación → 18 Plataforma → 19 Economics → 20 Control global. [issue 6](https://github.com/jandromani/AIFIRST/issues/6).
+## P1 — Entradas comerciales 01–05
+- [ ] ICP, captación y pricing inicial documentados con primeros clientes. [#3](https://github.com/jandromani/AIFIRST/issues/3)
+- [ ] Intake protegido CompanyContext/CSV-XLSX y fuente por campo. [#4](https://github.com/jandromani/AIFIRST/issues/4)
+- [ ] Rúbrica y jurado independientes con freeze y verificación. [#5](https://github.com/jandromani/AIFIRST/issues/5)
 
-## No negociable
-No incluir documentación privada, identidades reales ni tokens en GitHub público. El sistema no puntúa empleados automáticamente ni certifica seguridad, cumplimiento o gates desde un archivo JSON autocumplimentado.
+## Transversal
+- [ ] Backlog global de trazabilidad y ocho módulos, ya migrados como diseño. [#6](https://github.com/jandromani/AIFIRST/issues/6)
+- [ ] Pruebas de escenario con cliente piloto, legal y seguridad, y aceptación humana de outputs.
+- [ ] Precio basado en costes reales y resultados medidos; refinar SKU después de pilotos.
+- [ ] Entorno multi-tenant de producción y DR antes de datos reales.
+- [ ] Mecanismo de portabilidad y borrado conforme SOW y DPA.
+
+## Exclusiones
+Sin deploy, preview, Vercel, datos reales, decisiones laborales automáticas, evaluaciones de personas por ranking, informes CEO no revisados ni promesas de ROI verificadas.

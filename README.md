@@ -1,43 +1,48 @@
 # AIFIRST · AI First Discovery Engine
 
-> **Hackathon in → Evidence-first organizational roadmap out.**
+> **Un hackatón interno entra. Evidencias, capacidades observadas, escenarios y roadmap salen.**
 
-**Estado:** Blueprint estandarizado 01–12 y prototipo offline parcial 06–12. **No es software de producción.** Código, metodologia y ejemplos exclusivamente ficticios. **No hay Vercel, despliegues, previews ni integraciones remotas.**
+**Estado:** Operating Atlas modelado de extremo a extremo, *prototipos offline parciales*, sin producción. Repositorio público con código y datos exclusivamente ficticios. Sin Vercel, previews, CDNs ni servicios desplegados.
 
-## Explorar
-- [Operating Atlas offline](web/atlas.html) · **12 dominios, 135 componentes y 68 relaciones** con búsqueda, panel de detalle, filtros, zoom y navegación.
-- [Catálogo canónico](catalog/operating-model.json) y [flujos 06–12](catalog/phase2-workflows.json).
-- [Estados de implementación honestos](catalog/implementation-status.json) y [aceptación operativa 06–12](docs/06-12_OPERATING_ACCEPTANCE.md).
-- [23 contratos JSON Schema](contracts/index.json), separados en [archivos individuales](contracts/).
-- [Prototipo de fase 2](src/phase2.mjs): plan de comunicaciones, equipo, hashing de entregas locales, cuarentena, planning de jobs, criterios con evidencia, jurado como preflight, capacidades contextualizadas y agregados protegidos.
-- [Ejemplos puramente sintéticos 01–05](examples/synthetic/) y [06–12](examples/phase2/).
-- [13 issues del backlog](https://github.com/jandromani/AIFIRST/issues) y [guía de inicio](docs/START_HERE.md).
+## Arquitectura de la empresa: 20/20 módulos, 230/230 componentes
+Abrir localmente [Operating Atlas interactivo](web/atlas.html), regenerado desde [catálogo de requisitos](catalog/operating-model.json). Hay **171 relaciones de diseño**, **41 contratos JSON**, **8 gates G0–G7**, **11 productos de salida** y **18 tipos de vínculo del grafo de negocio**.
 
-## Ejecutar localmente (Node 20+)
+La [matriz de 230 nodos](catalog/node-traceability.json) enlaza cada pieza con su dueño, contrato y aceptación; [blueprint original conservado](reference/AI_FIRST_ATLAS_SPEC.original.json). **Cobertura documental ≠ producto funcionando.**
+
+### Dominios
+- **01–05 · PREPARAR/LANZAR:** mercado y ventas, contrato, contexto empresarial, legal/personas/confianza, diseño del reto.
+- **06–12 · RECIBIR/EVALUAR:** comunicaciones, inscripción/equipos, entregas, ingesta y cuarentena, trabajos, evaluación del proyecto y evidencias de capacidad.
+- **13–16 · INTELIGENCIA/ENTREGAR/ACTIVAR:** grafo con fuentes, escenarios revisables, manifiesto ejecutivo, roadmap 30/60/90 y mediciones.
+- **17–20 · OPERAR/GOBERNAR:** delivery/staffing, plataforma segura, costes y margen, auditoría global.
+
+Todos los [procesos internos y externos 13–20](catalog/phase3-workflows.json) y [fichas individuales](docs/modules/) incluyen entradas, salidas, estados, gates, responsables, costes y pendientes.
+
+## Probar offline (Node 20+)
 ```bash
 npm test
 npm run check:catalog
 npm run check:synthetic
 npm run check:phase2
-npm run inspect:phase2
+npm run check:phase3
 npm run build:atlas
 ```
-Abrir `web/atlas.html` desde el sistema de archivos. No requiere cuentas, dependencias externas, acceso de red ni claves.
+El motor no depende de APIs ni de dependencias NPM externas. Los ejemplos están en [phase2](examples/phase2) y [phase3](examples/phase3). La última ejecución del código en V8 aislado superó 18/18 comprobaciones de lógica 13–20; **no se ha ejecutado todavía una suite completa Node bajo checkout**. [Informe QA](docs/QA_REPORT.md).
 
-## Arquitectura por gates
-01–05: G0 comercial, G1 contrato, G2 reto aprobado.
-06–09: comunicación, registro, evidencias, intake/quarantine, G3 revisión de seguridad real.
-10–12: jobs limitados, evaluación por evidencia, jurado G4, observaciones de capacidades y agregados privados.
+## Inputs y outputs
+- [Contratos](contracts/index.json), [intake](docs/INTAKE_PLAYBOOK.md), [outputs](catalog/outputs.json), [8 gates](catalog/gates.json).
+- 13: `buildOrganizationalGraph`, `graphView` con protección de datos.
+- 14: `draftScenarios` (sin asignar personas automáticamente).
+- 15: `prepareExecutiveBundle` (Markdown trazable, revisión G6 pendiente).
+- 16: `planActivation`, `evaluatePilotOutcome` (impacto no verificado).
+- 17: `checkDeliveryOperations` (bloqueo incidentes/staffing).
+- 18: `authorizeTenantAccess` (deniega accesos reales por defecto), `retentionDryRun`.
+- 19: `calculateUnitEconomics` (precios y costes sintéticos).
+- 20: `auditOperatingAtlas` (cobertura de diseño y faltas de producción).
 
-**G3 y G4 nunca se aprueban realmente en esta versión.** Los archivos sintéticos no sustituyen firma humana, verificación legal, scanners AV/PII/secrets, workers aislados ni control de identidad. El runner offline no envía notificaciones, no ejecuta proyectos externos ni consulta LLM.
+## Límites y salvaguardas
+Evaluamos soluciones, no hay ranking de empleados. Un resultado colectivo no mide el valor profesional individual. Los datos de capacidades requieren finalidad legítima, evidencia, revisión y posibilidad de corrección. Los grupos pequeños se suprimen. **Nunca** subir datos de clientes/empleados o secretos a GitHub público.
 
-## Seguridad y ética operacional
-- **Ranking de soluciones comparable**, no ranking automático de trabajadores.
-- Evidencias individuales solo contextualizadas, finalidad adecuada, revisión humana y audiencia restringida.
-- Grupos con menos de k personas tienen sus recuentos y denominadores suprimidos.
-- Un `approved` escrito a mano en JSON **no equivale a firma verificable**.
-- Nunca subir datos reales de clientes, empleados, identidad nominativa, secretos ni anexos confidenciales a este GitHub público.
-- Cambios en contratos y rúbricas se versionan; las evaluaciones sin fuentes no son válidas.
+G3–G7 no tienen firma real ni verificación externa. No ejecutar entregas externas, asignar personas, conceder permisos ni borrar información desde este prototipo. El SaaS necesitará IAM/SSO, aislamiento, seguridad, jurisprudencia aplicable, proveedores y aprobación humana.
 
-## Dónde seguimos
-Backlog de implementación productiva por módulo en [issues 7–13](https://github.com/jandromani/AIFIRST/issues). Módulos 13–20 se incorporarán al catálogo conforme a [issue 6](https://github.com/jandromani/AIFIRST/issues/6). La cobertura documental es distinta de estar operativos en una empresa real.
+## Roadmap e issues
+[Backlog detallado](docs/EXECUTION_BACKLOG.md) · [Estado verificable](catalog/implementation-status.json) · [Issues abiertos hasta cierre real](https://github.com/jandromani/AIFIRST/issues). Los módulos 13–20 tienen issues #14–#21 y no están falsamente cerrados.
