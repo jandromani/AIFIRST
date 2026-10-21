@@ -2,43 +2,42 @@
 
 > **Hackathon in → Evidence-first organizational roadmap out.**
 
-**Estado:** MVP offline de dominios 01–05. **Repositorio público:** solo código, metodología y datos sintéticos. No desplegado, no conectado a Vercel.
+**Estado:** Blueprint estandarizado 01–12 y prototipo offline parcial 06–12. **No es software de producción.** Código, metodologia y ejemplos exclusivamente ficticios. **No hay Vercel, despliegues, previews ni integraciones remotas.**
 
-## Qué hay disponible
-- [Atlas autónomo e interactivo](web/atlas.html): 5 dominios, 54 componentes, relaciones, filtros, búsqueda, navegación y detalle.
-- [Catálogo operativo fuente de verdad](catalog/operating-model.json) y [canales de intake](catalog/channels.json).
-- [Contratos JSON Schema](contracts/) versionados, [índice de contratos](contracts/index.json) y validaciones offline.
-- [Modelo de negocio y gates](docs/OPERATING_MODEL.md), [preguntas intake](docs/INTAKE_PLAYBOOK.md), [backlog](docs/EXECUTION_BACKLOG.md).
-- [Ejemplos 100 % ficticios](examples/synthetic/) con G0, G1 y G2, [tests](test/contracts.test.mjs) y motor de precios.
+## Explorar
+- [Operating Atlas offline](web/atlas.html) · **12 dominios, 135 componentes y 68 relaciones** con búsqueda, panel de detalle, filtros, zoom y navegación.
+- [Catálogo canónico](catalog/operating-model.json) y [flujos 06–12](catalog/phase2-workflows.json).
+- [Estados de implementación honestos](catalog/implementation-status.json) y [aceptación operativa 06–12](docs/06-12_OPERATING_ACCEPTANCE.md).
+- [23 contratos JSON Schema](contracts/index.json), separados en [archivos individuales](contracts/).
+- [Prototipo de fase 2](src/phase2.mjs): plan de comunicaciones, equipo, hashing de entregas locales, cuarentena, planning de jobs, criterios con evidencia, jurado como preflight, capacidades contextualizadas y agregados protegidos.
+- [Ejemplos puramente sintéticos 01–05](examples/synthetic/) y [06–12](examples/phase2/).
+- [13 issues del backlog](https://github.com/jandromani/AIFIRST/issues) y [guía de inicio](docs/START_HERE.md).
 
-## En menos de un minuto (Node 20+)
+## Ejecutar localmente (Node 20+)
 ```bash
 npm test
 npm run check:catalog
 npm run check:synthetic
-node bin/aifirst.mjs validate ClientBrief examples/synthetic/ClientBrief.json
-node bin/aifirst.mjs quote examples/synthetic/PricingQuote.json
-node bin/build-atlas.mjs
+npm run check:phase2
+npm run inspect:phase2
+npm run build:atlas
 ```
-Luego abrir `web/atlas.html` localmente. **Ninguna instrucción despliega nada ni requiere API keys.**
+Abrir `web/atlas.html` desde el sistema de archivos. No requiere cuentas, dependencias externas, acceso de red ni claves.
 
-## Fases y puertas
-```text
-01 Ventas / G0
-→ 02 SOW, DPA, IP, premios / G1
-→ 03 Contexto de empresa
-→ 04 Riesgos y derechos / revisión humana
-→ 05 Diseño del reto, rúbrica, jurado / G2
-→ [siguientes iteraciones: entregas, evaluación, grafo, roadmap]
-```
+## Arquitectura por gates
+01–05: G0 comercial, G1 contrato, G2 reto aprobado.
+06–09: comunicación, registro, evidencias, intake/quarantine, G3 revisión de seguridad real.
+10–12: jobs limitados, evaluación por evidencia, jurado G4, observaciones de capacidades y agregados privados.
 
-## Reglas innegociables
-- Primero se evalúan **soluciones**, no se construye un ranking automático de empleados. Cualquier observación individual debe ser contextualizada, legítima, proporcional y revisable; nunca acciones laborales automáticas.
-- Los controles G0–G2 **solo comprueban metadatos, contratos y coherencia**; no autentican firmas ni sustituyen aprobación legal.
-- Nunca cargar información personal/confidencial en este repositorio público. No ejecutar proyectos recibidos sin sandbox seguro.
-- Hipótesis de precios, escenarios, aprobaciones y ejemplos no son datos reales ni resultados acreditados.
+**G3 y G4 nunca se aprueban realmente en esta versión.** Los archivos sintéticos no sustituyen firma humana, verificación legal, scanners AV/PII/secrets, workers aislados ni control de identidad. El runner offline no envía notificaciones, no ejecuta proyectos externos ni consulta LLM.
 
-[Guía inicial](docs/START_HERE.md) · [Revisión contractual](docs/REVIEW_CHECKLISTS.md) · [Atlas](docs/ATLAS.md)
+## Seguridad y ética operacional
+- **Ranking de soluciones comparable**, no ranking automático de trabajadores.
+- Evidencias individuales solo contextualizadas, finalidad adecuada, revisión humana y audiencia restringida.
+- Grupos con menos de k personas tienen sus recuentos y denominadores suprimidos.
+- Un `approved` escrito a mano en JSON **no equivale a firma verificable**.
+- Nunca subir datos reales de clientes, empleados, identidad nominativa, secretos ni anexos confidenciales a este GitHub público.
+- Cambios en contratos y rúbricas se versionan; las evaluaciones sin fuentes no son válidas.
 
-## Qué falta
-En este momento no existen backend, login, almacenamiento privado, motores LLM, jurado productivo, evaluación de participantes, monitorización de uso ni despliegues. Ver el [backlog de ejecución](docs/EXECUTION_BACKLOG.md).
+## Dónde seguimos
+Backlog de implementación productiva por módulo en [issues 7–13](https://github.com/jandromani/AIFIRST/issues). Módulos 13–20 se incorporarán al catálogo conforme a [issue 6](https://github.com/jandromani/AIFIRST/issues/6). La cobertura documental es distinta de estar operativos en una empresa real.

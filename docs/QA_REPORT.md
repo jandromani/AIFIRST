@@ -1,18 +1,19 @@
-# Verificación realizada · 21 octubre 2026
+# QA de referencia · 21 octubre 2026
 
-## Alcance verificado
-- **21 comprobaciones completadas:** ejecución aislada del código real de `src/core.mjs`, leído de GitHub y ejecutado en V8 con sistema de archivos de solo lectura simulado. Resultado: **21/21**.
-- Contratos `ClientBrief`, `SalesQualification`, `PricingQuote`, `EngagementConfig`, `CompanyContext`, `RiskRegister`, `ChallengeBrief` y `Rubric` validados; tres aprobaciones de ejemplo compatibles.
-- G0, G1 y G2 correctos con ejemplos sintéticos. Fallos provocados: lead no cualificado, DPA pendiente, riesgo crítico abierto, rúbrica alterada, baseline inexistente, falta de metadatos del aprobador y propiedad extra innecesaria.
-- Coste directo demostración: 9.920 €; precio mínimo para margen objetivo del 40 %: 16.533,34 €; oferta sintética: 18.900 €.
-- Integridad del catálogo: 5 dominios, 54 componentes y 20 enlaces válidos.
-- Atlas: JSON incorporado compatible, script compilable, no dependencias ni llamadas de red externas.
+## Evidencia disponible
+- Primera iteración (01–05): **21/21** comprobaciones sobre el motor `src/core.mjs` en V8 con filesystem simulado, previo a extensión de contratos.
+- Segunda iteración (06–12): **16/16** comprobaciones de la lógica publicada con V8 y archivos/hashes simulados, sobre 12 dominios y 135 nodos; casos de duplicados, retirada, tenant y datos no verificados.
+- Fuentes subidas a GitHub: **23 contratos JSON Schema**, **135 nodos**, **68 relaciones**, **5 puertas G0–G4 definidas**, **11 outputs finales diseñados**.
+- Caso sintético: evaluación provisional de una solución puntuable con 3,65/5 según claims ficticios. No hay publicación ni ranking válido: G3/G4 siguen pendientes de verificación externa.
+- Atlas generado desde `catalog/operating-model.json`. Sin dependencias NPM en `package.json`, sin frontend remoto.
 
-## Limitaciones NO resueltas
-- **No se ejecutó el comando real `npm test` bajo Node en un checkout de GitHub.** Las verificaciones en V8 no prueban módulos ESM, fs real, CLI ni comportamiento de un navegador gráfico.
-- No se verificaron firmas humanas, seguridad productiva, compatibilidad legal, calidad de informes ni interfaz mediante capturas del nuevo repositorio.
-- La validez del diseño en una empresa real todavía no está probada.
-- No existe infraestructura privada ni aislamiento multi-tenant desplegado.
+## Verificaciones de ingeniería todavía pendientes
+- **No se ha ejecutado `npm test` en un checkout real con Node 20+, ni browser e2e/visual**. V8 con stubs de ESM/fs/crypto sirve para detectar lógica, pero no prueba integración Node real ni seguridad de ficheros maliciosos.
+- Repetir batería tras cambios de privacidad: pequeños agregados no pueden filtrar recuentos ni denominadores; agregar por tenants distintos debe lanzar error.
+- No hay pruebas auténticas AV, secreto, PII, sandbox, autenticación, colas, jurado o firmas. El motor sigue bloqueando cualquier aprobación operativa.
+- Revisar por jurídico, DPO y RRHH antes de un piloto con personas reales.
 
-## Próxima aceptación
-Ejecutar localmente `npm test`, `npm run check:catalog`, `npm run check:synthetic`, `node bin/build-atlas.mjs`, abrir `web/atlas.html` en Chrome/Firefox y capturar resultados. Después tratar correcciones y cerrar el gate de la iteración 0.
+## Qué significa «cerrado»
+- **Estándares y contrato de módulos 06–12:** inventariados y documentados.
+- **Referencia offline:** implementada parcialmente, con tests automatizables.
+- **Operación empresarial verificada:** NO. Las dependencias y criterios de aceptación están en issues 7–13. Ninguna certificación de cumplimiento se afirma.

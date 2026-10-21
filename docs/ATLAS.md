@@ -1,9 +1,11 @@
-# Operating Atlas · Navegación y verdad documental
+# Operating Atlas · Contrato de navegación
 
-Abrir `web/atlas.html` en el navegador; funciona con `file://`, sin servidores, sin cuentas, sin APIs y sin Vercel.
+Archivo HTML offline: [web/atlas.html](../web/atlas.html). Se genera desde `catalog/operating-model.json` mediante `npm run build:atlas`. **No editar directamente el HTML generado**.
 
-Se genera desde `catalog/operating-model.json` con `node bin/build-atlas.mjs`. **No editar manualmente el HTML generado:** cambiar primero el catálogo. Búsqueda, filtro por dominio, zoom, arrastre, relaciones y fichas están integrados.
+Cobertura actual: **12 dominios, 135 componentes y 68 relaciones**. El anterior blueprint completo contiene 20 dominios/230 nodos pero **los ocho restantes no están migrados aquí**.
 
-Este Atlas es actualmente una **vista verificable de diseño para dominios 01–12** (54 componentes, 20 relaciones). No sustituye el Atlas empresarial inicial de 20 dominios / 230 nodos, que sigue como plano de referencia y debe migrarse a contratos de código gradualmente. No afirmar cobertura 100 % ni despliegue cuando solo hay diseño.
+El catálogo contiene nodos en estado DESIGN: tener ficha de aceptación, dueño y dependencia no significa que haya servicio productivo. `catalog/implementation-status.json` especifica qué nodos tienen prototipo offline y los requisitos externos todavía pendientes.
 
-Las relaciones de este primer núcleo se modelan con vínculos INFORMS; más adelante se necesitarán tipos `REQUIRES`, `PRODUCES`, `GOVERNED_BY`, `EVIDENCED_BY`, `APPROVED_BY` y `COSTED_BY`.
+Navegación: filtrar dominio para desplazar la vista, buscar por nombre/ID/entrada/salida, seleccionar nodos para ver ficha y saltar a dependencias; zoom y arrastre. Sin APIs externas.
+
+Relaciones actuales: `INFORMS`. En la iteración de grafo 13 se añadirán `REQUIRES`, `PRODUCES`, `GOVERNED_BY`, `EVIDENCED_BY`, `APPROVED_BY` y `COSTED_BY` para trazabilidad total.
