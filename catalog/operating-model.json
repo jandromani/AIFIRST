@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "status": "DESIGN",
   "publicDataOnly": true,
-  "domainCount": 5,
-  "componentCount": 54,
+  "domainCount": 12,
+  "componentCount": 135,
   "domains": [
     {
       "id": "market",
@@ -535,6 +535,798 @@
           "status": "DESIGN"
         }
       ]
+    },
+    {
+      "id": "comms",
+      "number": 6,
+      "title": "Canales y comunicaciones",
+      "owner": "Community / Customer Success",
+      "phase": "LANZAR",
+      "components": [
+        {
+          "id": "comms.email",
+          "title": "Email",
+          "inputs": "Invitaciones y recordatorios",
+          "outputs": "Envíos rastreables",
+          "acceptance": "Opt-out no esenciales",
+          "owner": "Community / Customer Success",
+          "status": "DESIGN"
+        },
+        {
+          "id": "comms.teams",
+          "title": "Microsoft Teams",
+          "inputs": "Canales corporativos",
+          "outputs": "Anuncios y soporte",
+          "acceptance": "Datos mínimos en canales",
+          "owner": "Community / Customer Success",
+          "status": "DESIGN"
+        },
+        {
+          "id": "comms.slack",
+          "title": "Slack",
+          "inputs": "Espacio autorizado",
+          "outputs": "Anuncios y soporte",
+          "acceptance": "No compartir entregas sensibles públicamente",
+          "owner": "Community / Customer Success",
+          "status": "DESIGN"
+        },
+        {
+          "id": "comms.portal",
+          "title": "Portal y FAQ",
+          "inputs": "Brief y FAQs",
+          "outputs": "Página versión vigente",
+          "acceptance": "Acceso restringido si procede",
+          "owner": "Community / Customer Success",
+          "status": "DESIGN"
+        },
+        {
+          "id": "comms.calendar",
+          "title": "Calendario",
+          "inputs": "Eventos y zonas",
+          "outputs": "Invitaciones",
+          "acceptance": "Confirmación de horarios",
+          "owner": "Community / Customer Success",
+          "status": "DESIGN"
+        },
+        {
+          "id": "comms.webinars",
+          "title": "Sesiones en directo",
+          "inputs": "Material y asistentes",
+          "outputs": "Actas y grabación opcional",
+          "acceptance": "Aviso y acceso autorizados",
+          "owner": "Community / Customer Success",
+          "status": "DESIGN"
+        },
+        {
+          "id": "comms.helpdesk",
+          "title": "Helpdesk",
+          "inputs": "Tickets y preguntas",
+          "outputs": "Incidencias y respuestas",
+          "acceptance": "SLA y escalado",
+          "owner": "Community / Customer Success",
+          "status": "DESIGN"
+        },
+        {
+          "id": "comms.sms",
+          "title": "SMS opcional",
+          "inputs": "Opt-in y avisos urgentes",
+          "outputs": "Recordatorio puntual",
+          "acceptance": "Uso excepcional autorizado",
+          "owner": "Community / Customer Success",
+          "status": "DESIGN"
+        },
+        {
+          "id": "comms.feedback",
+          "title": "Feedback",
+          "inputs": "Formulario mínimo",
+          "outputs": "Resultados agregados",
+          "acceptance": "No inferencia indebida",
+          "owner": "Community / Customer Success",
+          "status": "DESIGN"
+        },
+        {
+          "id": "comms.status",
+          "title": "Estado comunicación",
+          "inputs": "Delivery/read autorizado",
+          "outputs": "Métrica comunicación",
+          "acceptance": "No vigilancia individual oculta",
+          "owner": "Community / Customer Success",
+          "status": "DESIGN"
+        },
+        {
+          "id": "comms.notifications",
+          "title": "Notificaciones",
+          "inputs": "Hitos y aprobaciones",
+          "outputs": "Eventos notificación",
+          "acceptance": "Idempotencia por destinatario/plantilla",
+          "owner": "Community / Customer Success",
+          "status": "DESIGN"
+        },
+        {
+          "id": "comms.accessible",
+          "title": "Accesibilidad",
+          "inputs": "Idioma y formato",
+          "outputs": "Copias accesibles",
+          "acceptance": "WCAG en portal y revisión humana",
+          "owner": "Community / Customer Success",
+          "status": "DESIGN"
+        }
+      ]
+    },
+    {
+      "id": "people",
+      "number": 7,
+      "title": "Participantes y equipos",
+      "owner": "Operaciones / Responsable cliente",
+      "phase": "LANZAR",
+      "components": [
+        {
+          "id": "people.identity",
+          "title": "Identidad",
+          "inputs": "SSO/invitación",
+          "outputs": "ID participante",
+          "acceptance": "No inferir identidades desde código",
+          "owner": "Operaciones / Responsable cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "people.eligibility",
+          "title": "Elegibilidad",
+          "inputs": "Bases y vinculación",
+          "outputs": "Registro elegible",
+          "acceptance": "Verificado por cliente",
+          "owner": "Operaciones / Responsable cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "people.pseudonym",
+          "title": "Pseudonimización",
+          "inputs": "ID privado",
+          "outputs": "Alias segregado",
+          "acceptance": "Correspondencia fuera del score",
+          "owner": "Operaciones / Responsable cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "people.team",
+          "title": "Composición equipos",
+          "inputs": "Personas inscritas",
+          "outputs": "Roster por equipo",
+          "acceptance": "Roles declarados",
+          "owner": "Operaciones / Responsable cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "people.availability",
+          "title": "Disponibilidad",
+          "inputs": "Preferencias voluntarias",
+          "outputs": "Tiempo disponible",
+          "acceptance": "No asumir movilidad obligatoria",
+          "owner": "Operaciones / Responsable cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "people.accessibility",
+          "title": "Accesibilidad",
+          "inputs": "Necesidades expresadas",
+          "outputs": "Adaptaciones",
+          "acceptance": "Datos sensibles fuera de evaluaciones",
+          "owner": "Operaciones / Responsable cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "people.onboarding",
+          "title": "Onboarding",
+          "inputs": "Normas y entornos",
+          "outputs": "Confirmación de información",
+          "acceptance": "Entregables y derechos comprendidos",
+          "owner": "Operaciones / Responsable cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "people.contribution",
+          "title": "Contribuciones",
+          "inputs": "Trabajo compartido",
+          "outputs": "Declaración verificable",
+          "acceptance": "No atribuir éxito colectivo individual",
+          "owner": "Operaciones / Responsable cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "people.withdraw",
+          "title": "Retirada / derechos",
+          "inputs": "Solicitud participante",
+          "outputs": "Revisión de solicitud",
+          "acceptance": "Conservación conforme al contrato",
+          "owner": "Operaciones / Responsable cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "people.identity_gate",
+          "title": "Gate acceso",
+          "inputs": "Elegibilidad y transparencia",
+          "outputs": "Acceso al reto",
+          "acceptance": "G2 y permisos comprobables",
+          "owner": "Operaciones / Responsable cliente",
+          "status": "DESIGN"
+        }
+      ]
+    },
+    {
+      "id": "submission",
+      "number": 8,
+      "title": "Entregas y evidencias",
+      "owner": "Challenge Ops / Participantes",
+      "phase": "RECIBIR",
+      "components": [
+        {
+          "id": "submission.cloud_folder",
+          "title": "Carpeta cloud",
+          "inputs": "Drive/SharePoint/S3",
+          "outputs": "Estructura controlada",
+          "acceptance": "Aislamiento de acceso",
+          "owner": "Challenge Ops / Participantes",
+          "status": "DESIGN"
+        },
+        {
+          "id": "submission.upload_form",
+          "title": "Formulario de carga",
+          "inputs": "Respuestas estructuradas",
+          "outputs": "Metadatos",
+          "acceptance": "Campos obligatorios",
+          "owner": "Challenge Ops / Participantes",
+          "status": "DESIGN"
+        },
+        {
+          "id": "submission.repo",
+          "title": "Repositorio",
+          "inputs": "Git autorizado",
+          "outputs": "Commit/tag fijo",
+          "acceptance": "Acceso revocable y snapshot",
+          "owner": "Challenge Ops / Participantes",
+          "status": "DESIGN"
+        },
+        {
+          "id": "submission.demo",
+          "title": "Demo",
+          "inputs": "Vídeo/URL",
+          "outputs": "Evidencia de ejecución",
+          "acceptance": "Sin secretos ni acceso indiscriminado",
+          "owner": "Challenge Ops / Participantes",
+          "status": "DESIGN"
+        },
+        {
+          "id": "submission.readme",
+          "title": "README",
+          "inputs": "Markdown/PDF",
+          "outputs": "Guía reproducible",
+          "acceptance": "Dependencias y permisos",
+          "owner": "Challenge Ops / Participantes",
+          "status": "DESIGN"
+        },
+        {
+          "id": "submission.problem",
+          "title": "Problema",
+          "inputs": "Ficha solución",
+          "outputs": "Problema medible",
+          "acceptance": "Sponsor o área",
+          "owner": "Challenge Ops / Participantes",
+          "status": "DESIGN"
+        },
+        {
+          "id": "submission.results",
+          "title": "Resultados",
+          "inputs": "Pruebas y datos",
+          "outputs": "Evidencias impacto",
+          "acceptance": "Medido frente a estimado",
+          "owner": "Challenge Ops / Participantes",
+          "status": "DESIGN"
+        },
+        {
+          "id": "submission.responsibility",
+          "title": "Atribución",
+          "inputs": "Roles y artefactos",
+          "outputs": "Claims contribución",
+          "acceptance": "Confirmación y rectificación",
+          "owner": "Challenge Ops / Participantes",
+          "status": "DESIGN"
+        },
+        {
+          "id": "submission.usage",
+          "title": "Declaración IA",
+          "inputs": "Herramientas usadas",
+          "outputs": "Manifest herramientas",
+          "acceptance": "No recopilar prompts privados",
+          "owner": "Challenge Ops / Participantes",
+          "status": "DESIGN"
+        },
+        {
+          "id": "submission.license",
+          "title": "Licencias",
+          "inputs": "Código y datasets",
+          "outputs": "Inventario legal",
+          "acceptance": "Licencia y titularidad compatibles",
+          "owner": "Challenge Ops / Participantes",
+          "status": "DESIGN"
+        },
+        {
+          "id": "submission.freeze",
+          "title": "Congelación",
+          "inputs": "Fecha límite y hash",
+          "outputs": "Snapshot y recibo",
+          "acceptance": "Huella de contenido inmutable",
+          "owner": "Challenge Ops / Participantes",
+          "status": "DESIGN"
+        }
+      ]
+    },
+    {
+      "id": "normalize",
+      "number": 9,
+      "title": "Ingesta y normalización",
+      "owner": "Data Engineering / Security",
+      "phase": "RECIBIR",
+      "components": [
+        {
+          "id": "normalize.connectors",
+          "title": "Conectores",
+          "inputs": "Drive/SharePoint/S3/Git/API",
+          "outputs": "Adaptadores",
+          "acceptance": "Permisos mínimos",
+          "owner": "Data Engineering / Security",
+          "status": "DESIGN"
+        },
+        {
+          "id": "normalize.schema",
+          "title": "Validación contrato",
+          "inputs": "JSON/CSV/Excel",
+          "outputs": "Errores estructurados",
+          "acceptance": "Rechazar esquema desconocido",
+          "owner": "Data Engineering / Security",
+          "status": "DESIGN"
+        },
+        {
+          "id": "normalize.malware",
+          "title": "Malware scan",
+          "inputs": "Binarios y archivos",
+          "outputs": "Dictamen AV",
+          "acceptance": "Sin ejecutar adjuntos",
+          "owner": "Data Engineering / Security",
+          "status": "DESIGN"
+        },
+        {
+          "id": "normalize.secrets",
+          "title": "Detección secretos",
+          "inputs": "Código y texto",
+          "outputs": "Bloqueo/redacción",
+          "acceptance": "No envío de secretos a modelos",
+          "owner": "Data Engineering / Security",
+          "status": "DESIGN"
+        },
+        {
+          "id": "normalize.pii",
+          "title": "Clasificación PII",
+          "inputs": "Documentos",
+          "outputs": "Etiquetas sensibilidad",
+          "acceptance": "Política previa a indexación",
+          "owner": "Data Engineering / Security",
+          "status": "DESIGN"
+        },
+        {
+          "id": "normalize.parse",
+          "title": "Parser de medios",
+          "inputs": "PDF, texto, código, vídeo",
+          "outputs": "Contenido extraído",
+          "acceptance": "Tasa de error y límites",
+          "owner": "Data Engineering / Security",
+          "status": "DESIGN"
+        },
+        {
+          "id": "normalize.canonical",
+          "title": "Objeto canónico",
+          "inputs": "Campos originales",
+          "outputs": "Documento tipado",
+          "acceptance": "Tipos y enumeraciones válidos",
+          "owner": "Data Engineering / Security",
+          "status": "DESIGN"
+        },
+        {
+          "id": "normalize.hash",
+          "title": "Hash SHA-256",
+          "inputs": "Archivos fuente",
+          "outputs": "Huella y snapshot",
+          "acceptance": "Hash real verificable",
+          "owner": "Data Engineering / Security",
+          "status": "DESIGN"
+        },
+        {
+          "id": "normalize.lineage",
+          "title": "Linaje",
+          "inputs": "Fragmentos y rutas",
+          "outputs": "Referencias fuente",
+          "acceptance": "Cada afirmación localizable",
+          "owner": "Data Engineering / Security",
+          "status": "DESIGN"
+        },
+        {
+          "id": "normalize.reject",
+          "title": "Rechazo y corrección",
+          "inputs": "Errores y ausencias",
+          "outputs": "Incidencia corregible",
+          "acceptance": "No silenciar errores",
+          "owner": "Data Engineering / Security",
+          "status": "DESIGN"
+        },
+        {
+          "id": "normalize.sandbox",
+          "title": "Aislamiento",
+          "inputs": "Dependencias y archivos",
+          "outputs": "Entorno efímero",
+          "acceptance": "Sin salida Internet por defecto",
+          "owner": "Data Engineering / Security",
+          "status": "DESIGN"
+        },
+        {
+          "id": "normalize.accept",
+          "title": "Gate G3",
+          "inputs": "Integridad y escaneos",
+          "outputs": "Paquete apto",
+          "acceptance": "Aprobación humana con evidencias de seguridad",
+          "owner": "Data Engineering / Security",
+          "status": "DESIGN"
+        }
+      ]
+    },
+    {
+      "id": "orchestrate",
+      "number": 10,
+      "title": "Motor de ejecución",
+      "owner": "AI Platform Lead",
+      "phase": "EVALUAR",
+      "components": [
+        {
+          "id": "orchestrate.orchestrator",
+          "title": "Orquestador",
+          "inputs": "Jobs y gates",
+          "outputs": "DAG tareas",
+          "acceptance": "Idempotencia",
+          "owner": "AI Platform Lead",
+          "status": "DESIGN"
+        },
+        {
+          "id": "orchestrate.scheduler",
+          "title": "Planificador",
+          "inputs": "Prioridad y carga",
+          "outputs": "Jobs acotados",
+          "acceptance": "Limitar por tenant",
+          "owner": "AI Platform Lead",
+          "status": "DESIGN"
+        },
+        {
+          "id": "orchestrate.sandbox_runner",
+          "title": "Sandbox de pruebas",
+          "inputs": "Código y tests",
+          "outputs": "Ejecución segura",
+          "acceptance": "Límites CPU/red/RAM",
+          "owner": "AI Platform Lead",
+          "status": "DESIGN"
+        },
+        {
+          "id": "orchestrate.extractor",
+          "title": "Extractor",
+          "inputs": "Documentos y código",
+          "outputs": "Claims citables",
+          "acceptance": "Ubicación fuente obligatoria",
+          "owner": "AI Platform Lead",
+          "status": "DESIGN"
+        },
+        {
+          "id": "orchestrate.tech_agent",
+          "title": "Agente técnico",
+          "inputs": "Pruebas/arquitectura",
+          "outputs": "Borrador técnico",
+          "acceptance": "Evidencia por criterio",
+          "owner": "AI Platform Lead",
+          "status": "DESIGN"
+        },
+        {
+          "id": "orchestrate.business_agent",
+          "title": "Agente de negocio",
+          "inputs": "Baselines",
+          "outputs": "Oportunidad valor",
+          "acceptance": "Estimaciones separadas",
+          "owner": "AI Platform Lead",
+          "status": "DESIGN"
+        },
+        {
+          "id": "orchestrate.security_agent",
+          "title": "Agente seguridad",
+          "inputs": "Datos y dependencias",
+          "outputs": "Riesgos",
+          "acceptance": "No eludir controles críticos",
+          "owner": "AI Platform Lead",
+          "status": "DESIGN"
+        },
+        {
+          "id": "orchestrate.judge_agent",
+          "title": "Borrador de dictamen",
+          "inputs": "Rúbrica y claims",
+          "outputs": "Propuesta revisión",
+          "acceptance": "Nunca decisión laboral",
+          "owner": "AI Platform Lead",
+          "status": "DESIGN"
+        },
+        {
+          "id": "orchestrate.critic",
+          "title": "Crítico adversarial",
+          "inputs": "Juicios y fuentes",
+          "outputs": "Contradicciones",
+          "acceptance": "Escalar discrepancias",
+          "owner": "AI Platform Lead",
+          "status": "DESIGN"
+        },
+        {
+          "id": "orchestrate.ensemble",
+          "title": "Repeticiones",
+          "inputs": "Muestras",
+          "outputs": "Consistencia",
+          "acceptance": "Variación documentada",
+          "owner": "AI Platform Lead",
+          "status": "DESIGN"
+        },
+        {
+          "id": "orchestrate.budget",
+          "title": "Presupuestos",
+          "inputs": "Coste tokens/herramientas",
+          "outputs": "Libro coste",
+          "acceptance": "Topes obligatorios",
+          "owner": "AI Platform Lead",
+          "status": "DESIGN"
+        },
+        {
+          "id": "orchestrate.trace",
+          "title": "Trazabilidad",
+          "inputs": "Eventos",
+          "outputs": "Secuencia verificable",
+          "acceptance": "Política de retención",
+          "owner": "AI Platform Lead",
+          "status": "DESIGN"
+        },
+        {
+          "id": "orchestrate.retry",
+          "title": "Reintentos",
+          "inputs": "Errores temporales",
+          "outputs": "Reanudación",
+          "acceptance": "No duplicar resultados",
+          "owner": "AI Platform Lead",
+          "status": "DESIGN"
+        }
+      ]
+    },
+    {
+      "id": "evaluate",
+      "number": 11,
+      "title": "Evaluación de soluciones",
+      "owner": "Quality Lead / Jurado externo",
+      "phase": "EVALUAR",
+      "components": [
+        {
+          "id": "evaluate.functional",
+          "title": "Evaluación funcional",
+          "inputs": "Requisitos y tests",
+          "outputs": "Cumplimiento",
+          "acceptance": "Pruebas o limitación declarada",
+          "owner": "Quality Lead / Jurado externo",
+          "status": "DESIGN"
+        },
+        {
+          "id": "evaluate.tech_quality",
+          "title": "Calidad técnica",
+          "inputs": "Código y diseño",
+          "outputs": "Puntuación criterio",
+          "acceptance": "Evidencias vinculadas",
+          "owner": "Quality Lead / Jurado externo",
+          "status": "DESIGN"
+        },
+        {
+          "id": "evaluate.security",
+          "title": "Seguridad",
+          "inputs": "SAST/deps/secrets",
+          "outputs": "Riesgos",
+          "acceptance": "Defectos críticos bloquean",
+          "owner": "Quality Lead / Jurado externo",
+          "status": "DESIGN"
+        },
+        {
+          "id": "evaluate.business",
+          "title": "Viabilidad negocio",
+          "inputs": "Baseline/costes",
+          "outputs": "Hipótesis retorno",
+          "acceptance": "Evitar doble conteo",
+          "owner": "Quality Lead / Jurado externo",
+          "status": "DESIGN"
+        },
+        {
+          "id": "evaluate.originality",
+          "title": "Diferenciación",
+          "inputs": "Alternativas",
+          "outputs": "Valor diferencial",
+          "acceptance": "No premiar estética",
+          "owner": "Quality Lead / Jurado externo",
+          "status": "DESIGN"
+        },
+        {
+          "id": "evaluate.feasibility",
+          "title": "Factibilidad",
+          "inputs": "Dependencias",
+          "outputs": "Esfuerzo estimado",
+          "acceptance": "Rango y supuestos",
+          "owner": "Quality Lead / Jurado externo",
+          "status": "DESIGN"
+        },
+        {
+          "id": "evaluate.reproducibility",
+          "title": "Reproducibilidad",
+          "inputs": "README y snapshot",
+          "outputs": "Estado demo",
+          "acceptance": "Resultado observado en sandbox",
+          "owner": "Quality Lead / Jurado externo",
+          "status": "DESIGN"
+        },
+        {
+          "id": "evaluate.jury_review",
+          "title": "Jurado",
+          "inputs": "Evaluación y NDA",
+          "outputs": "Acta independiente",
+          "acceptance": "Recusaciones registradas",
+          "owner": "Quality Lead / Jurado externo",
+          "status": "DESIGN"
+        },
+        {
+          "id": "evaluate.disagreement",
+          "title": "Discrepancias",
+          "inputs": "Valoraciones jurado",
+          "outputs": "Revisión",
+          "acceptance": "Umbral escalado",
+          "owner": "Quality Lead / Jurado externo",
+          "status": "DESIGN"
+        },
+        {
+          "id": "evaluate.appeals",
+          "title": "Reclamaciones",
+          "inputs": "Objeciones fundadas",
+          "outputs": "Resolución",
+          "acceptance": "Motivo humano trazado",
+          "owner": "Quality Lead / Jurado externo",
+          "status": "DESIGN"
+        },
+        {
+          "id": "evaluate.solution_rank",
+          "title": "Ranking soluciones",
+          "inputs": "Criterios comparables",
+          "outputs": "Orden de proyectos",
+          "acceptance": "No transferir score a personas",
+          "owner": "Quality Lead / Jurado externo",
+          "status": "DESIGN"
+        },
+        {
+          "id": "evaluate.signoff",
+          "title": "Gate G4",
+          "inputs": "Jurado y QA",
+          "outputs": "Resultados congelados",
+          "acceptance": "Aprobación humana",
+          "owner": "Quality Lead / Jurado externo",
+          "status": "DESIGN"
+        }
+      ]
+    },
+    {
+      "id": "capability",
+      "number": 12,
+      "title": "Evidencia de capacidades",
+      "owner": "People Analytics / Comité cliente",
+      "phase": "EVALUAR",
+      "components": [
+        {
+          "id": "capability.claim",
+          "title": "Observaciones",
+          "inputs": "Commits/demos/declaraciones",
+          "outputs": "Claim verificable",
+          "acceptance": "Declaración ≠ hecho",
+          "owner": "People Analytics / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "capability.skill_taxonomy",
+          "title": "Taxonomía",
+          "inputs": "Skills IA y negocio",
+          "outputs": "Diccionario de habilidades",
+          "acceptance": "Versionado y observabilidad",
+          "owner": "People Analytics / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "capability.attribution",
+          "title": "Contribución",
+          "inputs": "Evidencias de equipo",
+          "outputs": "Aportes con fuente",
+          "acceptance": "No confundir autoría",
+          "owner": "People Analytics / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "capability.uncertainty",
+          "title": "Incertidumbre",
+          "inputs": "Calidad/cantidad",
+          "outputs": "Confidence band",
+          "acceptance": "Límites explícitos",
+          "owner": "People Analytics / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "capability.missingness",
+          "title": "No respuesta",
+          "inputs": "Muestra voluntaria",
+          "outputs": "Cobertura",
+          "acceptance": "No extrapolar a la plantilla",
+          "owner": "People Analytics / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "capability.aggregates",
+          "title": "Agregados",
+          "inputs": "Evidencia autorizada",
+          "outputs": "Cobertura por unidad",
+          "acceptance": "Supresión de grupos pequeños",
+          "owner": "People Analytics / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "capability.development",
+          "title": "Orientación desarrollo",
+          "inputs": "Observaciones",
+          "outputs": "Opciones formativas",
+          "acceptance": "No decisión laboral automática",
+          "owner": "People Analytics / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "capability.opt_in",
+          "title": "Preferencias voluntarias",
+          "inputs": "Interés del participante",
+          "outputs": "Opciones crecimiento",
+          "acceptance": "Revocable y actualizable",
+          "owner": "People Analytics / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "capability.human_review",
+          "title": "Revisión humana",
+          "inputs": "Observaciones sensibles",
+          "outputs": "Dictamen revisado",
+          "acceptance": "Revisor decide",
+          "owner": "People Analytics / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "capability.challenge_bias",
+          "title": "Sesgo reto",
+          "inputs": "Dificultad/tiempo/rol",
+          "outputs": "Advertencias",
+          "acceptance": "No ranking interdominio ciego",
+          "owner": "People Analytics / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "capability.contest_result",
+          "title": "Informe privado",
+          "inputs": "Claims y revisión",
+          "outputs": "Resumen participante",
+          "acceptance": "No publicar ranking personal",
+          "owner": "People Analytics / Comité cliente",
+          "status": "DESIGN"
+        }
+      ]
     }
   ],
   "edges": [
@@ -637,11 +1429,254 @@
       "from": "contract.approval",
       "to": "challenge.publish_gate",
       "type": "INFORMS"
+    },
+    {
+      "from": "challenge.publish_gate",
+      "to": "comms.notifications",
+      "type": "INFORMS"
+    },
+    {
+      "from": "challenge.publish_gate",
+      "to": "people.identity_gate",
+      "type": "INFORMS"
+    },
+    {
+      "from": "comms.email",
+      "to": "people.identity",
+      "type": "INFORMS"
+    },
+    {
+      "from": "comms.portal",
+      "to": "people.onboarding",
+      "type": "INFORMS"
+    },
+    {
+      "from": "comms.notifications",
+      "to": "people.onboarding",
+      "type": "INFORMS"
+    },
+    {
+      "from": "people.identity_gate",
+      "to": "people.onboarding",
+      "type": "INFORMS"
+    },
+    {
+      "from": "people.pseudonym",
+      "to": "people.team",
+      "type": "INFORMS"
+    },
+    {
+      "from": "people.team",
+      "to": "submission.responsibility",
+      "type": "INFORMS"
+    },
+    {
+      "from": "people.onboarding",
+      "to": "submission.upload_form",
+      "type": "INFORMS"
+    },
+    {
+      "from": "challenge.challenge_brief",
+      "to": "submission.problem",
+      "type": "INFORMS"
+    },
+    {
+      "from": "submission.cloud_folder",
+      "to": "submission.freeze",
+      "type": "INFORMS"
+    },
+    {
+      "from": "submission.upload_form",
+      "to": "submission.freeze",
+      "type": "INFORMS"
+    },
+    {
+      "from": "submission.repo",
+      "to": "submission.freeze",
+      "type": "INFORMS"
+    },
+    {
+      "from": "submission.readme",
+      "to": "submission.freeze",
+      "type": "INFORMS"
+    },
+    {
+      "from": "submission.freeze",
+      "to": "normalize.hash",
+      "type": "INFORMS"
+    },
+    {
+      "from": "submission.freeze",
+      "to": "normalize.schema",
+      "type": "INFORMS"
+    },
+    {
+      "from": "normalize.schema",
+      "to": "normalize.canonical",
+      "type": "INFORMS"
+    },
+    {
+      "from": "normalize.hash",
+      "to": "normalize.lineage",
+      "type": "INFORMS"
+    },
+    {
+      "from": "normalize.malware",
+      "to": "normalize.accept",
+      "type": "INFORMS"
+    },
+    {
+      "from": "normalize.secrets",
+      "to": "normalize.accept",
+      "type": "INFORMS"
+    },
+    {
+      "from": "normalize.pii",
+      "to": "normalize.accept",
+      "type": "INFORMS"
+    },
+    {
+      "from": "normalize.lineage",
+      "to": "normalize.accept",
+      "type": "INFORMS"
+    },
+    {
+      "from": "normalize.accept",
+      "to": "orchestrate.orchestrator",
+      "type": "INFORMS"
+    },
+    {
+      "from": "orchestrate.orchestrator",
+      "to": "orchestrate.scheduler",
+      "type": "INFORMS"
+    },
+    {
+      "from": "orchestrate.scheduler",
+      "to": "orchestrate.budget",
+      "type": "INFORMS"
+    },
+    {
+      "from": "orchestrate.scheduler",
+      "to": "orchestrate.trace",
+      "type": "INFORMS"
+    },
+    {
+      "from": "orchestrate.extractor",
+      "to": "evaluate.tech_quality",
+      "type": "INFORMS"
+    },
+    {
+      "from": "orchestrate.security_agent",
+      "to": "evaluate.security",
+      "type": "INFORMS"
+    },
+    {
+      "from": "orchestrate.business_agent",
+      "to": "evaluate.business",
+      "type": "INFORMS"
+    },
+    {
+      "from": "orchestrate.judge_agent",
+      "to": "evaluate.jury_review",
+      "type": "INFORMS"
+    },
+    {
+      "from": "orchestrate.critic",
+      "to": "evaluate.disagreement",
+      "type": "INFORMS"
+    },
+    {
+      "from": "orchestrate.trace",
+      "to": "evaluate.signoff",
+      "type": "INFORMS"
+    },
+    {
+      "from": "challenge.rubric",
+      "to": "evaluate.solution_rank",
+      "type": "INFORMS"
+    },
+    {
+      "from": "evaluate.functional",
+      "to": "evaluate.solution_rank",
+      "type": "INFORMS"
+    },
+    {
+      "from": "evaluate.security",
+      "to": "evaluate.signoff",
+      "type": "INFORMS"
+    },
+    {
+      "from": "evaluate.jury_review",
+      "to": "evaluate.signoff",
+      "type": "INFORMS"
+    },
+    {
+      "from": "evaluate.disagreement",
+      "to": "evaluate.signoff",
+      "type": "INFORMS"
+    },
+    {
+      "from": "evaluate.appeals",
+      "to": "evaluate.signoff",
+      "type": "INFORMS"
+    },
+    {
+      "from": "evaluate.signoff",
+      "to": "capability.claim",
+      "type": "INFORMS"
+    },
+    {
+      "from": "people.contribution",
+      "to": "capability.attribution",
+      "type": "INFORMS"
+    },
+    {
+      "from": "normalize.lineage",
+      "to": "capability.claim",
+      "type": "INFORMS"
+    },
+    {
+      "from": "capability.skill_taxonomy",
+      "to": "capability.claim",
+      "type": "INFORMS"
+    },
+    {
+      "from": "capability.claim",
+      "to": "capability.uncertainty",
+      "type": "INFORMS"
+    },
+    {
+      "from": "capability.attribution",
+      "to": "capability.human_review",
+      "type": "INFORMS"
+    },
+    {
+      "from": "capability.human_review",
+      "to": "capability.development",
+      "type": "INFORMS"
+    },
+    {
+      "from": "capability.missingness",
+      "to": "capability.aggregates",
+      "type": "INFORMS"
+    },
+    {
+      "from": "capability.challenge_bias",
+      "to": "capability.aggregates",
+      "type": "INFORMS"
+    },
+    {
+      "from": "capability.human_review",
+      "to": "capability.contest_result",
+      "type": "INFORMS"
     }
   ],
   "gateSequence": [
     "G0",
     "G1",
-    "G2"
-  ]
+    "G2",
+    "G3",
+    "G4"
+  ],
+  "scope": "MVP 01-12; all DESIGN nodes must be independently verified"
 }
