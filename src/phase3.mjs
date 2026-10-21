@@ -48,7 +48,9 @@ export function buildOrganizationalGraph(nodes,edges,evidenceRefs,root){
 }
 export function graphView(graph,role="ceo"){
  if(!graph?.ok)throw Error("Graph invalid or not verified");
- const allowed=role==="people_reviewer"?new Set(["aggregate","client","restricted"]):new Set(["aggregate","client"]);
+ // An offline, unauthenticated preview must never expose restricted or participant records.
+ // Even a caller-supplied "people_reviewer" string is not proof of IAM authorization.
+ const allowed=new Set(["aggregate","client"]);
  const nodes=graph.nodes.filter(n=>allowed.has(n.visibility_scope));
  const ids=new Set(nodes.map(n=>n.node_id));
  const edges=graph.edges.filter(e=>allowed.has(e.visibility_scope)&&ids.has(e.source_id)&&ids.has(e.target_id));
