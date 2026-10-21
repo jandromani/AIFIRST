@@ -1,0 +1,47 @@
+[
+  {
+    "schema_version": "1.0.0",
+    "tenant_id": "tenant-demo",
+    "engagement_id": "engagement-demo",
+    "edge_id": "edge:addresses",
+    "source_id": "solution:prototype",
+    "target_id": "process:invoices",
+    "relation": "ADDRESSES_PROBLEM",
+    "evidence_refs": [
+      "source:submission-001"
+    ],
+    "visibility_scope": "client",
+    "state": "observed",
+    "confidence": 0.7
+  },
+  {
+    "schema_version": "1.0.0",
+    "tenant_id": "tenant-demo",
+    "engagement_id": "engagement-demo",
+    "edge_id": "edge:objective",
+    "source_id": "process:invoices",
+    "target_id": "objective:efficiency",
+    "relation": "TRACKED_BY_KPI",
+    "evidence_refs": [
+      "source:baseline-001"
+    ],
+    "visibility_scope": "client",
+    "state": "observed",
+    "confidence": 0.65
+  },
+  {
+    "schema_version": "1.0.0",
+    "tenant_id": "tenant-demo",
+    "engagement_id": "engagement-demo",
+    "edge_id": "edge:team",
+    "source_id": "team:protected",
+    "target_id": "solution:prototype",
+    "relation": "SUBMITTED_BY_TEAM",
+    "evidence_refs": [
+      "source:roster-001"
+    ],
+    "visibility_scope": "restricted",
+    "state": "observed",
+    "confidence": 0.65
+  }
+]

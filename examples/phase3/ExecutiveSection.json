@@ -1,0 +1,30 @@
+[
+  {
+    "id": "report:executive",
+    "title": "AI Discovery Report",
+    "body": "Se identificó un prototipo documental, todavía sin valor económico medido.",
+    "source_refs": [
+      "source:submission-001",
+      "source:baseline-001"
+    ],
+    "limitations": [
+      "Ahorro hipotético",
+      "Participantes no representan toda la plantilla"
+    ],
+    "audience": "ceo",
+    "contains_individual_data": false
+  },
+  {
+    "id": "report:technical",
+    "title": "Anexo de evidencias",
+    "body": "Revisar pruebas de forma reproducible antes de decidir inversión.",
+    "source_refs": [
+      "source:submission-001"
+    ],
+    "limitations": [
+      "Jurado externo sin validación real"
+    ],
+    "audience": "operations",
+    "contains_individual_data": false
+  }
+]

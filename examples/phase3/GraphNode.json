@@ -1,0 +1,54 @@
+[
+  {
+    "schema_version": "1.0.0",
+    "tenant_id": "tenant-demo",
+    "engagement_id": "engagement-demo",
+    "node_id": "process:invoices",
+    "type": "process",
+    "label": "Gestión de facturas sintéticas",
+    "source_refs": [
+      "source:baseline-001"
+    ],
+    "visibility_scope": "client",
+    "state": "observed"
+  },
+  {
+    "schema_version": "1.0.0",
+    "tenant_id": "tenant-demo",
+    "engagement_id": "engagement-demo",
+    "node_id": "objective:efficiency",
+    "type": "objective",
+    "label": "Reducir tareas repetitivas",
+    "source_refs": [
+      "source:strategy-001"
+    ],
+    "visibility_scope": "aggregate",
+    "state": "observed"
+  },
+  {
+    "schema_version": "1.0.0",
+    "tenant_id": "tenant-demo",
+    "engagement_id": "engagement-demo",
+    "node_id": "solution:prototype",
+    "type": "solution",
+    "label": "Prototipo clasificación documental",
+    "source_refs": [
+      "source:submission-001"
+    ],
+    "visibility_scope": "client",
+    "state": "observed"
+  },
+  {
+    "schema_version": "1.0.0",
+    "tenant_id": "tenant-demo",
+    "engagement_id": "engagement-demo",
+    "node_id": "team:protected",
+    "type": "team",
+    "label": "Equipo bajo revisión",
+    "source_refs": [
+      "source:roster-001"
+    ],
+    "visibility_scope": "restricted",
+    "state": "observed"
+  }
+]

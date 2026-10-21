@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "tenant_id": "tenant-demo",
+  "engagement_id": "engagement-demo",
+  "policy_id": "policy:demo",
+  "roles": [
+    {
+      "role": "sponsor",
+      "permissions": [
+        "read:aggregates"
+      ]
+    },
+    {
+      "role": "auditor",
+      "permissions": [
+        "read:control-log"
+      ]
+    }
+  ],
+  "denied_actions": [
+    "write:employment-decision",
+    "read:personnel"
+  ],
+  "region": "eu-west",
+  "retention_days": 90,
+  "attestation": "design"
+}

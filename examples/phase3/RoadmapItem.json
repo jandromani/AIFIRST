@@ -1,0 +1,69 @@
+[
+  {
+    "schema_version": "1.0.0",
+    "tenant_id": "tenant-demo",
+    "engagement_id": "engagement-demo",
+    "item_id": "roadmap:discover",
+    "initiative_id": "initiative:docs",
+    "title": "Validar el prototipo documental",
+    "owner_role": "Sponsor operaciones",
+    "dependencies": [],
+    "milestone": "D30",
+    "acceptance_criteria": [
+      "Medir 100 casos sintéticos"
+    ],
+    "baseline_ref": "source:baseline-001",
+    "kpi_id": "kpi:processing-time",
+    "planned_cost_eur": 3000,
+    "status": "candidate",
+    "evidence_refs": [
+      "source:submission-001"
+    ]
+  },
+  {
+    "schema_version": "1.0.0",
+    "tenant_id": "tenant-demo",
+    "engagement_id": "engagement-demo",
+    "item_id": "roadmap:pilot",
+    "initiative_id": "initiative:docs",
+    "title": "Piloto seguro en entorno privado",
+    "owner_role": "IT + Operaciones",
+    "dependencies": [
+      "roadmap:discover"
+    ],
+    "milestone": "D60",
+    "acceptance_criteria": [
+      "Autorización humana y métricas de calidad"
+    ],
+    "baseline_ref": "source:baseline-001",
+    "kpi_id": "kpi:processing-time",
+    "planned_cost_eur": 4000,
+    "status": "candidate",
+    "evidence_refs": [
+      "source:baseline-001"
+    ]
+  },
+  {
+    "schema_version": "1.0.0",
+    "tenant_id": "tenant-demo",
+    "engagement_id": "engagement-demo",
+    "item_id": "roadmap:decision",
+    "initiative_id": "initiative:docs",
+    "title": "Decisión seguir o parar",
+    "owner_role": "Sponsor",
+    "dependencies": [
+      "roadmap:pilot"
+    ],
+    "milestone": "D90",
+    "acceptance_criteria": [
+      "Revisión sponsor sobre costes y riesgos"
+    ],
+    "baseline_ref": "source:baseline-001",
+    "kpi_id": "kpi:processing-time",
+    "planned_cost_eur": 1000,
+    "status": "candidate",
+    "evidence_refs": [
+      "source:baseline-001"
+    ]
+  }
+]

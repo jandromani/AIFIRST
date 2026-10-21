@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "tenant_id": "tenant-demo",
+  "engagement_id": "engagement-demo",
+  "pilot_id": "pilot:documents",
+  "roadmap_item_id": "roadmap:discover",
+  "baseline_ref": "source:baseline-001",
+  "baseline_value": 10,
+  "measured_value": 8,
+  "unit": "minutos",
+  "measurement_window": "30 días ficticios",
+  "method": "Muestra sintética",
+  "source_refs": [
+    "source:pilot-demo"
+  ],
+  "limitations": [
+    "No validado en producción",
+    "Datos inventados"
+  ],
+  "status": "measured",
+  "measured_at": "2026-10-21T15:00:00Z"
+}

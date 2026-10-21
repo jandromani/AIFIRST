@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "tenant_id": "tenant-demo",
+  "engagement_id": "engagement-demo",
+  "plan_id": "retention:demo",
+  "classification": "restricted",
+  "retention_days": 90,
+  "legal_hold": false,
+  "export_status": "completed",
+  "deletion_status": "pending"
+}

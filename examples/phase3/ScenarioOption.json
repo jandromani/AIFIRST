@@ -1,0 +1,60 @@
+[
+  {
+    "scenario_id": "scenario:speed",
+    "objective": "Acelerar tres prototipos en 90 días",
+    "assumptions": [
+      "Sponsor disponible para aprobar presupuesto"
+    ],
+    "tradeoffs": [
+      "Dependencia de especialistas"
+    ],
+    "evidence_refs": [
+      "solution:prototype"
+    ],
+    "coverage_limitations": [
+      "Participación voluntaria; cobertura desconocida del resto de plantilla"
+    ],
+    "cost_range_eur": [
+      3000,
+      12000
+    ],
+    "risks": [
+      "Accesos no autorizados"
+    ],
+    "required_skills": [
+      "skill:automation"
+    ],
+    "initiative_refs": [
+      "solution:prototype"
+    ]
+  },
+  {
+    "scenario_id": "scenario:scale",
+    "objective": "Escalar competencias sin clasificar trabajadores",
+    "assumptions": [
+      "Formación voluntaria y validación legal"
+    ],
+    "tradeoffs": [
+      "Más inversión de acompañamiento"
+    ],
+    "evidence_refs": [
+      "objective:efficiency"
+    ],
+    "coverage_limitations": [
+      "No extrapolar la muestra a toda la compañía"
+    ],
+    "cost_range_eur": [
+      5000,
+      22000
+    ],
+    "risks": [
+      "Baja adopción"
+    ],
+    "required_skills": [
+      "skill:documentation"
+    ],
+    "initiative_refs": [
+      "objective:efficiency"
+    ]
+  }
+]

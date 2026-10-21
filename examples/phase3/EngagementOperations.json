@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "tenant_id": "tenant-demo",
+  "engagement_id": "engagement-demo",
+  "run_id": "run:sample",
+  "owner_role": "Delivery Manager",
+  "sow_ref": "sow:demo",
+  "staffing_hours": [
+    {
+      "role": "Delivery Lead",
+      "planned_hours": 20,
+      "available_hours": 40
+    },
+    {
+      "role": "Data Engineer",
+      "planned_hours": 30,
+      "available_hours": 40
+    }
+  ],
+  "juror_refs": [
+    "juror:demo"
+  ],
+  "suppliers": [],
+  "tickets_open": 0,
+  "incidents_open": 0,
+  "billing_status": "draft",
+  "health": "draft"
+}
