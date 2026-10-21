@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-export const CONTRACTS = ["ClientBrief","SalesQualification","PricingQuote","EngagementConfig","CompanyContext","RiskRegister","ChallengeBrief","Rubric","GateApproval"];
+export const CONTRACTS = ["ClientBrief","SalesQualification","PricingQuote","EngagementConfig","CompanyContext","RiskRegister","ChallengeBrief","Rubric","GateApproval","EventEnvelope","DeliveryMessage","ParticipantRegistration","TeamRoster","SubmissionManifest","IntakeReceipt","EvidenceClaim","NormalizedPackage","JobSpec","AgentTrace","EvaluationResult","JuryReview","CapabilityEvidence","CapabilityAggregate"];
 
 export function readJson(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
