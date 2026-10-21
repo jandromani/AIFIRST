@@ -21,9 +21,9 @@ export function simulateSyntheticEngagement(input,root){
  if(input.synthetic!==true)return blocked("POLICY","SYNTHETIC_MODE_REQUIRED","run:denied");
  const {manifest,registrations,roster,rubric,claims,challenge,jury,priceModel,catalog,gates,outputs,implementation,artifactDirectory}=input;
  const run_id="run:"+digest(manifest?.sha256||"invalid").slice(0,20);
+ if(!Array.isArray(manifest?.artifact_refs)||!Array.isArray(registrations)||!Array.isArray(claims)||!Array.isArray(jury))return blocked("INPUT","INVALID_COLLECTION",run_id);
  const baseScope=scope(manifest);
  if([roster,...registrations,...claims,...jury,priceModel].some(x=>scope(x)!==baseScope))return blocked("TENANT","CROSS_SCOPE_INPUTS",run_id);
- if(!Array.isArray(manifest?.artifact_refs)||!Array.isArray(registrations)||!Array.isArray(claims)||!Array.isArray(jury))return blocked("INPUT","INVALID_COLLECTION",run_id);
  if(validateContract("PriceModel",priceModel,root).length)return blocked("ECONOMICS","INVALID_PRICE_MODEL",run_id);
  const inputJournal=[];
  const emit=(step,status,evidenceCount)=>inputJournal.push({sequence:inputJournal.length+1,step,status,evidence_count:evidenceCount,
