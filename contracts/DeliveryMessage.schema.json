@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DeliveryMessage",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "engagement_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "message_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "template_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "template_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "channel": {
+      "type": "string",
+      "enum": [
+        "email",
+        "teams",
+        "slack",
+        "portal",
+        "calendar",
+        "webinar",
+        "helpdesk",
+        "sms"
+      ]
+    },
+    "audience": {
+      "type": "string",
+      "enum": [
+        "all_participants",
+        "team_representatives",
+        "sponsors",
+        "jurors"
+      ]
+    },
+    "locale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subject": {
+      "type": "string",
+      "minLength": 1
+    },
+    "body": {
+      "type": "string",
+      "minLength": 1
+    },
+    "essential": {
+      "type": "boolean"
+    },
+    "dispatch_state": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "queued",
+        "suppressed",
+        "sent"
+      ]
+    },
+    "idempotency_key": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "approval_ref": {
+      "type": "string",
+      "minLength": 3
+    }
+  },
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "engagement_id",
+    "message_id",
+    "template_id",
+    "template_version",
+    "channel",
+    "audience",
+    "locale",
+    "subject",
+    "body",
+    "essential",
+    "dispatch_state",
+    "idempotency_key"
+  ]
+}

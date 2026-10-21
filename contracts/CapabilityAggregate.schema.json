@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CapabilityAggregate",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "engagement_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "aggregate_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "unit_alias": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "skill_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "sample_size": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "evidence_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "eligible_population": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "k_threshold": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "suppressed": {
+      "type": "boolean"
+    },
+    "coverage_note": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "engagement_id",
+    "aggregate_id",
+    "unit_alias",
+    "skill_id",
+    "sample_size",
+    "evidence_count",
+    "eligible_population",
+    "k_threshold",
+    "suppressed",
+    "coverage_note"
+  ]
+}

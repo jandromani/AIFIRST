@@ -58,6 +58,47 @@
         "G1 aprobado"
       ],
       "on_failure": "No lanzar el hackatón"
+    },
+    {
+      "id": "G3",
+      "title": "Recepción segura",
+      "required": [
+        "SubmissionManifest",
+        "IntakeReceipt",
+        "NormalizedPackage"
+      ],
+      "roles": [
+        "Security",
+        "Challenge Ops"
+      ],
+      "checks": [
+        "Rutas y huellas verificadas",
+        "Escaneos malware/secretos/PII externos",
+        "Sin cuarentena",
+        "Aprobación humana"
+      ],
+      "on_failure": "Cuarentena sin ejecutar adjuntos"
+    },
+    {
+      "id": "G4",
+      "title": "Evaluación defendible",
+      "required": [
+        "Rubric",
+        "EvidenceClaim",
+        "EvaluationResult",
+        "JuryReview"
+      ],
+      "roles": [
+        "Jurado externo",
+        "Quality Lead"
+      ],
+      "checks": [
+        "Rúbrica y evidencias alineadas",
+        "Jurado independiente no recusado",
+        "Decisión humana",
+        "Resolución discrepancias"
+      ],
+      "on_failure": "No emitir ranking final"
     }
   ]
 }

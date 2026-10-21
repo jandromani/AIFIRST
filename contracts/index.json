@@ -719,6 +719,1242 @@
         "conditions"
       ],
       "title": "GateApproval"
+    },
+    "EventEnvelope": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "EventEnvelope",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "engagement_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "event_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "event_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "occurred_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "correlation_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "idempotency_key": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "delivery_state": {
+          "type": "string",
+          "enum": [
+            "queued",
+            "delivered",
+            "suppressed",
+            "failed"
+          ]
+        },
+        "entity_ref": {
+          "type": "string",
+          "minLength": 3
+        },
+        "payload_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "schema_version",
+        "tenant_id",
+        "engagement_id",
+        "event_id",
+        "event_type",
+        "occurred_at",
+        "correlation_id",
+        "idempotency_key",
+        "delivery_state"
+      ]
+    },
+    "DeliveryMessage": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "DeliveryMessage",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "engagement_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "message_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "template_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "template_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "channel": {
+          "type": "string",
+          "enum": [
+            "email",
+            "teams",
+            "slack",
+            "portal",
+            "calendar",
+            "webinar",
+            "helpdesk",
+            "sms"
+          ]
+        },
+        "audience": {
+          "type": "string",
+          "enum": [
+            "all_participants",
+            "team_representatives",
+            "sponsors",
+            "jurors"
+          ]
+        },
+        "locale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 1
+        },
+        "body": {
+          "type": "string",
+          "minLength": 1
+        },
+        "essential": {
+          "type": "boolean"
+        },
+        "dispatch_state": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "queued",
+            "suppressed",
+            "sent"
+          ]
+        },
+        "idempotency_key": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "approval_ref": {
+          "type": "string",
+          "minLength": 3
+        }
+      },
+      "required": [
+        "schema_version",
+        "tenant_id",
+        "engagement_id",
+        "message_id",
+        "template_id",
+        "template_version",
+        "channel",
+        "audience",
+        "locale",
+        "subject",
+        "body",
+        "essential",
+        "dispatch_state",
+        "idempotency_key"
+      ]
+    },
+    "ParticipantRegistration": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "ParticipantRegistration",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "engagement_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "participant_alias": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "team_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "challenge_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+          }
+        },
+        "role_in_team": {
+          "type": "string",
+          "minLength": 1
+        },
+        "informed_notice_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "eligibility_verified": {
+          "type": "boolean"
+        },
+        "rules_accepted": {
+          "type": "boolean"
+        },
+        "development_preferences": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "identity_map_ref": {
+          "type": "string",
+          "minLength": 3
+        },
+        "withdrawal_state": {
+          "type": "string",
+          "enum": [
+            "active",
+            "pending_review",
+            "withdrawn"
+          ]
+        },
+        "accessibility_handled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "schema_version",
+        "tenant_id",
+        "engagement_id",
+        "participant_alias",
+        "team_id",
+        "challenge_ids",
+        "role_in_team",
+        "informed_notice_version",
+        "eligibility_verified",
+        "rules_accepted",
+        "withdrawal_state"
+      ]
+    },
+    "TeamRoster": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "TeamRoster",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "engagement_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "team_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "challenge_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "roster_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "verified_by_role": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "schema_version",
+        "tenant_id",
+        "engagement_id",
+        "team_id",
+        "challenge_id",
+        "members",
+        "roster_version"
+      ]
+    },
+    "SubmissionManifest": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "SubmissionManifest",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "engagement_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "submission_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "challenge_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "team_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "problem": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_refs": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "readme_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "commit_sha": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tools_used": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "contribution_claims": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "licenses": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "submitted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "rubric_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "rubric_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "schema_version",
+        "tenant_id",
+        "engagement_id",
+        "submission_id",
+        "challenge_id",
+        "team_id",
+        "title",
+        "artifact_refs",
+        "readme_ref",
+        "submitted_at",
+        "sha256",
+        "rubric_id",
+        "rubric_version"
+      ]
+    },
+    "IntakeReceipt": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "IntakeReceipt",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "engagement_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "receipt_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "submission_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "manifest_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "received_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "quarantine": {
+          "type": "boolean"
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "tenant_id",
+        "engagement_id",
+        "receipt_id",
+        "submission_id",
+        "manifest_sha256",
+        "received_at",
+        "checks",
+        "quarantine",
+        "reasons"
+      ]
+    },
+    "EvidenceClaim": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "EvidenceClaim",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "engagement_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "claim_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "subject_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "predicate": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_artifact_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "source_locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method": {
+          "type": "string",
+          "enum": [
+            "test",
+            "static_review",
+            "human_observation",
+            "self_report",
+            "source_document"
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "review_state": {
+          "type": "string",
+          "enum": [
+            "unverified",
+            "verified",
+            "disputed",
+            "rejected"
+          ]
+        },
+        "reviewer_ref": {
+          "type": "string",
+          "minLength": 3
+        }
+      },
+      "required": [
+        "schema_version",
+        "tenant_id",
+        "engagement_id",
+        "claim_id",
+        "subject_id",
+        "predicate",
+        "value",
+        "source_artifact_id",
+        "source_locator",
+        "method",
+        "confidence",
+        "observed_at",
+        "review_state"
+      ]
+    },
+    "NormalizedPackage": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "NormalizedPackage",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "engagement_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "package_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "submission_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "receipt_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "artifact_hashes": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "evidence_claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+          }
+        },
+        "gate_g3": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "approved",
+            "rejected"
+          ]
+        },
+        "quarantine": {
+          "type": "boolean"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "tenant_id",
+        "engagement_id",
+        "package_id",
+        "submission_id",
+        "receipt_id",
+        "artifact_hashes",
+        "evidence_claim_ids",
+        "gate_g3",
+        "quarantine",
+        "limitations"
+      ]
+    },
+    "JobSpec": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "JobSpec",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "engagement_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "job_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "job_type": {
+          "type": "string",
+          "enum": [
+            "extract",
+            "technical_review",
+            "business_review",
+            "security_review",
+            "evaluation_draft"
+          ]
+        },
+        "input_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+          }
+        },
+        "policy_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rubric_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "max_cost_eur": {
+          "type": "number",
+          "minimum": 0
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "queued",
+            "running",
+            "completed",
+            "failed",
+            "blocked"
+          ]
+        },
+        "attempt": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "idempotency_key": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        }
+      },
+      "required": [
+        "schema_version",
+        "tenant_id",
+        "engagement_id",
+        "job_id",
+        "job_type",
+        "input_refs",
+        "policy_version",
+        "max_cost_eur",
+        "state",
+        "attempt",
+        "idempotency_key"
+      ]
+    },
+    "AgentTrace": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "AgentTrace",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "engagement_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "trace_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "job_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "step": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+          }
+        },
+        "output_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+          }
+        },
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "complete",
+            "blocked",
+            "failed"
+          ]
+        },
+        "cost_eur": {
+          "type": "number",
+          "minimum": 0
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "occurred_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "schema_version",
+        "tenant_id",
+        "engagement_id",
+        "trace_id",
+        "job_id",
+        "step",
+        "input_refs",
+        "output_refs",
+        "outcome",
+        "cost_eur",
+        "limitations",
+        "occurred_at"
+      ]
+    },
+    "EvaluationResult": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "EvaluationResult",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "engagement_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "evaluation_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "submission_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "challenge_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "rubric_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "rubric_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": [
+            "beginner",
+            "intermediate",
+            "advanced"
+          ]
+        },
+        "criterion_scores": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "evidence_claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+          }
+        },
+        "veto_flags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "review_state": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "needs_evidence",
+            "pending_jury",
+            "jury_approved",
+            "rejected"
+          ]
+        },
+        "weighted_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "jury_review_ref": {
+          "type": "string",
+          "minLength": 3
+        }
+      },
+      "required": [
+        "schema_version",
+        "tenant_id",
+        "engagement_id",
+        "evaluation_id",
+        "submission_id",
+        "challenge_id",
+        "rubric_id",
+        "rubric_version",
+        "difficulty",
+        "criterion_scores",
+        "evidence_claim_ids",
+        "veto_flags",
+        "limitations",
+        "review_state"
+      ]
+    },
+    "JuryReview": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "JuryReview",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "engagement_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "review_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "evaluation_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "juror_ref": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "conflicts_declared": {
+          "type": "boolean"
+        },
+        "recused": {
+          "type": "boolean"
+        },
+        "decision": {
+          "type": "string",
+          "enum": [
+            "approve",
+            "reject",
+            "revise"
+          ]
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+          }
+        },
+        "reviewed_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "schema_version",
+        "tenant_id",
+        "engagement_id",
+        "review_id",
+        "evaluation_id",
+        "juror_ref",
+        "conflicts_declared",
+        "recused",
+        "decision",
+        "notes",
+        "evidence_refs",
+        "reviewed_at"
+      ]
+    },
+    "CapabilityEvidence": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "CapabilityEvidence",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "engagement_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "capability_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "participant_alias": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "skill_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "evidence_claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+          }
+        },
+        "context": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confidence_band": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "human_review_state": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "approved",
+            "disputed",
+            "rejected"
+          ]
+        },
+        "visibility_scope": {
+          "type": "string",
+          "enum": [
+            "participant",
+            "authorized_development_reviewer"
+          ]
+        },
+        "challenge_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        }
+      },
+      "required": [
+        "schema_version",
+        "tenant_id",
+        "engagement_id",
+        "capability_id",
+        "participant_alias",
+        "skill_id",
+        "evidence_claim_ids",
+        "context",
+        "confidence_band",
+        "limitations",
+        "human_review_state",
+        "visibility_scope",
+        "challenge_id"
+      ]
+    },
+    "CapabilityAggregate": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "CapabilityAggregate",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "engagement_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "aggregate_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "unit_alias": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "skill_id": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        },
+        "sample_size": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "evidence_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "eligible_population": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "k_threshold": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "suppressed": {
+          "type": "boolean"
+        },
+        "coverage_note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "schema_version",
+        "tenant_id",
+        "engagement_id",
+        "aggregate_id",
+        "unit_alias",
+        "skill_id",
+        "sample_size",
+        "evidence_count",
+        "eligible_population",
+        "k_threshold",
+        "suppressed",
+        "coverage_note"
+      ]
     }
   }
 }

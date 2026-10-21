@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ParticipantRegistration",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "engagement_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "participant_alias": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "team_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "challenge_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+      }
+    },
+    "role_in_team": {
+      "type": "string",
+      "minLength": 1
+    },
+    "informed_notice_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "eligibility_verified": {
+      "type": "boolean"
+    },
+    "rules_accepted": {
+      "type": "boolean"
+    },
+    "development_preferences": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "identity_map_ref": {
+      "type": "string",
+      "minLength": 3
+    },
+    "withdrawal_state": {
+      "type": "string",
+      "enum": [
+        "active",
+        "pending_review",
+        "withdrawn"
+      ]
+    },
+    "accessibility_handled": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "engagement_id",
+    "participant_alias",
+    "team_id",
+    "challenge_ids",
+    "role_in_team",
+    "informed_notice_version",
+    "eligibility_verified",
+    "rules_accepted",
+    "withdrawal_state"
+  ]
+}
