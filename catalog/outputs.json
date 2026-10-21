@@ -1,0 +1,331 @@
+{
+  "version": "0.1.0",
+  "scope": "FUTURE_DELIVERABLE_CONTRACTS",
+  "outputs": [
+    {
+      "id": "EX01",
+      "name": "Executive Discovery Report",
+      "audience": "CEO / Comité",
+      "format": "PDF",
+      "requires": [
+        "CompanyContext",
+        "EvaluationResult",
+        "OrganizationScenario"
+      ],
+      "acceptance": "Decisiones propuestas, evidencia, límites, escenarios y validación humana",
+      "stage": "ROADMAP",
+      "status": "DESIGN",
+      "common_fields": [
+        "deliverable_id",
+        "engagement_id",
+        "version",
+        "generated_at",
+        "source_refs",
+        "limitations",
+        "owner_role",
+        "review_status"
+      ],
+      "controls": [
+        "Tenant segregation",
+        "Evidence traceability",
+        "Recipient authorization",
+        "Human review",
+        "Retention policy"
+      ]
+    },
+    {
+      "id": "EX02",
+      "name": "Portfolio de soluciones",
+      "audience": "Sponsor y líderes de proceso",
+      "format": "HTML/CSV",
+      "requires": [
+        "ChallengeBrief",
+        "EvaluationResult"
+      ],
+      "acceptance": "Proyectos clasificados por resultados, pruebas y referencias",
+      "stage": "ROADMAP",
+      "status": "DESIGN",
+      "common_fields": [
+        "deliverable_id",
+        "engagement_id",
+        "version",
+        "generated_at",
+        "source_refs",
+        "limitations",
+        "owner_role",
+        "review_status"
+      ],
+      "controls": [
+        "Tenant segregation",
+        "Evidence traceability",
+        "Recipient authorization",
+        "Human review",
+        "Retention policy"
+      ]
+    },
+    {
+      "id": "EX03",
+      "name": "Mapa de oportunidades",
+      "audience": "Transformación",
+      "format": "JSON/HTML",
+      "requires": [
+        "CompanyContext",
+        "EvaluationResult"
+      ],
+      "acceptance": "Valor, esfuerzo, impacto, dependencias y baseline por caso",
+      "stage": "ROADMAP",
+      "status": "DESIGN",
+      "common_fields": [
+        "deliverable_id",
+        "engagement_id",
+        "version",
+        "generated_at",
+        "source_refs",
+        "limitations",
+        "owner_role",
+        "review_status"
+      ],
+      "controls": [
+        "Tenant segregation",
+        "Evidence traceability",
+        "Recipient authorization",
+        "Human review",
+        "Retention policy"
+      ]
+    },
+    {
+      "id": "EX04",
+      "name": "Mapa de capacidades observadas",
+      "audience": "RRHH autorizado / DPO",
+      "format": "Agregado",
+      "requires": [
+        "CapabilityEvidence"
+      ],
+      "acceptance": "Cobertura, muestra, sesgo y límites sin ranking laboral automático",
+      "stage": "ROADMAP",
+      "status": "DESIGN",
+      "common_fields": [
+        "deliverable_id",
+        "engagement_id",
+        "version",
+        "generated_at",
+        "source_refs",
+        "limitations",
+        "owner_role",
+        "review_status"
+      ],
+      "controls": [
+        "Tenant segregation",
+        "Evidence traceability",
+        "Recipient authorization",
+        "Human review",
+        "Retention policy"
+      ]
+    },
+    {
+      "id": "EX05",
+      "name": "Organizational Scenarios",
+      "audience": "Comité cliente",
+      "format": "PDF/JSON",
+      "requires": [
+        "OrganizationScenario"
+      ],
+      "acceptance": "Alternativas con hipótesis, riesgos y decisiones sujetas a humanos",
+      "stage": "ROADMAP",
+      "status": "DESIGN",
+      "common_fields": [
+        "deliverable_id",
+        "engagement_id",
+        "version",
+        "generated_at",
+        "source_refs",
+        "limitations",
+        "owner_role",
+        "review_status"
+      ],
+      "controls": [
+        "Tenant segregation",
+        "Evidence traceability",
+        "Recipient authorization",
+        "Human review",
+        "Retention policy"
+      ]
+    },
+    {
+      "id": "EX06",
+      "name": "Roadmap 30/60/90",
+      "audience": "Sponsor y PMO",
+      "format": "CSV/JSON",
+      "requires": [
+        "RoadmapItem"
+      ],
+      "acceptance": "Iniciativa, dueño, dependencias, inversión, aceptación y métrica",
+      "stage": "ROADMAP",
+      "status": "DESIGN",
+      "common_fields": [
+        "deliverable_id",
+        "engagement_id",
+        "version",
+        "generated_at",
+        "source_refs",
+        "limitations",
+        "owner_role",
+        "review_status"
+      ],
+      "controls": [
+        "Tenant segregation",
+        "Evidence traceability",
+        "Recipient authorization",
+        "Human review",
+        "Retention policy"
+      ]
+    },
+    {
+      "id": "EX07",
+      "name": "Evidence Ledger",
+      "audience": "Calidad / Auditoría",
+      "format": "JSON",
+      "requires": [
+        "EvidenceClaim"
+      ],
+      "acceptance": "Claim→fuente→versión→evaluador→limitaciones",
+      "stage": "ASSURANCE",
+      "status": "DESIGN",
+      "common_fields": [
+        "deliverable_id",
+        "engagement_id",
+        "version",
+        "generated_at",
+        "source_refs",
+        "limitations",
+        "owner_role",
+        "review_status"
+      ],
+      "controls": [
+        "Tenant segregation",
+        "Evidence traceability",
+        "Recipient authorization",
+        "Human review",
+        "Retention policy"
+      ]
+    },
+    {
+      "id": "EX08",
+      "name": "Jury & Evaluation Audit",
+      "audience": "Comité evaluación",
+      "format": "JSON/PDF",
+      "requires": [
+        "Rubric",
+        "EvaluationResult"
+      ],
+      "acceptance": "Jueces, recusaciones, conflictos, divergencias y apelaciones",
+      "stage": "ASSURANCE",
+      "status": "DESIGN",
+      "common_fields": [
+        "deliverable_id",
+        "engagement_id",
+        "version",
+        "generated_at",
+        "source_refs",
+        "limitations",
+        "owner_role",
+        "review_status"
+      ],
+      "controls": [
+        "Tenant segregation",
+        "Evidence traceability",
+        "Recipient authorization",
+        "Human review",
+        "Retention policy"
+      ]
+    },
+    {
+      "id": "EX09",
+      "name": "Governance & Risk Pack",
+      "audience": "DPO / Legal / IT",
+      "format": "PDF/JSON",
+      "requires": [
+        "RiskRecord"
+      ],
+      "acceptance": "Riesgos, tratamientos, controles, aprobaciones y pendientes",
+      "stage": "ASSURANCE",
+      "status": "DESIGN",
+      "common_fields": [
+        "deliverable_id",
+        "engagement_id",
+        "version",
+        "generated_at",
+        "source_refs",
+        "limitations",
+        "owner_role",
+        "review_status"
+      ],
+      "controls": [
+        "Tenant segregation",
+        "Evidence traceability",
+        "Recipient authorization",
+        "Human review",
+        "Retention policy"
+      ]
+    },
+    {
+      "id": "EX10",
+      "name": "Value & Cost Case",
+      "audience": "Finanzas",
+      "format": "XLSX/CSV",
+      "requires": [
+        "PricingQuote",
+        "PilotOutcome"
+      ],
+      "acceptance": "Costes internos y del cliente, baseline, ahorro medido y sensibilidad",
+      "stage": "ASSURANCE",
+      "status": "DESIGN",
+      "common_fields": [
+        "deliverable_id",
+        "engagement_id",
+        "version",
+        "generated_at",
+        "source_refs",
+        "limitations",
+        "owner_role",
+        "review_status"
+      ],
+      "controls": [
+        "Tenant segregation",
+        "Evidence traceability",
+        "Recipient authorization",
+        "Human review",
+        "Retention policy"
+      ]
+    },
+    {
+      "id": "EX11",
+      "name": "Exit and Data Inventory",
+      "audience": "Compras / Seguridad",
+      "format": "JSON/PDF",
+      "requires": [
+        "DeliverableManifest"
+      ],
+      "acceptance": "Exportación, conservación, borrado, permisos y confirmaciones",
+      "stage": "ASSURANCE",
+      "status": "DESIGN",
+      "common_fields": [
+        "deliverable_id",
+        "engagement_id",
+        "version",
+        "generated_at",
+        "source_refs",
+        "limitations",
+        "owner_role",
+        "review_status"
+      ],
+      "controls": [
+        "Tenant segregation",
+        "Evidence traceability",
+        "Recipient authorization",
+        "Human review",
+        "Retention policy"
+      ]
+    }
+  ]
+}
