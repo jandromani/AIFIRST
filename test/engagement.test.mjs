@@ -71,3 +71,17 @@ test("same fixture replays deterministically without generating timestamps or ex
  const second=simulateSyntheticEngagement(fixture(),root);
  assert.deepEqual(first,second);
 });
+
+test("malformed arrays fail as INPUT rather than throwing or leaking details",()=>{
+ const x=fixture();x.registrations=null;
+ const result=simulateSyntheticEngagement(x,root);
+ assert.equal(result.ok,false);
+ assert.equal(result.blocked_stage,"INPUT");
+ assert.ok(!Object.hasOwn(result,"executive_bundle"));
+});
+test("cross-company participant claim cannot contaminate board report",()=>{
+ const x=fixture();x.claims[0].tenant_id="foreign-tenant";
+ const result=simulateSyntheticEngagement(x,root);
+ assert.equal(result.blocked_stage,"TENANT");
+ assert.equal(result.production_ready,false);
+});

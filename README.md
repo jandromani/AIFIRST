@@ -46,3 +46,17 @@ G3–G7 no tienen firma real ni verificación externa. No ejecutar entregas exte
 
 ## Roadmap e issues
 [Backlog detallado](docs/EXECUTION_BACKLOG.md) · [Estado verificable](catalog/implementation-status.json) · [Issues abiertos hasta cierre real](https://github.com/jandromani/AIFIRST/issues). Los módulos 13–20 tienen issues #14–#21 y no están falsamente cerrados.
+
+
+## Vertical Slice offline · Run 0.2
+
+**Recorrido unido con datos sintéticos:** inscripción → entrega con SHA-256 → cuarentena → evaluación provisional de proyecto → grafo de propuestas → escenarios → borrador CEO → roadmap 30/60/90 → economics → assurance.
+
+```bash
+npm run simulate:engagement   # diagnóstico sin archivos
+npm run export:engagement     # informe MD + roadmap CSV + trace y hashes, bajo artifacts/ (gitignored)
+```
+
+Fuente del flujo: [vertical-slice.json](catalog/vertical-slice.json) · [Guía y límites](docs/VERTICAL_SLICE.md) · [Definition of Done](docs/DEFINITION_OF_DONE.md) · [P0 Node E2E](https://github.com/jandromani/AIFIRST/issues/22).
+
+**No interpreta las firmas sintéticas como reales ni libera G3–G7.** El borrador tampoco acredita ahorro, seguridad, privacidad ni competencias laborales. Las pruebas reales de Node, los permisos, los conectores y un piloto autorizado siguen pendientes.

@@ -1,0 +1,177 @@
+{
+  "version": "0.2.0",
+  "mode": "SYNTHETIC_ONLY",
+  "remoteDependencies": [],
+  "allowProduction": false,
+  "beforeRun": [
+    "No real customer data",
+    "No authentication claimed",
+    "No external approvals",
+    "Input manifest and files present"
+  ],
+  "stages": [
+    {
+      "id": "07",
+      "label": "Participants & roster",
+      "module": "phase2.validateRoster",
+      "input": [
+        "ParticipantRegistration",
+        "TeamRoster"
+      ],
+      "outcome": "VALIDATED_SYNTHETIC",
+      "blocksOn": [
+        "withdrawn",
+        "wrong tenant",
+        "missing acknowledgement"
+      ]
+    },
+    {
+      "id": "08-09",
+      "label": "Artifact integrity & quarantine",
+      "module": "phase2.inspectLocalSubmission",
+      "input": [
+        "SubmissionManifest",
+        "LocalArtifacts"
+      ],
+      "outcome": "BLOCKED_PENDING_G3",
+      "blocksOn": [
+        "missing file",
+        "invalid SHA256",
+        "path traversal"
+      ]
+    },
+    {
+      "id": "11",
+      "label": "Project evidence review",
+      "module": "phase2.evaluateSolution",
+      "input": [
+        "EvidenceClaim",
+        "Rubric",
+        "ChallengeBrief"
+      ],
+      "outcome": "DRAFT_NOT_RANKABLE",
+      "blocksOn": [
+        "unverified claim",
+        "wrong rubric"
+      ]
+    },
+    {
+      "id": "11-G4",
+      "label": "Jury preflight",
+      "module": "phase2.reviewJury",
+      "input": [
+        "JuryReview",
+        "EvaluationResult"
+      ],
+      "outcome": "PENDING_EXTERNAL_SIGNOFF",
+      "blocksOn": [
+        "juror recused",
+        "invalid decision"
+      ]
+    },
+    {
+      "id": "12",
+      "label": "Private capability context",
+      "module": "phase2.deriveCapability",
+      "input": [
+        "ContributionClaim",
+        "EvidenceClaim"
+      ],
+      "outcome": "PRIVATE_REVIEW_PENDING",
+      "blocksOn": [
+        "no corroboration"
+      ]
+    },
+    {
+      "id": "13",
+      "label": "Proposed graph",
+      "module": "phase3.buildOrganizationalGraph",
+      "input": [
+        "GraphNode",
+        "GraphEdge"
+      ],
+      "outcome": "PROPOSED_UNVERIFIED",
+      "blocksOn": [
+        "unresolved relation",
+        "cross-tenant edge"
+      ]
+    },
+    {
+      "id": "14",
+      "label": "Scenario draft",
+      "module": "phase3.draftScenarios",
+      "input": [
+        "OrganizationGraph"
+      ],
+      "outcome": "G5_REVIEW_REQUIRED",
+      "blocksOn": [
+        "individual assignment",
+        "unsupported evidence"
+      ]
+    },
+    {
+      "id": "15",
+      "label": "Executive draft",
+      "module": "phase3.prepareExecutiveBundle",
+      "input": [
+        "ClaimReferences",
+        "ScenarioDraft"
+      ],
+      "outcome": "G6_REVIEW_REQUIRED",
+      "blocksOn": [
+        "unsupported claim",
+        "personal data for CEO"
+      ]
+    },
+    {
+      "id": "16",
+      "label": "Candidate roadmap",
+      "module": "phase3.planActivation",
+      "input": [
+        "RoadmapItem"
+      ],
+      "outcome": "G7_HANDOFF_REQUIRED",
+      "blocksOn": [
+        "cyclic dependencies",
+        "automatic activation"
+      ]
+    },
+    {
+      "id": "19",
+      "label": "Unit economics",
+      "module": "phase3.calculateUnitEconomics",
+      "input": [
+        "PriceModel"
+      ],
+      "outcome": "HYPOTHETICAL",
+      "blocksOn": [
+        "unmet margin"
+      ]
+    },
+    {
+      "id": "20",
+      "label": "Operating atlas audit",
+      "module": "phase3.auditOperatingAtlas",
+      "input": [
+        "OperatingModel",
+        "GateCatalog",
+        "Outputs",
+        "ImplementationStatus"
+      ],
+      "outcome": "DESIGN_COVERAGE_ONLY",
+      "blocksOn": [
+        "missing domain",
+        "invalid gate",
+        "invalid output"
+      ]
+    }
+  ],
+  "expectedOutputs": [
+    "Executive_Draft.md",
+    "Roadmap_Draft.csv",
+    "Evidence_Trace.json",
+    "Artifact_Manifest.json"
+  ],
+  "authoritativeOutcomes": [],
+  "releaseCondition": "NEVER_IN_SYNTHETIC_MODE"
+}
