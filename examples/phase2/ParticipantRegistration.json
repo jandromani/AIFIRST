@@ -1,0 +1,21 @@
+[
+  {
+    "schema_version": "1.0.0",
+    "tenant_id": "demo-tenant",
+    "engagement_id": "demo-engagement",
+    "participant_alias": "participant-001",
+    "team_id": "team-001",
+    "challenge_ids": [
+      "chall-001"
+    ],
+    "role_in_team": "documentacion",
+    "informed_notice_version": "demo-notice-1",
+    "eligibility_verified": true,
+    "rules_accepted": true,
+    "development_preferences": [
+      "documentacion"
+    ],
+    "withdrawal_state": "active",
+    "accessibility_handled": true
+  }
+]

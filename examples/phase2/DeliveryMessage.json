@@ -1,0 +1,18 @@
+[
+  {
+    "schema_version": "1.0.0",
+    "tenant_id": "demo-tenant",
+    "engagement_id": "demo-engagement",
+    "message_id": "message-001",
+    "template_id": "invite-01",
+    "template_version": "1.0.0",
+    "channel": "email",
+    "audience": "all_participants",
+    "locale": "es-ES",
+    "subject": "Convocatoria de reto ficticio",
+    "body": "Bienvenido a la simulación. Usa exclusivamente datos sintéticos.",
+    "essential": true,
+    "dispatch_state": "draft",
+    "idempotency_key": "notification-001"
+  }
+]

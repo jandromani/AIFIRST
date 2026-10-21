@@ -1,0 +1,19 @@
+[
+  {
+    "schema_version": "1.0.0",
+    "tenant_id": "demo-tenant",
+    "engagement_id": "demo-engagement",
+    "review_id": "review-demo",
+    "evaluation_id": "evaluation:submission-demo",
+    "juror_ref": "juror-001",
+    "conflicts_declared": true,
+    "recused": false,
+    "decision": "approve",
+    "notes": "Revisión sintética; identidad no verificada.",
+    "evidence_refs": [
+      "claim-business",
+      "claim-functional"
+    ],
+    "reviewed_at": "2026-10-21T14:00:00Z"
+  }
+]

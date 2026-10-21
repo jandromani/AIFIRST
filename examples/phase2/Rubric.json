@@ -1,0 +1,39 @@
+{
+  "rubric_id": "rubric-001",
+  "version": "1.0.0",
+  "criteria": [
+    {
+      "id": "business",
+      "name": "Valor de negocio",
+      "weight": 0.3,
+      "measurement": "Baseline documentado"
+    },
+    {
+      "id": "functional",
+      "name": "Funcionalidad",
+      "weight": 0.25,
+      "measurement": "Tests reproducibles"
+    },
+    {
+      "id": "safety",
+      "name": "Seguridad",
+      "weight": 0.2,
+      "measurement": "Revisión riesgos"
+    },
+    {
+      "id": "feasibility",
+      "name": "Viabilidad",
+      "weight": 0.15,
+      "measurement": "Integraciones y costes"
+    },
+    {
+      "id": "clarity",
+      "name": "Claridad",
+      "weight": 0.1,
+      "measurement": "README y demo"
+    }
+  ],
+  "scoring_scale": "0-5",
+  "safety_veto": true,
+  "published_before_start": true
+}

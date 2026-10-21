@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "tenant_id": "demo-tenant",
+  "engagement_id": "demo-engagement",
+  "team_id": "team-001",
+  "challenge_id": "chall-001",
+  "members": [
+    {
+      "participant_alias": "participant-001",
+      "role": "documentacion",
+      "contribution_scope": "documentos y pruebas"
+    }
+  ],
+  "roster_version": "1.0.0",
+  "verified_by_role": "Demo Challenge Ops"
+}

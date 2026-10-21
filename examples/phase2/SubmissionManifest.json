@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "tenant_id": "demo-tenant",
+  "engagement_id": "demo-engagement",
+  "submission_id": "submission-demo",
+  "challenge_id": "chall-001",
+  "team_id": "team-001",
+  "title": "Clasificador ficticio",
+  "problem": "Documentos de prueba",
+  "artifact_refs": [
+    {
+      "artifact_id": "readme-demo",
+      "relative_path": "README.md",
+      "media_type": "text/markdown",
+      "sha256": "8a008e70c44e9f801237939255d6030afeea4c20b30cf3290dde0c31f47fe0ef",
+      "size_bytes": 94
+    },
+    {
+      "artifact_id": "evidence-demo",
+      "relative_path": "evidence.txt",
+      "media_type": "text/plain",
+      "sha256": "73aeffae55b45e03600e2cb86be83eea2ad5971b6f734c3ed44b909b9a8f26a2",
+      "size_bytes": 51
+    }
+  ],
+  "readme_ref": "README.md",
+  "tools_used": [
+    "offline-editor"
+  ],
+  "contribution_claims": [
+    {
+      "participant_alias": "participant-001",
+      "description": "Documentación y pruebas de ejemplo",
+      "artifact_ids": [
+        "evidence-demo"
+      ],
+      "verification_state": "corroborated"
+    }
+  ],
+  "licenses": [
+    "CC0-1.0"
+  ],
+  "submitted_at": "2026-10-21T13:00:00Z",
+  "sha256": "7ab39b4f09a0ece4f9076d439cf39fa9bdcc687158e22413c4206aba019d7ad2",
+  "rubric_id": "rubric-001",
+  "rubric_version": "1.0.0"
+}

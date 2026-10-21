@@ -1,0 +1,22 @@
+{
+  "client_id": "demo-co",
+  "challenge_id": "chall-001",
+  "title": "Automatización documental",
+  "problem_statement": "Prototipo sin datos reales",
+  "sponsor_role": "Operaciones",
+  "baseline_ref": "baseline-001",
+  "success_metrics": [
+    {
+      "name": "Exactitud sintética",
+      "unit": "porcentaje",
+      "target": "90%"
+    }
+  ],
+  "allowed_resources": [
+    "offline"
+  ],
+  "data_policy": "Solo datos ficticios",
+  "difficulty": "intermediate",
+  "rubric_id": "rubric-001",
+  "accessibility_notes": "Opciones equivalentes"
+}
