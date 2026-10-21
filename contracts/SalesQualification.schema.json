@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,63}$"
+    },
+    "icp_fit": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ]
+    },
+    "buyer_identified": {
+      "type": "boolean"
+    },
+    "problem_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "budget_band": {
+      "type": "string",
+      "minLength": 1
+    },
+    "discovery_status": {
+      "type": "string",
+      "enum": [
+        "qualified",
+        "not_qualified",
+        "pending"
+      ]
+    },
+    "next_action": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "client_id",
+    "icp_fit",
+    "buyer_identified",
+    "discovery_status",
+    "next_action"
+  ],
+  "title": "SalesQualification"
+}

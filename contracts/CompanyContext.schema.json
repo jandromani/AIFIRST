@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,63}$"
+    },
+    "source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "business_goals": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,63}$"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sponsor_role": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "statement",
+          "sponsor_role"
+        ]
+      }
+    },
+    "org_units": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "processes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,63}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "owner_role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "volume_estimate": {
+            "type": "number",
+            "minimum": 0
+          },
+          "baseline_ref": {
+            "type": "string",
+            "minLength": 3
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "owner_role",
+          "baseline_ref"
+        ]
+      }
+    },
+    "baselines": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "technology": {
+      "type": "string",
+      "minLength": 1
+    },
+    "approved_ai_tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "restrictions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "coverage_notes": {
+      "type": "string",
+      "minLength": 1
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "client_id",
+    "source_refs",
+    "business_goals",
+    "org_units",
+    "processes",
+    "baselines",
+    "restrictions",
+    "coverage_notes",
+    "unknowns"
+  ],
+  "title": "CompanyContext"
+}

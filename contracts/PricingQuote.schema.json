@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "quote_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,63}$"
+    },
+    "client_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,63}$"
+    },
+    "currency": {
+      "const": "EUR"
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "quantity": {
+            "type": "number",
+            "minimum": 0
+          },
+          "unit_cost_eur": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "label",
+          "quantity",
+          "unit_cost_eur"
+        ]
+      }
+    },
+    "target_margin": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 0.85
+    },
+    "prizes_included": {
+      "type": "boolean"
+    },
+    "commercial_price_eur": {
+      "type": "number",
+      "minimum": 0
+    },
+    "assumptions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "required": [
+    "quote_id",
+    "client_id",
+    "currency",
+    "items",
+    "target_margin",
+    "prizes_included",
+    "commercial_price_eur",
+    "assumptions"
+  ],
+  "title": "PricingQuote"
+}

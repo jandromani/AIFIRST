@@ -1,0 +1,63 @@
+{
+  "version": "1.0.0",
+  "gates": [
+    {
+      "id": "G0",
+      "title": "Viabilidad comercial",
+      "required": [
+        "ClientBrief",
+        "SalesQualification",
+        "PricingQuote"
+      ],
+      "roles": [
+        "CEO / Growth",
+        "Finance"
+      ],
+      "checks": [
+        "Lead cualificado o revisión documentada",
+        "Precio y margen explícitos",
+        "Oferta no promete clasificar trabajadores"
+      ],
+      "on_failure": "No emitir oferta"
+    },
+    {
+      "id": "G1",
+      "title": "Contratación, finalidad y privacidad",
+      "required": [
+        "EngagementConfig",
+        "RiskRegister",
+        "CompanyContext"
+      ],
+      "roles": [
+        "Legal / DPO",
+        "Project Director"
+      ],
+      "checks": [
+        "SOW aprobado",
+        "DPA o exclusión justificada",
+        "Finalidad y retención",
+        "IP, premios, responsabilidad y derechos"
+      ],
+      "on_failure": "No iniciar recogida ni convocar"
+    },
+    {
+      "id": "G2",
+      "title": "Apertura del reto",
+      "required": [
+        "ChallengeBrief",
+        "Rubric"
+      ],
+      "roles": [
+        "Challenge Lead",
+        "Client Sponsor"
+      ],
+      "checks": [
+        "Rúbrica publicada y pesos 100%",
+        "Recursos autorizados",
+        "Jurado independiente y accesibilidad",
+        "G1 aprobado"
+      ],
+      "on_failure": "No lanzar el hackatón"
+    }
+  ]
+}

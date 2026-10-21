@@ -1,0 +1,15 @@
+{
+  "name": "aifirst",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Evidence-first AI organizational discovery, offline contract validation",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check:catalog": "node bin/aifirst.mjs catalog",
+    "check:synthetic": "node bin/aifirst.mjs gates examples/synthetic"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,63}$"
+    },
+    "reviewed_by_role": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "risk_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,63}$"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "privacy",
+              "security",
+              "employment",
+              "ip",
+              "fairness",
+              "commercial",
+              "other"
+            ]
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "critical"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "open",
+              "mitigated",
+              "accepted"
+            ]
+          },
+          "mitigation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "owner_role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_ref": {
+            "type": "string",
+            "minLength": 3
+          }
+        },
+        "required": [
+          "risk_id",
+          "category",
+          "severity",
+          "status",
+          "mitigation",
+          "owner_role",
+          "evidence_ref"
+        ]
+      }
+    }
+  },
+  "required": [
+    "client_id",
+    "reviewed_by_role",
+    "reviewed_at",
+    "risks"
+  ],
+  "title": "RiskRegister"
+}

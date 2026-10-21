@@ -1,0 +1,647 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DESIGN",
+  "publicDataOnly": true,
+  "domainCount": 5,
+  "componentCount": 54,
+  "domains": [
+    {
+      "id": "market",
+      "number": 1,
+      "title": "Mercado y ventas",
+      "owner": "CEO / Growth",
+      "phase": "PREPARAR",
+      "components": [
+        {
+          "id": "market.icp",
+          "title": "Segmentación ICP",
+          "inputs": "Mercado, verticales y tamaño",
+          "outputs": "Segmentos priorizados",
+          "acceptance": "Sector, necesidad y decisor definido",
+          "owner": "CEO / Growth",
+          "status": "DESIGN"
+        },
+        {
+          "id": "market.prospect",
+          "title": "Prospección",
+          "inputs": "Cuentas potenciales",
+          "outputs": "Oportunidades con procedencia",
+          "acceptance": "Fuente y permiso de contacto trazados",
+          "owner": "CEO / Growth",
+          "status": "DESIGN"
+        },
+        {
+          "id": "market.inbound",
+          "title": "Marketing y landing",
+          "inputs": "Propuesta de valor",
+          "outputs": "Solicitudes comerciales",
+          "acceptance": "Promesas verificables; sin clasificar trabajadores",
+          "owner": "CEO / Growth",
+          "status": "DESIGN"
+        },
+        {
+          "id": "market.qualification",
+          "title": "Cualificación",
+          "inputs": "Ficha inicial",
+          "outputs": "Lead cualificado / descartado",
+          "acceptance": "Criterios explícitos y motivo",
+          "owner": "CEO / Growth",
+          "status": "DESIGN"
+        },
+        {
+          "id": "market.demo",
+          "title": "Demo informe",
+          "inputs": "Dataset sintético",
+          "outputs": "Demo CEO",
+          "acceptance": "Marcada como simulada",
+          "owner": "CEO / Growth",
+          "status": "DESIGN"
+        },
+        {
+          "id": "market.roi_story",
+          "title": "Tesis ROI",
+          "inputs": "Baselines y drivers",
+          "outputs": "Hipótesis ROI",
+          "acceptance": "Supuestos, sensibilidad y coste trabajador incluidos",
+          "owner": "CEO / Growth",
+          "status": "DESIGN"
+        },
+        {
+          "id": "market.stakeholders",
+          "title": "Mapa decisores",
+          "inputs": "Organigrama comprador",
+          "outputs": "Comité decisor",
+          "acceptance": "Sponsor, Legal, DPO y Compras identificados",
+          "owner": "CEO / Growth",
+          "status": "DESIGN"
+        },
+        {
+          "id": "market.crm",
+          "title": "Registro CRM",
+          "inputs": "Interacciones permitidas",
+          "outputs": "Registro oportunidad",
+          "acceptance": "Titularidad y finalidad de datos delimitadas",
+          "owner": "CEO / Growth",
+          "status": "DESIGN"
+        },
+        {
+          "id": "market.lost_reasons",
+          "title": "Voz del mercado",
+          "inputs": "Objeciones y ofertas perdidas",
+          "outputs": "Backlog producto",
+          "acceptance": "Feedback agregado sin confidencialidad ajena",
+          "owner": "CEO / Growth",
+          "status": "DESIGN"
+        }
+      ]
+    },
+    {
+      "id": "contract",
+      "number": 2,
+      "title": "Contrato y alcance",
+      "owner": "Legal / Dirección de proyecto",
+      "phase": "PREPARAR",
+      "components": [
+        {
+          "id": "contract.proposal",
+          "title": "Propuesta comercial",
+          "inputs": "ClientBrief + PricingQuote",
+          "outputs": "Oferta y exclusiones",
+          "acceptance": "Margen, alcance, hipótesis y límites expresos",
+          "owner": "Legal / Dirección de proyecto",
+          "status": "DESIGN"
+        },
+        {
+          "id": "contract.sow",
+          "title": "SOW / alcance",
+          "inputs": "Oferta y condiciones",
+          "outputs": "SOW versionado",
+          "acceptance": "Trabajo, participantes, entregables, revisiones y cambios",
+          "owner": "Legal / Dirección de proyecto",
+          "status": "DESIGN"
+        },
+        {
+          "id": "contract.dpa",
+          "title": "Encargo de tratamiento",
+          "inputs": "Roles de datos",
+          "outputs": "DPA y anexo",
+          "acceptance": "Roles y subencargados revisados por asesores",
+          "owner": "Legal / Dirección de proyecto",
+          "status": "DESIGN"
+        },
+        {
+          "id": "contract.ip",
+          "title": "Propiedad intelectual",
+          "inputs": "Reglas de participación",
+          "outputs": "Cláusula IP",
+          "acceptance": "Licencias, titularidad y usos de entregables claros",
+          "owner": "Legal / Dirección de proyecto",
+          "status": "DESIGN"
+        },
+        {
+          "id": "contract.prizes",
+          "title": "Bases y premios",
+          "inputs": "Presupuesto y normativa",
+          "outputs": "Bases competición",
+          "acceptance": "Criterios, empate, reparto, fiscalidad y recursos",
+          "owner": "Legal / Dirección de proyecto",
+          "status": "DESIGN"
+        },
+        {
+          "id": "contract.sla",
+          "title": "SLA y soporte",
+          "inputs": "Servicios y calendario",
+          "outputs": "SLA",
+          "acceptance": "Canales, horario, escalado y soporte definidos",
+          "owner": "Legal / Dirección de proyecto",
+          "status": "DESIGN"
+        },
+        {
+          "id": "contract.exit",
+          "title": "Salida y portabilidad",
+          "inputs": "Inventario artefactos",
+          "outputs": "Plan exportación y borrado",
+          "acceptance": "Formatos, plazo y responsable descritos",
+          "owner": "Legal / Dirección de proyecto",
+          "status": "DESIGN"
+        },
+        {
+          "id": "contract.liability",
+          "title": "Responsabilidad",
+          "inputs": "Riesgos y límites",
+          "outputs": "Cláusula de responsabilidad",
+          "acceptance": "Revisada por profesionales habilitados",
+          "owner": "Legal / Dirección de proyecto",
+          "status": "DESIGN"
+        },
+        {
+          "id": "contract.approval",
+          "title": "Gate contractual",
+          "inputs": "SOW + DPA + riesgos",
+          "outputs": "G1 / acta",
+          "acceptance": "Sin recogida de datos sin aprobación humana",
+          "owner": "Legal / Dirección de proyecto",
+          "status": "DESIGN"
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "number": 3,
+      "title": "Conocer la empresa",
+      "owner": "Consultor / Sponsor cliente",
+      "phase": "PREPARAR",
+      "components": [
+        {
+          "id": "context.profile",
+          "title": "Ficha empresa",
+          "inputs": "Datos corporativos",
+          "outputs": "CompanyContext",
+          "acceptance": "Identificador, sector, países y tamaño con fuentes",
+          "owner": "Consultor / Sponsor cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "context.strategy",
+          "title": "Objetivos 12–24m",
+          "inputs": "Estrategia autorizada",
+          "outputs": "Prioridades",
+          "acceptance": "Objetivos medibles con patrocinador",
+          "owner": "Consultor / Sponsor cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "context.org_units",
+          "title": "Unidades y roles",
+          "inputs": "Estructura aportada",
+          "outputs": "Mapa agregado",
+          "acceptance": "No listas nominativas por defecto",
+          "owner": "Consultor / Sponsor cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "context.processes",
+          "title": "Inventario procesos",
+          "inputs": "Entrevistas y cuestionarios",
+          "outputs": "Catálogo procesos",
+          "acceptance": "Owner, frecuencia, volumen y sistema origen",
+          "owner": "Consultor / Sponsor cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "context.painpoints",
+          "title": "Fricciones y costes",
+          "inputs": "Entrevistas de negocio",
+          "outputs": "Backlog fricciones",
+          "acceptance": "Estimaciones identificadas como tales",
+          "owner": "Consultor / Sponsor cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "context.tech",
+          "title": "Stack empresarial",
+          "inputs": "Inventario autorizado",
+          "outputs": "Mapa capacidades técnicas",
+          "acceptance": "Fuentes y restricciones verificadas",
+          "owner": "Consultor / Sponsor cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "context.security",
+          "title": "Restricciones técnicas",
+          "inputs": "Políticas de seguridad",
+          "outputs": "Guardrails",
+          "acceptance": "Clasificación y prohibiciones explícitas",
+          "owner": "Consultor / Sponsor cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "context.culture",
+          "title": "Preparación organizativa",
+          "inputs": "Encuestas agregadas",
+          "outputs": "Diagnóstico limitado",
+          "acceptance": "Sesgos y no respuesta declarados",
+          "owner": "Consultor / Sponsor cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "context.sponsors",
+          "title": "Sponsors y capacidad",
+          "inputs": "Roles y disponibilidad",
+          "outputs": "Matriz RACI",
+          "acceptance": "Tiempo real para el piloto definido",
+          "owner": "Consultor / Sponsor cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "context.baseline",
+          "title": "Métricas base",
+          "inputs": "Datos autorizados",
+          "outputs": "Baseline con fuente",
+          "acceptance": "Unidad, período y método reproducibles",
+          "owner": "Consultor / Sponsor cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "context.data_sources",
+          "title": "Fuentes oficiales",
+          "inputs": "Referencias autorizadas",
+          "outputs": "Inventario evidencias",
+          "acceptance": "Propietario, acceso, vigencia y clasificación",
+          "owner": "Consultor / Sponsor cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "context.unknowns",
+          "title": "Lagunas contexto",
+          "inputs": "Campos sin verificar",
+          "outputs": "Lista de incertidumbres",
+          "acceptance": "No inventar datos ni extrapolar participantes",
+          "owner": "Consultor / Sponsor cliente",
+          "status": "DESIGN"
+        }
+      ]
+    },
+    {
+      "id": "governance",
+      "number": 4,
+      "title": "Legal, personas y confianza",
+      "owner": "DPO / Legal / Comité cliente",
+      "phase": "PREPARAR",
+      "components": [
+        {
+          "id": "governance.legal_basis",
+          "title": "Finalidad y legitimación",
+          "inputs": "Casos y datos solicitados",
+          "outputs": "Matriz finalidades",
+          "acceptance": "Responsable establece base jurídica y necesidad",
+          "owner": "DPO / Legal / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "governance.notice",
+          "title": "Transparencia participantes",
+          "inputs": "Tratamientos previstos",
+          "outputs": "Información a participantes",
+          "acceptance": "Antes de la inscripción y en lenguaje claro",
+          "owner": "DPO / Legal / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "governance.dpia",
+          "title": "Análisis DPIA/EIPD",
+          "inputs": "Riesgos de tratamiento",
+          "outputs": "Decisión EIPD",
+          "acceptance": "Resultado y dueño documentados",
+          "owner": "DPO / Legal / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "governance.ai_act",
+          "title": "Clasificación AI Act",
+          "inputs": "Uso previsto de sistemas IA",
+          "outputs": "Análisis normativo",
+          "acceptance": "Comprobar versión normativa y rol proveedor/usuario",
+          "owner": "DPO / Legal / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "governance.worker_rep",
+          "title": "Información representación",
+          "inputs": "Obligaciones laborales",
+          "outputs": "Plan consulta",
+          "acceptance": "Validado por jurídico laboral",
+          "owner": "DPO / Legal / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "governance.human",
+          "title": "Control humano real",
+          "inputs": "Propuestas y evidencias",
+          "outputs": "Actas decisiones",
+          "acceptance": "Sin acciones laborales autónomas",
+          "owner": "DPO / Legal / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "governance.bias",
+          "title": "Justicia y comparabilidad",
+          "inputs": "Rúbricas y cohortes",
+          "outputs": "Plan calibración",
+          "acceptance": "Distinguir equipo, oportunidad y aportación",
+          "owner": "DPO / Legal / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "governance.purpose",
+          "title": "Limitación finalidad",
+          "inputs": "Datos y propósitos",
+          "outputs": "Matriz usos permitidos",
+          "acceptance": "No reuso comercial ni entrenamiento no acordado",
+          "owner": "DPO / Legal / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "governance.minimization",
+          "title": "Minimización",
+          "inputs": "Campos y necesidad",
+          "outputs": "Inventario minimizado",
+          "acceptance": "Sin nombres, rendimiento laboral ni datos sensibles innecesarios",
+          "owner": "DPO / Legal / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "governance.access",
+          "title": "RBAC / permisos",
+          "inputs": "Roles autorizados",
+          "outputs": "Matriz accesos",
+          "acceptance": "Mínimo privilegio, separación de clientes",
+          "owner": "DPO / Legal / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "governance.retention",
+          "title": "Retención y borrado",
+          "inputs": "Calendario contractual",
+          "outputs": "Política de ciclo de vida",
+          "acceptance": "Plazos, borrado y confirmación definidos",
+          "owner": "DPO / Legal / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "governance.redress",
+          "title": "Revisión y objeciones",
+          "inputs": "Participantes afectados",
+          "outputs": "Procedimiento de revisión",
+          "acceptance": "Canal, responsables y plazos",
+          "owner": "DPO / Legal / Comité cliente",
+          "status": "DESIGN"
+        },
+        {
+          "id": "governance.security_review",
+          "title": "Terceros/subprocesadores",
+          "inputs": "Herramientas y regiones",
+          "outputs": "Anexo subencargados",
+          "acceptance": "Contrato, transferencia y controles revisados",
+          "owner": "DPO / Legal / Comité cliente",
+          "status": "DESIGN"
+        }
+      ]
+    },
+    {
+      "id": "challenge",
+      "number": 5,
+      "title": "Diseño del reto",
+      "owner": "Challenge Lead / Sponsor negocio",
+      "phase": "LANZAR",
+      "components": [
+        {
+          "id": "challenge.problem_bank",
+          "title": "Banco de problemas",
+          "inputs": "CompanyContext y fricciones",
+          "outputs": "Retos candidatos",
+          "acceptance": "Prioridad trazada a objetivo y baseline",
+          "owner": "Challenge Lead / Sponsor negocio",
+          "status": "DESIGN"
+        },
+        {
+          "id": "challenge.challenge_brief",
+          "title": "Plantilla reto",
+          "inputs": "Problema sponsor",
+          "outputs": "ChallengeBrief",
+          "acceptance": "Éxito, datos, restricciones y owner",
+          "owner": "Challenge Lead / Sponsor negocio",
+          "status": "DESIGN"
+        },
+        {
+          "id": "challenge.difficulty",
+          "title": "Niveles de desafío",
+          "inputs": "Esfuerzo y medios",
+          "outputs": "Niveles comparables",
+          "acceptance": "Publicados antes de competir",
+          "owner": "Challenge Lead / Sponsor negocio",
+          "status": "DESIGN"
+        },
+        {
+          "id": "challenge.rubric",
+          "title": "Rúbrica fija",
+          "inputs": "Resultados esperados",
+          "outputs": "Rubric versionada",
+          "acceptance": "Pesos suman 1; veto seguridad explícito",
+          "owner": "Challenge Lead / Sponsor negocio",
+          "status": "DESIGN"
+        },
+        {
+          "id": "challenge.timeline",
+          "title": "Calendario y hitos",
+          "inputs": "Capacidad equipos",
+          "outputs": "Cronograma",
+          "acceptance": "Canales, fechas y zonas horarias",
+          "owner": "Challenge Lead / Sponsor negocio",
+          "status": "DESIGN"
+        },
+        {
+          "id": "challenge.resources",
+          "title": "Entornos autorizados",
+          "inputs": "Políticas y presupuesto",
+          "outputs": "Catálogo de herramientas",
+          "acceptance": "Prohibición de secretos y datos reales no autorizados",
+          "owner": "Challenge Lead / Sponsor negocio",
+          "status": "DESIGN"
+        },
+        {
+          "id": "challenge.eligibility",
+          "title": "Normas y accesibilidad",
+          "inputs": "Políticas y roles",
+          "outputs": "Bases inclusivas",
+          "acceptance": "Adaptaciones y tiempo laboral documentados",
+          "owner": "Challenge Lead / Sponsor negocio",
+          "status": "DESIGN"
+        },
+        {
+          "id": "challenge.team_rules",
+          "title": "Equipos y contribuciones",
+          "inputs": "Reglas y registro",
+          "outputs": "Modelo contribuciones",
+          "acceptance": "La nota del equipo no equivale a la de una persona",
+          "owner": "Challenge Lead / Sponsor negocio",
+          "status": "DESIGN"
+        },
+        {
+          "id": "challenge.jury",
+          "title": "Jurado independiente",
+          "inputs": "Perfil jurados y recusaciones",
+          "outputs": "Panel jurado",
+          "acceptance": "Conflictos, NDA, calibración y revisión",
+          "owner": "Challenge Lead / Sponsor negocio",
+          "status": "DESIGN"
+        },
+        {
+          "id": "challenge.prize_policy",
+          "title": "Mecánica premios",
+          "inputs": "Presupuesto y bases",
+          "outputs": "Plan premios",
+          "acceptance": "Impuestos, desempate y autorización",
+          "owner": "Challenge Lead / Sponsor negocio",
+          "status": "DESIGN"
+        },
+        {
+          "id": "challenge.publish_gate",
+          "title": "Gate apertura",
+          "inputs": "Rúbrica + G1 + información",
+          "outputs": "G2 / acta",
+          "acceptance": "No publicar sin revisión humana",
+          "owner": "Challenge Lead / Sponsor negocio",
+          "status": "DESIGN"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "market.qualification",
+      "to": "contract.proposal",
+      "type": "INFORMS"
+    },
+    {
+      "from": "market.roi_story",
+      "to": "contract.proposal",
+      "type": "INFORMS"
+    },
+    {
+      "from": "market.stakeholders",
+      "to": "contract.sow",
+      "type": "INFORMS"
+    },
+    {
+      "from": "contract.sow",
+      "to": "context.profile",
+      "type": "INFORMS"
+    },
+    {
+      "from": "contract.dpa",
+      "to": "governance.legal_basis",
+      "type": "INFORMS"
+    },
+    {
+      "from": "contract.approval",
+      "to": "context.data_sources",
+      "type": "INFORMS"
+    },
+    {
+      "from": "context.strategy",
+      "to": "challenge.problem_bank",
+      "type": "INFORMS"
+    },
+    {
+      "from": "context.processes",
+      "to": "challenge.problem_bank",
+      "type": "INFORMS"
+    },
+    {
+      "from": "context.baseline",
+      "to": "challenge.challenge_brief",
+      "type": "INFORMS"
+    },
+    {
+      "from": "context.tech",
+      "to": "challenge.resources",
+      "type": "INFORMS"
+    },
+    {
+      "from": "context.security",
+      "to": "challenge.resources",
+      "type": "INFORMS"
+    },
+    {
+      "from": "context.unknowns",
+      "to": "challenge.publish_gate",
+      "type": "INFORMS"
+    },
+    {
+      "from": "governance.notice",
+      "to": "challenge.eligibility",
+      "type": "INFORMS"
+    },
+    {
+      "from": "governance.bias",
+      "to": "challenge.rubric",
+      "type": "INFORMS"
+    },
+    {
+      "from": "governance.access",
+      "to": "challenge.resources",
+      "type": "INFORMS"
+    },
+    {
+      "from": "governance.human",
+      "to": "challenge.jury",
+      "type": "INFORMS"
+    },
+    {
+      "from": "governance.security_review",
+      "to": "challenge.resources",
+      "type": "INFORMS"
+    },
+    {
+      "from": "challenge.rubric",
+      "to": "challenge.publish_gate",
+      "type": "INFORMS"
+    },
+    {
+      "from": "challenge.jury",
+      "to": "challenge.publish_gate",
+      "type": "INFORMS"
+    },
+    {
+      "from": "contract.approval",
+      "to": "challenge.publish_gate",
+      "type": "INFORMS"
+    }
+  ],
+  "gateSequence": [
+    "G0",
+    "G1",
+    "G2"
+  ]
+}

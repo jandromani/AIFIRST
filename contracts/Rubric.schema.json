@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "rubric_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,63}$"
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "criteria": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,63}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "weight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "measurement": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "weight",
+          "measurement"
+        ]
+      }
+    },
+    "scoring_scale": {
+      "type": "string",
+      "enum": [
+        "0-5"
+      ]
+    },
+    "safety_veto": {
+      "type": "boolean"
+    },
+    "published_before_start": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "rubric_id",
+    "version",
+    "criteria",
+    "scoring_scale",
+    "safety_veto",
+    "published_before_start"
+  ],
+  "title": "Rubric"
+}

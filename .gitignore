@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+private/
+tenants/
+client-data/
+uploads/
+artifacts/
+coverage/
+.DS_Store
