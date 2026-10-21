@@ -1,19 +1,17 @@
 # QA de referencia · 21 octubre 2026
 
-## Evidencia disponible
-- Primera iteración (01–05): **21/21** comprobaciones sobre el motor `src/core.mjs` en V8 con filesystem simulado, previo a extensión de contratos.
-- Segunda iteración (06–12): **16/16** comprobaciones de la lógica publicada con V8 y archivos/hashes simulados, sobre 12 dominios y 135 nodos; casos de duplicados, retirada, tenant y datos no verificados.
-- Fuentes subidas a GitHub: **23 contratos JSON Schema**, **135 nodos**, **68 relaciones**, **5 puertas G0–G4 definidas**, **11 outputs finales diseñados**.
-- Caso sintético: evaluación provisional de una solución puntuable con 3,65/5 según claims ficticios. No hay publicación ni ranking válido: G3/G4 siguen pendientes de verificación externa.
-- Atlas generado desde `catalog/operating-model.json`. Sin dependencias NPM en `package.json`, sin frontend remoto.
+## Confirmado por ejecución aislada de código publicado
+- **01–05:** 21/21 comprobaciones de lógica núcleo realizadas en la iteración anterior, con filesystem simulado.
+- **06–12:** 16/16 pruebas ejecutadas contra `src/phase2.mjs` con filesystem y SHA256 conocidos simulados (V8). Incluyen duplicados, retiradas, cambios de contenido, evidencia ausente, no publicación y supresión de pequeñas muestras.
+- **QA estructural posterior:** 11/11 comprobaciones de catálogo, Atlas, contratos, tests y bloqueo de ejecución.
+- **QA específica posterior de privacidad:** cinco invariantes positivos: sin recuentos en celdas menores de k, prohibición de mezclar tenants, esquema de aggregate compatible y sin ranking definitivo offline.
+- Se han añadido tests Node permanentes para asegurar sincronía exacta Atlas ↔ catálogo y consistencia de los siete workflows.
 
-## Verificaciones de ingeniería todavía pendientes
-- **No se ha ejecutado `npm test` en un checkout real con Node 20+, ni browser e2e/visual**. V8 con stubs de ESM/fs/crypto sirve para detectar lógica, pero no prueba integración Node real ni seguridad de ficheros maliciosos.
-- Repetir batería tras cambios de privacidad: pequeños agregados no pueden filtrar recuentos ni denominadores; agregar por tenants distintos debe lanzar error.
-- No hay pruebas auténticas AV, secreto, PII, sandbox, autenticación, colas, jurado o firmas. El motor sigue bloqueando cualquier aprobación operativa.
-- Revisar por jurídico, DPO y RRHH antes de un piloto con personas reales.
+## Inventario verificado
+12 dominios, **135 componentes**, **68 relaciones**, **23 contratos JSON Schema**, cinco puertas G0–G4 y **11 outputs comerciales diseñados**. La edición ficticia valida hashes de dos artefactos y produce una nota provisional de solución de **3,65/5**; ni G3 ni G4 se dan por aprobados de verdad.
 
-## Qué significa «cerrado»
-- **Estándares y contrato de módulos 06–12:** inventariados y documentados.
-- **Referencia offline:** implementada parcialmente, con tests automatizables.
-- **Operación empresarial verificada:** NO. Las dependencias y criterios de aceptación están en issues 7–13. Ninguna certificación de cumplimiento se afirma.
+## Limitaciones
+**No se han ejecutado todavía `npm test` ni tests visuales completos en un checkout de Node real.** Las verificaciones V8 aisladas no validan el comportamiento de I/O en Node, un navegador gráfico, AV, PII/secret scanners, sandbox, firmas, permisos, seguridad de un cliente real ni exactitud de modelos. Todos esos bloques se han dejado como issues de producción.
+
+## Estado de entrega
+Documentación y especificación modular 06–12: completas como blueprint. Implementación local: parcial, útil para pruebas sintéticas. Producto empresarial seguro y productivo: **no**; pendientes issues #1, #2 y #7–13. No se realizaron despliegues.
