@@ -1,0 +1,968 @@
+{
+  "version": "1.0.0",
+  "source": "AI_FIRST_ATLAS_SPEC.json",
+  "workflows": [
+    {
+      "id": "graph",
+      "number": 13,
+      "title": "13 · Grafo de conocimiento",
+      "owner": "Knowledge Graph Lead",
+      "phase": "05 · INTELIGENCIA",
+      "purpose": "Une soluciones, necesidades, capacidades, dependencias, evidencias y oportunidades.",
+      "inputs": "Objetos canónicos y resultados",
+      "outputs": "OrganizationalGraph v1",
+      "external_process": "El cliente entrega contexto y evidencias autorizadas; consulta una vista del grafo limitada por rol y puede señalar errores de origen.",
+      "internal_process": "Normalizar nodos tipados; validar tenant, procedencia, vigencia y confidencialidad; crear solamente relaciones sustentadas; computar cobertura; registrar cambios temporales.",
+      "state_machine": "draft → validated → scoped_view → reviewed",
+      "stop_conditions": "Relaciones huérfanas, fuentes inexistentes, fugas entre clientes o identidades expuestas.",
+      "acceptance": "Entrada tipada, salida versionada, evidencia y aprobación según riesgo",
+      "cost_drivers": "Nº nodos/enlaces/claims, ingestión, consultas y revisiones.",
+      "contracts": [
+        "GraphNode",
+        "GraphEdge",
+        "EvidenceClaim"
+      ],
+      "prototype": "buildOrganizationalGraph, graphView",
+      "pending": "Persistencia temporal, autenticación/RBAC real, políticas por nodo, lineage real, índices de grafo.",
+      "status": "PARTIAL_OFFLINE_PROTOTYPE",
+      "nodes": [
+        {
+          "id": "graph.ontology",
+          "title": "Ontología",
+          "inputs": "Entidades y relaciones",
+          "outputs": "Vocabulario formal",
+          "acceptance": "Versionado y restricciones",
+          "owner": "Knowledge Graph Lead"
+        },
+        {
+          "id": "graph.company",
+          "title": "Empresa/unidad/proceso",
+          "inputs": "Contexto confirmado",
+          "outputs": "Nodos organizativos",
+          "acceptance": "Owner y fecha de vigencia",
+          "owner": "Knowledge Graph Lead"
+        },
+        {
+          "id": "graph.problem",
+          "title": "Problema y objetivo",
+          "inputs": "Brief y baseline",
+          "outputs": "Nodos retos/objetivos",
+          "acceptance": "Relación explícita con negocio",
+          "owner": "Knowledge Graph Lead"
+        },
+        {
+          "id": "graph.solution",
+          "title": "Proyecto y solución",
+          "inputs": "Submission + evaluación",
+          "outputs": "Nodos prototipos",
+          "acceptance": "Link a snapshot exacto",
+          "owner": "Knowledge Graph Lead"
+        },
+        {
+          "id": "graph.skill",
+          "title": "Capacidad y prueba",
+          "inputs": "CapabilityEvidence",
+          "outputs": "Nodos skill con evidencia",
+          "acceptance": "Contexto y nivel de confianza",
+          "owner": "Knowledge Graph Lead"
+        },
+        {
+          "id": "graph.participant",
+          "title": "Identidad protegida",
+          "inputs": "Pseudónimo/rol",
+          "outputs": "Nodos restringidos",
+          "acceptance": "Vista pública anonimizada",
+          "owner": "Knowledge Graph Lead"
+        },
+        {
+          "id": "graph.technology",
+          "title": "Stack/dependencias",
+          "inputs": "SBOM y diagramas",
+          "outputs": "Nodos tecnológicos",
+          "acceptance": "Origen/versiones visibles",
+          "owner": "Knowledge Graph Lead"
+        },
+        {
+          "id": "graph.edges",
+          "title": "Relaciones tipadas",
+          "inputs": "IDs validados",
+          "outputs": "Aristas justificadas",
+          "acceptance": "Sin links semánticos inventados",
+          "owner": "Knowledge Graph Lead"
+        },
+        {
+          "id": "graph.provenance",
+          "title": "Capa de evidencia",
+          "inputs": "EvidenceClaim",
+          "outputs": "Procedencia de cada inferencia",
+          "acceptance": "Recorrido hasta fuente",
+          "owner": "Knowledge Graph Lead"
+        },
+        {
+          "id": "graph.query",
+          "title": "Consultas negocio",
+          "inputs": "Pregunta autorizada",
+          "outputs": "Subgrafos explicables",
+          "acceptance": "Filtros por rol",
+          "owner": "Knowledge Graph Lead"
+        },
+        {
+          "id": "graph.change",
+          "title": "Evolución temporal",
+          "inputs": "Nuevas cohortes",
+          "outputs": "Historial de cambios",
+          "acceptance": "No sobrescribir hechos históricos",
+          "owner": "Knowledge Graph Lead"
+        },
+        {
+          "id": "graph.coverage",
+          "title": "Auditoría cobertura",
+          "inputs": "Inventario esperado",
+          "outputs": "Lagunas verificadas",
+          "acceptance": "Métricas de completitud",
+          "owner": "Knowledge Graph Lead"
+        }
+      ]
+    },
+    {
+      "id": "scenario",
+      "number": 14,
+      "title": "14 · Organización y escenarios",
+      "owner": "Transformation Lead / RRHH",
+      "phase": "05 · INTELIGENCIA",
+      "purpose": "Compara opciones de equipos, formación y ejecución sujetas a preferencias y aprobación humana.",
+      "inputs": "Grafo + objetivos + restricciones",
+      "outputs": "OrganizationScenario v1",
+      "external_process": "Sponsor, RRHH y comité eligen prioridades, validan recursos e intereses voluntarios; reciben alternativas con incertidumbres y ninguna reasignación automática.",
+      "internal_process": "Construir portfolio de iniciativas, verificar muestras, coste por escenario, dependencias y supuestos, comparar tradeoffs y elevar G5 al comité.",
+      "state_machine": "candidate → drafted → co-design → pending_G5 → approved|rejected",
+      "stop_conditions": "Atribución individual insuficiente, decisiones laborales automatizadas, coste sin supuestos o G5 sin firma.",
+      "acceptance": "Entrada tipada, salida versionada, evidencia y aprobación según riesgo",
+      "cost_drivers": "Talleres, revisiones RRHH/Legal, escenarios, análisis dependencias.",
+      "contracts": [
+        "OrganizationScenario",
+        "RoadmapItem"
+      ],
+      "prototype": "draftScenarios",
+      "pending": "Simulador de capacidad real, matching consensuado, validación G5 con identidad, fairness review, datos de disponibilidad.",
+      "status": "PARTIAL_OFFLINE_PROTOTYPE",
+      "nodes": [
+        {
+          "id": "scenario.portfolio",
+          "title": "Selección iniciativas",
+          "inputs": "Ranking soluciones",
+          "outputs": "Portfolio candidato",
+          "acceptance": "Cada decisión enlaza evidencia",
+          "owner": "Transformation Lead / RRHH"
+        },
+        {
+          "id": "scenario.matching",
+          "title": "Matching voluntario",
+          "inputs": "Competencias + interés + disponibilidad",
+          "outputs": "Equipos candidatos",
+          "acceptance": "Nunca asignación laboral automática",
+          "owner": "Transformation Lead / RRHH"
+        },
+        {
+          "id": "scenario.coverage",
+          "title": "Cobertura capacidad",
+          "inputs": "Skills por iniciativa",
+          "outputs": "Brechas por equipo",
+          "acceptance": "No confundir ausencia prueba con ausencia habilidad",
+          "owner": "Transformation Lead / RRHH"
+        },
+        {
+          "id": "scenario.org_options",
+          "title": "Escenarios organización",
+          "inputs": "Opciones y restricciones",
+          "outputs": "3 modelos contrastables",
+          "acceptance": "Pros,contras,incertidumbres",
+          "owner": "Transformation Lead / RRHH"
+        },
+        {
+          "id": "scenario.dependencies",
+          "title": "Dependencias cambios",
+          "inputs": "Equipos,sistemas,formación",
+          "outputs": "Camino crítico",
+          "acceptance": "Bloqueantes visibles",
+          "owner": "Transformation Lead / RRHH"
+        },
+        {
+          "id": "scenario.capacity",
+          "title": "Planeación de esfuerzo",
+          "inputs": "Horas,roles y demanda",
+          "outputs": "Capacidad estimada",
+          "acceptance": "Verificada con responsables",
+          "owner": "Transformation Lead / RRHH"
+        },
+        {
+          "id": "scenario.business_case",
+          "title": "Caso negocio",
+          "inputs": "Costes,baseline,riesgos",
+          "outputs": "Rangos ROI",
+          "acceptance": "Nunca mostrar ROI ficticio como real",
+          "owner": "Transformation Lead / RRHH"
+        },
+        {
+          "id": "scenario.risk_model",
+          "title": "Riesgos transición",
+          "inputs": "Cultura,seguridad,operación",
+          "outputs": "Registro mitigaciones",
+          "acceptance": "Dueño por riesgo",
+          "owner": "Transformation Lead / RRHH"
+        },
+        {
+          "id": "scenario.co_design",
+          "title": "Taller validación",
+          "inputs": "RRHH,TI,representación",
+          "outputs": "Escenarios revisados",
+          "acceptance": "Opiniones registradas",
+          "owner": "Transformation Lead / RRHH"
+        },
+        {
+          "id": "scenario.committee",
+          "title": "Decisión comité",
+          "inputs": "Alternativas y acta",
+          "outputs": "Opción aprobada o rechazada",
+          "acceptance": "Registro humano",
+          "owner": "Transformation Lead / RRHH"
+        },
+        {
+          "id": "scenario.readiness",
+          "title": "Gate escenario",
+          "inputs": "Viabilidad y conformidad",
+          "outputs": "Alternativas publicables",
+          "acceptance": "G5 aprobado",
+          "owner": "Transformation Lead / RRHH"
+        }
+      ]
+    },
+    {
+      "id": "output",
+      "number": 15,
+      "title": "15 · Informes y exportaciones",
+      "owner": "Delivery Lead / Comité cliente",
+      "phase": "06 · ENTREGAR",
+      "purpose": "Mismo paquete de salida reproducible, por audiencia, con trazabilidad y restricciones.",
+      "inputs": "Evaluación, grafo y escenarios",
+      "outputs": "DeliverableBundle versionado",
+      "external_process": "Dirección recibe informe y portfolio con datos agregados; IT anexo técnico; RRHH/participantes únicamente materiales autorizados. Se ofrece exportación y rectificación.",
+      "internal_process": "Aplicar plantillas por audiencia; validar claims, referencias y limitaciones; redactar artefactos deterministas; producir manifest; validar aprobaciones G6, distribuir por canal seguro.",
+      "state_machine": "draft → internal_review → client_review → signed_G6 → distributed",
+      "stop_conditions": "Informe sin fuente, PII para CEO, audiencia no autorizada, contenido no firmado.",
+      "acceptance": "Entrada tipada, salida versionada, evidencia y aprobación según riesgo",
+      "cost_drivers": "Nº entregables, maquetación, revisión ejecutiva, export, traducciones.",
+      "contracts": [
+        "DeliverableManifest",
+        "RoadmapItem"
+      ],
+      "prototype": "prepareExecutiveBundle (Markdown + manifest)",
+      "pending": "Generación de PDF/PPTX/Excel, firmas G6, distribución privada, versiones, accesibilidad y aceptación cliente.",
+      "status": "PARTIAL_OFFLINE_PROTOTYPE",
+      "nodes": [
+        {
+          "id": "output.ceo_pdf",
+          "title": "CEO Executive Report",
+          "inputs": "Hechos y oportunidades",
+          "outputs": "PDF ejecutivo",
+          "acceptance": "KPIs con fuente y nivel confianza",
+          "owner": "Delivery Lead / Comité cliente"
+        },
+        {
+          "id": "output.board_deck",
+          "title": "Board Pack",
+          "inputs": "Resumen decisiones",
+          "outputs": "Presentación dirección",
+          "acceptance": "No trasladar ranking personal",
+          "owner": "Delivery Lead / Comité cliente"
+        },
+        {
+          "id": "output.graph_html",
+          "title": "Graph Explorer",
+          "inputs": "Datos autorizados",
+          "outputs": "Atlas interactivo",
+          "acceptance": "RBAC y export sin PII indebida",
+          "owner": "Delivery Lead / Comité cliente"
+        },
+        {
+          "id": "output.portfolio",
+          "title": "Portfolio de soluciones",
+          "inputs": "Evaluación y viabilidad",
+          "outputs": "Fichas de proyectos",
+          "acceptance": "Dueño y riesgos visibles",
+          "owner": "Delivery Lead / Comité cliente"
+        },
+        {
+          "id": "output.roadmap",
+          "title": "Roadmap 30/60/90",
+          "inputs": "Escenario elegido",
+          "outputs": "Backlog priorizado",
+          "acceptance": "Owner,dependencia,KPI,gate",
+          "owner": "Delivery Lead / Comité cliente"
+        },
+        {
+          "id": "output.teams",
+          "title": "Equipos candidatos",
+          "inputs": "Matching revisado",
+          "outputs": "Propuesta de colaboración",
+          "acceptance": "Acceso limitado a RRHH y interesados",
+          "owner": "Delivery Lead / Comité cliente"
+        },
+        {
+          "id": "output.skills",
+          "title": "Capability Atlas",
+          "inputs": "Evidencias agregadas",
+          "outputs": "Mapa capacidades",
+          "acceptance": "Cobertura y límites declarados",
+          "owner": "Delivery Lead / Comité cliente"
+        },
+        {
+          "id": "output.risk",
+          "title": "Riesgos y controles",
+          "inputs": "Hallazgos y mitigaciones",
+          "outputs": "Registro de riesgo",
+          "acceptance": "Responsables y fechas",
+          "owner": "Delivery Lead / Comité cliente"
+        },
+        {
+          "id": "output.technical",
+          "title": "Technical Annex",
+          "inputs": "Tests,trazas,SBOM",
+          "outputs": "Apéndice técnico",
+          "acceptance": "Reproducible y versionado",
+          "owner": "Delivery Lead / Comité cliente"
+        },
+        {
+          "id": "output.participant",
+          "title": "Feedback privado",
+          "inputs": "Contribución revisada",
+          "outputs": "Informe personal opcional",
+          "acceptance": "Nunca compartido globalmente",
+          "owner": "Delivery Lead / Comité cliente"
+        },
+        {
+          "id": "output.api_export",
+          "title": "JSON / CSV / API",
+          "inputs": "Dataset autorizado",
+          "outputs": "Export interoperable",
+          "acceptance": "Contratos versionados",
+          "owner": "Delivery Lead / Comité cliente"
+        },
+        {
+          "id": "output.jira_export",
+          "title": "Roadmap → PM tools",
+          "inputs": "Work packages",
+          "outputs": "Tickets opt-in",
+          "acceptance": "Escrituras con aprobación explícita",
+          "owner": "Delivery Lead / Comité cliente"
+        },
+        {
+          "id": "output.signoff",
+          "title": "Aceptación cliente",
+          "inputs": "DeliverableManifest",
+          "outputs": "Acta y control versiones",
+          "acceptance": "G6 y aceptación formal",
+          "owner": "Delivery Lead / Comité cliente"
+        }
+      ]
+    },
+    {
+      "id": "activation",
+      "number": 16,
+      "title": "16 · Activación y seguimiento",
+      "owner": "Customer Success / Sponsor cliente",
+      "phase": "07 · ACTIVAR",
+      "purpose": "Convierte descubrimientos en iniciativas responsables, con seguimiento después del evento.",
+      "inputs": "Roadmap y aceptación",
+      "outputs": "Pilotos y medidas de resultados",
+      "external_process": "Cliente aprueba responsables y presupuesto; acuerda métricas, toma decisiones en revisiones a 30/60/90 días y establece continuidad o cancelación.",
+      "internal_process": "Construir roadmap con dependencias acíclicas, baseline, owner y aceptación; enlazar pilotos a resultados y preparar acta G7/cierre de datos.",
+      "state_machine": "candidate → sponsored → approved → in_progress → measured → closed",
+      "stop_conditions": "Dependencias cíclicas, falta de sponsor/baseline, supuesto ahorro presentado como medido, borrado no confirmado.",
+      "acceptance": "Entrada tipada, salida versionada, evidencia y aprobación según riesgo",
+      "cost_drivers": "Acompañamiento, PMO, evaluaciones 30/60/90, formación y soporte.",
+      "contracts": [
+        "RoadmapItem",
+        "PilotOutcome"
+      ],
+      "prototype": "planActivation, evaluatePilotOutcome",
+      "pending": "PM tool integrations, medidor KPI, firmas sponsor, gate G7, cohort analytics y seguimiento real.",
+      "status": "PARTIAL_OFFLINE_PROTOTYPE",
+      "nodes": [
+        {
+          "id": "activation.kickoff",
+          "title": "Kickoff pilotos",
+          "inputs": "Portfolio aprobado",
+          "outputs": "Charters por iniciativa",
+          "acceptance": "Sponsor y criterios de cancelación",
+          "owner": "Customer Success / Sponsor cliente"
+        },
+        {
+          "id": "activation.resourcing",
+          "title": "Asignación validada",
+          "inputs": "Preferencias y recursos",
+          "outputs": "Equipo formalizado por cliente",
+          "acceptance": "Decisión humana y autorización",
+          "owner": "Customer Success / Sponsor cliente"
+        },
+        {
+          "id": "activation.backlog",
+          "title": "Plan operativo",
+          "inputs": "Work packages",
+          "outputs": "Backlog 30/60/90",
+          "acceptance": "Dependencias estimadas",
+          "owner": "Customer Success / Sponsor cliente"
+        },
+        {
+          "id": "activation.training",
+          "title": "Formación por brechas",
+          "inputs": "Capability Atlas",
+          "outputs": "Itinerarios voluntarios",
+          "acceptance": "No usar ausencia evidencia como castigo",
+          "owner": "Customer Success / Sponsor cliente"
+        },
+        {
+          "id": "activation.guardrails",
+          "title": "Gobierno pilotos",
+          "inputs": "IT/seguridad/legal",
+          "outputs": "Controles de ejecución",
+          "acceptance": "Gate previo a producción",
+          "owner": "Customer Success / Sponsor cliente"
+        },
+        {
+          "id": "activation.benefits",
+          "title": "Medir impacto",
+          "inputs": "Métricas baseline",
+          "outputs": "Resultado real vs previsto",
+          "acceptance": "Métodos replicables",
+          "owner": "Customer Success / Sponsor cliente"
+        },
+        {
+          "id": "activation.check30",
+          "title": "Revisión 30 días",
+          "inputs": "Evidencias progreso",
+          "outputs": "Estado y bloqueos",
+          "acceptance": "Decisiones registradas",
+          "owner": "Customer Success / Sponsor cliente"
+        },
+        {
+          "id": "activation.check60",
+          "title": "Revisión 60 días",
+          "inputs": "Pilotos y uso",
+          "outputs": "Comparación prevista/real",
+          "acceptance": "Reasignar inversión si procede",
+          "owner": "Customer Success / Sponsor cliente"
+        },
+        {
+          "id": "activation.check90",
+          "title": "Revisión 90 días",
+          "inputs": "Medidas de negocio",
+          "outputs": "Outcomes auditados",
+          "acceptance": "Cierre/aprendizajes",
+          "owner": "Customer Success / Sponsor cliente"
+        },
+        {
+          "id": "activation.community",
+          "title": "Comunidad de práctica",
+          "inputs": "Personas interesadas",
+          "outputs": "Red de intercambio",
+          "acceptance": "Participación voluntaria",
+          "owner": "Customer Success / Sponsor cliente"
+        },
+        {
+          "id": "activation.repeat",
+          "title": "Nueva cohorte",
+          "inputs": "Aprendizajes y nuevas metas",
+          "outputs": "Plan siguiente ciclo",
+          "acceptance": "Comparación temporal con límites",
+          "owner": "Customer Success / Sponsor cliente"
+        }
+      ]
+    },
+    {
+      "id": "ops",
+      "number": 17,
+      "title": "17 · Operación de nuestra empresa",
+      "owner": "COO / Delivery Manager",
+      "phase": "08 · OPERAR",
+      "purpose": "Backoffice completo: proveedores, staffing, jurado, calidad, soporte y continuidad.",
+      "inputs": "Contratos y plan de entrega",
+      "outputs": "Servicio operado y auditable",
+      "external_process": "Cliente cuenta con interlocutor, SLA, gestión de incidencias y notificaciones, facturas y aceptación de hitos; proveedores y jurado con compromisos claros.",
+      "internal_process": "Handoff CRM→SOW; RACI/capacidad; pool jueces y conflictos; contratos proveedores; soporte; incidentes; facturación; QA cuatro ojos y postmortem.",
+      "state_machine": "contracted → staffed → active → billing_review → closed",
+      "stop_conditions": "Horas sobreasignadas, incidente crítico sin resolver, juez recusado o factura no conciliada.",
+      "acceptance": "Entrada tipada, salida versionada, evidencia y aprobación según riesgo",
+      "cost_drivers": "Horas staff, jueces, proveedores, incidentes, soporte y estructura.",
+      "contracts": [
+        "EngagementConfig",
+        "EventEnvelope"
+      ],
+      "prototype": "checkDeliveryOperations",
+      "pending": "Sistema ticketing, facturación, reconciliación bancaria, control proveedores, evaluación NDA/COI y dashboards SLA.",
+      "status": "PARTIAL_OFFLINE_PROTOTYPE",
+      "nodes": [
+        {
+          "id": "ops.crm_to_project",
+          "title": "Traspaso comercial",
+          "inputs": "SOW y CRM",
+          "outputs": "Proyecto operativo",
+          "acceptance": "Checklist de traspaso",
+          "owner": "COO / Delivery Manager"
+        },
+        {
+          "id": "ops.staffing",
+          "title": "Equipo entrega",
+          "inputs": "Carga y competencias internas",
+          "outputs": "RACI staffing",
+          "acceptance": "No sobreasignar horas",
+          "owner": "COO / Delivery Manager"
+        },
+        {
+          "id": "ops.judges_pool",
+          "title": "Red de jueces",
+          "inputs": "Perfiles/conflictos",
+          "outputs": "Comité disponible",
+          "acceptance": "Independencia comprobada",
+          "owner": "COO / Delivery Manager"
+        },
+        {
+          "id": "ops.supplier",
+          "title": "Proveedores",
+          "inputs": "Modelos,nube,consultores",
+          "outputs": "Registro de terceros",
+          "acceptance": "Contratos y riesgo",
+          "owner": "COO / Delivery Manager"
+        },
+        {
+          "id": "ops.templates",
+          "title": "Biblioteca plantillas",
+          "inputs": "Inputs / informes",
+          "outputs": "Versiones publicadas",
+          "acceptance": "Control cambios",
+          "owner": "COO / Delivery Manager"
+        },
+        {
+          "id": "ops.qa_ops",
+          "title": "QA de entregables",
+          "inputs": "Checklist completo",
+          "outputs": "Dictamen de calidad",
+          "acceptance": "2 ojos sobre salida ejecutiva",
+          "owner": "COO / Delivery Manager"
+        },
+        {
+          "id": "ops.customer_service",
+          "title": "Soporte cliente",
+          "inputs": "Tickets y SLA",
+          "outputs": "Resoluciones y acciones",
+          "acceptance": "Tiempos medidos",
+          "owner": "COO / Delivery Manager"
+        },
+        {
+          "id": "ops.incident",
+          "title": "Incidentes",
+          "inputs": "Alertas/quejas",
+          "outputs": "Registro y respuesta",
+          "acceptance": "Notificación según severidad",
+          "owner": "COO / Delivery Manager"
+        },
+        {
+          "id": "ops.billing",
+          "title": "Gestión cobro",
+          "inputs": "Facturas y condiciones",
+          "outputs": "Cobros y facturación",
+          "acceptance": "Conciliación financiera",
+          "owner": "COO / Delivery Manager"
+        },
+        {
+          "id": "ops.staff_training",
+          "title": "Formación interna",
+          "inputs": "Nuevos procesos y leyes",
+          "outputs": "Operadores habilitados",
+          "acceptance": "Evaluación de competencia",
+          "owner": "COO / Delivery Manager"
+        },
+        {
+          "id": "ops.postmortem",
+          "title": "Retrospectiva edición",
+          "inputs": "Métricas de operación",
+          "outputs": "Mejoras proceso",
+          "acceptance": "Seguimiento acciones",
+          "owner": "COO / Delivery Manager"
+        }
+      ]
+    },
+    {
+      "id": "platform",
+      "number": 18,
+      "title": "18 · Plataforma técnica",
+      "owner": "CTO / Security Engineering",
+      "phase": "08 · OPERAR",
+      "purpose": "Infraestructura multiempresa: seguridad, aislamiento, resiliencia y observabilidad.",
+      "inputs": "Catálogo de servicios",
+      "outputs": "Runtime confiable y exportable",
+      "external_process": "El cliente negocia ubicación de datos, IAM/SSO, acceso, export y retención; recibe documentación de seguridad y resultados de restauración.",
+      "internal_process": "Definir tenant, RBAC, storage, metadatos, grafo, cola, gateway, secretos, backups, CI/CD, monitoreo y jobs de eliminación; revisar todos los accesos.",
+      "state_machine": "designed → tested → externally_attested → operational",
+      "stop_conditions": "Acceso cross-tenant, token ausente, backup no probado, política sin revisión, borrado durante legal hold.",
+      "acceptance": "Entrada tipada, salida versionada, evidencia y aprobación según riesgo",
+      "cost_drivers": "Cloud, base, storage, claves, auditoría, seguridad, disaster recovery.",
+      "contracts": [
+        "JobSpec",
+        "EventEnvelope",
+        "RiskRecord"
+      ],
+      "prototype": "authorizeTenantAccess (deny only), retentionDryRun",
+      "pending": "SSO, persistencia, auditoría IAM, infraestructura, DR, aislamiento real, cifrado y secret manager.",
+      "status": "PARTIAL_OFFLINE_PROTOTYPE",
+      "nodes": [
+        {
+          "id": "platform.tenancy",
+          "title": "Aislamiento tenant",
+          "inputs": "Cliente/engagement",
+          "outputs": "Espacios independientes",
+          "acceptance": "Pruebas aislamiento",
+          "owner": "CTO / Security Engineering"
+        },
+        {
+          "id": "platform.identity",
+          "title": "IAM/SSO",
+          "inputs": "Usuarios y roles",
+          "outputs": "Autenticación federada",
+          "acceptance": "MFA y sesiones cortas",
+          "owner": "CTO / Security Engineering"
+        },
+        {
+          "id": "platform.object_storage",
+          "title": "Almacenamiento objetos",
+          "inputs": "Paquetes de proyectos",
+          "outputs": "Bucket cifrado",
+          "acceptance": "Acceso restringido",
+          "owner": "CTO / Security Engineering"
+        },
+        {
+          "id": "platform.metadata_db",
+          "title": "Base metadatos",
+          "inputs": "Manifiestos y estados",
+          "outputs": "SQL con RLS",
+          "acceptance": "Migraciones controladas",
+          "owner": "CTO / Security Engineering"
+        },
+        {
+          "id": "platform.graphdb",
+          "title": "Almacén de grafo",
+          "inputs": "GraphNode/GraphEdge",
+          "outputs": "Relaciones consultables",
+          "acceptance": "ACL a nivel datos",
+          "owner": "CTO / Security Engineering"
+        },
+        {
+          "id": "platform.queue",
+          "title": "Cola de tareas",
+          "inputs": "JobSpec y eventos",
+          "outputs": "Workers y DLQ",
+          "acceptance": "Idempotencia",
+          "owner": "CTO / Security Engineering"
+        },
+        {
+          "id": "platform.llm_gateway",
+          "title": "Puerta LLM",
+          "inputs": "Modelos/proveedores",
+          "outputs": "Control de inferencia",
+          "acceptance": "Sin entrenamiento externo salvo pacto",
+          "owner": "CTO / Security Engineering"
+        },
+        {
+          "id": "platform.observability",
+          "title": "Observabilidad",
+          "inputs": "Trazas/eventos",
+          "outputs": "Métricas y alarmas",
+          "acceptance": "Redactar datos sensibles",
+          "owner": "CTO / Security Engineering"
+        },
+        {
+          "id": "platform.keys",
+          "title": "Secret manager",
+          "inputs": "Credenciales e integraciones",
+          "outputs": "Rotación y cifrado",
+          "acceptance": "Nada sensible en prompts/logs",
+          "owner": "CTO / Security Engineering"
+        },
+        {
+          "id": "platform.backups",
+          "title": "Backup/restauración",
+          "inputs": "Datos operativos",
+          "outputs": "Copias verificadas",
+          "acceptance": "Restauración ensayada",
+          "owner": "CTO / Security Engineering"
+        },
+        {
+          "id": "platform.cicd",
+          "title": "CI/CD y SAST",
+          "inputs": "Código y configs",
+          "outputs": "Releases firmados",
+          "acceptance": "Pruebas por versión",
+          "owner": "CTO / Security Engineering"
+        },
+        {
+          "id": "platform.retention_worker",
+          "title": "Jobs de borrado",
+          "inputs": "Políticas y solicitudes",
+          "outputs": "Borrado verificable",
+          "acceptance": "Retención por tipo",
+          "owner": "CTO / Security Engineering"
+        },
+        {
+          "id": "platform.resilience",
+          "title": "Continuidad y DR",
+          "inputs": "SLO/amenazas",
+          "outputs": "Procedimiento BCP",
+          "acceptance": "RTO/RPO acordados",
+          "owner": "CTO / Security Engineering"
+        }
+      ]
+    },
+    {
+      "id": "economics",
+      "number": 19,
+      "title": "19 · Pricing y unit economics",
+      "owner": "CFO / Growth",
+      "phase": "08 · OPERAR",
+      "purpose": "Catálogo de SKU y cálculo de costes según complejidad y exposición a riesgos.",
+      "inputs": "Alcance, volumen y costes",
+      "outputs": "PricingQuote y margen real",
+      "external_process": "El comprador recibe oferta con límites de participantes, entregables, premios, addons, supuestos y costes del cliente separados.",
+      "internal_process": "Medir horas directas, jurado, premios, cómputo, seguridad, contingencia; calcular margen y sensibilidad; aprobar cotización G0 y controlar cambios.",
+      "state_machine": "draft → costed → risk_review → approved_G0 → invoiced → analyzed",
+      "stop_conditions": "Coste omitido, margen insuficiente, cambio de alcance sin aprobación, horas empleado confundidas con ahorro.",
+      "acceptance": "Entrada tipada, salida versionada, evidencia y aprobación según riesgo",
+      "cost_drivers": "Todos los drivers directos, overhead, captación y fiscalidad desglosados.",
+      "contracts": [
+        "PricingQuote"
+      ],
+      "prototype": "calculateUnitEconomics",
+      "pending": "Costos observados por cliente/job, timesheet, renovación, sensibilidad, comparativas de precios y signoff financiero.",
+      "status": "PARTIAL_OFFLINE_PROTOTYPE",
+      "nodes": [
+        {
+          "id": "economics.sku",
+          "title": "Paquetes / SKU",
+          "inputs": "Tipo de servicio",
+          "outputs": "Catálogo precios",
+          "acceptance": "Alcance y exclusiones claras",
+          "owner": "CFO / Growth"
+        },
+        {
+          "id": "economics.volume",
+          "title": "Participantes y proyectos",
+          "inputs": "Tamaño cohorte",
+          "outputs": "Escalas de precio",
+          "acceptance": "Definir topes",
+          "owner": "CFO / Growth"
+        },
+        {
+          "id": "economics.complexity",
+          "title": "Complejidad de entrega",
+          "inputs": "Repo,video,código,datasets",
+          "outputs": "Unidad coste por modalidad",
+          "acceptance": "Tiempo medido",
+          "owner": "CFO / Growth"
+        },
+        {
+          "id": "economics.human_hours",
+          "title": "Horas de personas",
+          "inputs": "Analistas,jueces,PM,legal",
+          "outputs": "Coste laboral por edición",
+          "acceptance": "Sin horas gratuitas implícitas",
+          "owner": "CFO / Growth"
+        },
+        {
+          "id": "economics.compute",
+          "title": "Coste nube/LLM",
+          "inputs": "Tokens,CPU,almacenamiento",
+          "outputs": "Costes variables",
+          "acceptance": "Etiquetas tenant/job",
+          "owner": "CFO / Growth"
+        },
+        {
+          "id": "economics.jury_cost",
+          "title": "Jurado externo",
+          "inputs": "Perfiles y duración",
+          "outputs": "Coste de evaluación",
+          "acceptance": "Calibración presupuestada",
+          "owner": "CFO / Growth"
+        },
+        {
+          "id": "economics.prize_cost",
+          "title": "Premios e impuestos",
+          "inputs": "Bases y localización",
+          "outputs": "Incentivo financiado",
+          "acceptance": "Separado o incluido en precio",
+          "owner": "CFO / Growth"
+        },
+        {
+          "id": "economics.risk_premium",
+          "title": "Riesgo y seguridad",
+          "inputs": "Sensibilidad/sector",
+          "outputs": "Coste adicional justificado",
+          "acceptance": "Sujeto a capacidad/aceptación",
+          "owner": "CFO / Growth"
+        },
+        {
+          "id": "economics.change_orders",
+          "title": "Cambios alcance",
+          "inputs": "Solicitudes extra",
+          "outputs": "Presupuesto adicional",
+          "acceptance": "Aprobación anterior a ejecución",
+          "owner": "CFO / Growth"
+        },
+        {
+          "id": "economics.margin",
+          "title": "Margen contribución",
+          "inputs": "Precio y COGS",
+          "outputs": "Rentabilidad por cliente",
+          "acceptance": "Estructura fija aparte",
+          "owner": "CFO / Growth"
+        },
+        {
+          "id": "economics.followup",
+          "title": "Renovación / anualidad",
+          "inputs": "Resultados y demanda",
+          "outputs": "Nuevo ciclo o suscripción",
+          "acceptance": "Sin atar cliente a datos",
+          "owner": "CFO / Growth"
+        },
+        {
+          "id": "economics.pricing_gate",
+          "title": "Gate cotización",
+          "inputs": "P&L y legal",
+          "outputs": "Oferta autorizada",
+          "acceptance": "G0, margen mínimo aprobado",
+          "owner": "CFO / Growth"
+        }
+      ]
+    },
+    {
+      "id": "assurance",
+      "number": 20,
+      "title": "20 · Calidad y control total",
+      "owner": "Risk / QA / Dirección",
+      "phase": "08 · OPERAR",
+      "purpose": "Aseguramiento del catálogo y del servicio end-to-end, con evidencias e incertidumbres.",
+      "inputs": "Controles y salidas de todos los dominios",
+      "outputs": "AuditBundle y decisiones de calidad",
+      "external_process": "El sponsor recibe evidencias de controles, riesgos no resueltos, versiones y pruebas; el auditor puede rastrear cada resultado hasta su fuente.",
+      "internal_process": "Auditar catálogo, contratos, gates 0–7, seguridad, modelo IA, equidad, linaje, cambios, costes, retención, export y acciones correctoras.",
+      "state_machine": "design → tested → validated → production_verified",
+      "stop_conditions": "Gate sin responsable, salida sin evidencia, vulnerabilidad crítica, borrado no probado o falsa cobertura.",
+      "acceptance": "Entrada tipada, salida versionada, evidencia y aprobación según riesgo",
+      "cost_drivers": "QA, pruebas, auditorías independientes, legal, control versiones, cambios.",
+      "contracts": [
+        "RiskRecord",
+        "EventEnvelope",
+        "DeliverableManifest"
+      ],
+      "prototype": "auditOperatingAtlas",
+      "pending": "Pruebas extremo a extremo, tenant tests, seguridad avanzada, evals agentes, aceptación formal y trazabilidad de datos reales.",
+      "status": "PARTIAL_OFFLINE_PROTOTYPE",
+      "nodes": [
+        {
+          "id": "assurance.inventory",
+          "title": "Inventario componentes",
+          "inputs": "Grafo completo",
+          "outputs": "Registro cobertura",
+          "acceptance": "Todo nodo dueño + contrato",
+          "owner": "Risk / QA / Dirección"
+        },
+        {
+          "id": "assurance.contracts",
+          "title": "Contract testing",
+          "inputs": "JSON schemas",
+          "outputs": "Resultados de validación",
+          "acceptance": "Backward compatibility",
+          "owner": "Risk / QA / Dirección"
+        },
+        {
+          "id": "assurance.quality_gates",
+          "title": "Gates G0–G7",
+          "inputs": "Transiciones operativas",
+          "outputs": "Actas / bloqueos",
+          "acceptance": "No omisión silenciosa",
+          "owner": "Risk / QA / Dirección"
+        },
+        {
+          "id": "assurance.security_testing",
+          "title": "Testing de seguridad",
+          "inputs": "Permisos y sandbox",
+          "outputs": "Informe hallazgos",
+          "acceptance": "Cerrar críticos antes de ejecución",
+          "owner": "Risk / QA / Dirección"
+        },
+        {
+          "id": "assurance.llm_evals",
+          "title": "Evals de agentes",
+          "inputs": "Golden set y red team",
+          "outputs": "Métricas fiabilidad",
+          "acceptance": "Regresiones por versión",
+          "owner": "Risk / QA / Dirección"
+        },
+        {
+          "id": "assurance.fairness_audit",
+          "title": "Equidad y accesibilidad",
+          "inputs": "Rúbricas y muestras",
+          "outputs": "Revisión humana",
+          "acceptance": "Señalar límites estadísticos",
+          "owner": "Risk / QA / Dirección"
+        },
+        {
+          "id": "assurance.lineage_audit",
+          "title": "Trazabilidad fuente-output",
+          "inputs": "Claims y documentos",
+          "outputs": "Rutas de evidencia",
+          "acceptance": "Toda afirmación decisiva citable",
+          "owner": "Risk / QA / Dirección"
+        },
+        {
+          "id": "assurance.change_control",
+          "title": "Gestión versiones",
+          "inputs": "Prompts,modelos,contratos",
+          "outputs": "Control de cambio",
+          "acceptance": "Re-evaluar impactos",
+          "owner": "Risk / QA / Dirección"
+        },
+        {
+          "id": "assurance.finance_audit",
+          "title": "Auditoría costes",
+          "inputs": "Facturas/mediciones",
+          "outputs": "Margen comprobado",
+          "acceptance": "Presupuestos vs reales",
+          "owner": "Risk / QA / Dirección"
+        },
+        {
+          "id": "assurance.retention_audit",
+          "title": "Auditoría borrado",
+          "inputs": "Logs de eliminación",
+          "outputs": "Prueba de cumplimiento",
+          "acceptance": "Cierre por tenant",
+          "owner": "Risk / QA / Dirección"
+        },
+        {
+          "id": "assurance.exit_audit",
+          "title": "Cierre de cliente",
+          "inputs": "Entregables y revocación",
+          "outputs": "Certificado cierre",
+          "acceptance": "Datos y permisos retirados",
+          "owner": "Risk / QA / Dirección"
+        },
+        {
+          "id": "assurance.lessons",
+          "title": "Mejora continua",
+          "inputs": "KPIs y feedback",
+          "outputs": "Backlog de producto",
+          "acceptance": "Criterios priorización",
+          "owner": "Risk / QA / Dirección"
+        }
+      ]
+    }
+  ]
+}

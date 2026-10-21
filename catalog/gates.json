@@ -99,6 +99,54 @@
         "Resolución discrepancias"
       ],
       "on_failure": "No emitir ranking final"
+    },
+    {
+      "id": "G5",
+      "title": "Validación organizativa",
+      "required": [
+        "OrganizationScenario",
+        "CapabilityEvidence"
+      ],
+      "roles": [
+        "Cliente / RRHH / Legal"
+      ],
+      "checks": [
+        "Alternativas interpretables; revisión humana y datos adecuados"
+      ],
+      "on_failure": "No emitir propuestas individualizadas",
+      "status": "DESIGN_REQUIRES_VERIFIED_HUMAN"
+    },
+    {
+      "id": "G6",
+      "title": "Entrega ejecutiva",
+      "required": [
+        "DeliverableManifest",
+        "RoadmapItem"
+      ],
+      "roles": [
+        "Delivery lead + sponsor"
+      ],
+      "checks": [
+        "Evidencias, limitaciones, portabilidad y aprobaciones"
+      ],
+      "on_failure": "Corregir informe y no publicar",
+      "status": "DESIGN_REQUIRES_VERIFIED_HUMAN"
+    },
+    {
+      "id": "G7",
+      "title": "Cierre / activación",
+      "required": [
+        "PilotOutcome",
+        "DeliverableManifest"
+      ],
+      "roles": [
+        "Customer Success + cliente + DPO"
+      ],
+      "checks": [
+        "Handoff, medidas/fechas, permisos revocados y retención ejecutada"
+      ],
+      "on_failure": "Mantener pendiente y escalar a responsables",
+      "status": "DESIGN_REQUIRES_VERIFIED_HUMAN"
     }
   ]
 }

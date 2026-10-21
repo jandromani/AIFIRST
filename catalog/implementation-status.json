@@ -3,6 +3,56 @@
   "coverage_policy": "DESIGN != PROTOTYPE_OFFLINE != VERIFIED_PRODUCTION",
   "domains": [
     {
+      "domain": "market",
+      "phase": "design",
+      "design_coverage": "complete",
+      "prototype_nodes": [],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "No verified production system"
+      ]
+    },
+    {
+      "domain": "contract",
+      "phase": "design",
+      "design_coverage": "complete",
+      "prototype_nodes": [],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "No verified production system"
+      ]
+    },
+    {
+      "domain": "context",
+      "phase": "design",
+      "design_coverage": "complete",
+      "prototype_nodes": [],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "No verified production system"
+      ]
+    },
+    {
+      "domain": "governance",
+      "phase": "design",
+      "design_coverage": "complete",
+      "prototype_nodes": [],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "No verified production system"
+      ]
+    },
+    {
+      "domain": "challenge",
+      "phase": "design",
+      "design_coverage": "complete",
+      "prototype_nodes": [],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "No verified production system"
+      ]
+    },
+    {
       "domain": "comms",
       "phase": "01–12 foundation",
       "design_coverage": "complete",
@@ -122,11 +172,161 @@
         "modelo población/missingness robusto",
         "propuesta de formación validada"
       ]
+    },
+    {
+      "domain": "graph",
+      "phase": "design",
+      "design_coverage": "complete",
+      "prototype_nodes": [],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "Persistencia temporal",
+        "autenticación/RBAC real",
+        "políticas por nodo",
+        "lineage real",
+        "índices de grafo."
+      ],
+      "prototype_modules": [
+        "buildOrganizationalGraph",
+        "graphView"
+      ],
+      "status": "DESIGN_WITH_OFFLINE_REFERENCE"
+    },
+    {
+      "domain": "scenario",
+      "phase": "design",
+      "design_coverage": "complete",
+      "prototype_nodes": [],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "Simulador de capacidad real",
+        "matching consensuado",
+        "validación G5 con identidad",
+        "fairness review",
+        "datos de disponibilidad."
+      ],
+      "prototype_modules": [
+        "draftScenarios"
+      ],
+      "status": "DESIGN_WITH_OFFLINE_REFERENCE"
+    },
+    {
+      "domain": "output",
+      "phase": "design",
+      "design_coverage": "complete",
+      "prototype_nodes": [],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "Generación de PDF/PPTX/Excel",
+        "firmas G6",
+        "distribución privada",
+        "versiones",
+        "accesibilidad y aceptación cliente."
+      ],
+      "prototype_modules": [
+        "prepareExecutiveBundle (Markdown + manifest)"
+      ],
+      "status": "DESIGN_WITH_OFFLINE_REFERENCE"
+    },
+    {
+      "domain": "activation",
+      "phase": "design",
+      "design_coverage": "complete",
+      "prototype_nodes": [],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "PM tool integrations",
+        "medidor KPI",
+        "firmas sponsor",
+        "gate G7",
+        "cohort analytics y seguimiento real."
+      ],
+      "prototype_modules": [
+        "planActivation",
+        "evaluatePilotOutcome"
+      ],
+      "status": "DESIGN_WITH_OFFLINE_REFERENCE"
+    },
+    {
+      "domain": "ops",
+      "phase": "design",
+      "design_coverage": "complete",
+      "prototype_nodes": [],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "Sistema ticketing",
+        "facturación",
+        "reconciliación bancaria",
+        "control proveedores",
+        "evaluación NDA/COI y dashboards SLA."
+      ],
+      "prototype_modules": [
+        "checkDeliveryOperations"
+      ],
+      "status": "DESIGN_WITH_OFFLINE_REFERENCE"
+    },
+    {
+      "domain": "platform",
+      "phase": "design",
+      "design_coverage": "complete",
+      "prototype_nodes": [],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "SSO",
+        "persistencia",
+        "auditoría IAM",
+        "infraestructura",
+        "DR",
+        "aislamiento real",
+        "cifrado y secret manager."
+      ],
+      "prototype_modules": [
+        "authorizeTenantAccess (deny only)",
+        "retentionDryRun"
+      ],
+      "status": "DESIGN_WITH_OFFLINE_REFERENCE"
+    },
+    {
+      "domain": "economics",
+      "phase": "design",
+      "design_coverage": "complete",
+      "prototype_nodes": [],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "Costos observados por cliente/job",
+        "timesheet",
+        "renovación",
+        "sensibilidad",
+        "comparativas de precios y signoff financiero."
+      ],
+      "prototype_modules": [
+        "calculateUnitEconomics"
+      ],
+      "status": "DESIGN_WITH_OFFLINE_REFERENCE"
+    },
+    {
+      "domain": "assurance",
+      "phase": "design",
+      "design_coverage": "complete",
+      "prototype_nodes": [],
+      "production_readiness": "NOT_READY",
+      "external_dependencies": [
+        "Pruebas extremo a extremo",
+        "tenant tests",
+        "seguridad avanzada",
+        "evals agentes",
+        "aceptación formal y trazabilidad de datos reales."
+      ],
+      "prototype_modules": [
+        "auditOperatingAtlas"
+      ],
+      "status": "DESIGN_WITH_OFFLINE_REFERENCE"
     }
   ],
   "counts": {
-    "domains": 12,
-    "components": 135,
-    "links": 68
-  }
+    "domains": 20,
+    "components": 230,
+    "links": 171
+  },
+  "honesty": "DESIGN and OFFLINE_TESTED are not VERIFIED_PRODUCTION; no real gates signed."
 }
