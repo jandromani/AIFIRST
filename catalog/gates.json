@@ -25,8 +25,7 @@
       "title": "Contratación, finalidad y privacidad",
       "required": [
         "EngagementConfig",
-        "RiskRegister",
-        "CompanyContext"
+        "RiskRegister"
       ],
       "roles": [
         "Legal / DPO",
@@ -44,6 +43,7 @@
       "id": "G2",
       "title": "Apertura del reto",
       "required": [
+        "CompanyContext",
         "ChallengeBrief",
         "Rubric"
       ],
