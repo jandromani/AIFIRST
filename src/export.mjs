@@ -68,6 +68,8 @@ export function writeSyntheticArtifacts(root,result){
  const parent=path.resolve(root,"artifacts");
  const base=path.resolve(parent,"synthetic-engagement-"+result.run_id.slice(4));
  if(!base.startsWith(parent+path.sep))throw Error("Path outside artifact directory");
+ if(fs.existsSync(parent)&&fs.lstatSync(parent).isSymbolicLink())throw Error("Symlink artifact directory blocked");
+ if(fs.existsSync(base)&&fs.lstatSync(base).isSymbolicLink())throw Error("Symlink run directory blocked");
  fs.mkdirSync(base,{recursive:true,mode:0o700});
  const map=prepareExport(result),records=[];
  for(const [name,body] of Object.entries(map)){
