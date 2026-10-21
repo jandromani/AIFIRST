@@ -1,0 +1,96 @@
+{
+  "title": "GraphNode",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "engagement_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "node_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "company",
+        "unit",
+        "process",
+        "objective",
+        "challenge",
+        "project",
+        "solution",
+        "artifact",
+        "claim",
+        "skill",
+        "participant_alias",
+        "team",
+        "system",
+        "risk",
+        "initiative",
+        "kpi"
+      ]
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+      },
+      "minItems": 0
+    },
+    "visibility_scope": {
+      "type": "string",
+      "enum": [
+        "aggregate",
+        "client",
+        "restricted",
+        "participant"
+      ]
+    },
+    "effective_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "attributes": {
+      "type": "object"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "observed",
+        "proposed",
+        "unknown"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "engagement_id",
+    "node_id",
+    "type",
+    "label",
+    "source_refs",
+    "visibility_scope",
+    "state"
+  ]
+}

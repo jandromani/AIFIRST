@@ -1,0 +1,74 @@
+{
+  "title": "RetentionPlan",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "engagement_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "plan_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "classification": {
+      "type": "string",
+      "enum": [
+        "public",
+        "internal",
+        "confidential",
+        "restricted"
+      ]
+    },
+    "retention_days": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "legal_hold": {
+      "type": "boolean"
+    },
+    "export_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "completed"
+      ]
+    },
+    "deletion_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "scheduled",
+        "verified"
+      ]
+    },
+    "verified_by_ref": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "engagement_id",
+    "plan_id",
+    "classification",
+    "retention_days",
+    "legal_hold",
+    "export_status",
+    "deletion_status"
+  ]
+}

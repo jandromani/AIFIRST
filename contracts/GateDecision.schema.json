@@ -1,0 +1,91 @@
+{
+  "title": "GateDecision",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "engagement_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "gate_id": {
+      "type": "string",
+      "enum": [
+        "G0",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7"
+      ]
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "approved",
+        "rejected",
+        "pending"
+      ]
+    },
+    "reviewer_role": {
+      "type": "string",
+      "minLength": 1
+    },
+    "signer_identity_ref": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "authenticity": {
+      "type": "string",
+      "enum": [
+        "unverified",
+        "externally_verified"
+      ]
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+      },
+      "minItems": 0
+    },
+    "decided_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "engagement_id",
+    "gate_id",
+    "decision",
+    "reviewer_role",
+    "authenticity",
+    "evidence_refs",
+    "limitations"
+  ]
+}

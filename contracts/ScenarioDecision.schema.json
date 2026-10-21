@@ -1,0 +1,83 @@
+{
+  "title": "ScenarioDecision",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "engagement_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "decision_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "scenario_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "approve",
+        "reject",
+        "revise"
+      ]
+    },
+    "decision_maker_role": {
+      "type": "string",
+      "minLength": 1
+    },
+    "verified_signer_ref": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+      },
+      "minItems": 1
+    },
+    "decided_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "conditions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "engagement_id",
+    "decision_id",
+    "scenario_id",
+    "decision",
+    "decision_maker_role",
+    "verified_signer_ref",
+    "evidence_refs",
+    "decided_at",
+    "conditions"
+  ]
+}

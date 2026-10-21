@@ -1,0 +1,106 @@
+{
+  "title": "GraphEdge",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "engagement_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "edge_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "target_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "relation": {
+      "type": "string",
+      "enum": [
+        "HAS_UNIT",
+        "OWNS_PROCESS",
+        "SETS_OBJECTIVE",
+        "SPONSORS_CHALLENGE",
+        "SUBMITTED_BY_TEAM",
+        "CONTAINS_ARTIFACT",
+        "SUPPORTS_CLAIM",
+        "DEMONSTRATES_CAPABILITY",
+        "ADDRESSES_PROBLEM",
+        "REQUIRES_SKILL",
+        "DEPENDS_ON_SYSTEM",
+        "INTRODUCES_RISK",
+        "EVALUATED_USING",
+        "RECOMMENDS_INITIATIVE",
+        "MAY_PARTICIPATE_IN",
+        "NEEDS_APPROVAL",
+        "TRACKED_BY_KPI",
+        "DELIVERED_IN"
+      ]
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+      },
+      "minItems": 0
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "valid_from": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "visibility_scope": {
+      "type": "string",
+      "enum": [
+        "aggregate",
+        "client",
+        "restricted",
+        "participant"
+      ]
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "observed",
+        "proposed"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "engagement_id",
+    "edge_id",
+    "source_id",
+    "target_id",
+    "relation",
+    "evidence_refs",
+    "visibility_scope",
+    "state"
+  ]
+}

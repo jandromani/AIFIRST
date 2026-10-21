@@ -1,0 +1,75 @@
+{
+  "title": "UnitEconomics",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "engagement_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "analysis_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "price_model_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "direct_cost_eur": {
+      "type": "number",
+      "minimum": 0
+    },
+    "price_eur": {
+      "type": "number",
+      "minimum": 0
+    },
+    "contribution_eur": {
+      "type": "number"
+    },
+    "gross_margin_ratio": {
+      "type": "number"
+    },
+    "break_even_price_eur": {
+      "type": "number",
+      "minimum": 0
+    },
+    "scope_limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "verified_actuals": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "engagement_id",
+    "analysis_id",
+    "price_model_id",
+    "direct_cost_eur",
+    "price_eur",
+    "contribution_eur",
+    "gross_margin_ratio",
+    "break_even_price_eur",
+    "scope_limitations",
+    "verified_actuals"
+  ]
+}

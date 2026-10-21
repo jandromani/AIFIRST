@@ -1,0 +1,122 @@
+{
+  "title": "EngagementOperations",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "engagement_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "owner_role": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sow_ref": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "staffing_hours": {
+      "type": "array",
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "planned_hours": {
+            "type": "number",
+            "minimum": 0
+          },
+          "available_hours": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "role",
+          "planned_hours",
+          "available_hours"
+        ]
+      },
+      "minItems": 1
+    },
+    "juror_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+      },
+      "minItems": 0
+    },
+    "suppliers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+      },
+      "minItems": 0
+    },
+    "tickets_open": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "incidents_open": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "billing_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "approved",
+        "invoiced",
+        "paid"
+      ]
+    },
+    "health": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "at_risk",
+        "ready"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "engagement_id",
+    "run_id",
+    "owner_role",
+    "sow_ref",
+    "staffing_hours",
+    "juror_refs",
+    "suppliers",
+    "tickets_open",
+    "incidents_open",
+    "billing_status",
+    "health"
+  ]
+}

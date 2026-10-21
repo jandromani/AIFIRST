@@ -1,0 +1,117 @@
+{
+  "title": "PriceModel",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "engagement_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "model_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "sku": {
+      "type": "string",
+      "enum": [
+        "discovery",
+        "sprint",
+        "enterprise"
+      ]
+    },
+    "currency": {
+      "const": "EUR"
+    },
+    "participant_cap": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "submission_cap": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "service_hours": {
+      "type": "number",
+      "minimum": 0
+    },
+    "service_hourly_eur": {
+      "type": "number",
+      "minimum": 0
+    },
+    "jury_cost_eur": {
+      "type": "number",
+      "minimum": 0
+    },
+    "prizes_cost_eur": {
+      "type": "number",
+      "minimum": 0
+    },
+    "compute_budget_eur": {
+      "type": "number",
+      "minimum": 0
+    },
+    "security_cost_eur": {
+      "type": "number",
+      "minimum": 0
+    },
+    "other_direct_cost_eur": {
+      "type": "number",
+      "minimum": 0
+    },
+    "contingency_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "target_gross_margin": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 0.9
+    },
+    "offered_price_eur": {
+      "type": "number",
+      "minimum": 0
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "engagement_id",
+    "model_id",
+    "sku",
+    "currency",
+    "participant_cap",
+    "submission_cap",
+    "service_hours",
+    "service_hourly_eur",
+    "jury_cost_eur",
+    "prizes_cost_eur",
+    "compute_budget_eur",
+    "security_cost_eur",
+    "other_direct_cost_eur",
+    "contingency_rate",
+    "target_gross_margin",
+    "offered_price_eur",
+    "assumptions"
+  ]
+}

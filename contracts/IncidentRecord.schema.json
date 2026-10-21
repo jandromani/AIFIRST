@@ -1,0 +1,89 @@
+{
+  "title": "IncidentRecord",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "engagement_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "incident_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "privacy",
+        "security",
+        "delivery",
+        "legal",
+        "billing",
+        "other"
+      ]
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "open",
+        "contained",
+        "resolved"
+      ]
+    },
+    "owner_role": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reported_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+      },
+      "minItems": 0
+    },
+    "next_action": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "engagement_id",
+    "incident_id",
+    "severity",
+    "category",
+    "state",
+    "owner_role",
+    "reported_at",
+    "evidence_refs",
+    "next_action"
+  ]
+}
