@@ -44,3 +44,12 @@ Ejecutar las suites Node en checkout, registrar consola, corregir cualquier erro
 - Issues nuevos #14–#21 **abiertos** para implantación real de los módulos 13–20. Issue #6 actualizado como tracker global.
 
 **Límite de verificación vigente:** las comprobaciones publicadas son análisis estructural y V8 con mocks; no hay constancia de `npm test` real, browser E2E ni pilotaje empresarial autorizado.
+
+## Incremento de vertical slice 0.2
+
+- Se publicaron `src/engagement.mjs`, `src/export.mjs`, `bin/engagement.mjs` y los contratos de recorrido.
+- Prueba aislada de motor: caso sintético de 10 eventos, 3 nodos propuestos, 2 enlaces, puntuación 3,65/5 provisional, ocho gates no verificados.
+- Exportador comprobado en V8 de solo memoria: **7/7** invariantes de contenido, privacidad básica de las fixtures, CSV, rutas y rechazo de aprobación ficticia.
+- Control estructural del repositorio: **10/10** (fixtures, scripts, aislamiento offline, ausencia de Vercel, tests y gitignore).
+- Se añadió un `Executive_Draft.html` visual autocontenido y pruebas Node escritas para escape HTML, ausencia de scripts externos y rechazo de gates aprobados; **sigue pendiente ejecutar estas pruebas en Node real**.
+- Los artefactos exportados bajo `artifacts/` están excluidos de Git. No se ha realizado despliegue ni envío a destinatarios.

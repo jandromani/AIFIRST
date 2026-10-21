@@ -168,6 +168,7 @@
   ],
   "expectedOutputs": [
     "Executive_Draft.md",
+    "Executive_Draft.html",
     "Roadmap_Draft.csv",
     "Evidence_Trace.json",
     "Artifact_Manifest.json"
