@@ -53,3 +53,15 @@ Ejecutar las suites Node en checkout, registrar consola, corregir cualquier erro
 - Control estructural del repositorio: **10/10** (fixtures, scripts, aislamiento offline, ausencia de Vercel, tests y gitignore).
 - Se añadió un `Executive_Draft.html` visual autocontenido y pruebas Node escritas para escape HTML, ausencia de scripts externos y rechazo de gates aprobados; **sigue pendiente ejecutar estas pruebas en Node real**.
 - Los artefactos exportados bajo `artifacts/` están excluidos de Git. No se ha realizado despliegue ni envío a destinatarios.
+
+
+## Último incremento · QA de informe y recorrido integrado (0.2)
+
+- Motor de recorrido 07→20 ejecutado en V8 aislado sobre las fixtures: 10 eventos operativos, 3 nodos y 2 relaciones de propuesta, valoración ficticia 3,65/5, todos los gates UNVERIFIED.
+- Exportador Markdown/CSV/traza: **7/7** controles aislados de contenido y bloqueo superados.
+- Exportador HTML visual: **9/9** controles aislados superados (sin scripts externos, contenido escapado, no entrega, hashes reproducibles y salida autónoma).
+- Repositorio auditado: **10/10** controles estructurales tras la primera integración, sin Vercel ni GitHub Actions.
+- Nuevas suites de Node: `test/engagement.test.mjs` (9 casos), `test/export.test.mjs` (7 casos), y `bin/verify-local.mjs` para registrar evidencia de ejecución.
+- **Pendiente:** ejecutar realmente `npm run verify:local` en un checkout Node 20+. El informe `artifacts/local-verification.json` solo existirá tras esa ejecución, no se ha simulado su resultado.
+
+Los contratos y la presentación son reutilizables, pero la edición no está autorizada para empleados reales. Las referencias a `verified` en fixtures son *sintéticas* y no sirven para liberar G3/G4 ni decisiones organizativas.

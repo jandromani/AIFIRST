@@ -31,3 +31,14 @@ Estado: **todos los 20 módulos están documentados**, el prototipo offline cubr
 
 ## Exclusiones
 Sin deploy, preview, Vercel, datos reales, decisiones laborales automáticas, evaluaciones de personas por ranking, informes CEO no revisados ni promesas de ROI verificadas.
+
+
+## P0 · Recorrido ejecutable (última iteración)
+
+- [x] Orquestador offline de una edición sintética: intake → cuarentena → valoración provisional de solución → grafo de propuestas → escenarios → informe → roadmap → economics → assurance.
+- [x] Generador local de paquete ejecutivo HTML/MD/CSV/JSON y manifiesto SHA256 con rechazo de sobrescritura alterada.
+- [x] Verificación local de un solo comando, sin infraestructura externa.
+- [ ] Ejecutar las pruebas completas Node y adjuntar `artifacts/local-verification.json` (issue [#22](https://github.com/jandromani/AIFIRST/issues/22)).
+- [ ] Validación visual del HTML y experiencia de revisión por dirección, con fuentes, contraste y accesibilidad.
+- [ ] Controles G3/G4 auténticos, datos autorizados y piloto bajo contrato (issue [#23](https://github.com/jandromani/AIFIRST/issues/23)).
+- [ ] Atomicidad de exportación, firma verificable de manifest y persistencia duradera en almacenamiento seguro.

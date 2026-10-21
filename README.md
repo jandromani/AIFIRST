@@ -60,3 +60,16 @@ npm run export:engagement     # informe MD + roadmap CSV + trace y hashes, bajo 
 Fuente del flujo: [vertical-slice.json](catalog/vertical-slice.json) · [Guía y límites](docs/VERTICAL_SLICE.md) · [Definition of Done](docs/DEFINITION_OF_DONE.md) · [P0 Node E2E](https://github.com/jandromani/AIFIRST/issues/22).
 
 **No interpreta las firmas sintéticas como reales ni libera G3–G7.** El borrador tampoco acredita ahorro, seguridad, privacidad ni competencias laborales. Las pruebas reales de Node, los permisos, los conectores y un piloto autorizado siguen pendientes.
+
+
+## Verificación de extremo a extremo y salida para CEO
+
+El prototipo `0.2` incorpora [un informe HTML responsive y sin dependencias externas](docs/VERTICAL_SLICE.md), así como Markdown, CSV, traza y manifiesto SHA256. Los archivos aparecen **únicamente** al solicitar la exportación, bajo `artifacts/` (ignorado por Git).
+
+```bash
+npm run simulate:engagement  # imprimir simulación; sin persistir
+npm run export:engagement    # generar 5 archivos del paquete sintético
+npm run verify:local         # ejecutar Node tests, gates, E2E, Atlas y guardar evidencia
+```
+
+El protocolo de QA se documenta en [VERIFY_LOCAL.md](docs/VERIFY_LOCAL.md). La ejecución completa de Node **no se ha podido efectuar en este entorno** por bloqueo de acceso a github.com desde el contenedor; el comando queda listo para el siguiente checkout con red. Ningún test concede autorización real G3–G7.
