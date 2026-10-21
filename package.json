@@ -10,6 +10,9 @@
   "scripts": {
     "test": "node --test",
     "check:catalog": "node bin/aifirst.mjs catalog",
-    "check:synthetic": "node bin/aifirst.mjs gates examples/synthetic"
+    "check:synthetic": "node bin/aifirst.mjs gates examples/synthetic",
+    "check:phase2": "node bin/phase2.mjs validate-demo examples/phase2",
+    "inspect:phase2": "node bin/phase2.mjs inspect examples/phase2",
+    "build:atlas": "node bin/build-atlas.mjs"
   }
 }

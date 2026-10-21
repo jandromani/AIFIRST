@@ -6,13 +6,13 @@ import {CONTRACTS,validateContract,validateCatalog,readJson,loadBundle,evaluateG
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const fx=path.join(root,"examples/synthetic");
 const doc=k=>readJson(path.join(fx,k+".json"));
-test("catalog 54 nodes and 20 resolved edges",()=>{
+test("catalog 135 nodes and 68 resolved edges",()=>{
  const g=readJson(path.join(root,"catalog/operating-model.json"));
- assert.equal(g.domainCount,5);assert.equal(g.componentCount,54);assert.equal(g.edges.length,20);
+ assert.equal(g.domainCount,12);assert.equal(g.componentCount,135);assert.equal(g.edges.length,68);
  assert.deepEqual(validateCatalog(g),[]);
 });
 test("synthetic contracts validate",()=>{
- for (const k of CONTRACTS.filter(k=>k!=="GateApproval"))assert.deepEqual(validateContract(k,doc(k),root),[],k);
+ for (const k of ["ClientBrief","SalesQualification","PricingQuote","EngagementConfig","CompanyContext","RiskRegister","ChallengeBrief","Rubric"])assert.deepEqual(validateContract(k,doc(k),root),[],k);
  for (const gate of ["G0","G1","G2"])assert.deepEqual(validateContract("GateApproval",doc(gate+".approval"),root),[],gate);
 });
 test("gates G0 G1 G2 pass on synthetic approvals (not legally verified)",()=>{

@@ -126,7 +126,7 @@ export function planJobs(packet,jobSpecs,maxBudget,root){
   if(!job.input_refs?.includes(packet.package_id))errors.push("Job missing normalized input");
   if(job.state!=="queued")errors.push("Only queued job allowed");
   total+=job.max_cost_eur||0;
-  planned.push({...job,state:packet.gate_g3==="approved"&&!packet.quarantine?"queued":"blocked"});
+  planned.push({...job,state:"blocked"});
  }
  if(total>maxBudget)errors.push("Budget exceeded");
  return {ok:errors.length===0,errors,jobs:errors.length?[]:planned,planned_budget_eur:total,
@@ -216,7 +216,10 @@ export function aggregateCapabilities(capabilities,unitAlias,eligiblePopulation,
  eligible_population:eligiblePopulation,k_threshold:k,suppressed:aliases.size<k,
  coverage_note:"Observed approved contributors only; not an estimate of workforce proficiency."}));
 }
-export function compareSolutions(evaluations){
+export function compareSolutions(evaluations,verifiedG4=false){
+ // This offline prototype cannot authenticate gate signers. Fail closed, even if JSON claims approval.
+ if(verifiedG4!==true)return [];
+ throw Error("G4 attestation verifier is not implemented; definitive rankings are unavailable offline.");
  const groups=new Map();
  for(const x of evaluations){
   if(x.review_state!=="jury_approved"||x.veto_flags?.length||!Number.isFinite(x.weighted_score))continue;
