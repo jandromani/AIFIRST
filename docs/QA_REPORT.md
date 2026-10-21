@@ -35,3 +35,12 @@ npm run build:atlas
 
 ## Próximo gate de calidad
 Ejecutar las suites Node en checkout, registrar consola, corregir cualquier error, probar Atlas offline en navegador y verificar confidencialidad con asesoría legal/DPO antes de una empresa real. Issues #1, #2 y #7–#21.
+
+## Comprobación final de publicación del Atlas (01–20)
+
+- 11/11 controles de integridad finales aprobados sobre la revisión publicada: catálogo 20 dominios/230 componentes, 230 referencias, ocho gates, 41 esquemas, ocho workflows 13–20, JavaScript sintácticamente válido, ausencia de scripts remotos y suites presentes.
+- Detectada y **corregida** una discrepancia temporal del HTML: después de enriquecer los 230 nodos con metadatos de fuente, `web/atlas.html` fue regenerado y volvió a ser **idéntico** al resultado derivado de `web/atlas.template.html` + `catalog/operating-model.json`.
+- Árbol GitHub confirmado: **140 archivos**, ocho fichas 13–20, cuatro suites de tests (`contracts`, `atlas`, `phase2`, `phase3`), 41 esquemas individuales. Sin `.github/workflows`, `.vercel/` ni `vercel.json`.
+- Issues nuevos #14–#21 **abiertos** para implantación real de los módulos 13–20. Issue #6 actualizado como tracker global.
+
+**Límite de verificación vigente:** las comprobaciones publicadas son análisis estructural y V8 con mocks; no hay constancia de `npm test` real, browser E2E ni pilotaje empresarial autorizado.
