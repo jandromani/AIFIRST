@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "tenant_id": "demo-tenant",
+  "engagement_id": "demo-engagement",
+  "model_id": "price:vertical-synthetic",
+  "sku": "sprint",
+  "currency": "EUR",
+  "participant_cap": 50,
+  "submission_cap": 15,
+  "service_hours": 75,
+  "service_hourly_eur": 65,
+  "jury_cost_eur": 1600,
+  "prizes_cost_eur": 3500,
+  "compute_budget_eur": 500,
+  "security_cost_eur": 1000,
+  "other_direct_cost_eur": 250,
+  "contingency_rate": 0.1,
+  "target_gross_margin": 0.4,
+  "offered_price_eur": 25000,
+  "assumptions": [
+    "Synthetic scenario",
+    "No production infrastructure or external authorization",
+    "Employee time and company overhead excluded"
+  ]
+}

@@ -14,6 +14,7 @@
     "check:phase2": "node bin/phase2.mjs validate-demo examples/phase2",
     "inspect:phase2": "node bin/phase2.mjs inspect examples/phase2",
     "build:atlas": "node bin/build-atlas.mjs",
-    "check:phase3": "node bin/phase3.mjs demo examples/phase3"
+    "check:phase3": "node bin/phase3.mjs demo examples/phase3",
+    "simulate:engagement": "node bin/engagement.mjs simulate"
   }
 }
