@@ -32,3 +32,21 @@ npm test
 - Pruebas Node + browser en checkout local y ensayo autorizado con datos de prueba controlados.
 
 **No confundir la bandera `synthetic` con un mecanismo de protección para datos reales.** El CLI solo usa rutas fijas de fixtures públicos y no permite apuntar a carpetas de clientes.
+
+## Salidas reproducibles en disco (opcional)
+
+Solo con datos sintéticos fijos:
+
+```bash
+npm run simulate:engagement
+node bin/engagement.mjs simulate --write
+```
+
+El primer comando **no escribe archivos**. El segundo crea en `artifacts/synthetic-engagement-<hash>/` los siguientes:
+
+- `Executive_Draft.md`: informe ejecutivo en español con ocho gates no verificados y riesgos explícitos.
+- `Roadmap_Draft.csv`: hitos D30/D60/D90 y bloqueo G7, con protección de celdas frente a fórmulas.
+- `Evidence_Trace.json`: rastro de las diez etapas, sin fichas personales.
+- `Artifact_Manifest.json`: huella SHA-256 y tamaño de cada fichero.
+
+La escritura es reproducible: si un archivo existente difiere del original, se rechaza sobrescribirlo. `artifacts/` está en `.gitignore`. Nunca subir informes con datos personales o proyectos reales a este repositorio público. Esto **no acredita** firma humana, seguridad del contenido, medida empresarial ni despliegue.
