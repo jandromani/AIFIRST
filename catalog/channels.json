@@ -1,0 +1,106 @@
+{
+  "version": "1.0.0",
+  "channels": [
+    {
+      "id": "web-form",
+      "direction": "input",
+      "purpose": "Registro de ficha comercial o encuesta sponsor",
+      "contracts": [
+        "ClientBrief",
+        "CompanyContext"
+      ],
+      "owner": "Growth / Consultant",
+      "authentication": "Needed in production",
+      "control": "Validation, purpose notice, encryption",
+      "status": "DESIGN"
+    },
+    {
+      "id": "interview",
+      "direction": "input",
+      "purpose": "Actas validadas por sponsor",
+      "contracts": [
+        "CompanyContext"
+      ],
+      "owner": "Consultant",
+      "authentication": "Recorded author",
+      "control": "Source reference and explicit confirmation",
+      "status": "DESIGN"
+    },
+    {
+      "id": "spreadsheet",
+      "direction": "input",
+      "purpose": "Inventario agregado de procesos, KPIs",
+      "contracts": [
+        "CompanyContext"
+      ],
+      "owner": "Client sponsor",
+      "authentication": "Private submission",
+      "control": "Column mapping, quality gate, no employee roster",
+      "status": "DESIGN"
+    },
+    {
+      "id": "private-drive",
+      "direction": "input",
+      "purpose": "Evidencias y documentos de alcance",
+      "contracts": [
+        "CompanyContext",
+        "ChallengeBrief"
+      ],
+      "owner": "Client IT",
+      "authentication": "Tenant RBAC",
+      "control": "Version/hash/malware/secret checks; never GitHub",
+      "status": "DESIGN"
+    },
+    {
+      "id": "legal-approval",
+      "direction": "bidirectional",
+      "purpose": "Acta humana de aprobación",
+      "contracts": [
+        "EngagementConfig",
+        "RiskRegister",
+        "GateApproval"
+      ],
+      "owner": "Legal / DPO",
+      "authentication": "Verified signer required",
+      "control": "Offline CLI checks only metadata; external identity verification required",
+      "status": "DESIGN"
+    },
+    {
+      "id": "commercial-email",
+      "direction": "bidirectional",
+      "purpose": "Notificaciones de lead y contrato",
+      "contracts": [
+        "ClientBrief"
+      ],
+      "owner": "Growth",
+      "authentication": "Corporate identity",
+      "control": "No confidential attachments by default",
+      "status": "DESIGN"
+    },
+    {
+      "id": "jury-workspace",
+      "direction": "bidirectional",
+      "purpose": "Conflictos y revisión de entregas",
+      "contracts": [
+        "Rubric"
+      ],
+      "owner": "Challenge lead",
+      "authentication": "Independent juror identity",
+      "control": "NDA, recusals, traceable reviews",
+      "status": "FUTURE"
+    },
+    {
+      "id": "report-export",
+      "direction": "output",
+      "purpose": "Informe ejecutivo de la edición",
+      "contracts": [
+        "CompanyContext",
+        "Rubric"
+      ],
+      "owner": "Engagement lead",
+      "authentication": "Authorized client recipients",
+      "control": "Aggregated, human reviewed, no automatic labor decisions",
+      "status": "FUTURE"
+    }
+  ]
+}

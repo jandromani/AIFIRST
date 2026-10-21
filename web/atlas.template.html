@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIFIRST · Operating Atlas / 01–05</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#202c3b;background:#f6f8fc}
+*{box-sizing:border-box}body{margin:0;display:flex;flex-direction:column;height:100dvh;min-height:600px}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,[role=button]:focus-visible{outline:3px solid #f3a995;outline-offset:2px}
+header{background:white;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;border-bottom:1px solid #e1e5ed;padding:16px 25px}
+.brand{font-size:18px;font-weight:800;letter-spacing:-.6px}.brand b{color:#ec6251}.tag{font-size:10px;letter-spacing:.1em;color:#7b8694;font-weight:700;text-transform:uppercase}
+header .minor{font-size:11px;color:#7c8797}
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:#fff;padding:9px 20px;border-bottom:1px solid #e3e7ee}
+input,select{padding:10px 12px;border:1px solid #dbe1e9;border-radius:9px;background:#f8fafc;font-size:12px;color:#36485d}
+input{min-width:220px;flex:1;max-width:350px}button{background:#fff;border:1px solid #dbe1eb;color:#48576c;padding:8px 11px;border-radius:8px;font-size:12px;font-weight:700}
+button:hover{border-color:#ee8b76;color:#d75041}
+.meta{display:flex;gap:16px;font-size:11px;color:#727f8f;margin-left:auto}.meta b{font-size:15px;color:#233146}
+.shell{position:relative;flex:1;min-height:250px;background-image:radial-gradient(#e0e7f0 .85px,transparent .85px);background-size:19px 19px;overflow:hidden}
+svg{width:100%;height:100%;display:block;touch-action:none;cursor:grab}.dragging{cursor:grabbing}
+svg text{font-family:inherit;pointer-events:none}.edge{fill:none;stroke:#a9b8c9;stroke-width:2;opacity:.55;pointer-events:none}
+.edge.highlight{stroke:#f16f59;opacity:1;stroke-width:3}
+.node{cursor:pointer}.node rect{fill:#fff;stroke:#d6dfeb;stroke-width:1.3;rx:9}
+.node:hover rect,.node.selected rect{stroke:#ed6552;stroke-width:3;fill:#fff9f6}
+.node.dim{opacity:.18}.node text{fill:#33435a;font-size:11px;font-weight:680}
+.node .sub{font-size:9px;fill:#8592a2;font-weight:500}
+.domain-title{font-size:16px;font-weight:750;fill:#263446}.domain-label{fill:#8190a0;font-size:10px;font-weight:650}
+.frame{fill:#ffffffa8;stroke:#e0e5ed;stroke-width:1.5;rx:16}
+.stage{fill:#f4e6e2;stroke:#ecc2b8}
+.detail{display:none;position:absolute;right:16px;top:16px;bottom:16px;width:min(420px,calc(100% - 32px));background:#fff;border-radius:16px;border:1px solid #e1e6ef;box-shadow:0 20px 90px #1d2d4840;overflow:auto;padding:20px;z-index:4}
+.detail.open{display:block}.detail h2{font-size:20px;line-height:1.2;margin:10px 0 5px}
+.detail h3{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#8792a2;margin:22px 0 8px}
+.detail p{font-size:13px;line-height:1.65;color:#40516a;margin:5px 0}
+.detail .closed{float:right}.detail .edge-btn{display:block;text-align:left;width:100%;margin:6px 0;padding:9px;background:#f8fafc}
+.small{font-size:11px;color:#8793a3;line-height:1.6}
+footer{padding:8px 22px;font-size:10px;color:#8591a0;background:#fff;border-top:1px solid #e8eaf0}
+.note{position:absolute;left:16px;top:12px;background:#ffffffea;pointer-events:none;border:1px solid #e4e8ed;border-radius:10px;padding:10px 13px;font-size:11px;color:#657487;z-index:1}
+@media(max-width:650px){header{padding:12px}.toolbar{padding:9px}.meta{width:100%;margin-left:0}.note{display:none}.detail{left:8px;right:8px;top:auto;bottom:8px;width:auto;max-height:70dvh}footer{padding:8px}}
+</style>
+</head><body>
+<header><div><div class="brand">◈ <b>AIFIRST</b> / Operating Atlas</div><div class="tag">01–05 · Empresa como sistema · diseño verificable</div></div><div class="minor">Standalone · Sin Vercel · Sin API · Datos sintéticos</div></header>
+<section class="toolbar"><select id="domain" aria-label="Filtrar dominio"><option value="">Todos los dominios</option></select><input id="query" type="search" aria-label="Buscar" placeholder="Buscar proceso, entrada, salida, control..."><button id="plus" title="Acercar">＋</button><button id="minus" title="Alejar">−</button><button id="reset" title="Reencuadrar">⤢</button><span class="meta"><span><b id="n">54</b> nodos</span><span><b id="e">20</b> enlaces</span><span><b>3</b> gates</span></span></section>
+<main class="shell"><div class="note">Pulsa cualquier nodo · Explora entradas, salidas y criterios de aceptación · Zoom y arrastre</div>
+<svg id="graph" viewBox="0 0 1820 1110" role="img" aria-label="Grafo interactivo de 54 componentes en cinco dominios">
+<g id="panzoom"><g id="edges"></g><g id="nodes"></g></g></svg>
+<aside id="details" class="detail" aria-live="polite"><button id="close" class="closed" aria-label="Cerrar">✕</button><span id="domainName" class="tag"></span><h2 id="nodeTitle"></h2><p id="nodeId" class="small"></p>
+<h3>Input · Qué necesita</h3><p id="in"></p><h3>Output · Qué entrega</h3><p id="out"></p>
+<h3>Criterio de aceptación</h3><p id="accept"></p><h3>Responsable / Estado</h3><p id="owner"></p><h3>Relaciones del grafo</h3><div id="related"></div>
+<p class="small">Un nodo diseñado no significa que su proceso esté implantado. Los gates requieren actas humanas verificables.</p></aside></main>
+<footer>Fuente canónica: catalog/operating-model.json · 5 dominios · 54 componentes de diseño · No hay evaluaciones reales de personas</footer>
+<script id="graph-data" type="application/json">__GRAPH_JSON__</script>
+<script>
+"use strict";
+const model=JSON.parse(document.getElementById("graph-data").textContent);
+const ns="http://www.w3.org/2000/svg", graph=document.getElementById("graph"), viewport=document.getElementById("panzoom"), edgesLayer=document.getElementById("edges"), nodesLayer=document.getElementById("nodes");
+const select=document.getElementById("domain"), search=document.getElementById("query"), pane=document.getElementById("details");
+const nodes=model.domains.flatMap((d,ix)=>d.components.map((n,i)=>({...n,domain:d,x:33+ix*355,y:167+i*62})));
+const byId=new Map(nodes.map(n=>[n.id,n]));const elById=new Map();const edgeElements=[];let selected=null,scale=1,tx=0,ty=0,drag=null;
+const make=(tag,attrs={},parent)=>{const e=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));if(parent)parent.appendChild(e);return e};
+function label(parent,value,x,y,cls){const e=make("text",{x,y,class:cls||""},parent);e.textContent=value;return e}
+const trim=(s,n)=>s.length>n?s.slice(0,n-1)+"…":s;
+for(const [i,d] of model.domains.entries()){
+ const x=20+i*355;make("rect",{class:"frame",x,y:80,width:333,height:1010},nodesLayer);
+ make("rect",{class:"stage",x:x+13,y:103,width:42,height:29,rx:8},nodesLayer);
+ label(nodesLayer,String(d.number).padStart(2,"0"),x+24,122,"domain-label");
+ label(nodesLayer,d.title,x+60,122,"domain-title");
+ label(nodesLayer,d.owner,x+18,151,"domain-label");
+ const opt=document.createElement("option");opt.value=d.id;opt.textContent=d.title;select.appendChild(opt);
+}
+for(const edge of model.edges){
+ const a=byId.get(edge.from),b=byId.get(edge.to);
+ if(!a||!b)continue;
+ const startX=a.x+302,startY=a.y+22,endX=b.x,endY=b.y+22;
+ const p=make("path",{class:"edge",d:"M "+startX+" "+startY+" C "+(startX+40)+" "+startY+" "+(endX-40)+" "+endY+" "+endX+" "+endY},edgesLayer);
+ edgeElements.push({edge,p});
+}
+for(const n of nodes){
+ const g=make("g",{class:"node",role:"button",tabindex:"0","aria-label":n.title},nodesLayer);
+ make("rect",{x:n.x,y:n.y,width:302,height:49},g);
+ label(g,trim(n.title,40),n.x+12,n.y+20);
+ label(g,n.id,n.x+12,n.y+36,"sub");
+ g.addEventListener("click",()=>show(n.id));
+ g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();show(n.id)}});
+ elById.set(n.id,g);
+}
+function show(id){
+ selected=id;const n=byId.get(id);if(!n)return;
+ pane.classList.add("open");
+ const set=(key,value)=>document.getElementById(key).textContent=value;
+ set("domainName",n.domain.title);set("nodeTitle",n.title);set("nodeId",n.id);
+ set("in",n.inputs);set("out",n.outputs);set("accept",n.acceptance);set("owner",n.owner+" · "+n.status);
+ const related=document.getElementById("related");related.replaceChildren();
+ const hits=model.edges.filter(e=>e.from===id||e.to===id);
+ if(!hits.length){const p=document.createElement("p");p.textContent="Sin relaciones específicas registradas todavía.";related.appendChild(p)}
+ for(const edge of hits){const dest=edge.from===id?edge.to:edge.from;const b=document.createElement("button");b.className="edge-btn";b.textContent=(edge.from===id?"→ ":"← ")+byId.get(dest).title;b.onclick=()=>show(dest);related.appendChild(b)}
+ updateStyles();
+}
+function updateStyles(){
+ const term=search.value.trim().toLowerCase(),domain=select.value;
+ const linked=new Set(selected?[selected]:[]);
+ for(const e of model.edges)if(e.from===selected)linked.add(e.to);else if(e.to===selected)linked.add(e.from);
+ let visible=0;
+ for(const n of nodes){
+  const match=(!domain||n.domain.id===domain)&&(!term||[n.title,n.id,n.inputs,n.outputs,n.acceptance].join(" ").toLowerCase().includes(term));
+  if(match)visible++;
+  const element=elById.get(n.id);element.classList.toggle("dim",!match||(selected&&!linked.has(n.id)));element.classList.toggle("selected",n.id===selected);
+ }
+ for(const item of edgeElements){item.p.classList.toggle("highlight",!!selected&&(item.edge.from===selected||item.edge.to===selected))}
+ document.getElementById("n").textContent=visible;
+}
+function transform(){viewport.setAttribute("transform","translate("+tx+" "+ty+") scale("+scale+")")}
+graph.addEventListener("wheel",e=>{e.preventDefault();scale=Math.min(2.6,Math.max(.45,scale*(e.deltaY>0?.90:1.1)));transform()},{passive:false});
+graph.addEventListener("pointerdown",e=>{if(e.target.closest(".node"))return;drag={x:e.clientX,y:e.clientY,tx,ty};graph.classList.add("dragging");graph.setPointerCapture(e.pointerId)});
+graph.addEventListener("pointermove",e=>{if(!drag)return;const rect=graph.getBoundingClientRect();tx=drag.tx+(e.clientX-drag.x)*1820/rect.width;ty=drag.ty+(e.clientY-drag.y)*1110/rect.height;transform()});
+graph.addEventListener("pointerup",()=>{drag=null;graph.classList.remove("dragging")});
+search.addEventListener("input",updateStyles);select.addEventListener("change",updateStyles);
+document.getElementById("close").onclick=()=>{selected=null;pane.classList.remove("open");updateStyles()};
+document.getElementById("plus").onclick=()=>{scale=Math.min(2.6,scale*1.2);transform()};
+document.getElementById("minus").onclick=()=>{scale=Math.max(.45,scale/1.2);transform()};
+document.getElementById("reset").onclick=()=>{tx=ty=0;scale=1;selected=null;pane.classList.remove("open");search.value="";select.value="";transform();updateStyles()};
+updateStyles();
+</script></body></html>
