@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AIFIRST · Operating Atlas / 01–12</title>
+<title>AIFIRST · Operating Atlas / 01–20</title>
 <style>
 :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#202c3b;background:#f6f8fc}
 *{box-sizing:border-box}body{margin:0;display:flex;flex-direction:column;height:100dvh;min-height:600px}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,[role=button]:focus-visible{outline:3px solid #f3a995;outline-offset:2px}
@@ -34,16 +34,16 @@ footer{padding:8px 22px;font-size:10px;color:#8591a0;background:#fff;border-top:
 @media(max-width:650px){header{padding:12px}.toolbar{padding:9px}.meta{width:100%;margin-left:0}.note{display:none}.detail{left:8px;right:8px;top:auto;bottom:8px;width:auto;max-height:70dvh}footer{padding:8px}}
 </style>
 </head><body>
-<header><div><div class="brand">◈ <b>AIFIRST</b> / Operating Atlas</div><div class="tag">01–12 · Empresa como sistema · diseño verificable</div></div><div class="minor">Standalone · Sin Vercel · Sin API · Datos sintéticos</div></header>
-<section class="toolbar"><select id="domain" aria-label="Filtrar dominio"><option value="">Todos los dominios</option></select><input id="query" type="search" aria-label="Buscar" placeholder="Buscar proceso, entrada, salida, control..."><button id="plus" title="Acercar">＋</button><button id="minus" title="Alejar">−</button><button id="reset" title="Reencuadrar">⤢</button><span class="meta"><span><b id="n">135</b> nodos</span><span><b id="e">68</b> enlaces</span><span><b>3</b> gates</span></span></section>
+<header><div><div class="brand">◈ <b>AIFIRST</b> / Operating Atlas</div><div class="tag">01–20 · Empresa como sistema · diseño verificable</div></div><div class="minor">Standalone · Sin Vercel · Sin API · Datos sintéticos</div></header>
+<section class="toolbar"><select id="domain" aria-label="Filtrar dominio"><option value="">Todos los dominios</option></select><input id="query" type="search" aria-label="Buscar" placeholder="Buscar proceso, entrada, salida, control..."><button id="plus" title="Acercar">＋</button><button id="minus" title="Alejar">−</button><button id="reset" title="Reencuadrar">⤢</button><span class="meta"><span><b id="n">230</b> nodos</span><span><b id="e">171</b> enlaces</span><span><b>8</b> gates</span></span></section>
 <main class="shell"><div class="note">Pulsa cualquier nodo · Explora entradas, salidas y criterios de aceptación · Zoom y arrastre</div>
-<svg id="graph" viewBox="0 0 1820 1110" role="img" aria-label="Grafo interactivo de 135 componentes en cinco dominios">
+<svg id="graph" viewBox="0 0 1820 1110" role="img" aria-label="Grafo interactivo de 230 componentes en cinco dominios">
 <g id="panzoom"><g id="edges"></g><g id="nodes"></g></g></svg>
 <aside id="details" class="detail" aria-live="polite"><button id="close" class="closed" aria-label="Cerrar">✕</button><span id="domainName" class="tag"></span><h2 id="nodeTitle"></h2><p id="nodeId" class="small"></p>
 <h3>Input · Qué necesita</h3><p id="in"></p><h3>Output · Qué entrega</h3><p id="out"></p>
 <h3>Criterio de aceptación</h3><p id="accept"></p><h3>Responsable / Estado</h3><p id="owner"></p><h3>Relaciones del grafo</h3><div id="related"></div>
 <p class="small">Un nodo diseñado no significa que su proceso esté implantado. Los gates requieren actas humanas verificables.</p></aside></main>
-<footer>Fuente canónica: catalog/operating-model.json · 12 dominios · 135 componentes de diseño · No hay evaluaciones reales de personas</footer>
+<footer>Fuente canónica: catalog/operating-model.json · 20 dominios · 230 componentes de diseño · No hay evaluaciones reales de personas</footer>
 <script id="graph-data" type="application/json">__GRAPH_JSON__</script>
 <script>
 "use strict";

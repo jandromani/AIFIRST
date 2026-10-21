@@ -6,9 +6,9 @@ import {CONTRACTS,validateContract,validateCatalog,readJson,loadBundle,evaluateG
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const fx=path.join(root,"examples/synthetic");
 const doc=k=>readJson(path.join(fx,k+".json"));
-test("catalog 135 nodes and 68 resolved edges",()=>{
+test("catalog 230 nodes and 171 resolved edges",()=>{
  const g=readJson(path.join(root,"catalog/operating-model.json"));
- assert.equal(g.domainCount,12);assert.equal(g.componentCount,135);assert.equal(g.edges.length,68);
+ assert.equal(g.domainCount,20);assert.equal(g.componentCount,230);assert.equal(g.edges.length,171);
  assert.deepEqual(validateCatalog(g),[]);
 });
 test("synthetic contracts validate",()=>{

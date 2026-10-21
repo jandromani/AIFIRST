@@ -1,11 +1,16 @@
-# Operating Atlas · Contrato de navegación
+# Operating Atlas · Contrato único 01–20
 
-Archivo HTML offline: [web/atlas.html](../web/atlas.html). Se genera desde `catalog/operating-model.json` mediante `npm run build:atlas`. **No editar directamente el HTML generado**.
+**20 dominios · 230 componentes · 171 relaciones** en `catalog/operating-model.json`. Se han incorporado los 95 nodos originales 13–20 con sus criterios de aceptación. Todos los nodos están documentados, no necesariamente implementados.
 
-Cobertura actual: **12 dominios, 135 componentes y 68 relaciones**. El anterior blueprint completo contiene 20 dominios/230 nodos pero **los ocho restantes no están migrados aquí**.
+## Abrir offline
+1. `npm run build:atlas` regenera `web/atlas.html` desde el catálogo.
+2. Abrir `web/atlas.html` con el navegador (sin servidor, sin Vercel, sin CDN).
+3. Seleccionar dominio, buscar piezas, navegar conexiones y abrir paneles de aceptación.
 
-El catálogo contiene nodos en estado DESIGN: tener ficha de aceptación, dueño y dependencia no significa que haya servicio productivo. `catalog/implementation-status.json` especifica qué nodos tienen prototipo offline y los requisitos externos todavía pendientes.
+El grafo es un inventario de requisitos y dependencias; **no puede demostrar que 230 capacidades estén funcionando**. Consultar `catalog/implementation-status.json` para los estados. `docs/modules/` conserva el detalle de cada dominio.
 
-Navegación: filtrar dominio para desplazar la vista, buscar por nombre/ID/entrada/salida, seleccionar nodos para ver ficha y saltar a dependencias; zoom y arrastre. Sin APIs externas.
+## G0–G7
+Los ocho gates están definidos en `catalog/gates.json`. Los JSON y CLI muestran evaluaciones sintácticas y preparación de paquetes; G3–G7 no pueden autorizarse con valores ficticios. Las firmas y los permisos requieren sistemas y personas verificadas.
 
-Relaciones actuales: `INFORMS`. En la iteración de grafo 13 se añadirán `REQUIRES`, `PRODUCES`, `GOVERNED_BY`, `EVIDENCED_BY`, `APPROVED_BY` y `COSTED_BY` para trazabilidad total.
+## Próximo incremento
+Relaciones contractuales tipadas (REQUIRES, PRODUCES, GOVERNED_BY, EVIDENCED_BY, APPROVED_BY, COSTED_BY) y reconciliación automática con evidencias operativas. No inferir una relación porque esté dibujada.
