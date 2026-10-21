@@ -16,6 +16,7 @@
     "build:atlas": "node bin/build-atlas.mjs",
     "check:phase3": "node bin/phase3.mjs demo examples/phase3",
     "simulate:engagement": "node bin/engagement.mjs simulate",
-    "export:engagement": "node bin/engagement.mjs simulate --write"
+    "export:engagement": "node bin/engagement.mjs simulate --write",
+    "verify:local": "node bin/verify-local.mjs"
   }
 }
