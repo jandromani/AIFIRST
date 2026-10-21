@@ -1,0 +1,73 @@
+{
+  "version": "1.0.0",
+  "source": "AI_FIRST_OPERATING_ATLAS.html",
+  "delivery_status": "DRAFT_MANIFEST_ONLY",
+  "deliverables": [
+    {
+      "id": "EX01",
+      "name": "CEO Report (PDF)",
+      "audience": "CEO / Comité",
+      "format": "PDF"
+    },
+    {
+      "id": "EX02",
+      "name": "Board Presentation",
+      "audience": "Comité de dirección",
+      "format": "PPTX/PDF"
+    },
+    {
+      "id": "EX03",
+      "name": "Solution Portfolio",
+      "audience": "CIO / Innovación",
+      "format": "HTML + CSV"
+    },
+    {
+      "id": "EX04",
+      "name": "Capability Atlas agregado",
+      "audience": "RRHH / Formación",
+      "format": "HTML + CSV"
+    },
+    {
+      "id": "EX05",
+      "name": "Knowledge Graph",
+      "audience": "Transformación / Arquitectura",
+      "format": "Graph JSON + HTML"
+    },
+    {
+      "id": "EX06",
+      "name": "Org Scenario Pack",
+      "audience": "Dirección / RRHH",
+      "format": "PDF + JSON restringido"
+    },
+    {
+      "id": "EX07",
+      "name": "Roadmap 30/60/90",
+      "audience": "PMO / Sponsors",
+      "format": "CSV/JSON/PM tool"
+    },
+    {
+      "id": "EX08",
+      "name": "Technical & Risk Annex",
+      "audience": "TI / DPO / Seguridad",
+      "format": "PDF + JSON"
+    },
+    {
+      "id": "EX09",
+      "name": "Feedback privado",
+      "audience": "Participante autorizado",
+      "format": "PDF/Portal"
+    },
+    {
+      "id": "EX10",
+      "name": "Activation Bundle",
+      "audience": "Equipo de ejecución",
+      "format": "PM tool / JSON"
+    },
+    {
+      "id": "EX11",
+      "name": "Audit / Exit Bundle",
+      "audience": "Cliente / Auditoría",
+      "format": "ZIP cifrado + CSV"
+    }
+  ]
+}

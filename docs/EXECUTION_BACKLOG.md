@@ -42,3 +42,18 @@ Sin deploy, preview, Vercel, datos reales, decisiones laborales automáticas, ev
 - [ ] Validación visual del HTML y experiencia de revisión por dirección, con fuentes, contraste y accesibilidad.
 - [ ] Controles G3/G4 auténticos, datos autorizados y piloto bajo contrato (issue [#23](https://github.com/jandromani/AIFIRST/issues/23)).
 - [ ] Atomicidad de exportación, firma verificable de manifest y persistencia duradera en almacenamiento seguro.
+
+## Entrega local A–E · Un solo commit
+
+- [x] Motor local Node 22 + SQLite, roles tokenizados e aislamiento tenant con pruebas reales.
+- [x] Intake API HTTP loopback, formulario local, upload binario, SHA-256, cuarentena y ClamAV opcional.
+- [x] Modelo HTTPS explícito, costes estimados por job y revisión humana local sin decisiones laborales.
+- [x] Catálogo EX01–EX11 reconciliado con el HTML original y manifiestos tipados.
+- [x] CRM básico, contratos pendientes, registro de facturas, conciliación manual declarada y premios no ejecutados.
+- [ ] Ejecutar todas las suites históricas `npm run verify:local` en un checkout de GitHub (issue #22).
+- [ ] Probar SSO/AV/PII/secrets + firmas verificadas y sandbox productivo (issues #2, #10, #19, #23, #26).
+- [ ] Integrar pasarela bancaria/ERP, pagos reales, premios, fiscalidad y conciliación auténtica (issue #25).
+- [ ] Renderizar y entregar PDF/PPTX/ZIP cifrados EX01–EX11, firmas G6 y G7 (issue #24).
+- [ ] Pentest, backups, retención y autorizaciones antes de una edición con personas reales.
+
+El 100 % de cobertura del Atlas no es 100 % de capacidades productivas. Ningún issue productivo se cierra por esta implementación local.

@@ -1,10 +1,10 @@
 {
-  "version": "0.1.0",
+  "version": "1.0.0",
   "scope": "FUTURE_DELIVERABLE_CONTRACTS",
   "outputs": [
     {
       "id": "EX01",
-      "name": "Executive Discovery Report",
+      "name": "CEO Report (PDF)",
       "audience": "CEO / Comité",
       "format": "PDF",
       "requires": [
@@ -12,8 +12,8 @@
         "EvaluationResult",
         "OrganizationScenario"
       ],
-      "acceptance": "Decisiones propuestas, evidencia, límites, escenarios y validación humana",
-      "stage": "ROADMAP",
+      "acceptance": "Resumen decisiones; Valor y prioridades; Límites y alcance; Riesgos clave; Roadmap",
+      "stage": "PREPARE_REPORT",
       "status": "DESIGN",
       "common_fields": [
         "deliverable_id",
@@ -26,24 +26,24 @@
         "review_status"
       ],
       "controls": [
-        "Tenant segregation",
-        "Evidence traceability",
-        "Recipient authorization",
-        "Human review",
-        "Retention policy"
+        "Evidence lineage",
+        "Scope and purpose",
+        "Role-based access",
+        "Human sign-off",
+        "Retention and deletion"
       ]
     },
     {
       "id": "EX02",
-      "name": "Portfolio de soluciones",
-      "audience": "Sponsor y líderes de proceso",
-      "format": "HTML/CSV",
+      "name": "Board Presentation",
+      "audience": "Comité de dirección",
+      "format": "PPTX/PDF",
       "requires": [
-        "ChallengeBrief",
-        "EvaluationResult"
+        "DeliverableManifest",
+        "RoadmapItem"
       ],
-      "acceptance": "Proyectos clasificados por resultados, pruebas y referencias",
-      "stage": "ROADMAP",
+      "acceptance": "Agenda decisiones; Escenarios; Inversión; Responsables; Aprobaciones",
+      "stage": "PREPARE_BOARD",
       "status": "DESIGN",
       "common_fields": [
         "deliverable_id",
@@ -56,24 +56,24 @@
         "review_status"
       ],
       "controls": [
-        "Tenant segregation",
-        "Evidence traceability",
-        "Recipient authorization",
-        "Human review",
-        "Retention policy"
+        "Evidence lineage",
+        "Scope and purpose",
+        "Role-based access",
+        "Human sign-off",
+        "Retention and deletion"
       ]
     },
     {
       "id": "EX03",
-      "name": "Mapa de oportunidades",
-      "audience": "Transformación",
-      "format": "JSON/HTML",
+      "name": "Solution Portfolio",
+      "audience": "CIO / Innovación",
+      "format": "HTML + CSV",
       "requires": [
-        "CompanyContext",
+        "SubmissionManifest",
         "EvaluationResult"
       ],
-      "acceptance": "Valor, esfuerzo, impacto, dependencias y baseline por caso",
-      "stage": "ROADMAP",
+      "acceptance": "Proyectos; Criterios; Pruebas; Riesgos; Viabilidad",
+      "stage": "PORTFOLIO",
       "status": "DESIGN",
       "common_fields": [
         "deliverable_id",
@@ -86,23 +86,23 @@
         "review_status"
       ],
       "controls": [
-        "Tenant segregation",
-        "Evidence traceability",
-        "Recipient authorization",
-        "Human review",
-        "Retention policy"
+        "Evidence lineage",
+        "Scope and purpose",
+        "Role-based access",
+        "Human sign-off",
+        "Retention and deletion"
       ]
     },
     {
       "id": "EX04",
-      "name": "Mapa de capacidades observadas",
-      "audience": "RRHH autorizado / DPO",
-      "format": "Agregado",
+      "name": "Capability Atlas agregado",
+      "audience": "RRHH / Formación",
+      "format": "HTML + CSV",
       "requires": [
         "CapabilityEvidence"
       ],
-      "acceptance": "Cobertura, muestra, sesgo y límites sin ranking laboral automático",
-      "stage": "ROADMAP",
+      "acceptance": "Cobertura de participantes; Capacidades evidenciadas; Incertidumbre; Brechas; Opciones formación",
+      "stage": "RESTRICTED_AGGREGATE",
       "status": "DESIGN",
       "common_fields": [
         "deliverable_id",
@@ -115,23 +115,24 @@
         "review_status"
       ],
       "controls": [
-        "Tenant segregation",
-        "Evidence traceability",
-        "Recipient authorization",
-        "Human review",
-        "Retention policy"
+        "Evidence lineage",
+        "Scope and purpose",
+        "Role-based access",
+        "Human sign-off",
+        "Retention and deletion"
       ]
     },
     {
       "id": "EX05",
-      "name": "Organizational Scenarios",
-      "audience": "Comité cliente",
-      "format": "PDF/JSON",
+      "name": "Knowledge Graph",
+      "audience": "Transformación / Arquitectura",
+      "format": "Graph JSON + HTML",
       "requires": [
-        "OrganizationScenario"
+        "GraphNode",
+        "GraphEdge"
       ],
-      "acceptance": "Alternativas con hipótesis, riesgos y decisiones sujetas a humanos",
-      "stage": "ROADMAP",
+      "acceptance": "Entidades; Relaciones; Fuentes; Reglas de acceso; Versiones",
+      "stage": "GRAPH_EXPORT",
       "status": "DESIGN",
       "common_fields": [
         "deliverable_id",
@@ -144,23 +145,23 @@
         "review_status"
       ],
       "controls": [
-        "Tenant segregation",
-        "Evidence traceability",
-        "Recipient authorization",
-        "Human review",
-        "Retention policy"
+        "Evidence lineage",
+        "Scope and purpose",
+        "Role-based access",
+        "Human sign-off",
+        "Retention and deletion"
       ]
     },
     {
       "id": "EX06",
-      "name": "Roadmap 30/60/90",
-      "audience": "Sponsor y PMO",
-      "format": "CSV/JSON",
+      "name": "Org Scenario Pack",
+      "audience": "Dirección / RRHH",
+      "format": "PDF + JSON restringido",
       "requires": [
-        "RoadmapItem"
+        "OrganizationScenario"
       ],
-      "acceptance": "Iniciativa, dueño, dependencias, inversión, aceptación y métrica",
-      "stage": "ROADMAP",
+      "acceptance": "≥3 escenarios; Tradeoffs; Estimaciones; Revisión humana; Dependencias",
+      "stage": "COMMITTEE_G5",
       "status": "DESIGN",
       "common_fields": [
         "deliverable_id",
@@ -173,23 +174,23 @@
         "review_status"
       ],
       "controls": [
-        "Tenant segregation",
-        "Evidence traceability",
-        "Recipient authorization",
-        "Human review",
-        "Retention policy"
+        "Evidence lineage",
+        "Scope and purpose",
+        "Role-based access",
+        "Human sign-off",
+        "Retention and deletion"
       ]
     },
     {
       "id": "EX07",
-      "name": "Evidence Ledger",
-      "audience": "Calidad / Auditoría",
-      "format": "JSON",
+      "name": "Roadmap 30/60/90",
+      "audience": "PMO / Sponsors",
+      "format": "CSV/JSON/PM tool",
       "requires": [
-        "EvidenceClaim"
+        "RoadmapItem"
       ],
-      "acceptance": "Claim→fuente→versión→evaluador→limitaciones",
-      "stage": "ASSURANCE",
+      "acceptance": "Iniciativas; KPIs; Owners; Fechas; Gates",
+      "stage": "ACTIVATION_ROADMAP",
       "status": "DESIGN",
       "common_fields": [
         "deliverable_id",
@@ -202,24 +203,25 @@
         "review_status"
       ],
       "controls": [
-        "Tenant segregation",
-        "Evidence traceability",
-        "Recipient authorization",
-        "Human review",
-        "Retention policy"
+        "Evidence lineage",
+        "Scope and purpose",
+        "Role-based access",
+        "Human sign-off",
+        "Retention and deletion"
       ]
     },
     {
       "id": "EX08",
-      "name": "Jury & Evaluation Audit",
-      "audience": "Comité evaluación",
-      "format": "JSON/PDF",
+      "name": "Technical & Risk Annex",
+      "audience": "TI / DPO / Seguridad",
+      "format": "PDF + JSON",
       "requires": [
-        "Rubric",
+        "RiskRecord",
+        "EvidenceClaim",
         "EvaluationResult"
       ],
-      "acceptance": "Jueces, recusaciones, conflictos, divergencias y apelaciones",
-      "stage": "ASSURANCE",
+      "acceptance": "Tests; Limitaciones; Datos; Seguridad; Cadena de evidencia",
+      "stage": "RISK_REVIEW",
       "status": "DESIGN",
       "common_fields": [
         "deliverable_id",
@@ -232,23 +234,23 @@
         "review_status"
       ],
       "controls": [
-        "Tenant segregation",
-        "Evidence traceability",
-        "Recipient authorization",
-        "Human review",
-        "Retention policy"
+        "Evidence lineage",
+        "Scope and purpose",
+        "Role-based access",
+        "Human sign-off",
+        "Retention and deletion"
       ]
     },
     {
       "id": "EX09",
-      "name": "Governance & Risk Pack",
-      "audience": "DPO / Legal / IT",
-      "format": "PDF/JSON",
+      "name": "Feedback privado",
+      "audience": "Participante autorizado",
+      "format": "PDF/Portal",
       "requires": [
-        "RiskRecord"
+        "CapabilityEvidence"
       ],
-      "acceptance": "Riesgos, tratamientos, controles, aprobaciones y pendientes",
-      "stage": "ASSURANCE",
+      "acceptance": "Contribución comprobada; Fortalezas observadas; Contexto; Limitaciones; Corrección",
+      "stage": "PRIVATE_PARTICIPANT_ONLY",
       "status": "DESIGN",
       "common_fields": [
         "deliverable_id",
@@ -261,24 +263,24 @@
         "review_status"
       ],
       "controls": [
-        "Tenant segregation",
-        "Evidence traceability",
-        "Recipient authorization",
-        "Human review",
-        "Retention policy"
+        "Evidence lineage",
+        "Scope and purpose",
+        "Role-based access",
+        "Human sign-off",
+        "Retention and deletion"
       ]
     },
     {
       "id": "EX10",
-      "name": "Value & Cost Case",
-      "audience": "Finanzas",
-      "format": "XLSX/CSV",
+      "name": "Activation Bundle",
+      "audience": "Equipo de ejecución",
+      "format": "PM tool / JSON",
       "requires": [
-        "PricingQuote",
+        "RoadmapItem",
         "PilotOutcome"
       ],
-      "acceptance": "Costes internos y del cliente, baseline, ahorro medido y sensibilidad",
-      "stage": "ASSURANCE",
+      "acceptance": "Charter; Backlog; Sprints; Medición; Handoff",
+      "stage": "ACTIVATION_HANDOFF",
       "status": "DESIGN",
       "common_fields": [
         "deliverable_id",
@@ -291,23 +293,24 @@
         "review_status"
       ],
       "controls": [
-        "Tenant segregation",
-        "Evidence traceability",
-        "Recipient authorization",
-        "Human review",
-        "Retention policy"
+        "Evidence lineage",
+        "Scope and purpose",
+        "Role-based access",
+        "Human sign-off",
+        "Retention and deletion"
       ]
     },
     {
       "id": "EX11",
-      "name": "Exit and Data Inventory",
-      "audience": "Compras / Seguridad",
-      "format": "JSON/PDF",
+      "name": "Audit / Exit Bundle",
+      "audience": "Cliente / Auditoría",
+      "format": "ZIP cifrado + CSV",
       "requires": [
-        "DeliverableManifest"
+        "DeliverableManifest",
+        "EventEnvelope"
       ],
-      "acceptance": "Exportación, conservación, borrado, permisos y confirmaciones",
-      "stage": "ASSURANCE",
+      "acceptance": "Decisiones; Versiones; Aprobaciones; Registro borrado; Caducidades",
+      "stage": "EXIT_AUDIT",
       "status": "DESIGN",
       "common_fields": [
         "deliverable_id",
@@ -320,12 +323,14 @@
         "review_status"
       ],
       "controls": [
-        "Tenant segregation",
-        "Evidence traceability",
-        "Recipient authorization",
-        "Human review",
-        "Retention policy"
+        "Evidence lineage",
+        "Scope and purpose",
+        "Role-based access",
+        "Human sign-off",
+        "Retention and deletion"
       ]
     }
-  ]
+  ],
+  "source": "AI_FIRST_OPERATING_ATLAS.html",
+  "compatibility_note": "EX01-EX11 semantic IDs reconciled; rendering remains DESIGN"
 }

@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Evidence-first AI organizational discovery, offline contract validation",
+  "description": "Evidence-first AI organizational discovery, offline contract validation and Node 22 local pilot",
   "engines": {
-    "node": ">=20"
+    "node": ">=22.16.0"
   },
   "scripts": {
     "test": "node --test",
@@ -17,6 +17,9 @@
     "check:phase3": "node bin/phase3.mjs demo examples/phase3",
     "simulate:engagement": "node bin/engagement.mjs simulate",
     "export:engagement": "node bin/engagement.mjs simulate --write",
-    "verify:local": "node bin/verify-local.mjs"
+    "verify:local": "node bin/verify-local.mjs",
+    "pilot:init": "node bin/api.mjs init",
+    "pilot:serve": "node bin/api.mjs serve",
+    "test:pilot": "node --test test/runtime.test.mjs"
   }
 }

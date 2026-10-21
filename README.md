@@ -73,3 +73,19 @@ npm run verify:local         # ejecutar Node tests, gates, E2E, Atlas y guardar 
 ```
 
 El protocolo de QA se documenta en [VERIFY_LOCAL.md](docs/VERIFY_LOCAL.md). La ejecución completa de Node **no se ha podido efectuar en este entorno** por bloqueo de acceso a github.com desde el contenedor; el comando queda listo para el siguiente checkout con red. Ningún test concede autorización real G3–G7.
+
+## Implementación local A–E (21 oct 2026)
+
+Se ha añadido un **piloto local ejecutable con Node 22 + SQLite**, separado del simulador previo. Está pensado para pruebas con **datos ficticios**, no para desplegar sobre empleados reales.
+
+```bash
+npm run test:pilot
+npm run pilot:init -- "Empresa sintética"
+npm run pilot:serve
+```
+
+Abrir **http://127.0.0.1:4181/** en el propio equipo. La consola no usa Vercel, CDN ni servicios externos. El token inicial se imprime una sola vez al ejecutar `pilot:init`.
+
+**A** tests reales con SQLite y API HTTP; **B** roles locales, aislamiento por tenant, uploads SHA-256 y cuarentena; **C** adaptador HTTPS configurable para gateway IA, revisión local y jurado; **D** EX01–EX11 compatibles con los nombres originales como *manifiestos*, escenarios y grafo; **E** leads, contratos, borradores de factura, registro manual de ingresos y pagos de premios pendientes. Más detalle en [fases A–E](docs/PHASES_A_E_IMPLEMENTATION.md) y [gap register](docs/GAP_REGISTER.md).
+
+**No está terminado al 100 % para producción.** Faltan SSO/MFA, seguridad real, autorización y firmas G1/G3–G7, proveedor IA verificado, renderizadores PDF/PPTX/ZIP y cobros/pagos ejecutables con banco/ERP. **Los issues siguen abiertos.**

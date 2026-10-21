@@ -65,3 +65,11 @@ Ejecutar las suites Node en checkout, registrar consola, corregir cualquier erro
 - **Pendiente:** ejecutar realmente `npm run verify:local` en un checkout Node 20+. El informe `artifacts/local-verification.json` solo existirá tras esa ejecución, no se ha simulado su resultado.
 
 Los contratos y la presentación son reutilizables, pero la edición no está autorizada para empleados reales. Las referencias a `verified` en fixtures son *sintéticas* y no sirven para liberar G3/G4 ni decisiones organizativas.
+
+## Node 22 real · Nuevo piloto local A–E
+
+- **7/7 tests de Node reales correctos**, usando `node --test test/runtime.test.mjs` en el workspace del desarrollo. Se ejercitaron SQLite real, roles y tenant, escritura real a disco, SHA-256, ingesta, revisión local, adapter de modelo simulado en test, 11 EX originales y el circuito financiero sin movimiento de fondos.
+- **Consola renderizada en Chromium/Playwright** con 3 inputs, 4 botones y 0 excepciones JavaScript al cargar HTML; no fue una prueba de toda la interacción autenticada en navegador.
+- **No ejecutada** la suite completa histórica `npm run verify:local` por falta de checkout de GitHub en el contenedor (DNS bloqueado). Los nuevos tests se ejecutaron desde fuentes idénticas a este commit.
+- **No** se verificó un banco, SSO corporativo, antivirus instalado, factura fiscal, API de proveedor de modelos ni G3–G7 externos.
+- Sin Vercel, GitHub Actions nuevos ni previews.

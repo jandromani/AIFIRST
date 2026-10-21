@@ -12,3 +12,4 @@ uploads/
 artifacts/
 coverage/
 .DS_Store
+.aifirst-local/
