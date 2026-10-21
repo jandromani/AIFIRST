@@ -19,7 +19,16 @@
           "outputs": "Segmentos priorizados",
           "acceptance": "Sector, necesidad y decisor definido",
           "owner": "CEO / Growth",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Perfil con necesidad y comprador identificados",
+          "source_inputs": "Sector, tamaño, regulaciones",
+          "source_outputs": "Perfil de cliente ideal",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "market.prospect",
@@ -28,7 +37,16 @@
           "outputs": "Oportunidades con procedencia",
           "acceptance": "Fuente y permiso de contacto trazados",
           "owner": "CEO / Growth",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Procedencia y permiso de contacto",
+          "source_inputs": "Cuentas y contactos B2B",
+          "source_outputs": "Oportunidades trazadas",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "market.inbound",
@@ -37,7 +55,16 @@
           "outputs": "Solicitudes comerciales",
           "acceptance": "Promesas verificables; sin clasificar trabajadores",
           "owner": "CEO / Growth",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "No prometer decisiones laborales automáticas",
+          "source_inputs": "Propuesta y formularios",
+          "source_outputs": "Solicitudes comerciales",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "market.qualification",
@@ -46,7 +73,16 @@
           "outputs": "Lead cualificado / descartado",
           "acceptance": "Criterios explícitos y motivo",
           "owner": "CEO / Growth",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Responsable y plazo identificados",
+          "source_inputs": "Entrevista y tamaño cliente",
+          "source_outputs": "Fit comercial y riesgos",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "market.demo",
@@ -55,7 +91,16 @@
           "outputs": "Demo CEO",
           "acceptance": "Marcada como simulada",
           "owner": "CEO / Growth",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Cifras de ejemplo marcadas claramente",
+          "source_inputs": "Datos ficticios y prototipo",
+          "source_outputs": "Demostración de valor",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "market.roi_story",
@@ -64,7 +109,16 @@
           "outputs": "Hipótesis ROI",
           "acceptance": "Supuestos, sensibilidad y coste trabajador incluidos",
           "owner": "CEO / Growth",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Separación beneficios estimados y verificados",
+          "source_inputs": "Horas y procesos candidatos",
+          "source_outputs": "Hipótesis ROI contrastable",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "market.stakeholders",
@@ -73,7 +127,16 @@
           "outputs": "Comité decisor",
           "acceptance": "Sponsor, Legal, DPO y Compras identificados",
           "owner": "CEO / Growth",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Dueños de decisión identificados",
+          "source_inputs": "Organigrama comercial",
+          "source_outputs": "Sponsor, RRHH, TI, legal, DPO",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "market.crm",
@@ -82,7 +145,16 @@
           "outputs": "Registro oportunidad",
           "acceptance": "Titularidad y finalidad de datos delimitadas",
           "owner": "CEO / Growth",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Base legal y datos mínimos",
+          "source_inputs": "Contactos y oportunidades",
+          "source_outputs": "Pipeline actualizado",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "market.lost_reasons",
@@ -91,8 +163,21 @@
           "outputs": "Backlog producto",
           "acceptance": "Feedback agregado sin confidencialidad ajena",
           "owner": "CEO / Growth",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Revisión mensual del pricing y propuesta",
+          "source_inputs": "Objeciones y pérdidas",
+          "source_outputs": "Registro de aprendizaje",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         }
+      ],
+      "description": "Captación, cualificación y promesa comercial repetible.",
+      "contracts": [
+        "ClientBrief"
       ]
     },
     {
@@ -109,7 +194,17 @@
           "outputs": "Oferta y exclusiones",
           "acceptance": "Margen, alcance, hipótesis y límites expresos",
           "owner": "Legal / Dirección de proyecto",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief",
+            "EngagementConfig"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Aprobación de alcance",
+          "source_inputs": "Discovery y paquete",
+          "source_outputs": "Oferta versionada",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "contract.sow",
@@ -118,7 +213,17 @@
           "outputs": "SOW versionado",
           "acceptance": "Trabajo, participantes, entregables, revisiones y cambios",
           "owner": "Legal / Dirección de proyecto",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief",
+            "EngagementConfig"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Dentro/fuera de alcance inequívocos",
+          "source_inputs": "Oferta y hitos",
+          "source_outputs": "Contrato de servicio",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "contract.dpa",
@@ -127,7 +232,17 @@
           "outputs": "DPA y anexo",
           "acceptance": "Roles y subencargados revisados por asesores",
           "owner": "Legal / Dirección de proyecto",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief",
+            "EngagementConfig"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Verificado por legal y DPO",
+          "source_inputs": "Roles y flujos personales",
+          "source_outputs": "DPA / RGPD",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "contract.ip",
@@ -136,7 +251,17 @@
           "outputs": "Cláusula IP",
           "acceptance": "Licencias, titularidad y usos de entregables claros",
           "owner": "Legal / Dirección de proyecto",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief",
+            "EngagementConfig"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Código y demos sujetos a licencia explícita",
+          "source_inputs": "Proyectos y terceros",
+          "source_outputs": "Titularidad/licencias",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "contract.prizes",
@@ -145,7 +270,17 @@
           "outputs": "Bases competición",
           "acceptance": "Criterios, empate, reparto, fiscalidad y recursos",
           "owner": "Legal / Dirección de proyecto",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief",
+            "EngagementConfig"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Reglas y destinatarios claros",
+          "source_inputs": "Normas de concurso",
+          "source_outputs": "Premios y fiscalidad",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "contract.sla",
@@ -154,7 +289,17 @@
           "outputs": "SLA",
           "acceptance": "Canales, horario, escalado y soporte definidos",
           "owner": "Legal / Dirección de proyecto",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief",
+            "EngagementConfig"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Responsables y ventanas acordadas",
+          "source_inputs": "Entregables y tiempos",
+          "source_outputs": "Condiciones de atención",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "contract.exit",
@@ -163,7 +308,17 @@
           "outputs": "Plan exportación y borrado",
           "acceptance": "Formatos, plazo y responsable descritos",
           "owner": "Legal / Dirección de proyecto",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief",
+            "EngagementConfig"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Plazos y prueba de cierre",
+          "source_inputs": "Datos finales y retención",
+          "source_outputs": "Plan devolución/borrado",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "contract.liability",
@@ -172,7 +327,17 @@
           "outputs": "Cláusula de responsabilidad",
           "acceptance": "Revisada por profesionales habilitados",
           "owner": "Legal / Dirección de proyecto",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief",
+            "EngagementConfig"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Aprobación jurídica",
+          "source_inputs": "Riesgos y exclusiones",
+          "source_outputs": "Límites y seguros",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "contract.approval",
@@ -181,8 +346,23 @@
           "outputs": "G1 / acta",
           "acceptance": "Sin recogida de datos sin aprobación humana",
           "owner": "Legal / Dirección de proyecto",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ClientBrief",
+            "EngagementConfig"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "No se arranca con gate incompleto",
+          "source_inputs": "SOW,DPA,seguridad",
+          "source_outputs": "Autorización de inicio",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         }
+      ],
+      "description": "Convierte la oportunidad en un alcance aprobado, con responsabilidades, incentivos y derechos definidos.",
+      "contracts": [
+        "ClientBrief",
+        "EngagementConfig"
       ]
     },
     {
@@ -199,7 +379,16 @@
           "outputs": "CompanyContext",
           "acceptance": "Identificador, sector, países y tamaño con fuentes",
           "owner": "Consultor / Sponsor cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "CompanyContext"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Distinguir hechos y suposiciones",
+          "source_inputs": "Sector,tamaño,países",
+          "source_outputs": "Perfil contextual",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "context.strategy",
@@ -208,7 +397,16 @@
           "outputs": "Prioridades",
           "acceptance": "Objetivos medibles con patrocinador",
           "owner": "Consultor / Sponsor cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "CompanyContext"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Sponsor confirma prioridades",
+          "source_inputs": "Estrategia y prioridades",
+          "source_outputs": "Metas medibles",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "context.org_units",
@@ -217,7 +415,16 @@
           "outputs": "Mapa agregado",
           "acceptance": "No listas nominativas por defecto",
           "owner": "Consultor / Sponsor cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "CompanyContext"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Cobertura declarada",
+          "source_inputs": "Organigrama autorizado",
+          "source_outputs": "Mapa unidades y funciones",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "context.processes",
@@ -226,7 +433,16 @@
           "outputs": "Catálogo procesos",
           "acceptance": "Owner, frecuencia, volumen y sistema origen",
           "owner": "Consultor / Sponsor cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "CompanyContext"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Dueño por proceso",
+          "source_inputs": "Áreas y entrevistas",
+          "source_outputs": "Procesos críticos y dueños",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "context.painpoints",
@@ -235,7 +451,16 @@
           "outputs": "Backlog fricciones",
           "acceptance": "Estimaciones identificadas como tales",
           "owner": "Consultor / Sponsor cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "CompanyContext"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Baselines con fuente",
+          "source_inputs": "Indicadores actuales",
+          "source_outputs": "Backlog de oportunidades",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "context.tech",
@@ -244,7 +469,16 @@
           "outputs": "Mapa capacidades técnicas",
           "acceptance": "Fuentes y restricciones verificadas",
           "owner": "Consultor / Sponsor cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "CompanyContext"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "No copiar secretos",
+          "source_inputs": "Arquitectura general",
+          "source_outputs": "Inventario de herramientas IA",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "context.security",
@@ -253,7 +487,16 @@
           "outputs": "Guardrails",
           "acceptance": "Clasificación y prohibiciones explícitas",
           "owner": "Consultor / Sponsor cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "CompanyContext"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "TI valida entorno permitido",
+          "source_inputs": "IAM,hosting,datos",
+          "source_outputs": "Restricciones de solución",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "context.culture",
@@ -262,7 +505,16 @@
           "outputs": "Diagnóstico limitado",
           "acceptance": "Sesgos y no respuesta declarados",
           "owner": "Consultor / Sponsor cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "CompanyContext"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "No inferir rasgos personales",
+          "source_inputs": "Encuesta agregada",
+          "source_outputs": "Barreras adopción IA",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "context.sponsors",
@@ -271,7 +523,16 @@
           "outputs": "Matriz RACI",
           "acceptance": "Tiempo real para el piloto definido",
           "owner": "Consultor / Sponsor cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "CompanyContext"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Sponsor con poder de desbloqueo",
+          "source_inputs": "Responsables y presupuesto",
+          "source_outputs": "Matriz de decisión",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "context.baseline",
@@ -280,7 +541,16 @@
           "outputs": "Baseline con fuente",
           "acceptance": "Unidad, período y método reproducibles",
           "owner": "Consultor / Sponsor cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "CompanyContext"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Método medición definido",
+          "source_inputs": "Tiempo,coste,errores",
+          "source_outputs": "Línea base firmada",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "context.data_sources",
@@ -289,7 +559,16 @@
           "outputs": "Inventario evidencias",
           "acceptance": "Propietario, acceso, vigencia y clasificación",
           "owner": "Consultor / Sponsor cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "CompanyContext"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "No suponer permiso por existencia",
+          "source_inputs": "Sistemas y custodios",
+          "source_outputs": "Diccionario de fuentes",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "context.unknowns",
@@ -298,8 +577,21 @@
           "outputs": "Lista de incertidumbres",
           "acceptance": "No inventar datos ni extrapolar participantes",
           "owner": "Consultor / Sponsor cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "CompanyContext"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Informe declara coberturas y sesgos",
+          "source_inputs": "Campos no obtenidos",
+          "source_outputs": "Incertidumbres explícitas",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         }
+      ],
+      "description": "Modelo de estructura, estrategia, límites y objetivos, sin confundir datos de participantes con toda la plantilla.",
+      "contracts": [
+        "CompanyContext"
       ]
     },
     {
@@ -316,7 +608,17 @@
           "outputs": "Matriz finalidades",
           "acceptance": "Responsable establece base jurídica y necesidad",
           "owner": "DPO / Legal / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "RiskRecord",
+            "EngagementConfig"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "No presumir consentimiento laboral válido",
+          "source_inputs": "Fines y sujetos",
+          "source_outputs": "Base jurídica documentada",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "governance.notice",
@@ -325,7 +627,17 @@
           "outputs": "Información a participantes",
           "acceptance": "Antes de la inscripción y en lenguaje claro",
           "owner": "DPO / Legal / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "RiskRecord",
+            "EngagementConfig"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Explicar finalidad y uso de resultados",
+          "source_inputs": "Material informativo",
+          "source_outputs": "Aviso claro y accesible",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "governance.dpia",
@@ -334,7 +646,17 @@
           "outputs": "Decisión EIPD",
           "acceptance": "Resultado y dueño documentados",
           "owner": "DPO / Legal / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "RiskRecord",
+            "EngagementConfig"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "DPO decide necesidad",
+          "source_inputs": "Riesgo privacidad",
+          "source_outputs": "DPIA o decisión razonada",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "governance.ai_act",
@@ -343,7 +665,17 @@
           "outputs": "Análisis normativo",
           "acceptance": "Comprobar versión normativa y rol proveedor/usuario",
           "owner": "DPO / Legal / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "RiskRecord",
+            "EngagementConfig"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Registro de versión normativa",
+          "source_inputs": "Finalidad de evaluaciones",
+          "source_outputs": "Evaluación de alto riesgo",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "governance.worker_rep",
@@ -352,7 +684,17 @@
           "outputs": "Plan consulta",
           "acceptance": "Validado por jurídico laboral",
           "owner": "DPO / Legal / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "RiskRecord",
+            "EngagementConfig"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Antes de usar datos laborales",
+          "source_inputs": "País y normativa laboral",
+          "source_outputs": "Plan consulta/comunicación",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "governance.human",
@@ -361,7 +703,17 @@
           "outputs": "Actas decisiones",
           "acceptance": "Sin acciones laborales autónomas",
           "owner": "DPO / Legal / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "RiskRecord",
+            "EngagementConfig"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Registro de decisión humana",
+          "source_inputs": "Recomendaciones sobre personas",
+          "source_outputs": "Revisor facultado para cambiar",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "governance.bias",
@@ -370,7 +722,17 @@
           "outputs": "Plan calibración",
           "acceptance": "Distinguir equipo, oportunidad y aportación",
           "owner": "DPO / Legal / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "RiskRecord",
+            "EngagementConfig"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "No usar score laboral universal",
+          "source_inputs": "Condiciones del reto",
+          "source_outputs": "Pruebas de sesgo",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "governance.purpose",
@@ -379,7 +741,17 @@
           "outputs": "Matriz usos permitidos",
           "acceptance": "No reuso comercial ni entrenamiento no acordado",
           "owner": "DPO / Legal / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "RiskRecord",
+            "EngagementConfig"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Bloqueo reutilización incompatible",
+          "source_inputs": "Datos recolectados",
+          "source_outputs": "Usos permitidos y prohibidos",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "governance.minimization",
@@ -388,7 +760,17 @@
           "outputs": "Inventario minimizado",
           "acceptance": "Sin nombres, rendimiento laboral ni datos sensibles innecesarios",
           "owner": "DPO / Legal / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "RiskRecord",
+            "EngagementConfig"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "No importar HRIS completo por defecto",
+          "source_inputs": "Campos solicitados",
+          "source_outputs": "Dataset mínimo suficiente",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "governance.access",
@@ -397,7 +779,17 @@
           "outputs": "Matriz accesos",
           "acceptance": "Mínimo privilegio, separación de clientes",
           "owner": "DPO / Legal / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "RiskRecord",
+            "EngagementConfig"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Segregación de datos por tenant",
+          "source_inputs": "Roles cliente y proveedor",
+          "source_outputs": "Matriz de acceso",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "governance.retention",
@@ -406,7 +798,17 @@
           "outputs": "Política de ciclo de vida",
           "acceptance": "Plazos, borrado y confirmación definidos",
           "owner": "DPO / Legal / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "RiskRecord",
+            "EngagementConfig"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Borrado verificable y excepciones",
+          "source_inputs": "Tipo de dato y contrato",
+          "source_outputs": "Política de retención",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "governance.redress",
@@ -415,7 +817,17 @@
           "outputs": "Procedimiento de revisión",
           "acceptance": "Canal, responsables y plazos",
           "owner": "DPO / Legal / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "RiskRecord",
+            "EngagementConfig"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Plazos y humano responsables",
+          "source_inputs": "Quejas sobre resultados",
+          "source_outputs": "Procedimiento de corrección",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "governance.security_review",
@@ -424,8 +836,23 @@
           "outputs": "Anexo subencargados",
           "acceptance": "Contrato, transferencia y controles revisados",
           "owner": "DPO / Legal / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "RiskRecord",
+            "EngagementConfig"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "DPA y flujos internacionales validados",
+          "source_inputs": "Proveedores IA y nube",
+          "source_outputs": "Inventario y región",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         }
+      ],
+      "description": "Las salvaguardas se aplican transversalmente a participantes, agentes y recomendaciones.",
+      "contracts": [
+        "RiskRecord",
+        "EngagementConfig"
       ]
     },
     {
@@ -442,7 +869,17 @@
           "outputs": "Retos candidatos",
           "acceptance": "Prioridad trazada a objetivo y baseline",
           "owner": "Challenge Lead / Sponsor negocio",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ChallengeBrief",
+            "Rubric"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Cada problema tiene dueño y baseline",
+          "source_inputs": "Entrevistas negocio",
+          "source_outputs": "Casos candidatos",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "challenge.challenge_brief",
@@ -451,7 +888,17 @@
           "outputs": "ChallengeBrief",
           "acceptance": "Éxito, datos, restricciones y owner",
           "owner": "Challenge Lead / Sponsor negocio",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ChallengeBrief",
+            "Rubric"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Criterios de éxito definidos",
+          "source_inputs": "Problema y restricciones",
+          "source_outputs": "Brief público v1",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "challenge.difficulty",
@@ -460,7 +907,17 @@
           "outputs": "Niveles comparables",
           "acceptance": "Publicados antes de competir",
           "owner": "Challenge Lead / Sponsor negocio",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ChallengeBrief",
+            "Rubric"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "No comparar tareas incomparables",
+          "source_inputs": "Retos heterogéneos",
+          "source_outputs": "Bandas comparables",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "challenge.rubric",
@@ -469,7 +926,17 @@
           "outputs": "Rubric versionada",
           "acceptance": "Pesos suman 1; veto seguridad explícito",
           "owner": "Challenge Lead / Sponsor negocio",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ChallengeBrief",
+            "Rubric"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Versionada antes de abrir",
+          "source_inputs": "Criterios técnicos/negocio",
+          "source_outputs": "Ponderaciones firmadas",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "challenge.timeline",
@@ -478,7 +945,17 @@
           "outputs": "Cronograma",
           "acceptance": "Canales, fechas y zonas horarias",
           "owner": "Challenge Lead / Sponsor negocio",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ChallengeBrief",
+            "Rubric"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Ventanas y zona horaria definidas",
+          "source_inputs": "Disponibilidad equipos",
+          "source_outputs": "Agenda oficial",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "challenge.resources",
@@ -487,7 +964,17 @@
           "outputs": "Catálogo de herramientas",
           "acceptance": "Prohibición de secretos y datos reales no autorizados",
           "owner": "Challenge Lead / Sponsor negocio",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ChallengeBrief",
+            "Rubric"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Prohibición secretos en entregas",
+          "source_inputs": "Datos sintéticos y herramientas",
+          "source_outputs": "Recursos permitidos",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "challenge.eligibility",
@@ -496,7 +983,17 @@
           "outputs": "Bases inclusivas",
           "acceptance": "Adaptaciones y tiempo laboral documentados",
           "owner": "Challenge Lead / Sponsor negocio",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ChallengeBrief",
+            "Rubric"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Ajustes razonables documentados",
+          "source_inputs": "Perfiles/horarios",
+          "source_outputs": "Participación accesible",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "challenge.team_rules",
@@ -505,7 +1002,17 @@
           "outputs": "Modelo contribuciones",
           "acceptance": "La nota del equipo no equivale a la de una persona",
           "owner": "Challenge Lead / Sponsor negocio",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ChallengeBrief",
+            "Rubric"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Autodeclaración + evidencias",
+          "source_inputs": "Participantes y roles",
+          "source_outputs": "Normas de colaboración",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "challenge.jury",
@@ -514,7 +1021,17 @@
           "outputs": "Panel jurado",
           "acceptance": "Conflictos, NDA, calibración y revisión",
           "owner": "Challenge Lead / Sponsor negocio",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ChallengeBrief",
+            "Rubric"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Recusación y calibración previstas",
+          "source_inputs": "Criterios de conflicto",
+          "source_outputs": "Comité de jueces",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "challenge.prize_policy",
@@ -523,7 +1040,17 @@
           "outputs": "Plan premios",
           "acceptance": "Impuestos, desempate y autorización",
           "owner": "Challenge Lead / Sponsor negocio",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ChallengeBrief",
+            "Rubric"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Separar premios de evaluación laboral",
+          "source_inputs": "Bases aprobadas",
+          "source_outputs": "Reglas de premios",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "challenge.publish_gate",
@@ -532,8 +1059,23 @@
           "outputs": "G2 / acta",
           "acceptance": "No publicar sin revisión humana",
           "owner": "Challenge Lead / Sponsor negocio",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ChallengeBrief",
+            "Rubric"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "G1 firmado",
+          "source_inputs": "Rúbrica y legal aprobados",
+          "source_outputs": "Publicación permitida",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         }
+      ],
+      "description": "Reto comparable y orientado a problemas reales, con criterios previos a la participación.",
+      "contracts": [
+        "ChallengeBrief",
+        "Rubric"
       ]
     },
     {
@@ -550,7 +1092,16 @@
           "outputs": "Envíos rastreables",
           "acceptance": "Opt-out no esenciales",
           "owner": "Community / Customer Success",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Opt-out comunicaciones no esenciales",
+          "source_inputs": "Invitaciones y recordatorios",
+          "source_outputs": "Envíos rastreables",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "comms.teams",
@@ -559,7 +1110,16 @@
           "outputs": "Anuncios y soporte",
           "acceptance": "Datos mínimos en canales",
           "owner": "Community / Customer Success",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Datos mínimos en canales",
+          "source_inputs": "Canales corporativos",
+          "source_outputs": "Anuncios y soporte",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "comms.slack",
@@ -568,7 +1128,16 @@
           "outputs": "Anuncios y soporte",
           "acceptance": "No compartir entregas sensibles públicamente",
           "owner": "Community / Customer Success",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "No compartir entregas sensibles en público",
+          "source_inputs": "Espacio autorizado",
+          "source_outputs": "Anuncios y soporte",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "comms.portal",
@@ -577,7 +1146,16 @@
           "outputs": "Página versión vigente",
           "acceptance": "Acceso restringido si procede",
           "owner": "Community / Customer Success",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Acceso restringido cuando proceda",
+          "source_inputs": "Brief y FAQs",
+          "source_outputs": "Página versión vigente",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "comms.calendar",
@@ -586,7 +1164,16 @@
           "outputs": "Invitaciones",
           "acceptance": "Confirmación de horarios",
           "owner": "Community / Customer Success",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Confirmación de horarios",
+          "source_inputs": "Eventos y zonas",
+          "source_outputs": "Invitaciones",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "comms.webinars",
@@ -595,7 +1182,16 @@
           "outputs": "Actas y grabación opcional",
           "acceptance": "Aviso y acceso autorizados",
           "owner": "Community / Customer Success",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Aviso y acceso autorizados",
+          "source_inputs": "Material y asistentes",
+          "source_outputs": "Actas / grabación opcional",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "comms.helpdesk",
@@ -604,7 +1200,16 @@
           "outputs": "Incidencias y respuestas",
           "acceptance": "SLA y escalado",
           "owner": "Community / Customer Success",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "SLA y escalado",
+          "source_inputs": "Tickets y preguntas",
+          "source_outputs": "Incidencias y respuestas",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "comms.sms",
@@ -613,7 +1218,16 @@
           "outputs": "Recordatorio puntual",
           "acceptance": "Uso excepcional autorizado",
           "owner": "Community / Customer Success",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Uso excepcional y autorizado",
+          "source_inputs": "Opt-in y avisos urgentes",
+          "source_outputs": "Recordatorio puntual",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "comms.feedback",
@@ -622,7 +1236,16 @@
           "outputs": "Resultados agregados",
           "acceptance": "No inferencia indebida",
           "owner": "Community / Customer Success",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Sin inferencias personales indebidas",
+          "source_inputs": "Formulario minimal",
+          "source_outputs": "Resultados agregados",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "comms.status",
@@ -631,7 +1254,16 @@
           "outputs": "Métrica comunicación",
           "acceptance": "No vigilancia individual oculta",
           "owner": "Community / Customer Success",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "No vigilancia individual oculta",
+          "source_inputs": "Delivery/read si procede",
+          "source_outputs": "Métrica comunicación",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "comms.notifications",
@@ -640,7 +1272,16 @@
           "outputs": "Eventos notificación",
           "acceptance": "Idempotencia por destinatario/plantilla",
           "owner": "Community / Customer Success",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Deduplicación e idempotencia",
+          "source_inputs": "Hitos y aprobaciones",
+          "source_outputs": "Notificaciones por rol",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "comms.accessible",
@@ -649,8 +1290,21 @@
           "outputs": "Copias accesibles",
           "acceptance": "WCAG en portal y revisión humana",
           "owner": "Community / Customer Success",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Revisión WCAG de portal",
+          "source_inputs": "Idioma/discapacidad",
+          "source_outputs": "Copias accesibles",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         }
+      ],
+      "description": "Comunicación controlada, multicanal, unívoca y recuperable.",
+      "contracts": [
+        "EventEnvelope"
       ]
     },
     {
@@ -667,7 +1321,16 @@
           "outputs": "ID participante",
           "acceptance": "No inferir identidades desde código",
           "owner": "Operaciones / Responsable cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ParticipantRegistration"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "Nunca inferir identidades por código",
+          "source_inputs": "SSO/invitación",
+          "source_outputs": "Identificador participante",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "people.eligibility",
@@ -676,7 +1339,16 @@
           "outputs": "Registro elegible",
           "acceptance": "Verificado por cliente",
           "owner": "Operaciones / Responsable cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ParticipantRegistration"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "Comprobación realizada por cliente",
+          "source_inputs": "Bases y relación laboral",
+          "source_outputs": "Registro elegible",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "people.pseudonym",
@@ -685,7 +1357,16 @@
           "outputs": "Alias segregado",
           "acceptance": "Correspondencia fuera del score",
           "owner": "Operaciones / Responsable cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ParticipantRegistration"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "Tabla de correspondencia restringida",
+          "source_inputs": "Identificador real",
+          "source_outputs": "Alias técnico segregado",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "people.team",
@@ -694,7 +1375,16 @@
           "outputs": "Roster por equipo",
           "acceptance": "Roles declarados",
           "owner": "Operaciones / Responsable cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ParticipantRegistration"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "Roles declarados, no inferidos",
+          "source_inputs": "Personas inscritas",
+          "source_outputs": "Roster de equipo",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "people.availability",
@@ -703,7 +1393,16 @@
           "outputs": "Tiempo disponible",
           "acceptance": "No asumir movilidad obligatoria",
           "owner": "Operaciones / Responsable cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ParticipantRegistration"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "No asumir movilidad obligatoria",
+          "source_inputs": "Preferencias voluntarias",
+          "source_outputs": "Capacidad temporal",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "people.accessibility",
@@ -712,7 +1411,16 @@
           "outputs": "Adaptaciones",
           "acceptance": "Datos sensibles fuera de evaluaciones",
           "owner": "Operaciones / Responsable cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ParticipantRegistration"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "Dato sensible fuera del score",
+          "source_inputs": "Necesidades comunicadas",
+          "source_outputs": "Condiciones equitativas",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "people.onboarding",
@@ -721,7 +1429,16 @@
           "outputs": "Confirmación de información",
           "acceptance": "Entregables y derechos comprendidos",
           "owner": "Operaciones / Responsable cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ParticipantRegistration"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "Participante comprende entregables",
+          "source_inputs": "Normas / entornos",
+          "source_outputs": "Aceptación y tutorial",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "people.contribution",
@@ -730,7 +1447,16 @@
           "outputs": "Declaración verificable",
           "acceptance": "No atribuir éxito colectivo individual",
           "owner": "Operaciones / Responsable cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ParticipantRegistration"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "Evitar asignar éxito a todo equipo por igual",
+          "source_inputs": "Trabajo compartido",
+          "source_outputs": "Evidencia por rol",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "people.withdraw",
@@ -739,7 +1465,16 @@
           "outputs": "Revisión de solicitud",
           "acceptance": "Conservación conforme al contrato",
           "owner": "Operaciones / Responsable cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ParticipantRegistration"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "Retirada bajo condiciones aplicables",
+          "source_inputs": "Solicitud del participante",
+          "source_outputs": "Flujo de revisión",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "people.identity_gate",
@@ -748,8 +1483,21 @@
           "outputs": "Acceso al reto",
           "acceptance": "G2 y permisos comprobables",
           "owner": "Operaciones / Responsable cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "ParticipantRegistration"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "G2 trazado",
+          "source_inputs": "Elegibilidad y transparencia",
+          "source_outputs": "Acceso al reto",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         }
+      ],
+      "description": "Registro con pseudónimos, asignación a equipo y atribución verificable.",
+      "contracts": [
+        "ParticipantRegistration"
       ]
     },
     {
@@ -766,7 +1514,16 @@
           "outputs": "Estructura controlada",
           "acceptance": "Aislamiento de acceso",
           "owner": "Challenge Ops / Participantes",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Aislamiento de acceso",
+          "source_inputs": "Drive,SharePoint,S3",
+          "source_outputs": "Estructura controlada",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "submission.upload_form",
@@ -775,7 +1532,16 @@
           "outputs": "Metadatos",
           "acceptance": "Campos obligatorios",
           "owner": "Challenge Ops / Participantes",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "No dar por completa entrega incompleta",
+          "source_inputs": "Respuestas estructuradas",
+          "source_outputs": "Metadatos obligatorios",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "submission.repo",
@@ -784,7 +1550,16 @@
           "outputs": "Commit/tag fijo",
           "acceptance": "Acceso revocable y snapshot",
           "owner": "Challenge Ops / Participantes",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Acceso temporal revocable",
+          "source_inputs": "Git permitido",
+          "source_outputs": "Commit/tag inmóvil",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "submission.demo",
@@ -793,7 +1568,16 @@
           "outputs": "Evidencia de ejecución",
           "acceptance": "Sin secretos ni acceso indiscriminado",
           "owner": "Challenge Ops / Participantes",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Entorno demo sin secretos",
+          "source_inputs": "Vídeo o URL",
+          "source_outputs": "Evidencia ejecución",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "submission.readme",
@@ -802,7 +1586,16 @@
           "outputs": "Guía reproducible",
           "acceptance": "Dependencias y permisos",
           "owner": "Challenge Ops / Participantes",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Dependencias y permisos explícitos",
+          "source_inputs": "Markdown/PDF",
+          "source_outputs": "Guía reproducibilidad",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "submission.problem",
@@ -811,7 +1604,16 @@
           "outputs": "Problema medible",
           "acceptance": "Sponsor o área",
           "owner": "Challenge Ops / Participantes",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Sponsor/área identificados",
+          "source_inputs": "Ficha solución",
+          "source_outputs": "Problema medible",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "submission.results",
@@ -820,7 +1622,16 @@
           "outputs": "Evidencias impacto",
           "acceptance": "Medido frente a estimado",
           "owner": "Challenge Ops / Participantes",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Distinguir estimación de prueba",
+          "source_inputs": "Pruebas y datos",
+          "source_outputs": "Evidencias de impacto",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "submission.responsibility",
@@ -829,7 +1640,16 @@
           "outputs": "Claims contribución",
           "acceptance": "Confirmación y rectificación",
           "owner": "Challenge Ops / Participantes",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Confirmación y derecho corrección",
+          "source_inputs": "Roles y artefactos",
+          "source_outputs": "Claim de atribución",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "submission.usage",
@@ -838,7 +1658,16 @@
           "outputs": "Manifest herramientas",
           "acceptance": "No recopilar prompts privados",
           "owner": "Challenge Ops / Participantes",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "No exige datos privados de prompts",
+          "source_inputs": "Herramientas/modelos usados",
+          "source_outputs": "Declaración uso IA",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "submission.license",
@@ -847,7 +1676,16 @@
           "outputs": "Inventario legal",
           "acceptance": "Licencia y titularidad compatibles",
           "owner": "Challenge Ops / Participantes",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Titularidad y licencia compatibles",
+          "source_inputs": "Código y datasets",
+          "source_outputs": "Licencias / dependencias",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "submission.freeze",
@@ -856,8 +1694,21 @@
           "outputs": "Snapshot y recibo",
           "acceptance": "Huella de contenido inmutable",
           "owner": "Challenge Ops / Participantes",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Versionado y recibo de entrega",
+          "source_inputs": "Fecha límite + hash",
+          "source_outputs": "Snapshot de entrega",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         }
+      ],
+      "description": "Entrada deliberadamente simple: carpeta o formulario, pero contrato de entrega firme.",
+      "contracts": [
+        "SubmissionManifest"
       ]
     },
     {
@@ -874,7 +1725,18 @@
           "outputs": "Adaptadores",
           "acceptance": "Permisos mínimos",
           "owner": "Data Engineering / Security",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest",
+            "EvidenceClaim",
+            "EventEnvelope"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Permisos mínimos, sin acceso indiscriminado",
+          "source_inputs": "Drive/SharePoint/S3/Git/API",
+          "source_outputs": "Adaptadores versionados",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "normalize.schema",
@@ -883,7 +1745,18 @@
           "outputs": "Errores estructurados",
           "acceptance": "Rechazar esquema desconocido",
           "owner": "Data Engineering / Security",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest",
+            "EvidenceClaim",
+            "EventEnvelope"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Rechazar versión desconocida",
+          "source_inputs": "JSON/CSV/Excel/Markdown",
+          "source_outputs": "Validación versionada",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "normalize.malware",
@@ -892,7 +1765,18 @@
           "outputs": "Dictamen AV",
           "acceptance": "Sin ejecutar adjuntos",
           "owner": "Data Engineering / Security",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest",
+            "EvidenceClaim",
+            "EventEnvelope"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Nunca ejecutar adjuntos sin aislamiento",
+          "source_inputs": "Binarios y archivos",
+          "source_outputs": "Resultado análisis AV",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "normalize.secrets",
@@ -901,7 +1785,18 @@
           "outputs": "Bloqueo/redacción",
           "acceptance": "No envío de secretos a modelos",
           "owner": "Data Engineering / Security",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest",
+            "EvidenceClaim",
+            "EventEnvelope"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "No enviar secretos a modelos",
+          "source_inputs": "Código y texto",
+          "source_outputs": "Bloqueo/redacción",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "normalize.pii",
@@ -910,7 +1805,18 @@
           "outputs": "Etiquetas sensibilidad",
           "acceptance": "Política previa a indexación",
           "owner": "Data Engineering / Security",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest",
+            "EvidenceClaim",
+            "EventEnvelope"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Política antes de indexar",
+          "source_inputs": "Textos y archivos",
+          "source_outputs": "Etiquetas PII y sensibilidad",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "normalize.parse",
@@ -919,7 +1825,18 @@
           "outputs": "Contenido extraído",
           "acceptance": "Tasa de error y límites",
           "owner": "Data Engineering / Security",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest",
+            "EvidenceClaim",
+            "EventEnvelope"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Tasa error por parser",
+          "source_inputs": "PDF,texto,código,video",
+          "source_outputs": "Contenido estructurado",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "normalize.canonical",
@@ -928,7 +1845,18 @@
           "outputs": "Documento tipado",
           "acceptance": "Tipos y enumeraciones válidos",
           "owner": "Data Engineering / Security",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest",
+            "EvidenceClaim",
+            "EventEnvelope"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Tipos y enumeraciones válidos",
+          "source_inputs": "Campos originales",
+          "source_outputs": "Objeto tipado único",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "normalize.hash",
@@ -937,7 +1865,18 @@
           "outputs": "Huella y snapshot",
           "acceptance": "Hash real verificable",
           "owner": "Data Engineering / Security",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest",
+            "EvidenceClaim",
+            "EventEnvelope"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Huella verificable",
+          "source_inputs": "Documentos fuente",
+          "source_outputs": "SHA-256 y snapshot",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "normalize.lineage",
@@ -946,7 +1885,18 @@
           "outputs": "Referencias fuente",
           "acceptance": "Cada afirmación localizable",
           "owner": "Data Engineering / Security",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest",
+            "EvidenceClaim",
+            "EventEnvelope"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Cada claim rastreable",
+          "source_inputs": "Extractos y posiciones",
+          "source_outputs": "Referencias a fuentes",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "normalize.reject",
@@ -955,7 +1905,18 @@
           "outputs": "Incidencia corregible",
           "acceptance": "No silenciar errores",
           "owner": "Data Engineering / Security",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest",
+            "EvidenceClaim",
+            "EventEnvelope"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Ningún fallo silenciado",
+          "source_inputs": "Errores y ausencias",
+          "source_outputs": "Solicitud corrección",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "normalize.sandbox",
@@ -964,7 +1925,18 @@
           "outputs": "Entorno efímero",
           "acceptance": "Sin salida Internet por defecto",
           "owner": "Data Engineering / Security",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest",
+            "EvidenceClaim",
+            "EventEnvelope"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "Sin salida internet por defecto",
+          "source_inputs": "Dependencias y archivos",
+          "source_outputs": "Entorno efímero",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "normalize.accept",
@@ -973,8 +1945,25 @@
           "outputs": "Paquete apto",
           "acceptance": "Aprobación humana con evidencias de seguridad",
           "owner": "Data Engineering / Security",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "SubmissionManifest",
+            "EvidenceClaim",
+            "EventEnvelope"
+          ],
+          "risk": "DATOS",
+          "source_acceptance": "G3 firmado",
+          "source_inputs": "Integridad + permisos",
+          "source_outputs": "Paquete apto evaluación",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         }
+      ],
+      "description": "Transforma entradas diversas en objetos canónicos con procedencia y seguridad.",
+      "contracts": [
+        "SubmissionManifest",
+        "EvidenceClaim",
+        "EventEnvelope"
       ]
     },
     {
@@ -991,7 +1980,18 @@
           "outputs": "DAG tareas",
           "acceptance": "Idempotencia",
           "owner": "AI Platform Lead",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "JobSpec",
+            "EvaluationResult",
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Reintentos con idempotencia",
+          "source_inputs": "Jobs y gates",
+          "source_outputs": "DAG de tareas",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "orchestrate.scheduler",
@@ -1000,7 +2000,18 @@
           "outputs": "Jobs acotados",
           "acceptance": "Limitar por tenant",
           "owner": "AI Platform Lead",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "JobSpec",
+            "EvaluationResult",
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Sin starvation y límites tenant",
+          "source_inputs": "Prioridades y carga",
+          "source_outputs": "Trabajos acotados",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "orchestrate.sandbox_runner",
@@ -1009,7 +2020,18 @@
           "outputs": "Ejecución segura",
           "acceptance": "Límites CPU/red/RAM",
           "owner": "AI Platform Lead",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "JobSpec",
+            "EvaluationResult",
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "CPU, tiempo, red y RAM limitados",
+          "source_inputs": "Tests/código",
+          "source_outputs": "Ejecución segura",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "orchestrate.extractor",
@@ -1018,7 +2040,18 @@
           "outputs": "Claims citables",
           "acceptance": "Ubicación fuente obligatoria",
           "owner": "AI Platform Lead",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "JobSpec",
+            "EvaluationResult",
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Ubicación fuente obligatoria",
+          "source_inputs": "Documentos y código",
+          "source_outputs": "Claims citables",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "orchestrate.tech_agent",
@@ -1027,7 +2060,18 @@
           "outputs": "Borrador técnico",
           "acceptance": "Evidencia por criterio",
           "owner": "AI Platform Lead",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "JobSpec",
+            "EvaluationResult",
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Justificar cada criterio",
+          "source_inputs": "Test results y arquitectura",
+          "source_outputs": "Valoración técnica",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "orchestrate.business_agent",
@@ -1036,7 +2080,18 @@
           "outputs": "Oportunidad valor",
           "acceptance": "Estimaciones separadas",
           "owner": "AI Platform Lead",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "JobSpec",
+            "EvaluationResult",
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Fuentes y supuestos separados",
+          "source_inputs": "Baselines y valor",
+          "source_outputs": "Caso de negocio candidato",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "orchestrate.security_agent",
@@ -1045,7 +2100,18 @@
           "outputs": "Riesgos",
           "acceptance": "No eludir controles críticos",
           "owner": "AI Platform Lead",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "JobSpec",
+            "EvaluationResult",
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "No superar gates críticos",
+          "source_inputs": "Dependencias/datos",
+          "source_outputs": "Riesgos y severidades",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "orchestrate.judge_agent",
@@ -1054,7 +2120,18 @@
           "outputs": "Propuesta revisión",
           "acceptance": "Nunca decisión laboral",
           "owner": "AI Platform Lead",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "JobSpec",
+            "EvaluationResult",
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "No emitir decisión laboral",
+          "source_inputs": "Rúbrica y evidencias",
+          "source_outputs": "Borrador de evaluación",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "orchestrate.critic",
@@ -1063,7 +2140,18 @@
           "outputs": "Contradicciones",
           "acceptance": "Escalar discrepancias",
           "owner": "AI Platform Lead",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "JobSpec",
+            "EvaluationResult",
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Resolver discrepancias",
+          "source_inputs": "Dictámenes y evidencias",
+          "source_outputs": "Objeciones / contradicciones",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "orchestrate.ensemble",
@@ -1072,7 +2160,18 @@
           "outputs": "Consistencia",
           "acceptance": "Variación documentada",
           "owner": "AI Platform Lead",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "JobSpec",
+            "EvaluationResult",
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Sensibilidad documentada",
+          "source_inputs": "Muestras repetidas",
+          "source_outputs": "Consistencia y variación",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "orchestrate.budget",
@@ -1081,7 +2180,18 @@
           "outputs": "Libro coste",
           "acceptance": "Topes obligatorios",
           "owner": "AI Platform Lead",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "JobSpec",
+            "EvaluationResult",
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Topes y alertas",
+          "source_inputs": "Tokens,modelos,latencia",
+          "source_outputs": "Costes imputables",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "orchestrate.trace",
@@ -1090,7 +2200,18 @@
           "outputs": "Secuencia verificable",
           "acceptance": "Política de retención",
           "owner": "AI Platform Lead",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "JobSpec",
+            "EvaluationResult",
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Prompts/versiones almacenados bajo política",
+          "source_inputs": "Eventos de agentes",
+          "source_outputs": "Secuencia verificable",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "orchestrate.retry",
@@ -1099,8 +2220,25 @@
           "outputs": "Reanudación",
           "acceptance": "No duplicar resultados",
           "owner": "AI Platform Lead",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "JobSpec",
+            "EvaluationResult",
+            "EventEnvelope"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "No duplicar evaluaciones",
+          "source_inputs": "Errores/reintentos",
+          "source_outputs": "Ejecución reproducible",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         }
+      ],
+      "description": "Pipeline multiagente controlado por tareas, presupuestos y eventos reproducibles.",
+      "contracts": [
+        "JobSpec",
+        "EvaluationResult",
+        "EventEnvelope"
       ]
     },
     {
@@ -1117,7 +2255,18 @@
           "outputs": "Cumplimiento",
           "acceptance": "Pruebas o limitación declarada",
           "owner": "Quality Lead / Jurado externo",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "Rubric",
+            "EvaluationResult",
+            "EvidenceClaim"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Test reproducible o limitación declarada",
+          "source_inputs": "Requisitos y tests",
+          "source_outputs": "Cumplimiento observado",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "evaluate.tech_quality",
@@ -1126,7 +2275,18 @@
           "outputs": "Puntuación criterio",
           "acceptance": "Evidencias vinculadas",
           "owner": "Quality Lead / Jurado externo",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "Rubric",
+            "EvaluationResult",
+            "EvidenceClaim"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Evidence links por afirmación",
+          "source_inputs": "Código y diseño",
+          "source_outputs": "Puntuación por criterios",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "evaluate.security",
@@ -1135,7 +2295,18 @@
           "outputs": "Riesgos",
           "acceptance": "Defectos críticos bloquean",
           "owner": "Quality Lead / Jurado externo",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "Rubric",
+            "EvaluationResult",
+            "EvidenceClaim"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Defecto crítico bloquea implantación",
+          "source_inputs": "SAST/deps/secrets",
+          "source_outputs": "Riesgos priorizados",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "evaluate.business",
@@ -1144,7 +2315,18 @@
           "outputs": "Hipótesis retorno",
           "acceptance": "Evitar doble conteo",
           "owner": "Quality Lead / Jurado externo",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "Rubric",
+            "EvaluationResult",
+            "EvidenceClaim"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Riesgo de doble contabilización",
+          "source_inputs": "Costes y baseline",
+          "source_outputs": "Hipótesis de retorno",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "evaluate.originality",
@@ -1153,7 +2335,18 @@
           "outputs": "Valor diferencial",
           "acceptance": "No premiar estética",
           "owner": "Quality Lead / Jurado externo",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "Rubric",
+            "EvaluationResult",
+            "EvidenceClaim"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "No premiar estética sin utilidad",
+          "source_inputs": "Comparables y problema",
+          "source_outputs": "Valor diferencial",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "evaluate.feasibility",
@@ -1162,7 +2355,18 @@
           "outputs": "Esfuerzo estimado",
           "acceptance": "Rango y supuestos",
           "owner": "Quality Lead / Jurado externo",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "Rubric",
+            "EvaluationResult",
+            "EvidenceClaim"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Intervalos y supuestos",
+          "source_inputs": "Recursos y dependencias",
+          "source_outputs": "Esfuerzo estimado",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "evaluate.reproducibility",
@@ -1171,7 +2375,18 @@
           "outputs": "Estado demo",
           "acceptance": "Resultado observado en sandbox",
           "owner": "Quality Lead / Jurado externo",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "Rubric",
+            "EvaluationResult",
+            "EvidenceClaim"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Resultado observado en sandbox",
+          "source_inputs": "README y snapshot",
+          "source_outputs": "Estado demo válido",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "evaluate.jury_review",
@@ -1180,7 +2395,18 @@
           "outputs": "Acta independiente",
           "acceptance": "Recusaciones registradas",
           "owner": "Quality Lead / Jurado externo",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "Rubric",
+            "EvaluationResult",
+            "EvidenceClaim"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Conflictos de interés registrados",
+          "source_inputs": "Evaluación ciega cuando posible",
+          "source_outputs": "Acta y comentarios",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "evaluate.disagreement",
@@ -1189,7 +2415,18 @@
           "outputs": "Revisión",
           "acceptance": "Umbral escalado",
           "owner": "Quality Lead / Jurado externo",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "Rubric",
+            "EvaluationResult",
+            "EvidenceClaim"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Umbral de escalado",
+          "source_inputs": "Varianza y conflictos",
+          "source_outputs": "Revisión de discrepancias",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "evaluate.appeals",
@@ -1198,7 +2435,18 @@
           "outputs": "Resolución",
           "acceptance": "Motivo humano trazado",
           "owner": "Quality Lead / Jurado externo",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "Rubric",
+            "EvaluationResult",
+            "EvidenceClaim"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "Registro de motivos",
+          "source_inputs": "Solicitudes fundadas",
+          "source_outputs": "Resolución humana",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "evaluate.solution_rank",
@@ -1207,7 +2455,18 @@
           "outputs": "Orden de proyectos",
           "acceptance": "No transferir score a personas",
           "owner": "Quality Lead / Jurado externo",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "Rubric",
+            "EvaluationResult",
+            "EvidenceClaim"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "No trasladar nota proyecto a persona",
+          "source_inputs": "Criterios comparables",
+          "source_outputs": "Lista de soluciones",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "evaluate.signoff",
@@ -1216,8 +2475,25 @@
           "outputs": "Resultados congelados",
           "acceptance": "Aprobación humana",
           "owner": "Quality Lead / Jurado externo",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "Rubric",
+            "EvaluationResult",
+            "EvidenceClaim"
+          ],
+          "risk": "OPERATIVO",
+          "source_acceptance": "G4 aprobado",
+          "source_inputs": "Jurado y QA",
+          "source_outputs": "Results congelados",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         }
+      ],
+      "description": "Ranking de soluciones y oportunidades, no ranking laboral definitivo de personas.",
+      "contracts": [
+        "Rubric",
+        "EvaluationResult",
+        "EvidenceClaim"
       ]
     },
     {
@@ -1234,7 +2510,17 @@
           "outputs": "Claim verificable",
           "acceptance": "Declaración ≠ hecho",
           "owner": "People Analytics / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EvidenceClaim",
+            "CapabilityEvidence"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "Separar afirmación de evidencia",
+          "source_inputs": "Commits/demos/declaración",
+          "source_outputs": "Observaciones verificables",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "capability.skill_taxonomy",
@@ -1243,7 +2529,17 @@
           "outputs": "Diccionario de habilidades",
           "acceptance": "Versionado y observabilidad",
           "owner": "People Analytics / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EvidenceClaim",
+            "CapabilityEvidence"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "Competencias observables",
+          "source_inputs": "Skills IA y negocio",
+          "source_outputs": "Diccionario versionado",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "capability.attribution",
@@ -1252,7 +2548,17 @@
           "outputs": "Aportes con fuente",
           "acceptance": "No confundir autoría",
           "owner": "People Analytics / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EvidenceClaim",
+            "CapabilityEvidence"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "Sin equiparar entrega y autoría",
+          "source_inputs": "Evidencias de equipo",
+          "source_outputs": "Aporte trazado",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "capability.uncertainty",
@@ -1261,7 +2567,17 @@
           "outputs": "Confidence band",
           "acceptance": "Límites explícitos",
           "owner": "People Analytics / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EvidenceClaim",
+            "CapabilityEvidence"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "No inventar certeza",
+          "source_inputs": "Volumen/calidad evidencias",
+          "source_outputs": "Confidence con límites",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "capability.missingness",
@@ -1270,7 +2586,17 @@
           "outputs": "Cobertura",
           "acceptance": "No extrapolar a la plantilla",
           "owner": "People Analytics / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EvidenceClaim",
+            "CapabilityEvidence"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "No extrapolar al 100% de plantilla",
+          "source_inputs": "Participación y formatos",
+          "source_outputs": "Estadística no respuesta",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "capability.aggregates",
@@ -1279,7 +2605,17 @@
           "outputs": "Cobertura por unidad",
           "acceptance": "Supresión de grupos pequeños",
           "owner": "People Analytics / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EvidenceClaim",
+            "CapabilityEvidence"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "Umbrales k-anonimato cuando aplique",
+          "source_inputs": "Evidencias consentidas/autorizadas",
+          "source_outputs": "Cobertura por unidad",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "capability.development",
@@ -1288,7 +2624,17 @@
           "outputs": "Opciones formativas",
           "acceptance": "No decisión laboral automática",
           "owner": "People Analytics / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EvidenceClaim",
+            "CapabilityEvidence"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "No decisión de empleo automatizada",
+          "source_inputs": "Competencias observadas",
+          "source_outputs": "Sugerencias formativas",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "capability.opt_in",
@@ -1297,7 +2643,17 @@
           "outputs": "Opciones crecimiento",
           "acceptance": "Revocable y actualizable",
           "owner": "People Analytics / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EvidenceClaim",
+            "CapabilityEvidence"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "Revocación y actualización posibles",
+          "source_inputs": "Preferencias y rol",
+          "source_outputs": "Áreas de crecimiento",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "capability.human_review",
@@ -1306,7 +2662,17 @@
           "outputs": "Dictamen revisado",
           "acceptance": "Revisor decide",
           "owner": "People Analytics / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EvidenceClaim",
+            "CapabilityEvidence"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "Revisor conserva última palabra",
+          "source_inputs": "Observaciones con impacto",
+          "source_outputs": "Observaciones revisadas",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "capability.challenge_bias",
@@ -1315,7 +2681,17 @@
           "outputs": "Advertencias",
           "acceptance": "No ranking interdominio ciego",
           "owner": "People Analytics / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EvidenceClaim",
+            "CapabilityEvidence"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "No ranking transdominio ciego",
+          "source_inputs": "Dificultad/tiempo/roles",
+          "source_outputs": "Advertencia de comparabilidad",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         },
         {
           "id": "capability.contest_result",
@@ -1324,8 +2700,23 @@
           "outputs": "Resumen participante",
           "acceptance": "No publicar ranking personal",
           "owner": "People Analytics / Comité cliente",
-          "status": "DESIGN"
+          "status": "DESIGN",
+          "contracts": [
+            "EvidenceClaim",
+            "CapabilityEvidence"
+          ],
+          "risk": "PERSONAS",
+          "source_acceptance": "No difusión del ranking personal",
+          "source_inputs": "Evidencias y revisión",
+          "source_outputs": "Informe individual privado",
+          "source_status": "DISEÑO",
+          "source": "AI_FIRST_ATLAS_SPEC.json"
         }
+      ],
+      "description": "Capacidades con pruebas y nivel de confianza; no inferencias de personalidad ni idoneidad absoluta.",
+      "contracts": [
+        "EvidenceClaim",
+        "CapabilityEvidence"
       ]
     },
     {
@@ -1359,7 +2750,10 @@
             "GraphEdge",
             "EvidenceClaim"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Versionado y restricciones",
+          "source_inputs": "Entidades y relaciones",
+          "source_outputs": "Vocabulario formal"
         },
         {
           "id": "graph.company",
@@ -1376,7 +2770,10 @@
             "GraphEdge",
             "EvidenceClaim"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Owner y fecha de vigencia",
+          "source_inputs": "Contexto confirmado",
+          "source_outputs": "Nodos organizativos"
         },
         {
           "id": "graph.problem",
@@ -1393,7 +2790,10 @@
             "GraphEdge",
             "EvidenceClaim"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Relación explícita con negocio",
+          "source_inputs": "Brief y baseline",
+          "source_outputs": "Nodos retos/objetivos"
         },
         {
           "id": "graph.solution",
@@ -1410,7 +2810,10 @@
             "GraphEdge",
             "EvidenceClaim"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Link a snapshot exacto",
+          "source_inputs": "Submission + evaluación",
+          "source_outputs": "Nodos prototipos"
         },
         {
           "id": "graph.skill",
@@ -1427,7 +2830,10 @@
             "GraphEdge",
             "EvidenceClaim"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Contexto y nivel de confianza",
+          "source_inputs": "CapabilityEvidence",
+          "source_outputs": "Nodos skill con evidencia"
         },
         {
           "id": "graph.participant",
@@ -1444,7 +2850,10 @@
             "GraphEdge",
             "EvidenceClaim"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Vista pública anonimizada",
+          "source_inputs": "Pseudónimo/rol",
+          "source_outputs": "Nodos restringidos"
         },
         {
           "id": "graph.technology",
@@ -1461,7 +2870,10 @@
             "GraphEdge",
             "EvidenceClaim"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Origen/versiones visibles",
+          "source_inputs": "SBOM y diagramas",
+          "source_outputs": "Nodos tecnológicos"
         },
         {
           "id": "graph.edges",
@@ -1478,7 +2890,10 @@
             "GraphEdge",
             "EvidenceClaim"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Sin links semánticos inventados",
+          "source_inputs": "IDs validados",
+          "source_outputs": "Aristas justificadas"
         },
         {
           "id": "graph.provenance",
@@ -1495,7 +2910,10 @@
             "GraphEdge",
             "EvidenceClaim"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Recorrido hasta fuente",
+          "source_inputs": "EvidenceClaim",
+          "source_outputs": "Procedencia de cada inferencia"
         },
         {
           "id": "graph.query",
@@ -1512,7 +2930,10 @@
             "GraphEdge",
             "EvidenceClaim"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Filtros por rol",
+          "source_inputs": "Pregunta autorizada",
+          "source_outputs": "Subgrafos explicables"
         },
         {
           "id": "graph.change",
@@ -1529,7 +2950,10 @@
             "GraphEdge",
             "EvidenceClaim"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "No sobrescribir hechos históricos",
+          "source_inputs": "Nuevas cohortes",
+          "source_outputs": "Historial de cambios"
         },
         {
           "id": "graph.coverage",
@@ -1546,7 +2970,10 @@
             "GraphEdge",
             "EvidenceClaim"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Métricas de completitud",
+          "source_inputs": "Inventario esperado",
+          "source_outputs": "Lagunas verificadas"
         }
       ]
     },
@@ -1579,7 +3006,10 @@
             "OrganizationScenario",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Cada decisión enlaza evidencia",
+          "source_inputs": "Ranking soluciones",
+          "source_outputs": "Portfolio candidato"
         },
         {
           "id": "scenario.matching",
@@ -1595,7 +3025,10 @@
             "OrganizationScenario",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Nunca asignación laboral automática",
+          "source_inputs": "Competencias + interés + disponibilidad",
+          "source_outputs": "Equipos candidatos"
         },
         {
           "id": "scenario.coverage",
@@ -1611,7 +3044,10 @@
             "OrganizationScenario",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "No confundir ausencia prueba con ausencia habilidad",
+          "source_inputs": "Skills por iniciativa",
+          "source_outputs": "Brechas por equipo"
         },
         {
           "id": "scenario.org_options",
@@ -1627,7 +3063,10 @@
             "OrganizationScenario",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Pros,contras,incertidumbres",
+          "source_inputs": "Opciones y restricciones",
+          "source_outputs": "3 modelos contrastables"
         },
         {
           "id": "scenario.dependencies",
@@ -1643,7 +3082,10 @@
             "OrganizationScenario",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Bloqueantes visibles",
+          "source_inputs": "Equipos,sistemas,formación",
+          "source_outputs": "Camino crítico"
         },
         {
           "id": "scenario.capacity",
@@ -1659,7 +3101,10 @@
             "OrganizationScenario",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Verificada con responsables",
+          "source_inputs": "Horas,roles y demanda",
+          "source_outputs": "Capacidad estimada"
         },
         {
           "id": "scenario.business_case",
@@ -1675,7 +3120,10 @@
             "OrganizationScenario",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Nunca mostrar ROI ficticio como real",
+          "source_inputs": "Costes,baseline,riesgos",
+          "source_outputs": "Rangos ROI"
         },
         {
           "id": "scenario.risk_model",
@@ -1691,7 +3139,10 @@
             "OrganizationScenario",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Dueño por riesgo",
+          "source_inputs": "Cultura,seguridad,operación",
+          "source_outputs": "Registro mitigaciones"
         },
         {
           "id": "scenario.co_design",
@@ -1707,7 +3158,10 @@
             "OrganizationScenario",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Opiniones registradas",
+          "source_inputs": "RRHH,TI,representación",
+          "source_outputs": "Escenarios revisados"
         },
         {
           "id": "scenario.committee",
@@ -1723,7 +3177,10 @@
             "OrganizationScenario",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Registro humano",
+          "source_inputs": "Alternativas y acta",
+          "source_outputs": "Opción aprobada o rechazada"
         },
         {
           "id": "scenario.readiness",
@@ -1739,7 +3196,10 @@
             "OrganizationScenario",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "G5 aprobado",
+          "source_inputs": "Viabilidad y conformidad",
+          "source_outputs": "Alternativas publicables"
         }
       ]
     },
@@ -1772,7 +3232,10 @@
             "DeliverableManifest",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "KPIs con fuente y nivel confianza",
+          "source_inputs": "Hechos y oportunidades",
+          "source_outputs": "PDF ejecutivo"
         },
         {
           "id": "output.board_deck",
@@ -1788,7 +3251,10 @@
             "DeliverableManifest",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "No trasladar ranking personal",
+          "source_inputs": "Resumen decisiones",
+          "source_outputs": "Presentación dirección"
         },
         {
           "id": "output.graph_html",
@@ -1804,7 +3270,10 @@
             "DeliverableManifest",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "RBAC y export sin PII indebida",
+          "source_inputs": "Datos autorizados",
+          "source_outputs": "Atlas interactivo"
         },
         {
           "id": "output.portfolio",
@@ -1820,7 +3289,10 @@
             "DeliverableManifest",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Dueño y riesgos visibles",
+          "source_inputs": "Evaluación y viabilidad",
+          "source_outputs": "Fichas de proyectos"
         },
         {
           "id": "output.roadmap",
@@ -1836,7 +3308,10 @@
             "DeliverableManifest",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Owner,dependencia,KPI,gate",
+          "source_inputs": "Escenario elegido",
+          "source_outputs": "Backlog priorizado"
         },
         {
           "id": "output.teams",
@@ -1852,7 +3327,10 @@
             "DeliverableManifest",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Acceso limitado a RRHH y interesados",
+          "source_inputs": "Matching revisado",
+          "source_outputs": "Propuesta de colaboración"
         },
         {
           "id": "output.skills",
@@ -1868,7 +3346,10 @@
             "DeliverableManifest",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Cobertura y límites declarados",
+          "source_inputs": "Evidencias agregadas",
+          "source_outputs": "Mapa capacidades"
         },
         {
           "id": "output.risk",
@@ -1884,7 +3365,10 @@
             "DeliverableManifest",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Responsables y fechas",
+          "source_inputs": "Hallazgos y mitigaciones",
+          "source_outputs": "Registro de riesgo"
         },
         {
           "id": "output.technical",
@@ -1900,7 +3384,10 @@
             "DeliverableManifest",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Reproducible y versionado",
+          "source_inputs": "Tests,trazas,SBOM",
+          "source_outputs": "Apéndice técnico"
         },
         {
           "id": "output.participant",
@@ -1916,7 +3403,10 @@
             "DeliverableManifest",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Nunca compartido globalmente",
+          "source_inputs": "Contribución revisada",
+          "source_outputs": "Informe personal opcional"
         },
         {
           "id": "output.api_export",
@@ -1932,7 +3422,10 @@
             "DeliverableManifest",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Contratos versionados",
+          "source_inputs": "Dataset autorizado",
+          "source_outputs": "Export interoperable"
         },
         {
           "id": "output.jira_export",
@@ -1948,7 +3441,10 @@
             "DeliverableManifest",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Escrituras con aprobación explícita",
+          "source_inputs": "Work packages",
+          "source_outputs": "Tickets opt-in"
         },
         {
           "id": "output.signoff",
@@ -1964,7 +3460,10 @@
             "DeliverableManifest",
             "RoadmapItem"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "G6 y aceptación formal",
+          "source_inputs": "DeliverableManifest",
+          "source_outputs": "Acta y control versiones"
         }
       ]
     },
@@ -1997,7 +3496,10 @@
             "RoadmapItem",
             "PilotOutcome"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Sponsor y criterios de cancelación",
+          "source_inputs": "Portfolio aprobado",
+          "source_outputs": "Charters por iniciativa"
         },
         {
           "id": "activation.resourcing",
@@ -2013,7 +3515,10 @@
             "RoadmapItem",
             "PilotOutcome"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Decisión humana y autorización",
+          "source_inputs": "Preferencias y recursos",
+          "source_outputs": "Equipo formalizado por cliente"
         },
         {
           "id": "activation.backlog",
@@ -2029,7 +3534,10 @@
             "RoadmapItem",
             "PilotOutcome"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Dependencias estimadas",
+          "source_inputs": "Work packages",
+          "source_outputs": "Backlog 30/60/90"
         },
         {
           "id": "activation.training",
@@ -2045,7 +3553,10 @@
             "RoadmapItem",
             "PilotOutcome"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "No usar ausencia evidencia como castigo",
+          "source_inputs": "Capability Atlas",
+          "source_outputs": "Itinerarios voluntarios"
         },
         {
           "id": "activation.guardrails",
@@ -2061,7 +3572,10 @@
             "RoadmapItem",
             "PilotOutcome"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Gate previo a producción",
+          "source_inputs": "IT/seguridad/legal",
+          "source_outputs": "Controles de ejecución"
         },
         {
           "id": "activation.benefits",
@@ -2077,7 +3591,10 @@
             "RoadmapItem",
             "PilotOutcome"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Métodos replicables",
+          "source_inputs": "Métricas baseline",
+          "source_outputs": "Resultado real vs previsto"
         },
         {
           "id": "activation.check30",
@@ -2093,7 +3610,10 @@
             "RoadmapItem",
             "PilotOutcome"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Decisiones registradas",
+          "source_inputs": "Evidencias progreso",
+          "source_outputs": "Estado y bloqueos"
         },
         {
           "id": "activation.check60",
@@ -2109,7 +3629,10 @@
             "RoadmapItem",
             "PilotOutcome"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Reasignar inversión si procede",
+          "source_inputs": "Pilotos y uso",
+          "source_outputs": "Comparación prevista/real"
         },
         {
           "id": "activation.check90",
@@ -2125,7 +3648,10 @@
             "RoadmapItem",
             "PilotOutcome"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Cierre/aprendizajes",
+          "source_inputs": "Medidas de negocio",
+          "source_outputs": "Outcomes auditados"
         },
         {
           "id": "activation.community",
@@ -2141,7 +3667,10 @@
             "RoadmapItem",
             "PilotOutcome"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Participación voluntaria",
+          "source_inputs": "Personas interesadas",
+          "source_outputs": "Red de intercambio"
         },
         {
           "id": "activation.repeat",
@@ -2157,7 +3686,10 @@
             "RoadmapItem",
             "PilotOutcome"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Comparación temporal con límites",
+          "source_inputs": "Aprendizajes y nuevas metas",
+          "source_outputs": "Plan siguiente ciclo"
         }
       ]
     },
@@ -2190,7 +3722,10 @@
             "EngagementConfig",
             "EventEnvelope"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Checklist de traspaso",
+          "source_inputs": "SOW y CRM",
+          "source_outputs": "Proyecto operativo"
         },
         {
           "id": "ops.staffing",
@@ -2206,7 +3741,10 @@
             "EngagementConfig",
             "EventEnvelope"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "No sobreasignar horas",
+          "source_inputs": "Carga y competencias internas",
+          "source_outputs": "RACI staffing"
         },
         {
           "id": "ops.judges_pool",
@@ -2222,7 +3760,10 @@
             "EngagementConfig",
             "EventEnvelope"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Independencia comprobada",
+          "source_inputs": "Perfiles/conflictos",
+          "source_outputs": "Comité disponible"
         },
         {
           "id": "ops.supplier",
@@ -2238,7 +3779,10 @@
             "EngagementConfig",
             "EventEnvelope"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Contratos y riesgo",
+          "source_inputs": "Modelos,nube,consultores",
+          "source_outputs": "Registro de terceros"
         },
         {
           "id": "ops.templates",
@@ -2254,7 +3798,10 @@
             "EngagementConfig",
             "EventEnvelope"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Control cambios",
+          "source_inputs": "Inputs / informes",
+          "source_outputs": "Versiones publicadas"
         },
         {
           "id": "ops.qa_ops",
@@ -2270,7 +3817,10 @@
             "EngagementConfig",
             "EventEnvelope"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "2 ojos sobre salida ejecutiva",
+          "source_inputs": "Checklist completo",
+          "source_outputs": "Dictamen de calidad"
         },
         {
           "id": "ops.customer_service",
@@ -2286,7 +3836,10 @@
             "EngagementConfig",
             "EventEnvelope"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Tiempos medidos",
+          "source_inputs": "Tickets y SLA",
+          "source_outputs": "Resoluciones y acciones"
         },
         {
           "id": "ops.incident",
@@ -2302,7 +3855,10 @@
             "EngagementConfig",
             "EventEnvelope"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Notificación según severidad",
+          "source_inputs": "Alertas/quejas",
+          "source_outputs": "Registro y respuesta"
         },
         {
           "id": "ops.billing",
@@ -2318,7 +3874,10 @@
             "EngagementConfig",
             "EventEnvelope"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Conciliación financiera",
+          "source_inputs": "Facturas y condiciones",
+          "source_outputs": "Cobros y facturación"
         },
         {
           "id": "ops.staff_training",
@@ -2334,7 +3893,10 @@
             "EngagementConfig",
             "EventEnvelope"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Evaluación de competencia",
+          "source_inputs": "Nuevos procesos y leyes",
+          "source_outputs": "Operadores habilitados"
         },
         {
           "id": "ops.postmortem",
@@ -2350,7 +3912,10 @@
             "EngagementConfig",
             "EventEnvelope"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Seguimiento acciones",
+          "source_inputs": "Métricas de operación",
+          "source_outputs": "Mejoras proceso"
         }
       ]
     },
@@ -2385,7 +3950,10 @@
             "EventEnvelope",
             "RiskRecord"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Pruebas aislamiento",
+          "source_inputs": "Cliente/engagement",
+          "source_outputs": "Espacios independientes"
         },
         {
           "id": "platform.identity",
@@ -2402,7 +3970,10 @@
             "EventEnvelope",
             "RiskRecord"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "MFA y sesiones cortas",
+          "source_inputs": "Usuarios y roles",
+          "source_outputs": "Autenticación federada"
         },
         {
           "id": "platform.object_storage",
@@ -2419,7 +3990,10 @@
             "EventEnvelope",
             "RiskRecord"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Acceso restringido",
+          "source_inputs": "Paquetes de proyectos",
+          "source_outputs": "Bucket cifrado"
         },
         {
           "id": "platform.metadata_db",
@@ -2436,7 +4010,10 @@
             "EventEnvelope",
             "RiskRecord"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Migraciones controladas",
+          "source_inputs": "Manifiestos y estados",
+          "source_outputs": "SQL con RLS"
         },
         {
           "id": "platform.graphdb",
@@ -2453,7 +4030,10 @@
             "EventEnvelope",
             "RiskRecord"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "ACL a nivel datos",
+          "source_inputs": "GraphNode/GraphEdge",
+          "source_outputs": "Relaciones consultables"
         },
         {
           "id": "platform.queue",
@@ -2470,7 +4050,10 @@
             "EventEnvelope",
             "RiskRecord"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Idempotencia",
+          "source_inputs": "JobSpec y eventos",
+          "source_outputs": "Workers y DLQ"
         },
         {
           "id": "platform.llm_gateway",
@@ -2487,7 +4070,10 @@
             "EventEnvelope",
             "RiskRecord"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Sin entrenamiento externo salvo pacto",
+          "source_inputs": "Modelos/proveedores",
+          "source_outputs": "Control de inferencia"
         },
         {
           "id": "platform.observability",
@@ -2504,7 +4090,10 @@
             "EventEnvelope",
             "RiskRecord"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Redactar datos sensibles",
+          "source_inputs": "Trazas/eventos",
+          "source_outputs": "Métricas y alarmas"
         },
         {
           "id": "platform.keys",
@@ -2521,7 +4110,10 @@
             "EventEnvelope",
             "RiskRecord"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Nada sensible en prompts/logs",
+          "source_inputs": "Credenciales e integraciones",
+          "source_outputs": "Rotación y cifrado"
         },
         {
           "id": "platform.backups",
@@ -2538,7 +4130,10 @@
             "EventEnvelope",
             "RiskRecord"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Restauración ensayada",
+          "source_inputs": "Datos operativos",
+          "source_outputs": "Copias verificadas"
         },
         {
           "id": "platform.cicd",
@@ -2555,7 +4150,10 @@
             "EventEnvelope",
             "RiskRecord"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Pruebas por versión",
+          "source_inputs": "Código y configs",
+          "source_outputs": "Releases firmados"
         },
         {
           "id": "platform.retention_worker",
@@ -2572,7 +4170,10 @@
             "EventEnvelope",
             "RiskRecord"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Retención por tipo",
+          "source_inputs": "Políticas y solicitudes",
+          "source_outputs": "Borrado verificable"
         },
         {
           "id": "platform.resilience",
@@ -2589,7 +4190,10 @@
             "EventEnvelope",
             "RiskRecord"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "RTO/RPO acordados",
+          "source_inputs": "SLO/amenazas",
+          "source_outputs": "Procedimiento BCP"
         }
       ]
     },
@@ -2620,7 +4224,10 @@
           "contracts": [
             "PricingQuote"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Alcance y exclusiones claras",
+          "source_inputs": "Tipo de servicio",
+          "source_outputs": "Catálogo precios"
         },
         {
           "id": "economics.volume",
@@ -2635,7 +4242,10 @@
           "contracts": [
             "PricingQuote"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Definir topes",
+          "source_inputs": "Tamaño cohorte",
+          "source_outputs": "Escalas de precio"
         },
         {
           "id": "economics.complexity",
@@ -2650,7 +4260,10 @@
           "contracts": [
             "PricingQuote"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Tiempo medido",
+          "source_inputs": "Repo,video,código,datasets",
+          "source_outputs": "Unidad coste por modalidad"
         },
         {
           "id": "economics.human_hours",
@@ -2665,7 +4278,10 @@
           "contracts": [
             "PricingQuote"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Sin horas gratuitas implícitas",
+          "source_inputs": "Analistas,jueces,PM,legal",
+          "source_outputs": "Coste laboral por edición"
         },
         {
           "id": "economics.compute",
@@ -2680,7 +4296,10 @@
           "contracts": [
             "PricingQuote"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Etiquetas tenant/job",
+          "source_inputs": "Tokens,CPU,almacenamiento",
+          "source_outputs": "Costes variables"
         },
         {
           "id": "economics.jury_cost",
@@ -2695,7 +4314,10 @@
           "contracts": [
             "PricingQuote"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Calibración presupuestada",
+          "source_inputs": "Perfiles y duración",
+          "source_outputs": "Coste de evaluación"
         },
         {
           "id": "economics.prize_cost",
@@ -2710,7 +4332,10 @@
           "contracts": [
             "PricingQuote"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Separado o incluido en precio",
+          "source_inputs": "Bases y localización",
+          "source_outputs": "Incentivo financiado"
         },
         {
           "id": "economics.risk_premium",
@@ -2725,7 +4350,10 @@
           "contracts": [
             "PricingQuote"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Sujeto a capacidad/aceptación",
+          "source_inputs": "Sensibilidad/sector",
+          "source_outputs": "Coste adicional justificado"
         },
         {
           "id": "economics.change_orders",
@@ -2740,7 +4368,10 @@
           "contracts": [
             "PricingQuote"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Aprobación anterior a ejecución",
+          "source_inputs": "Solicitudes extra",
+          "source_outputs": "Presupuesto adicional"
         },
         {
           "id": "economics.margin",
@@ -2755,7 +4386,10 @@
           "contracts": [
             "PricingQuote"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Estructura fija aparte",
+          "source_inputs": "Precio y COGS",
+          "source_outputs": "Rentabilidad por cliente"
         },
         {
           "id": "economics.followup",
@@ -2770,7 +4404,10 @@
           "contracts": [
             "PricingQuote"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Sin atar cliente a datos",
+          "source_inputs": "Resultados y demanda",
+          "source_outputs": "Nuevo ciclo o suscripción"
         },
         {
           "id": "economics.pricing_gate",
@@ -2785,7 +4422,10 @@
           "contracts": [
             "PricingQuote"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "G0, margen mínimo aprobado",
+          "source_inputs": "P&L y legal",
+          "source_outputs": "Oferta autorizada"
         }
       ]
     },
@@ -2820,7 +4460,10 @@
             "EventEnvelope",
             "DeliverableManifest"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Todo nodo dueño + contrato",
+          "source_inputs": "Grafo completo",
+          "source_outputs": "Registro cobertura"
         },
         {
           "id": "assurance.contracts",
@@ -2837,7 +4480,10 @@
             "EventEnvelope",
             "DeliverableManifest"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Backward compatibility",
+          "source_inputs": "JSON schemas",
+          "source_outputs": "Resultados de validación"
         },
         {
           "id": "assurance.quality_gates",
@@ -2854,7 +4500,10 @@
             "EventEnvelope",
             "DeliverableManifest"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "No omisión silenciosa",
+          "source_inputs": "Transiciones operativas",
+          "source_outputs": "Actas / bloqueos"
         },
         {
           "id": "assurance.security_testing",
@@ -2871,7 +4520,10 @@
             "EventEnvelope",
             "DeliverableManifest"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Cerrar críticos antes de ejecución",
+          "source_inputs": "Permisos y sandbox",
+          "source_outputs": "Informe hallazgos"
         },
         {
           "id": "assurance.llm_evals",
@@ -2888,7 +4540,10 @@
             "EventEnvelope",
             "DeliverableManifest"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Regresiones por versión",
+          "source_inputs": "Golden set y red team",
+          "source_outputs": "Métricas fiabilidad"
         },
         {
           "id": "assurance.fairness_audit",
@@ -2905,7 +4560,10 @@
             "EventEnvelope",
             "DeliverableManifest"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Señalar límites estadísticos",
+          "source_inputs": "Rúbricas y muestras",
+          "source_outputs": "Revisión humana"
         },
         {
           "id": "assurance.lineage_audit",
@@ -2922,7 +4580,10 @@
             "EventEnvelope",
             "DeliverableManifest"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Toda afirmación decisiva citable",
+          "source_inputs": "Claims y documentos",
+          "source_outputs": "Rutas de evidencia"
         },
         {
           "id": "assurance.change_control",
@@ -2939,7 +4600,10 @@
             "EventEnvelope",
             "DeliverableManifest"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Re-evaluar impactos",
+          "source_inputs": "Prompts,modelos,contratos",
+          "source_outputs": "Control de cambio"
         },
         {
           "id": "assurance.finance_audit",
@@ -2956,7 +4620,10 @@
             "EventEnvelope",
             "DeliverableManifest"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Presupuestos vs reales",
+          "source_inputs": "Facturas/mediciones",
+          "source_outputs": "Margen comprobado"
         },
         {
           "id": "assurance.retention_audit",
@@ -2973,7 +4640,10 @@
             "EventEnvelope",
             "DeliverableManifest"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Cierre por tenant",
+          "source_inputs": "Logs de eliminación",
+          "source_outputs": "Prueba de cumplimiento"
         },
         {
           "id": "assurance.exit_audit",
@@ -2990,7 +4660,10 @@
             "EventEnvelope",
             "DeliverableManifest"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Datos y permisos retirados",
+          "source_inputs": "Entregables y revocación",
+          "source_outputs": "Certificado cierre"
         },
         {
           "id": "assurance.lessons",
@@ -3007,7 +4680,10 @@
             "EventEnvelope",
             "DeliverableManifest"
           ],
-          "source": "AI_FIRST_ATLAS_SPEC.json"
+          "source": "AI_FIRST_ATLAS_SPEC.json",
+          "source_acceptance": "Criterios priorización",
+          "source_inputs": "KPIs y feedback",
+          "source_outputs": "Backlog de producto"
         }
       ]
     }

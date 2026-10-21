@@ -1,0 +1,3466 @@
+{
+  "version": "1.0.0",
+  "source": "AI_FIRST_ATLAS_SPEC.json",
+  "total": 230,
+  "unresolved": [],
+  "nodes": [
+    {
+      "id": "market.icp",
+      "domain": "market",
+      "owner": "CEO / Growth",
+      "contract_refs": [
+        "ClientBrief"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "market.icp",
+      "current_acceptance": "Sector, necesidad y decisor definido",
+      "source_acceptance": "Perfil con necesidad y comprador identificados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "market.prospect",
+      "domain": "market",
+      "owner": "CEO / Growth",
+      "contract_refs": [
+        "ClientBrief"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "market.prospect",
+      "current_acceptance": "Fuente y permiso de contacto trazados",
+      "source_acceptance": "Procedencia y permiso de contacto",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "market.inbound",
+      "domain": "market",
+      "owner": "CEO / Growth",
+      "contract_refs": [
+        "ClientBrief"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "market.inbound",
+      "current_acceptance": "Promesas verificables; sin clasificar trabajadores",
+      "source_acceptance": "No prometer decisiones laborales automáticas",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "market.qualification",
+      "domain": "market",
+      "owner": "CEO / Growth",
+      "contract_refs": [
+        "ClientBrief"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "market.qualification",
+      "current_acceptance": "Criterios explícitos y motivo",
+      "source_acceptance": "Responsable y plazo identificados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "market.demo",
+      "domain": "market",
+      "owner": "CEO / Growth",
+      "contract_refs": [
+        "ClientBrief"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "market.demo",
+      "current_acceptance": "Marcada como simulada",
+      "source_acceptance": "Cifras de ejemplo marcadas claramente",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "market.roi_story",
+      "domain": "market",
+      "owner": "CEO / Growth",
+      "contract_refs": [
+        "ClientBrief"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "market.roi_story",
+      "current_acceptance": "Supuestos, sensibilidad y coste trabajador incluidos",
+      "source_acceptance": "Separación beneficios estimados y verificados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "market.stakeholders",
+      "domain": "market",
+      "owner": "CEO / Growth",
+      "contract_refs": [
+        "ClientBrief"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "market.stakeholders",
+      "current_acceptance": "Sponsor, Legal, DPO y Compras identificados",
+      "source_acceptance": "Dueños de decisión identificados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "market.crm",
+      "domain": "market",
+      "owner": "CEO / Growth",
+      "contract_refs": [
+        "ClientBrief"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "market.crm",
+      "current_acceptance": "Titularidad y finalidad de datos delimitadas",
+      "source_acceptance": "Base legal y datos mínimos",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "market.lost_reasons",
+      "domain": "market",
+      "owner": "CEO / Growth",
+      "contract_refs": [
+        "ClientBrief"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "market.lost_reasons",
+      "current_acceptance": "Feedback agregado sin confidencialidad ajena",
+      "source_acceptance": "Revisión mensual del pricing y propuesta",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "contract.proposal",
+      "domain": "contract",
+      "owner": "Legal / Dirección de proyecto",
+      "contract_refs": [
+        "ClientBrief",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "contract.proposal",
+      "current_acceptance": "Margen, alcance, hipótesis y límites expresos",
+      "source_acceptance": "Aprobación de alcance",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "contract.sow",
+      "domain": "contract",
+      "owner": "Legal / Dirección de proyecto",
+      "contract_refs": [
+        "ClientBrief",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "contract.sow",
+      "current_acceptance": "Trabajo, participantes, entregables, revisiones y cambios",
+      "source_acceptance": "Dentro/fuera de alcance inequívocos",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "contract.dpa",
+      "domain": "contract",
+      "owner": "Legal / Dirección de proyecto",
+      "contract_refs": [
+        "ClientBrief",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "contract.dpa",
+      "current_acceptance": "Roles y subencargados revisados por asesores",
+      "source_acceptance": "Verificado por legal y DPO",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "contract.ip",
+      "domain": "contract",
+      "owner": "Legal / Dirección de proyecto",
+      "contract_refs": [
+        "ClientBrief",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "contract.ip",
+      "current_acceptance": "Licencias, titularidad y usos de entregables claros",
+      "source_acceptance": "Código y demos sujetos a licencia explícita",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "contract.prizes",
+      "domain": "contract",
+      "owner": "Legal / Dirección de proyecto",
+      "contract_refs": [
+        "ClientBrief",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "contract.prizes",
+      "current_acceptance": "Criterios, empate, reparto, fiscalidad y recursos",
+      "source_acceptance": "Reglas y destinatarios claros",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "contract.sla",
+      "domain": "contract",
+      "owner": "Legal / Dirección de proyecto",
+      "contract_refs": [
+        "ClientBrief",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "contract.sla",
+      "current_acceptance": "Canales, horario, escalado y soporte definidos",
+      "source_acceptance": "Responsables y ventanas acordadas",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "contract.exit",
+      "domain": "contract",
+      "owner": "Legal / Dirección de proyecto",
+      "contract_refs": [
+        "ClientBrief",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "contract.exit",
+      "current_acceptance": "Formatos, plazo y responsable descritos",
+      "source_acceptance": "Plazos y prueba de cierre",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "contract.liability",
+      "domain": "contract",
+      "owner": "Legal / Dirección de proyecto",
+      "contract_refs": [
+        "ClientBrief",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "contract.liability",
+      "current_acceptance": "Revisada por profesionales habilitados",
+      "source_acceptance": "Aprobación jurídica",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "contract.approval",
+      "domain": "contract",
+      "owner": "Legal / Dirección de proyecto",
+      "contract_refs": [
+        "ClientBrief",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "contract.approval",
+      "current_acceptance": "Sin recogida de datos sin aprobación humana",
+      "source_acceptance": "No se arranca con gate incompleto",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "context.profile",
+      "domain": "context",
+      "owner": "Consultor / Sponsor cliente",
+      "contract_refs": [
+        "CompanyContext"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "context.profile",
+      "current_acceptance": "Identificador, sector, países y tamaño con fuentes",
+      "source_acceptance": "Distinguir hechos y suposiciones",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "context.strategy",
+      "domain": "context",
+      "owner": "Consultor / Sponsor cliente",
+      "contract_refs": [
+        "CompanyContext"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "context.strategy",
+      "current_acceptance": "Objetivos medibles con patrocinador",
+      "source_acceptance": "Sponsor confirma prioridades",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "context.org_units",
+      "domain": "context",
+      "owner": "Consultor / Sponsor cliente",
+      "contract_refs": [
+        "CompanyContext"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "context.org_units",
+      "current_acceptance": "No listas nominativas por defecto",
+      "source_acceptance": "Cobertura declarada",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "context.processes",
+      "domain": "context",
+      "owner": "Consultor / Sponsor cliente",
+      "contract_refs": [
+        "CompanyContext"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "context.processes",
+      "current_acceptance": "Owner, frecuencia, volumen y sistema origen",
+      "source_acceptance": "Dueño por proceso",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "context.painpoints",
+      "domain": "context",
+      "owner": "Consultor / Sponsor cliente",
+      "contract_refs": [
+        "CompanyContext"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "context.painpoints",
+      "current_acceptance": "Estimaciones identificadas como tales",
+      "source_acceptance": "Baselines con fuente",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "context.tech",
+      "domain": "context",
+      "owner": "Consultor / Sponsor cliente",
+      "contract_refs": [
+        "CompanyContext"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "context.tech",
+      "current_acceptance": "Fuentes y restricciones verificadas",
+      "source_acceptance": "No copiar secretos",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "context.security",
+      "domain": "context",
+      "owner": "Consultor / Sponsor cliente",
+      "contract_refs": [
+        "CompanyContext"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "context.security",
+      "current_acceptance": "Clasificación y prohibiciones explícitas",
+      "source_acceptance": "TI valida entorno permitido",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "context.culture",
+      "domain": "context",
+      "owner": "Consultor / Sponsor cliente",
+      "contract_refs": [
+        "CompanyContext"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "context.culture",
+      "current_acceptance": "Sesgos y no respuesta declarados",
+      "source_acceptance": "No inferir rasgos personales",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "context.sponsors",
+      "domain": "context",
+      "owner": "Consultor / Sponsor cliente",
+      "contract_refs": [
+        "CompanyContext"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "context.sponsors",
+      "current_acceptance": "Tiempo real para el piloto definido",
+      "source_acceptance": "Sponsor con poder de desbloqueo",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "context.baseline",
+      "domain": "context",
+      "owner": "Consultor / Sponsor cliente",
+      "contract_refs": [
+        "CompanyContext"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "context.baseline",
+      "current_acceptance": "Unidad, período y método reproducibles",
+      "source_acceptance": "Método medición definido",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "context.data_sources",
+      "domain": "context",
+      "owner": "Consultor / Sponsor cliente",
+      "contract_refs": [
+        "CompanyContext"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "context.data_sources",
+      "current_acceptance": "Propietario, acceso, vigencia y clasificación",
+      "source_acceptance": "No suponer permiso por existencia",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "context.unknowns",
+      "domain": "context",
+      "owner": "Consultor / Sponsor cliente",
+      "contract_refs": [
+        "CompanyContext"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "context.unknowns",
+      "current_acceptance": "No inventar datos ni extrapolar participantes",
+      "source_acceptance": "Informe declara coberturas y sesgos",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "governance.legal_basis",
+      "domain": "governance",
+      "owner": "DPO / Legal / Comité cliente",
+      "contract_refs": [
+        "RiskRecord",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "governance.legal_basis",
+      "current_acceptance": "Responsable establece base jurídica y necesidad",
+      "source_acceptance": "No presumir consentimiento laboral válido",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "governance.notice",
+      "domain": "governance",
+      "owner": "DPO / Legal / Comité cliente",
+      "contract_refs": [
+        "RiskRecord",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "governance.notice",
+      "current_acceptance": "Antes de la inscripción y en lenguaje claro",
+      "source_acceptance": "Explicar finalidad y uso de resultados",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "governance.dpia",
+      "domain": "governance",
+      "owner": "DPO / Legal / Comité cliente",
+      "contract_refs": [
+        "RiskRecord",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "governance.dpia",
+      "current_acceptance": "Resultado y dueño documentados",
+      "source_acceptance": "DPO decide necesidad",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "governance.ai_act",
+      "domain": "governance",
+      "owner": "DPO / Legal / Comité cliente",
+      "contract_refs": [
+        "RiskRecord",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "governance.ai_act",
+      "current_acceptance": "Comprobar versión normativa y rol proveedor/usuario",
+      "source_acceptance": "Registro de versión normativa",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "governance.worker_rep",
+      "domain": "governance",
+      "owner": "DPO / Legal / Comité cliente",
+      "contract_refs": [
+        "RiskRecord",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "governance.worker_rep",
+      "current_acceptance": "Validado por jurídico laboral",
+      "source_acceptance": "Antes de usar datos laborales",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "governance.human",
+      "domain": "governance",
+      "owner": "DPO / Legal / Comité cliente",
+      "contract_refs": [
+        "RiskRecord",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "governance.human",
+      "current_acceptance": "Sin acciones laborales autónomas",
+      "source_acceptance": "Registro de decisión humana",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "governance.bias",
+      "domain": "governance",
+      "owner": "DPO / Legal / Comité cliente",
+      "contract_refs": [
+        "RiskRecord",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "governance.bias",
+      "current_acceptance": "Distinguir equipo, oportunidad y aportación",
+      "source_acceptance": "No usar score laboral universal",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "governance.purpose",
+      "domain": "governance",
+      "owner": "DPO / Legal / Comité cliente",
+      "contract_refs": [
+        "RiskRecord",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "governance.purpose",
+      "current_acceptance": "No reuso comercial ni entrenamiento no acordado",
+      "source_acceptance": "Bloqueo reutilización incompatible",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "governance.minimization",
+      "domain": "governance",
+      "owner": "DPO / Legal / Comité cliente",
+      "contract_refs": [
+        "RiskRecord",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "governance.minimization",
+      "current_acceptance": "Sin nombres, rendimiento laboral ni datos sensibles innecesarios",
+      "source_acceptance": "No importar HRIS completo por defecto",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "governance.access",
+      "domain": "governance",
+      "owner": "DPO / Legal / Comité cliente",
+      "contract_refs": [
+        "RiskRecord",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "governance.access",
+      "current_acceptance": "Mínimo privilegio, separación de clientes",
+      "source_acceptance": "Segregación de datos por tenant",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "governance.retention",
+      "domain": "governance",
+      "owner": "DPO / Legal / Comité cliente",
+      "contract_refs": [
+        "RiskRecord",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "governance.retention",
+      "current_acceptance": "Plazos, borrado y confirmación definidos",
+      "source_acceptance": "Borrado verificable y excepciones",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "governance.redress",
+      "domain": "governance",
+      "owner": "DPO / Legal / Comité cliente",
+      "contract_refs": [
+        "RiskRecord",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "governance.redress",
+      "current_acceptance": "Canal, responsables y plazos",
+      "source_acceptance": "Plazos y humano responsables",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "governance.security_review",
+      "domain": "governance",
+      "owner": "DPO / Legal / Comité cliente",
+      "contract_refs": [
+        "RiskRecord",
+        "EngagementConfig"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "governance.security_review",
+      "current_acceptance": "Contrato, transferencia y controles revisados",
+      "source_acceptance": "DPA y flujos internacionales validados",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "challenge.problem_bank",
+      "domain": "challenge",
+      "owner": "Challenge Lead / Sponsor negocio",
+      "contract_refs": [
+        "ChallengeBrief",
+        "Rubric"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "challenge.problem_bank",
+      "current_acceptance": "Prioridad trazada a objetivo y baseline",
+      "source_acceptance": "Cada problema tiene dueño y baseline",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "challenge.challenge_brief",
+      "domain": "challenge",
+      "owner": "Challenge Lead / Sponsor negocio",
+      "contract_refs": [
+        "ChallengeBrief",
+        "Rubric"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "challenge.challenge_brief",
+      "current_acceptance": "Éxito, datos, restricciones y owner",
+      "source_acceptance": "Criterios de éxito definidos",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "challenge.difficulty",
+      "domain": "challenge",
+      "owner": "Challenge Lead / Sponsor negocio",
+      "contract_refs": [
+        "ChallengeBrief",
+        "Rubric"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "challenge.difficulty",
+      "current_acceptance": "Publicados antes de competir",
+      "source_acceptance": "No comparar tareas incomparables",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "challenge.rubric",
+      "domain": "challenge",
+      "owner": "Challenge Lead / Sponsor negocio",
+      "contract_refs": [
+        "ChallengeBrief",
+        "Rubric"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "challenge.rubric",
+      "current_acceptance": "Pesos suman 1; veto seguridad explícito",
+      "source_acceptance": "Versionada antes de abrir",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "challenge.timeline",
+      "domain": "challenge",
+      "owner": "Challenge Lead / Sponsor negocio",
+      "contract_refs": [
+        "ChallengeBrief",
+        "Rubric"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "challenge.timeline",
+      "current_acceptance": "Canales, fechas y zonas horarias",
+      "source_acceptance": "Ventanas y zona horaria definidas",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "challenge.resources",
+      "domain": "challenge",
+      "owner": "Challenge Lead / Sponsor negocio",
+      "contract_refs": [
+        "ChallengeBrief",
+        "Rubric"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "challenge.resources",
+      "current_acceptance": "Prohibición de secretos y datos reales no autorizados",
+      "source_acceptance": "Prohibición secretos en entregas",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "challenge.eligibility",
+      "domain": "challenge",
+      "owner": "Challenge Lead / Sponsor negocio",
+      "contract_refs": [
+        "ChallengeBrief",
+        "Rubric"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "challenge.eligibility",
+      "current_acceptance": "Adaptaciones y tiempo laboral documentados",
+      "source_acceptance": "Ajustes razonables documentados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "challenge.team_rules",
+      "domain": "challenge",
+      "owner": "Challenge Lead / Sponsor negocio",
+      "contract_refs": [
+        "ChallengeBrief",
+        "Rubric"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "challenge.team_rules",
+      "current_acceptance": "La nota del equipo no equivale a la de una persona",
+      "source_acceptance": "Autodeclaración + evidencias",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "challenge.jury",
+      "domain": "challenge",
+      "owner": "Challenge Lead / Sponsor negocio",
+      "contract_refs": [
+        "ChallengeBrief",
+        "Rubric"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "challenge.jury",
+      "current_acceptance": "Conflictos, NDA, calibración y revisión",
+      "source_acceptance": "Recusación y calibración previstas",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "challenge.prize_policy",
+      "domain": "challenge",
+      "owner": "Challenge Lead / Sponsor negocio",
+      "contract_refs": [
+        "ChallengeBrief",
+        "Rubric"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "challenge.prize_policy",
+      "current_acceptance": "Impuestos, desempate y autorización",
+      "source_acceptance": "Separar premios de evaluación laboral",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "challenge.publish_gate",
+      "domain": "challenge",
+      "owner": "Challenge Lead / Sponsor negocio",
+      "contract_refs": [
+        "ChallengeBrief",
+        "Rubric"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "challenge.publish_gate",
+      "current_acceptance": "No publicar sin revisión humana",
+      "source_acceptance": "G1 firmado",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "comms.email",
+      "domain": "comms",
+      "owner": "Community / Customer Success",
+      "contract_refs": [
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "comms.email",
+      "current_acceptance": "Opt-out no esenciales",
+      "source_acceptance": "Opt-out comunicaciones no esenciales",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "comms.teams",
+      "domain": "comms",
+      "owner": "Community / Customer Success",
+      "contract_refs": [
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "comms.teams",
+      "current_acceptance": "Datos mínimos en canales",
+      "source_acceptance": "Datos mínimos en canales",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "comms.slack",
+      "domain": "comms",
+      "owner": "Community / Customer Success",
+      "contract_refs": [
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "comms.slack",
+      "current_acceptance": "No compartir entregas sensibles públicamente",
+      "source_acceptance": "No compartir entregas sensibles en público",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "comms.portal",
+      "domain": "comms",
+      "owner": "Community / Customer Success",
+      "contract_refs": [
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "comms.portal",
+      "current_acceptance": "Acceso restringido si procede",
+      "source_acceptance": "Acceso restringido cuando proceda",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "comms.calendar",
+      "domain": "comms",
+      "owner": "Community / Customer Success",
+      "contract_refs": [
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "comms.calendar",
+      "current_acceptance": "Confirmación de horarios",
+      "source_acceptance": "Confirmación de horarios",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "comms.webinars",
+      "domain": "comms",
+      "owner": "Community / Customer Success",
+      "contract_refs": [
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "comms.webinars",
+      "current_acceptance": "Aviso y acceso autorizados",
+      "source_acceptance": "Aviso y acceso autorizados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "comms.helpdesk",
+      "domain": "comms",
+      "owner": "Community / Customer Success",
+      "contract_refs": [
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "comms.helpdesk",
+      "current_acceptance": "SLA y escalado",
+      "source_acceptance": "SLA y escalado",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "comms.sms",
+      "domain": "comms",
+      "owner": "Community / Customer Success",
+      "contract_refs": [
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "comms.sms",
+      "current_acceptance": "Uso excepcional autorizado",
+      "source_acceptance": "Uso excepcional y autorizado",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "comms.feedback",
+      "domain": "comms",
+      "owner": "Community / Customer Success",
+      "contract_refs": [
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "comms.feedback",
+      "current_acceptance": "No inferencia indebida",
+      "source_acceptance": "Sin inferencias personales indebidas",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "comms.status",
+      "domain": "comms",
+      "owner": "Community / Customer Success",
+      "contract_refs": [
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "comms.status",
+      "current_acceptance": "No vigilancia individual oculta",
+      "source_acceptance": "No vigilancia individual oculta",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "comms.notifications",
+      "domain": "comms",
+      "owner": "Community / Customer Success",
+      "contract_refs": [
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "comms.notifications",
+      "current_acceptance": "Idempotencia por destinatario/plantilla",
+      "source_acceptance": "Deduplicación e idempotencia",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "comms.accessible",
+      "domain": "comms",
+      "owner": "Community / Customer Success",
+      "contract_refs": [
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "comms.accessible",
+      "current_acceptance": "WCAG en portal y revisión humana",
+      "source_acceptance": "Revisión WCAG de portal",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "people.identity",
+      "domain": "people",
+      "owner": "Operaciones / Responsable cliente",
+      "contract_refs": [
+        "ParticipantRegistration"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "people.identity",
+      "current_acceptance": "No inferir identidades desde código",
+      "source_acceptance": "Nunca inferir identidades por código",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "people.eligibility",
+      "domain": "people",
+      "owner": "Operaciones / Responsable cliente",
+      "contract_refs": [
+        "ParticipantRegistration"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "people.eligibility",
+      "current_acceptance": "Verificado por cliente",
+      "source_acceptance": "Comprobación realizada por cliente",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "people.pseudonym",
+      "domain": "people",
+      "owner": "Operaciones / Responsable cliente",
+      "contract_refs": [
+        "ParticipantRegistration"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "people.pseudonym",
+      "current_acceptance": "Correspondencia fuera del score",
+      "source_acceptance": "Tabla de correspondencia restringida",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "people.team",
+      "domain": "people",
+      "owner": "Operaciones / Responsable cliente",
+      "contract_refs": [
+        "ParticipantRegistration"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "people.team",
+      "current_acceptance": "Roles declarados",
+      "source_acceptance": "Roles declarados, no inferidos",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "people.availability",
+      "domain": "people",
+      "owner": "Operaciones / Responsable cliente",
+      "contract_refs": [
+        "ParticipantRegistration"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "people.availability",
+      "current_acceptance": "No asumir movilidad obligatoria",
+      "source_acceptance": "No asumir movilidad obligatoria",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "people.accessibility",
+      "domain": "people",
+      "owner": "Operaciones / Responsable cliente",
+      "contract_refs": [
+        "ParticipantRegistration"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "people.accessibility",
+      "current_acceptance": "Datos sensibles fuera de evaluaciones",
+      "source_acceptance": "Dato sensible fuera del score",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "people.onboarding",
+      "domain": "people",
+      "owner": "Operaciones / Responsable cliente",
+      "contract_refs": [
+        "ParticipantRegistration"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "people.onboarding",
+      "current_acceptance": "Entregables y derechos comprendidos",
+      "source_acceptance": "Participante comprende entregables",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "people.contribution",
+      "domain": "people",
+      "owner": "Operaciones / Responsable cliente",
+      "contract_refs": [
+        "ParticipantRegistration"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "people.contribution",
+      "current_acceptance": "No atribuir éxito colectivo individual",
+      "source_acceptance": "Evitar asignar éxito a todo equipo por igual",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "people.withdraw",
+      "domain": "people",
+      "owner": "Operaciones / Responsable cliente",
+      "contract_refs": [
+        "ParticipantRegistration"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "people.withdraw",
+      "current_acceptance": "Conservación conforme al contrato",
+      "source_acceptance": "Retirada bajo condiciones aplicables",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "people.identity_gate",
+      "domain": "people",
+      "owner": "Operaciones / Responsable cliente",
+      "contract_refs": [
+        "ParticipantRegistration"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "people.identity_gate",
+      "current_acceptance": "G2 y permisos comprobables",
+      "source_acceptance": "G2 trazado",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "submission.cloud_folder",
+      "domain": "submission",
+      "owner": "Challenge Ops / Participantes",
+      "contract_refs": [
+        "SubmissionManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "submission.cloud_folder",
+      "current_acceptance": "Aislamiento de acceso",
+      "source_acceptance": "Aislamiento de acceso",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "submission.upload_form",
+      "domain": "submission",
+      "owner": "Challenge Ops / Participantes",
+      "contract_refs": [
+        "SubmissionManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "submission.upload_form",
+      "current_acceptance": "Campos obligatorios",
+      "source_acceptance": "No dar por completa entrega incompleta",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "submission.repo",
+      "domain": "submission",
+      "owner": "Challenge Ops / Participantes",
+      "contract_refs": [
+        "SubmissionManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "submission.repo",
+      "current_acceptance": "Acceso revocable y snapshot",
+      "source_acceptance": "Acceso temporal revocable",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "submission.demo",
+      "domain": "submission",
+      "owner": "Challenge Ops / Participantes",
+      "contract_refs": [
+        "SubmissionManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "submission.demo",
+      "current_acceptance": "Sin secretos ni acceso indiscriminado",
+      "source_acceptance": "Entorno demo sin secretos",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "submission.readme",
+      "domain": "submission",
+      "owner": "Challenge Ops / Participantes",
+      "contract_refs": [
+        "SubmissionManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "submission.readme",
+      "current_acceptance": "Dependencias y permisos",
+      "source_acceptance": "Dependencias y permisos explícitos",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "submission.problem",
+      "domain": "submission",
+      "owner": "Challenge Ops / Participantes",
+      "contract_refs": [
+        "SubmissionManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "submission.problem",
+      "current_acceptance": "Sponsor o área",
+      "source_acceptance": "Sponsor/área identificados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "submission.results",
+      "domain": "submission",
+      "owner": "Challenge Ops / Participantes",
+      "contract_refs": [
+        "SubmissionManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "submission.results",
+      "current_acceptance": "Medido frente a estimado",
+      "source_acceptance": "Distinguir estimación de prueba",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "submission.responsibility",
+      "domain": "submission",
+      "owner": "Challenge Ops / Participantes",
+      "contract_refs": [
+        "SubmissionManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "submission.responsibility",
+      "current_acceptance": "Confirmación y rectificación",
+      "source_acceptance": "Confirmación y derecho corrección",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "submission.usage",
+      "domain": "submission",
+      "owner": "Challenge Ops / Participantes",
+      "contract_refs": [
+        "SubmissionManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "submission.usage",
+      "current_acceptance": "No recopilar prompts privados",
+      "source_acceptance": "No exige datos privados de prompts",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "submission.license",
+      "domain": "submission",
+      "owner": "Challenge Ops / Participantes",
+      "contract_refs": [
+        "SubmissionManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "submission.license",
+      "current_acceptance": "Licencia y titularidad compatibles",
+      "source_acceptance": "Titularidad y licencia compatibles",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "submission.freeze",
+      "domain": "submission",
+      "owner": "Challenge Ops / Participantes",
+      "contract_refs": [
+        "SubmissionManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "submission.freeze",
+      "current_acceptance": "Huella de contenido inmutable",
+      "source_acceptance": "Versionado y recibo de entrega",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "normalize.connectors",
+      "domain": "normalize",
+      "owner": "Data Engineering / Security",
+      "contract_refs": [
+        "SubmissionManifest",
+        "EvidenceClaim",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "normalize.connectors",
+      "current_acceptance": "Permisos mínimos",
+      "source_acceptance": "Permisos mínimos, sin acceso indiscriminado",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "normalize.schema",
+      "domain": "normalize",
+      "owner": "Data Engineering / Security",
+      "contract_refs": [
+        "SubmissionManifest",
+        "EvidenceClaim",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "normalize.schema",
+      "current_acceptance": "Rechazar esquema desconocido",
+      "source_acceptance": "Rechazar versión desconocida",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "normalize.malware",
+      "domain": "normalize",
+      "owner": "Data Engineering / Security",
+      "contract_refs": [
+        "SubmissionManifest",
+        "EvidenceClaim",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "normalize.malware",
+      "current_acceptance": "Sin ejecutar adjuntos",
+      "source_acceptance": "Nunca ejecutar adjuntos sin aislamiento",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "normalize.secrets",
+      "domain": "normalize",
+      "owner": "Data Engineering / Security",
+      "contract_refs": [
+        "SubmissionManifest",
+        "EvidenceClaim",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "normalize.secrets",
+      "current_acceptance": "No envío de secretos a modelos",
+      "source_acceptance": "No enviar secretos a modelos",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "normalize.pii",
+      "domain": "normalize",
+      "owner": "Data Engineering / Security",
+      "contract_refs": [
+        "SubmissionManifest",
+        "EvidenceClaim",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "normalize.pii",
+      "current_acceptance": "Política previa a indexación",
+      "source_acceptance": "Política antes de indexar",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "normalize.parse",
+      "domain": "normalize",
+      "owner": "Data Engineering / Security",
+      "contract_refs": [
+        "SubmissionManifest",
+        "EvidenceClaim",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "normalize.parse",
+      "current_acceptance": "Tasa de error y límites",
+      "source_acceptance": "Tasa error por parser",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "normalize.canonical",
+      "domain": "normalize",
+      "owner": "Data Engineering / Security",
+      "contract_refs": [
+        "SubmissionManifest",
+        "EvidenceClaim",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "normalize.canonical",
+      "current_acceptance": "Tipos y enumeraciones válidos",
+      "source_acceptance": "Tipos y enumeraciones válidos",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "normalize.hash",
+      "domain": "normalize",
+      "owner": "Data Engineering / Security",
+      "contract_refs": [
+        "SubmissionManifest",
+        "EvidenceClaim",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "normalize.hash",
+      "current_acceptance": "Hash real verificable",
+      "source_acceptance": "Huella verificable",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "normalize.lineage",
+      "domain": "normalize",
+      "owner": "Data Engineering / Security",
+      "contract_refs": [
+        "SubmissionManifest",
+        "EvidenceClaim",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "normalize.lineage",
+      "current_acceptance": "Cada afirmación localizable",
+      "source_acceptance": "Cada claim rastreable",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "normalize.reject",
+      "domain": "normalize",
+      "owner": "Data Engineering / Security",
+      "contract_refs": [
+        "SubmissionManifest",
+        "EvidenceClaim",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "normalize.reject",
+      "current_acceptance": "No silenciar errores",
+      "source_acceptance": "Ningún fallo silenciado",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "normalize.sandbox",
+      "domain": "normalize",
+      "owner": "Data Engineering / Security",
+      "contract_refs": [
+        "SubmissionManifest",
+        "EvidenceClaim",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "normalize.sandbox",
+      "current_acceptance": "Sin salida Internet por defecto",
+      "source_acceptance": "Sin salida internet por defecto",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "normalize.accept",
+      "domain": "normalize",
+      "owner": "Data Engineering / Security",
+      "contract_refs": [
+        "SubmissionManifest",
+        "EvidenceClaim",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "normalize.accept",
+      "current_acceptance": "Aprobación humana con evidencias de seguridad",
+      "source_acceptance": "G3 firmado",
+      "source_risk": "DATOS",
+      "review_required": false
+    },
+    {
+      "id": "orchestrate.orchestrator",
+      "domain": "orchestrate",
+      "owner": "AI Platform Lead",
+      "contract_refs": [
+        "JobSpec",
+        "EvaluationResult",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "orchestrate.orchestrator",
+      "current_acceptance": "Idempotencia",
+      "source_acceptance": "Reintentos con idempotencia",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "orchestrate.scheduler",
+      "domain": "orchestrate",
+      "owner": "AI Platform Lead",
+      "contract_refs": [
+        "JobSpec",
+        "EvaluationResult",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "orchestrate.scheduler",
+      "current_acceptance": "Limitar por tenant",
+      "source_acceptance": "Sin starvation y límites tenant",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "orchestrate.sandbox_runner",
+      "domain": "orchestrate",
+      "owner": "AI Platform Lead",
+      "contract_refs": [
+        "JobSpec",
+        "EvaluationResult",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "orchestrate.sandbox_runner",
+      "current_acceptance": "Límites CPU/red/RAM",
+      "source_acceptance": "CPU, tiempo, red y RAM limitados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "orchestrate.extractor",
+      "domain": "orchestrate",
+      "owner": "AI Platform Lead",
+      "contract_refs": [
+        "JobSpec",
+        "EvaluationResult",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "orchestrate.extractor",
+      "current_acceptance": "Ubicación fuente obligatoria",
+      "source_acceptance": "Ubicación fuente obligatoria",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "orchestrate.tech_agent",
+      "domain": "orchestrate",
+      "owner": "AI Platform Lead",
+      "contract_refs": [
+        "JobSpec",
+        "EvaluationResult",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "orchestrate.tech_agent",
+      "current_acceptance": "Evidencia por criterio",
+      "source_acceptance": "Justificar cada criterio",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "orchestrate.business_agent",
+      "domain": "orchestrate",
+      "owner": "AI Platform Lead",
+      "contract_refs": [
+        "JobSpec",
+        "EvaluationResult",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "orchestrate.business_agent",
+      "current_acceptance": "Estimaciones separadas",
+      "source_acceptance": "Fuentes y supuestos separados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "orchestrate.security_agent",
+      "domain": "orchestrate",
+      "owner": "AI Platform Lead",
+      "contract_refs": [
+        "JobSpec",
+        "EvaluationResult",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "orchestrate.security_agent",
+      "current_acceptance": "No eludir controles críticos",
+      "source_acceptance": "No superar gates críticos",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "orchestrate.judge_agent",
+      "domain": "orchestrate",
+      "owner": "AI Platform Lead",
+      "contract_refs": [
+        "JobSpec",
+        "EvaluationResult",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "orchestrate.judge_agent",
+      "current_acceptance": "Nunca decisión laboral",
+      "source_acceptance": "No emitir decisión laboral",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "orchestrate.critic",
+      "domain": "orchestrate",
+      "owner": "AI Platform Lead",
+      "contract_refs": [
+        "JobSpec",
+        "EvaluationResult",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "orchestrate.critic",
+      "current_acceptance": "Escalar discrepancias",
+      "source_acceptance": "Resolver discrepancias",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "orchestrate.ensemble",
+      "domain": "orchestrate",
+      "owner": "AI Platform Lead",
+      "contract_refs": [
+        "JobSpec",
+        "EvaluationResult",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "orchestrate.ensemble",
+      "current_acceptance": "Variación documentada",
+      "source_acceptance": "Sensibilidad documentada",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "orchestrate.budget",
+      "domain": "orchestrate",
+      "owner": "AI Platform Lead",
+      "contract_refs": [
+        "JobSpec",
+        "EvaluationResult",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "orchestrate.budget",
+      "current_acceptance": "Topes obligatorios",
+      "source_acceptance": "Topes y alertas",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "orchestrate.trace",
+      "domain": "orchestrate",
+      "owner": "AI Platform Lead",
+      "contract_refs": [
+        "JobSpec",
+        "EvaluationResult",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "orchestrate.trace",
+      "current_acceptance": "Política de retención",
+      "source_acceptance": "Prompts/versiones almacenados bajo política",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "orchestrate.retry",
+      "domain": "orchestrate",
+      "owner": "AI Platform Lead",
+      "contract_refs": [
+        "JobSpec",
+        "EvaluationResult",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "orchestrate.retry",
+      "current_acceptance": "No duplicar resultados",
+      "source_acceptance": "No duplicar evaluaciones",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "evaluate.functional",
+      "domain": "evaluate",
+      "owner": "Quality Lead / Jurado externo",
+      "contract_refs": [
+        "Rubric",
+        "EvaluationResult",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "evaluate.functional",
+      "current_acceptance": "Pruebas o limitación declarada",
+      "source_acceptance": "Test reproducible o limitación declarada",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "evaluate.tech_quality",
+      "domain": "evaluate",
+      "owner": "Quality Lead / Jurado externo",
+      "contract_refs": [
+        "Rubric",
+        "EvaluationResult",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "evaluate.tech_quality",
+      "current_acceptance": "Evidencias vinculadas",
+      "source_acceptance": "Evidence links por afirmación",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "evaluate.security",
+      "domain": "evaluate",
+      "owner": "Quality Lead / Jurado externo",
+      "contract_refs": [
+        "Rubric",
+        "EvaluationResult",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "evaluate.security",
+      "current_acceptance": "Defectos críticos bloquean",
+      "source_acceptance": "Defecto crítico bloquea implantación",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "evaluate.business",
+      "domain": "evaluate",
+      "owner": "Quality Lead / Jurado externo",
+      "contract_refs": [
+        "Rubric",
+        "EvaluationResult",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "evaluate.business",
+      "current_acceptance": "Evitar doble conteo",
+      "source_acceptance": "Riesgo de doble contabilización",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "evaluate.originality",
+      "domain": "evaluate",
+      "owner": "Quality Lead / Jurado externo",
+      "contract_refs": [
+        "Rubric",
+        "EvaluationResult",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "evaluate.originality",
+      "current_acceptance": "No premiar estética",
+      "source_acceptance": "No premiar estética sin utilidad",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "evaluate.feasibility",
+      "domain": "evaluate",
+      "owner": "Quality Lead / Jurado externo",
+      "contract_refs": [
+        "Rubric",
+        "EvaluationResult",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "evaluate.feasibility",
+      "current_acceptance": "Rango y supuestos",
+      "source_acceptance": "Intervalos y supuestos",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "evaluate.reproducibility",
+      "domain": "evaluate",
+      "owner": "Quality Lead / Jurado externo",
+      "contract_refs": [
+        "Rubric",
+        "EvaluationResult",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "evaluate.reproducibility",
+      "current_acceptance": "Resultado observado en sandbox",
+      "source_acceptance": "Resultado observado en sandbox",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "evaluate.jury_review",
+      "domain": "evaluate",
+      "owner": "Quality Lead / Jurado externo",
+      "contract_refs": [
+        "Rubric",
+        "EvaluationResult",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "evaluate.jury_review",
+      "current_acceptance": "Recusaciones registradas",
+      "source_acceptance": "Conflictos de interés registrados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "evaluate.disagreement",
+      "domain": "evaluate",
+      "owner": "Quality Lead / Jurado externo",
+      "contract_refs": [
+        "Rubric",
+        "EvaluationResult",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "evaluate.disagreement",
+      "current_acceptance": "Umbral escalado",
+      "source_acceptance": "Umbral de escalado",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "evaluate.appeals",
+      "domain": "evaluate",
+      "owner": "Quality Lead / Jurado externo",
+      "contract_refs": [
+        "Rubric",
+        "EvaluationResult",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "evaluate.appeals",
+      "current_acceptance": "Motivo humano trazado",
+      "source_acceptance": "Registro de motivos",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "evaluate.solution_rank",
+      "domain": "evaluate",
+      "owner": "Quality Lead / Jurado externo",
+      "contract_refs": [
+        "Rubric",
+        "EvaluationResult",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "evaluate.solution_rank",
+      "current_acceptance": "No transferir score a personas",
+      "source_acceptance": "No trasladar nota proyecto a persona",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "evaluate.signoff",
+      "domain": "evaluate",
+      "owner": "Quality Lead / Jurado externo",
+      "contract_refs": [
+        "Rubric",
+        "EvaluationResult",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "evaluate.signoff",
+      "current_acceptance": "Aprobación humana",
+      "source_acceptance": "G4 aprobado",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "capability.claim",
+      "domain": "capability",
+      "owner": "People Analytics / Comité cliente",
+      "contract_refs": [
+        "EvidenceClaim",
+        "CapabilityEvidence"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "capability.claim",
+      "current_acceptance": "Declaración ≠ hecho",
+      "source_acceptance": "Separar afirmación de evidencia",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "capability.skill_taxonomy",
+      "domain": "capability",
+      "owner": "People Analytics / Comité cliente",
+      "contract_refs": [
+        "EvidenceClaim",
+        "CapabilityEvidence"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "capability.skill_taxonomy",
+      "current_acceptance": "Versionado y observabilidad",
+      "source_acceptance": "Competencias observables",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "capability.attribution",
+      "domain": "capability",
+      "owner": "People Analytics / Comité cliente",
+      "contract_refs": [
+        "EvidenceClaim",
+        "CapabilityEvidence"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "capability.attribution",
+      "current_acceptance": "No confundir autoría",
+      "source_acceptance": "Sin equiparar entrega y autoría",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "capability.uncertainty",
+      "domain": "capability",
+      "owner": "People Analytics / Comité cliente",
+      "contract_refs": [
+        "EvidenceClaim",
+        "CapabilityEvidence"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "capability.uncertainty",
+      "current_acceptance": "Límites explícitos",
+      "source_acceptance": "No inventar certeza",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "capability.missingness",
+      "domain": "capability",
+      "owner": "People Analytics / Comité cliente",
+      "contract_refs": [
+        "EvidenceClaim",
+        "CapabilityEvidence"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "capability.missingness",
+      "current_acceptance": "No extrapolar a la plantilla",
+      "source_acceptance": "No extrapolar al 100% de plantilla",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "capability.aggregates",
+      "domain": "capability",
+      "owner": "People Analytics / Comité cliente",
+      "contract_refs": [
+        "EvidenceClaim",
+        "CapabilityEvidence"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "capability.aggregates",
+      "current_acceptance": "Supresión de grupos pequeños",
+      "source_acceptance": "Umbrales k-anonimato cuando aplique",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "capability.development",
+      "domain": "capability",
+      "owner": "People Analytics / Comité cliente",
+      "contract_refs": [
+        "EvidenceClaim",
+        "CapabilityEvidence"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "capability.development",
+      "current_acceptance": "No decisión laboral automática",
+      "source_acceptance": "No decisión de empleo automatizada",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "capability.opt_in",
+      "domain": "capability",
+      "owner": "People Analytics / Comité cliente",
+      "contract_refs": [
+        "EvidenceClaim",
+        "CapabilityEvidence"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "capability.opt_in",
+      "current_acceptance": "Revocable y actualizable",
+      "source_acceptance": "Revocación y actualización posibles",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "capability.human_review",
+      "domain": "capability",
+      "owner": "People Analytics / Comité cliente",
+      "contract_refs": [
+        "EvidenceClaim",
+        "CapabilityEvidence"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "capability.human_review",
+      "current_acceptance": "Revisor decide",
+      "source_acceptance": "Revisor conserva última palabra",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "capability.challenge_bias",
+      "domain": "capability",
+      "owner": "People Analytics / Comité cliente",
+      "contract_refs": [
+        "EvidenceClaim",
+        "CapabilityEvidence"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "capability.challenge_bias",
+      "current_acceptance": "No ranking interdominio ciego",
+      "source_acceptance": "No ranking transdominio ciego",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "capability.contest_result",
+      "domain": "capability",
+      "owner": "People Analytics / Comité cliente",
+      "contract_refs": [
+        "EvidenceClaim",
+        "CapabilityEvidence"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "capability.contest_result",
+      "current_acceptance": "No publicar ranking personal",
+      "source_acceptance": "No difusión del ranking personal",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "graph.ontology",
+      "domain": "graph",
+      "owner": "Knowledge Graph Lead",
+      "contract_refs": [
+        "GraphNode",
+        "GraphEdge",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "graph.ontology",
+      "current_acceptance": "Versionado y restricciones",
+      "source_acceptance": "Versionado y restricciones",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "graph.company",
+      "domain": "graph",
+      "owner": "Knowledge Graph Lead",
+      "contract_refs": [
+        "GraphNode",
+        "GraphEdge",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "graph.company",
+      "current_acceptance": "Owner y fecha de vigencia",
+      "source_acceptance": "Owner y fecha de vigencia",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "graph.problem",
+      "domain": "graph",
+      "owner": "Knowledge Graph Lead",
+      "contract_refs": [
+        "GraphNode",
+        "GraphEdge",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "graph.problem",
+      "current_acceptance": "Relación explícita con negocio",
+      "source_acceptance": "Relación explícita con negocio",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "graph.solution",
+      "domain": "graph",
+      "owner": "Knowledge Graph Lead",
+      "contract_refs": [
+        "GraphNode",
+        "GraphEdge",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "graph.solution",
+      "current_acceptance": "Link a snapshot exacto",
+      "source_acceptance": "Link a snapshot exacto",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "graph.skill",
+      "domain": "graph",
+      "owner": "Knowledge Graph Lead",
+      "contract_refs": [
+        "GraphNode",
+        "GraphEdge",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "graph.skill",
+      "current_acceptance": "Contexto y nivel de confianza",
+      "source_acceptance": "Contexto y nivel de confianza",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "graph.participant",
+      "domain": "graph",
+      "owner": "Knowledge Graph Lead",
+      "contract_refs": [
+        "GraphNode",
+        "GraphEdge",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "graph.participant",
+      "current_acceptance": "Vista pública anonimizada",
+      "source_acceptance": "Vista pública anonimizada",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "graph.technology",
+      "domain": "graph",
+      "owner": "Knowledge Graph Lead",
+      "contract_refs": [
+        "GraphNode",
+        "GraphEdge",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "graph.technology",
+      "current_acceptance": "Origen/versiones visibles",
+      "source_acceptance": "Origen/versiones visibles",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "graph.edges",
+      "domain": "graph",
+      "owner": "Knowledge Graph Lead",
+      "contract_refs": [
+        "GraphNode",
+        "GraphEdge",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "graph.edges",
+      "current_acceptance": "Sin links semánticos inventados",
+      "source_acceptance": "Sin links semánticos inventados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "graph.provenance",
+      "domain": "graph",
+      "owner": "Knowledge Graph Lead",
+      "contract_refs": [
+        "GraphNode",
+        "GraphEdge",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "graph.provenance",
+      "current_acceptance": "Recorrido hasta fuente",
+      "source_acceptance": "Recorrido hasta fuente",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "graph.query",
+      "domain": "graph",
+      "owner": "Knowledge Graph Lead",
+      "contract_refs": [
+        "GraphNode",
+        "GraphEdge",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "graph.query",
+      "current_acceptance": "Filtros por rol",
+      "source_acceptance": "Filtros por rol",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "graph.change",
+      "domain": "graph",
+      "owner": "Knowledge Graph Lead",
+      "contract_refs": [
+        "GraphNode",
+        "GraphEdge",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "graph.change",
+      "current_acceptance": "No sobrescribir hechos históricos",
+      "source_acceptance": "No sobrescribir hechos históricos",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "graph.coverage",
+      "domain": "graph",
+      "owner": "Knowledge Graph Lead",
+      "contract_refs": [
+        "GraphNode",
+        "GraphEdge",
+        "EvidenceClaim"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "graph.coverage",
+      "current_acceptance": "Métricas de completitud",
+      "source_acceptance": "Métricas de completitud",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "scenario.portfolio",
+      "domain": "scenario",
+      "owner": "Transformation Lead / RRHH",
+      "contract_refs": [
+        "OrganizationScenario",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "scenario.portfolio",
+      "current_acceptance": "Cada decisión enlaza evidencia",
+      "source_acceptance": "Cada decisión enlaza evidencia",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "scenario.matching",
+      "domain": "scenario",
+      "owner": "Transformation Lead / RRHH",
+      "contract_refs": [
+        "OrganizationScenario",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "scenario.matching",
+      "current_acceptance": "Nunca asignación laboral automática",
+      "source_acceptance": "Nunca asignación laboral automática",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "scenario.coverage",
+      "domain": "scenario",
+      "owner": "Transformation Lead / RRHH",
+      "contract_refs": [
+        "OrganizationScenario",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "scenario.coverage",
+      "current_acceptance": "No confundir ausencia prueba con ausencia habilidad",
+      "source_acceptance": "No confundir ausencia prueba con ausencia habilidad",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "scenario.org_options",
+      "domain": "scenario",
+      "owner": "Transformation Lead / RRHH",
+      "contract_refs": [
+        "OrganizationScenario",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "scenario.org_options",
+      "current_acceptance": "Pros,contras,incertidumbres",
+      "source_acceptance": "Pros,contras,incertidumbres",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "scenario.dependencies",
+      "domain": "scenario",
+      "owner": "Transformation Lead / RRHH",
+      "contract_refs": [
+        "OrganizationScenario",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "scenario.dependencies",
+      "current_acceptance": "Bloqueantes visibles",
+      "source_acceptance": "Bloqueantes visibles",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "scenario.capacity",
+      "domain": "scenario",
+      "owner": "Transformation Lead / RRHH",
+      "contract_refs": [
+        "OrganizationScenario",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "scenario.capacity",
+      "current_acceptance": "Verificada con responsables",
+      "source_acceptance": "Verificada con responsables",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "scenario.business_case",
+      "domain": "scenario",
+      "owner": "Transformation Lead / RRHH",
+      "contract_refs": [
+        "OrganizationScenario",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "scenario.business_case",
+      "current_acceptance": "Nunca mostrar ROI ficticio como real",
+      "source_acceptance": "Nunca mostrar ROI ficticio como real",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "scenario.risk_model",
+      "domain": "scenario",
+      "owner": "Transformation Lead / RRHH",
+      "contract_refs": [
+        "OrganizationScenario",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "scenario.risk_model",
+      "current_acceptance": "Dueño por riesgo",
+      "source_acceptance": "Dueño por riesgo",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "scenario.co_design",
+      "domain": "scenario",
+      "owner": "Transformation Lead / RRHH",
+      "contract_refs": [
+        "OrganizationScenario",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "scenario.co_design",
+      "current_acceptance": "Opiniones registradas",
+      "source_acceptance": "Opiniones registradas",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "scenario.committee",
+      "domain": "scenario",
+      "owner": "Transformation Lead / RRHH",
+      "contract_refs": [
+        "OrganizationScenario",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "scenario.committee",
+      "current_acceptance": "Registro humano",
+      "source_acceptance": "Registro humano",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "scenario.readiness",
+      "domain": "scenario",
+      "owner": "Transformation Lead / RRHH",
+      "contract_refs": [
+        "OrganizationScenario",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "scenario.readiness",
+      "current_acceptance": "G5 aprobado",
+      "source_acceptance": "G5 aprobado",
+      "source_risk": "PERSONAS",
+      "review_required": false
+    },
+    {
+      "id": "output.ceo_pdf",
+      "domain": "output",
+      "owner": "Delivery Lead / Comité cliente",
+      "contract_refs": [
+        "DeliverableManifest",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "output.ceo_pdf",
+      "current_acceptance": "KPIs con fuente y nivel confianza",
+      "source_acceptance": "KPIs con fuente y nivel confianza",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "output.board_deck",
+      "domain": "output",
+      "owner": "Delivery Lead / Comité cliente",
+      "contract_refs": [
+        "DeliverableManifest",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "output.board_deck",
+      "current_acceptance": "No trasladar ranking personal",
+      "source_acceptance": "No trasladar ranking personal",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "output.graph_html",
+      "domain": "output",
+      "owner": "Delivery Lead / Comité cliente",
+      "contract_refs": [
+        "DeliverableManifest",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "output.graph_html",
+      "current_acceptance": "RBAC y export sin PII indebida",
+      "source_acceptance": "RBAC y export sin PII indebida",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "output.portfolio",
+      "domain": "output",
+      "owner": "Delivery Lead / Comité cliente",
+      "contract_refs": [
+        "DeliverableManifest",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "output.portfolio",
+      "current_acceptance": "Dueño y riesgos visibles",
+      "source_acceptance": "Dueño y riesgos visibles",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "output.roadmap",
+      "domain": "output",
+      "owner": "Delivery Lead / Comité cliente",
+      "contract_refs": [
+        "DeliverableManifest",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "output.roadmap",
+      "current_acceptance": "Owner,dependencia,KPI,gate",
+      "source_acceptance": "Owner,dependencia,KPI,gate",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "output.teams",
+      "domain": "output",
+      "owner": "Delivery Lead / Comité cliente",
+      "contract_refs": [
+        "DeliverableManifest",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "output.teams",
+      "current_acceptance": "Acceso limitado a RRHH y interesados",
+      "source_acceptance": "Acceso limitado a RRHH y interesados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "output.skills",
+      "domain": "output",
+      "owner": "Delivery Lead / Comité cliente",
+      "contract_refs": [
+        "DeliverableManifest",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "output.skills",
+      "current_acceptance": "Cobertura y límites declarados",
+      "source_acceptance": "Cobertura y límites declarados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "output.risk",
+      "domain": "output",
+      "owner": "Delivery Lead / Comité cliente",
+      "contract_refs": [
+        "DeliverableManifest",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "output.risk",
+      "current_acceptance": "Responsables y fechas",
+      "source_acceptance": "Responsables y fechas",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "output.technical",
+      "domain": "output",
+      "owner": "Delivery Lead / Comité cliente",
+      "contract_refs": [
+        "DeliverableManifest",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "output.technical",
+      "current_acceptance": "Reproducible y versionado",
+      "source_acceptance": "Reproducible y versionado",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "output.participant",
+      "domain": "output",
+      "owner": "Delivery Lead / Comité cliente",
+      "contract_refs": [
+        "DeliverableManifest",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "output.participant",
+      "current_acceptance": "Nunca compartido globalmente",
+      "source_acceptance": "Nunca compartido globalmente",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "output.api_export",
+      "domain": "output",
+      "owner": "Delivery Lead / Comité cliente",
+      "contract_refs": [
+        "DeliverableManifest",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "output.api_export",
+      "current_acceptance": "Contratos versionados",
+      "source_acceptance": "Contratos versionados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "output.jira_export",
+      "domain": "output",
+      "owner": "Delivery Lead / Comité cliente",
+      "contract_refs": [
+        "DeliverableManifest",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "output.jira_export",
+      "current_acceptance": "Escrituras con aprobación explícita",
+      "source_acceptance": "Escrituras con aprobación explícita",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "output.signoff",
+      "domain": "output",
+      "owner": "Delivery Lead / Comité cliente",
+      "contract_refs": [
+        "DeliverableManifest",
+        "RoadmapItem"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "output.signoff",
+      "current_acceptance": "G6 y aceptación formal",
+      "source_acceptance": "G6 y aceptación formal",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "activation.kickoff",
+      "domain": "activation",
+      "owner": "Customer Success / Sponsor cliente",
+      "contract_refs": [
+        "RoadmapItem",
+        "PilotOutcome"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "activation.kickoff",
+      "current_acceptance": "Sponsor y criterios de cancelación",
+      "source_acceptance": "Sponsor y criterios de cancelación",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "activation.resourcing",
+      "domain": "activation",
+      "owner": "Customer Success / Sponsor cliente",
+      "contract_refs": [
+        "RoadmapItem",
+        "PilotOutcome"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "activation.resourcing",
+      "current_acceptance": "Decisión humana y autorización",
+      "source_acceptance": "Decisión humana y autorización",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "activation.backlog",
+      "domain": "activation",
+      "owner": "Customer Success / Sponsor cliente",
+      "contract_refs": [
+        "RoadmapItem",
+        "PilotOutcome"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "activation.backlog",
+      "current_acceptance": "Dependencias estimadas",
+      "source_acceptance": "Dependencias estimadas",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "activation.training",
+      "domain": "activation",
+      "owner": "Customer Success / Sponsor cliente",
+      "contract_refs": [
+        "RoadmapItem",
+        "PilotOutcome"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "activation.training",
+      "current_acceptance": "No usar ausencia evidencia como castigo",
+      "source_acceptance": "No usar ausencia evidencia como castigo",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "activation.guardrails",
+      "domain": "activation",
+      "owner": "Customer Success / Sponsor cliente",
+      "contract_refs": [
+        "RoadmapItem",
+        "PilotOutcome"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "activation.guardrails",
+      "current_acceptance": "Gate previo a producción",
+      "source_acceptance": "Gate previo a producción",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "activation.benefits",
+      "domain": "activation",
+      "owner": "Customer Success / Sponsor cliente",
+      "contract_refs": [
+        "RoadmapItem",
+        "PilotOutcome"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "activation.benefits",
+      "current_acceptance": "Métodos replicables",
+      "source_acceptance": "Métodos replicables",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "activation.check30",
+      "domain": "activation",
+      "owner": "Customer Success / Sponsor cliente",
+      "contract_refs": [
+        "RoadmapItem",
+        "PilotOutcome"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "activation.check30",
+      "current_acceptance": "Decisiones registradas",
+      "source_acceptance": "Decisiones registradas",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "activation.check60",
+      "domain": "activation",
+      "owner": "Customer Success / Sponsor cliente",
+      "contract_refs": [
+        "RoadmapItem",
+        "PilotOutcome"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "activation.check60",
+      "current_acceptance": "Reasignar inversión si procede",
+      "source_acceptance": "Reasignar inversión si procede",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "activation.check90",
+      "domain": "activation",
+      "owner": "Customer Success / Sponsor cliente",
+      "contract_refs": [
+        "RoadmapItem",
+        "PilotOutcome"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "activation.check90",
+      "current_acceptance": "Cierre/aprendizajes",
+      "source_acceptance": "Cierre/aprendizajes",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "activation.community",
+      "domain": "activation",
+      "owner": "Customer Success / Sponsor cliente",
+      "contract_refs": [
+        "RoadmapItem",
+        "PilotOutcome"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "activation.community",
+      "current_acceptance": "Participación voluntaria",
+      "source_acceptance": "Participación voluntaria",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "activation.repeat",
+      "domain": "activation",
+      "owner": "Customer Success / Sponsor cliente",
+      "contract_refs": [
+        "RoadmapItem",
+        "PilotOutcome"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "activation.repeat",
+      "current_acceptance": "Comparación temporal con límites",
+      "source_acceptance": "Comparación temporal con límites",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "ops.crm_to_project",
+      "domain": "ops",
+      "owner": "COO / Delivery Manager",
+      "contract_refs": [
+        "EngagementConfig",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "ops.crm_to_project",
+      "current_acceptance": "Checklist de traspaso",
+      "source_acceptance": "Checklist de traspaso",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "ops.staffing",
+      "domain": "ops",
+      "owner": "COO / Delivery Manager",
+      "contract_refs": [
+        "EngagementConfig",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "ops.staffing",
+      "current_acceptance": "No sobreasignar horas",
+      "source_acceptance": "No sobreasignar horas",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "ops.judges_pool",
+      "domain": "ops",
+      "owner": "COO / Delivery Manager",
+      "contract_refs": [
+        "EngagementConfig",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "ops.judges_pool",
+      "current_acceptance": "Independencia comprobada",
+      "source_acceptance": "Independencia comprobada",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "ops.supplier",
+      "domain": "ops",
+      "owner": "COO / Delivery Manager",
+      "contract_refs": [
+        "EngagementConfig",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "ops.supplier",
+      "current_acceptance": "Contratos y riesgo",
+      "source_acceptance": "Contratos y riesgo",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "ops.templates",
+      "domain": "ops",
+      "owner": "COO / Delivery Manager",
+      "contract_refs": [
+        "EngagementConfig",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "ops.templates",
+      "current_acceptance": "Control cambios",
+      "source_acceptance": "Control cambios",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "ops.qa_ops",
+      "domain": "ops",
+      "owner": "COO / Delivery Manager",
+      "contract_refs": [
+        "EngagementConfig",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "ops.qa_ops",
+      "current_acceptance": "2 ojos sobre salida ejecutiva",
+      "source_acceptance": "2 ojos sobre salida ejecutiva",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "ops.customer_service",
+      "domain": "ops",
+      "owner": "COO / Delivery Manager",
+      "contract_refs": [
+        "EngagementConfig",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "ops.customer_service",
+      "current_acceptance": "Tiempos medidos",
+      "source_acceptance": "Tiempos medidos",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "ops.incident",
+      "domain": "ops",
+      "owner": "COO / Delivery Manager",
+      "contract_refs": [
+        "EngagementConfig",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "ops.incident",
+      "current_acceptance": "Notificación según severidad",
+      "source_acceptance": "Notificación según severidad",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "ops.billing",
+      "domain": "ops",
+      "owner": "COO / Delivery Manager",
+      "contract_refs": [
+        "EngagementConfig",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "ops.billing",
+      "current_acceptance": "Conciliación financiera",
+      "source_acceptance": "Conciliación financiera",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "ops.staff_training",
+      "domain": "ops",
+      "owner": "COO / Delivery Manager",
+      "contract_refs": [
+        "EngagementConfig",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "ops.staff_training",
+      "current_acceptance": "Evaluación de competencia",
+      "source_acceptance": "Evaluación de competencia",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "ops.postmortem",
+      "domain": "ops",
+      "owner": "COO / Delivery Manager",
+      "contract_refs": [
+        "EngagementConfig",
+        "EventEnvelope"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "ops.postmortem",
+      "current_acceptance": "Seguimiento acciones",
+      "source_acceptance": "Seguimiento acciones",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "platform.tenancy",
+      "domain": "platform",
+      "owner": "CTO / Security Engineering",
+      "contract_refs": [
+        "JobSpec",
+        "EventEnvelope",
+        "RiskRecord"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "platform.tenancy",
+      "current_acceptance": "Pruebas aislamiento",
+      "source_acceptance": "Pruebas aislamiento",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "platform.identity",
+      "domain": "platform",
+      "owner": "CTO / Security Engineering",
+      "contract_refs": [
+        "JobSpec",
+        "EventEnvelope",
+        "RiskRecord"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "platform.identity",
+      "current_acceptance": "MFA y sesiones cortas",
+      "source_acceptance": "MFA y sesiones cortas",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "platform.object_storage",
+      "domain": "platform",
+      "owner": "CTO / Security Engineering",
+      "contract_refs": [
+        "JobSpec",
+        "EventEnvelope",
+        "RiskRecord"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "platform.object_storage",
+      "current_acceptance": "Acceso restringido",
+      "source_acceptance": "Acceso restringido",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "platform.metadata_db",
+      "domain": "platform",
+      "owner": "CTO / Security Engineering",
+      "contract_refs": [
+        "JobSpec",
+        "EventEnvelope",
+        "RiskRecord"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "platform.metadata_db",
+      "current_acceptance": "Migraciones controladas",
+      "source_acceptance": "Migraciones controladas",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "platform.graphdb",
+      "domain": "platform",
+      "owner": "CTO / Security Engineering",
+      "contract_refs": [
+        "JobSpec",
+        "EventEnvelope",
+        "RiskRecord"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "platform.graphdb",
+      "current_acceptance": "ACL a nivel datos",
+      "source_acceptance": "ACL a nivel datos",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "platform.queue",
+      "domain": "platform",
+      "owner": "CTO / Security Engineering",
+      "contract_refs": [
+        "JobSpec",
+        "EventEnvelope",
+        "RiskRecord"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "platform.queue",
+      "current_acceptance": "Idempotencia",
+      "source_acceptance": "Idempotencia",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "platform.llm_gateway",
+      "domain": "platform",
+      "owner": "CTO / Security Engineering",
+      "contract_refs": [
+        "JobSpec",
+        "EventEnvelope",
+        "RiskRecord"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "platform.llm_gateway",
+      "current_acceptance": "Sin entrenamiento externo salvo pacto",
+      "source_acceptance": "Sin entrenamiento externo salvo pacto",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "platform.observability",
+      "domain": "platform",
+      "owner": "CTO / Security Engineering",
+      "contract_refs": [
+        "JobSpec",
+        "EventEnvelope",
+        "RiskRecord"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "platform.observability",
+      "current_acceptance": "Redactar datos sensibles",
+      "source_acceptance": "Redactar datos sensibles",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "platform.keys",
+      "domain": "platform",
+      "owner": "CTO / Security Engineering",
+      "contract_refs": [
+        "JobSpec",
+        "EventEnvelope",
+        "RiskRecord"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "platform.keys",
+      "current_acceptance": "Nada sensible en prompts/logs",
+      "source_acceptance": "Nada sensible en prompts/logs",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "platform.backups",
+      "domain": "platform",
+      "owner": "CTO / Security Engineering",
+      "contract_refs": [
+        "JobSpec",
+        "EventEnvelope",
+        "RiskRecord"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "platform.backups",
+      "current_acceptance": "Restauración ensayada",
+      "source_acceptance": "Restauración ensayada",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "platform.cicd",
+      "domain": "platform",
+      "owner": "CTO / Security Engineering",
+      "contract_refs": [
+        "JobSpec",
+        "EventEnvelope",
+        "RiskRecord"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "platform.cicd",
+      "current_acceptance": "Pruebas por versión",
+      "source_acceptance": "Pruebas por versión",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "platform.retention_worker",
+      "domain": "platform",
+      "owner": "CTO / Security Engineering",
+      "contract_refs": [
+        "JobSpec",
+        "EventEnvelope",
+        "RiskRecord"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "platform.retention_worker",
+      "current_acceptance": "Retención por tipo",
+      "source_acceptance": "Retención por tipo",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "platform.resilience",
+      "domain": "platform",
+      "owner": "CTO / Security Engineering",
+      "contract_refs": [
+        "JobSpec",
+        "EventEnvelope",
+        "RiskRecord"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "platform.resilience",
+      "current_acceptance": "RTO/RPO acordados",
+      "source_acceptance": "RTO/RPO acordados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "economics.sku",
+      "domain": "economics",
+      "owner": "CFO / Growth",
+      "contract_refs": [
+        "PricingQuote"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "economics.sku",
+      "current_acceptance": "Alcance y exclusiones claras",
+      "source_acceptance": "Alcance y exclusiones claras",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "economics.volume",
+      "domain": "economics",
+      "owner": "CFO / Growth",
+      "contract_refs": [
+        "PricingQuote"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "economics.volume",
+      "current_acceptance": "Definir topes",
+      "source_acceptance": "Definir topes",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "economics.complexity",
+      "domain": "economics",
+      "owner": "CFO / Growth",
+      "contract_refs": [
+        "PricingQuote"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "economics.complexity",
+      "current_acceptance": "Tiempo medido",
+      "source_acceptance": "Tiempo medido",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "economics.human_hours",
+      "domain": "economics",
+      "owner": "CFO / Growth",
+      "contract_refs": [
+        "PricingQuote"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "economics.human_hours",
+      "current_acceptance": "Sin horas gratuitas implícitas",
+      "source_acceptance": "Sin horas gratuitas implícitas",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "economics.compute",
+      "domain": "economics",
+      "owner": "CFO / Growth",
+      "contract_refs": [
+        "PricingQuote"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "economics.compute",
+      "current_acceptance": "Etiquetas tenant/job",
+      "source_acceptance": "Etiquetas tenant/job",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "economics.jury_cost",
+      "domain": "economics",
+      "owner": "CFO / Growth",
+      "contract_refs": [
+        "PricingQuote"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "economics.jury_cost",
+      "current_acceptance": "Calibración presupuestada",
+      "source_acceptance": "Calibración presupuestada",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "economics.prize_cost",
+      "domain": "economics",
+      "owner": "CFO / Growth",
+      "contract_refs": [
+        "PricingQuote"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "economics.prize_cost",
+      "current_acceptance": "Separado o incluido en precio",
+      "source_acceptance": "Separado o incluido en precio",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "economics.risk_premium",
+      "domain": "economics",
+      "owner": "CFO / Growth",
+      "contract_refs": [
+        "PricingQuote"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "economics.risk_premium",
+      "current_acceptance": "Sujeto a capacidad/aceptación",
+      "source_acceptance": "Sujeto a capacidad/aceptación",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "economics.change_orders",
+      "domain": "economics",
+      "owner": "CFO / Growth",
+      "contract_refs": [
+        "PricingQuote"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "economics.change_orders",
+      "current_acceptance": "Aprobación anterior a ejecución",
+      "source_acceptance": "Aprobación anterior a ejecución",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "economics.margin",
+      "domain": "economics",
+      "owner": "CFO / Growth",
+      "contract_refs": [
+        "PricingQuote"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "economics.margin",
+      "current_acceptance": "Estructura fija aparte",
+      "source_acceptance": "Estructura fija aparte",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "economics.followup",
+      "domain": "economics",
+      "owner": "CFO / Growth",
+      "contract_refs": [
+        "PricingQuote"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "economics.followup",
+      "current_acceptance": "Sin atar cliente a datos",
+      "source_acceptance": "Sin atar cliente a datos",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "economics.pricing_gate",
+      "domain": "economics",
+      "owner": "CFO / Growth",
+      "contract_refs": [
+        "PricingQuote"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "economics.pricing_gate",
+      "current_acceptance": "G0, margen mínimo aprobado",
+      "source_acceptance": "G0, margen mínimo aprobado",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "assurance.inventory",
+      "domain": "assurance",
+      "owner": "Risk / QA / Dirección",
+      "contract_refs": [
+        "RiskRecord",
+        "EventEnvelope",
+        "DeliverableManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "assurance.inventory",
+      "current_acceptance": "Todo nodo dueño + contrato",
+      "source_acceptance": "Todo nodo dueño + contrato",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "assurance.contracts",
+      "domain": "assurance",
+      "owner": "Risk / QA / Dirección",
+      "contract_refs": [
+        "RiskRecord",
+        "EventEnvelope",
+        "DeliverableManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "assurance.contracts",
+      "current_acceptance": "Backward compatibility",
+      "source_acceptance": "Backward compatibility",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "assurance.quality_gates",
+      "domain": "assurance",
+      "owner": "Risk / QA / Dirección",
+      "contract_refs": [
+        "RiskRecord",
+        "EventEnvelope",
+        "DeliverableManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "assurance.quality_gates",
+      "current_acceptance": "No omisión silenciosa",
+      "source_acceptance": "No omisión silenciosa",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "assurance.security_testing",
+      "domain": "assurance",
+      "owner": "Risk / QA / Dirección",
+      "contract_refs": [
+        "RiskRecord",
+        "EventEnvelope",
+        "DeliverableManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "assurance.security_testing",
+      "current_acceptance": "Cerrar críticos antes de ejecución",
+      "source_acceptance": "Cerrar críticos antes de ejecución",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "assurance.llm_evals",
+      "domain": "assurance",
+      "owner": "Risk / QA / Dirección",
+      "contract_refs": [
+        "RiskRecord",
+        "EventEnvelope",
+        "DeliverableManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "assurance.llm_evals",
+      "current_acceptance": "Regresiones por versión",
+      "source_acceptance": "Regresiones por versión",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "assurance.fairness_audit",
+      "domain": "assurance",
+      "owner": "Risk / QA / Dirección",
+      "contract_refs": [
+        "RiskRecord",
+        "EventEnvelope",
+        "DeliverableManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "assurance.fairness_audit",
+      "current_acceptance": "Señalar límites estadísticos",
+      "source_acceptance": "Señalar límites estadísticos",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "assurance.lineage_audit",
+      "domain": "assurance",
+      "owner": "Risk / QA / Dirección",
+      "contract_refs": [
+        "RiskRecord",
+        "EventEnvelope",
+        "DeliverableManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "assurance.lineage_audit",
+      "current_acceptance": "Toda afirmación decisiva citable",
+      "source_acceptance": "Toda afirmación decisiva citable",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "assurance.change_control",
+      "domain": "assurance",
+      "owner": "Risk / QA / Dirección",
+      "contract_refs": [
+        "RiskRecord",
+        "EventEnvelope",
+        "DeliverableManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "assurance.change_control",
+      "current_acceptance": "Re-evaluar impactos",
+      "source_acceptance": "Re-evaluar impactos",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "assurance.finance_audit",
+      "domain": "assurance",
+      "owner": "Risk / QA / Dirección",
+      "contract_refs": [
+        "RiskRecord",
+        "EventEnvelope",
+        "DeliverableManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "assurance.finance_audit",
+      "current_acceptance": "Presupuestos vs reales",
+      "source_acceptance": "Presupuestos vs reales",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "assurance.retention_audit",
+      "domain": "assurance",
+      "owner": "Risk / QA / Dirección",
+      "contract_refs": [
+        "RiskRecord",
+        "EventEnvelope",
+        "DeliverableManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "assurance.retention_audit",
+      "current_acceptance": "Cierre por tenant",
+      "source_acceptance": "Cierre por tenant",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "assurance.exit_audit",
+      "domain": "assurance",
+      "owner": "Risk / QA / Dirección",
+      "contract_refs": [
+        "RiskRecord",
+        "EventEnvelope",
+        "DeliverableManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "assurance.exit_audit",
+      "current_acceptance": "Datos y permisos retirados",
+      "source_acceptance": "Datos y permisos retirados",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    },
+    {
+      "id": "assurance.lessons",
+      "domain": "assurance",
+      "owner": "Risk / QA / Dirección",
+      "contract_refs": [
+        "RiskRecord",
+        "EventEnvelope",
+        "DeliverableManifest"
+      ],
+      "design_status": "DESIGN",
+      "source_id": "assurance.lessons",
+      "current_acceptance": "Criterios priorización",
+      "source_acceptance": "Criterios priorización",
+      "source_risk": "OPERATIVO",
+      "review_required": false
+    }
+  ]
+}

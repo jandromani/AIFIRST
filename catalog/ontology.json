@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "source": "AI_FIRST_ATLAS_SPEC.json",
+  "types": [
+    "HAS_UNIT",
+    "OWNS_PROCESS",
+    "SETS_OBJECTIVE",
+    "SPONSORS_CHALLENGE",
+    "SUBMITTED_BY_TEAM",
+    "CONTAINS_ARTIFACT",
+    "SUPPORTS_CLAIM",
+    "DEMONSTRATES_CAPABILITY",
+    "ADDRESSES_PROBLEM",
+    "REQUIRES_SKILL",
+    "DEPENDS_ON_SYSTEM",
+    "INTRODUCES_RISK",
+    "EVALUATED_USING",
+    "RECOMMENDS_INITIATIVE",
+    "MAY_PARTICIPATE_IN",
+    "NEEDS_APPROVAL",
+    "TRACKED_BY_KPI",
+    "DELIVERED_IN"
+  ],
+  "validation": "No observed relationship without source evidence; no cross-tenant edges; role projections must fail closed.",
+  "contract_models": [
+    "GraphNode",
+    "GraphEdge",
+    "EvidenceClaim",
+    "OrganizationGraph"
+  ],
+  "status": "DESIGN"
+}

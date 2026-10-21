@@ -12,6 +12,7 @@ test("13 validates graph, references and role-redacted projection",()=>{
  const g=makeGraph();assert.equal(g.ok,true,JSON.stringify(g.errors));
  const ceo=graphView(g,"ceo");
  assert.ok(ceo.nodes.every(n=>n.visibility_scope!=="restricted"&&n.visibility_scope!=="participant"));
+ assert.ok(graphView(g,"people_reviewer").nodes.every(n=>n.visibility_scope!=="restricted"&&n.visibility_scope!=="participant"));
  assert.ok(ceo.edges.every(e=>ceo.nodes.some(n=>n.node_id===e.source_id)&&ceo.nodes.some(n=>n.node_id===e.target_id)));
  const bad=read("GraphEdge");bad[0].target_id="missing";
  assert.equal(buildOrganizationalGraph(read("GraphNode"),bad,["source:submission-001","source:strategy-001","source:baseline-001","source:roster-001"],root).ok,false);
