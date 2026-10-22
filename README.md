@@ -133,3 +133,15 @@ The design makes the discovery → evidence → human review → roadmap sequenc
 A qualified IdP/KMS/DLP/ERP/bank/signature supplier, independent security review, real client workflow and cross-browser WCAG 2.2 AA testing are **not** completed by this redesign. No Vercel deployment or preview is created.
 
 Static visual checks: `npm run test:ux:visual` (requires Python Playwright + Chromium, no network or credentials). Four viewport renders passed locally; authenticated browser E2E still pending.
+
+
+## Laboratorio end-to-end en un comando (datos sintéticos)
+
+```bash
+npm run lab:full         # Requiere Node >=22, Docker Compose v2 y Python 3
+npm run lab:offline-proof # Modo separado sin Docker: escáner MOCK, NO prueba los servicios
+npm run test:lab:integrated
+npm run lab:stop
+```
+
+El comando integral genera secretos locales, levanta Keycloak/PostgreSQL/S3/OpenBao/ClamAV, valida conectores, crea una edición y el swarm, evalúa una variante y produce los once informes borrador cifrados. Muestra el manifiesto por empresa en `/lab`. **El stack Docker no está validado en la máquina de construcción** (Docker no instalado); las dependencias que fallen impiden crear un manifiesto verde. No es un despliegue productivo ni opera pagos. Véase [`docs/LAB_ONE_COMMAND.md`](docs/LAB_ONE_COMMAND.md) y [`docs/LAB_ONE_COMMAND_QA.md`](docs/LAB_ONE_COMMAND_QA.md).

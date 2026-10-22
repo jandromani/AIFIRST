@@ -17,7 +17,9 @@ import {scanClamd} from '../src/local-stack-adapters.mjs';
 import { evolutionHttp } from '../src/evolution-http.mjs';
 
 const __dirname=path.dirname(fileURLToPath(import.meta.url));
-const root=path.resolve(__dirname,'..','.aifirst-local');
+const baseRoot=path.resolve(__dirname,'..','.aifirst-local');
+const root=process.env.AIFIRST_LOCAL_ROOT?path.resolve(process.env.AIFIRST_LOCAL_ROOT):baseRoot;
+if(!root.startsWith(baseRoot+path.sep)&&root!==baseRoot)throw Error('External lab data root refused');
 const json=(res,status,body)=>{res.writeHead(status,{'content-type':'application/json; charset=utf-8','cache-control':'no-store','x-content-type-options':'nosniff','content-security-policy':"default-src 'none'"});res.end(JSON.stringify(body));};
 const maxBody=4*1024*1024;
 async function body(req,limit=maxBody){const chunks=[];let size=0;for await(const chunk of req){size+=chunk.length;if(size>limit)throw new Error('Payload too large');chunks.push(chunk)}return Buffer.concat(chunks);}
@@ -37,8 +39,8 @@ export function makeApi(engine,enterprise=null){return http.createServer(async(r
     const u=new URL(rawUrl,'http://127.0.0.1');const p=u.pathname.split('/').filter(Boolean),method=req.method;
     // Product landing, authenticated command center and traceable operating Atlas.
     // Serve local-only static HTML with per-response nonces, no CDN dependencies or network analytics.
-    if(method==='GET'&&['/','/console','/atlas','/evolution'].includes(u.pathname)){
-      const pages={'/':'index.html','/console':'pilot.html','/atlas':'atlas.html','/evolution':'evolution.html'};
+    if(method==='GET'&&['/','/console','/atlas','/evolution','/lab'].includes(u.pathname)){
+      const pages={'/':'index.html','/console':'pilot.html','/atlas':'atlas.html','/evolution':'evolution.html','/lab':'lab.html'};
       const nonce=crypto.randomBytes(16).toString('base64');
       const source=fs.readFileSync(path.resolve(__dirname,'..','web',pages[u.pathname]),'utf8');
       const html=source.replace(/<style(?=[\s>])/g,'<style nonce="'+nonce+'"').replace(/<script(?=[\s>])/g,'<script nonce="'+nonce+'"');
@@ -52,6 +54,16 @@ export function makeApi(engine,enterprise=null){return http.createServer(async(r
     const post=async()=>{if(!req.headers['content-type']?.startsWith('application/json'))throw Error('application/json required');return parse(await body(req,1024*1024));};
     if(p[1]==='evolution')return await evolutionHttp({engine,ctx,p,method,post,json:(status,data)=>json(res,status,data)});
     if(method==='GET'&&p[1]==='health')return json(res,200,engine.health(ctx));
+    if(method==='GET'&&p.length===3&&p[1]==='lab'&&p[2]==='proof'){
+      engine.permitted(ctx,'admin','auditor');
+      const expected=path.resolve(__dirname,'..','.aifirst-local','one-command','proof.json');
+      if(!process.env.AIFIRST_LAB_PROOF_PATH||path.resolve(process.env.AIFIRST_LAB_PROOF_PATH)!==expected||!fs.existsSync(expected))return json(res,404,{error:'No successful integrated lab proof'});
+      const stat=fs.lstatSync(expected);if(!stat.isFile()||stat.isSymbolicLink()||stat.size>80000)throw Error('Unsafe proof file');
+      const proof=JSON.parse(fs.readFileSync(expected,'utf8'));if(proof?.integrated?.tenant!==ctx.tenant)return json(res,404,{error:'Not found'});
+      if(proof?.production_ready!==false||proof?.integrated?.gates?.production_release!==false)throw Error('Invalid lab proof release marker');
+      return json(res,200,{...proof,integrated:{...proof.integrated,local_admin_token_file:undefined},classification:'SYNTHETIC_ONLY',production_ready:false});
+    }
+
     if(method==='GET'&&p.length===2&&p[1]==='editions'){
       engine.permitted(ctx,'admin','sponsor','auditor');
       const editions=engine.rows('SELECT id,title,stage,created FROM editions WHERE tenant=? ORDER BY created DESC LIMIT 100',ctx.tenant);
@@ -123,7 +135,7 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   if(freeConfigured)e.agent=openRouterFree({apiKey:process.env.OPENROUTER_API_KEY,model:process.env.AIFIRST_FREE_MODEL||'openrouter/free',perDay:Number(process.env.AIFIRST_FREE_DAILY_LIMIT||12),db:e.db});
   const masterKey=process.env.AIFIRST_MASTER_KEY_B64?Buffer.from(process.env.AIFIRST_MASTER_KEY_B64,'base64'):null;
   const oidc=process.env.AIFIRST_OIDC_ISSUER&&process.env.AIFIRST_OIDC_AUDIENCE&&process.env.AIFIRST_OIDC_JWKS_FILE?
-    {issuer:process.env.AIFIRST_OIDC_ISSUER,audience:process.env.AIFIRST_OIDC_AUDIENCE,jwks:loadTrustedJwks(process.env.AIFIRST_OIDC_JWKS_FILE)}:null;
+    {issuer:process.env.AIFIRST_OIDC_ISSUER,audience:process.env.AIFIRST_OIDC_AUDIENCE,jwks:loadTrustedJwks(process.env.AIFIRST_OIDC_JWKS_FILE),allowLocalLabIssuer:process.env.AIFIRST_OIDC_LOCAL_DEV_ISSUER==='1'}:null;
   const enterprise=new EnterpriseOps(e,{masterKey,oidc,bankVerifyKey:process.env.AIFIRST_BANK_STATEMENT_VERIFY_KEY_PEM||null});
   if(arg==='init'){
     const name=process.argv.slice(3).join(' ')||'Synthetic pilot company';

@@ -1,3 +1,5 @@
+**One-command synthetic integration workflow:** run `npm run lab:full` from the repository root. It creates random credentials, starts the 5 local services, provisions lab-only access, runs the synthetic end-to-end flow and exposes `/lab`. Full details: [`../docs/LAB_ONE_COMMAND.md`](../docs/LAB_ONE_COMMAND.md).
+
 # AIFIRST local services — not production
 
 This configuration is for **synthetic data, loopback and local development only**. `docker compose` must be installed separately. It was not available in the build environment, so real container startup is unverified.

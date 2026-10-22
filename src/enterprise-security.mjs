@@ -35,9 +35,10 @@ export function decryptArtifact(sealed,{masterKey,tenant,artifactId}){
 }
 function decode64(x){if(typeof x!=='string'||!/^[A-Za-z0-9_-]+$/.test(x))throw Error('Invalid JWT segment');return Buffer.from(x,'base64url');}
 /** OIDC uses trusted (out-of-band) JWKS. It does NOT fetch attacker-provided key URLs. */
-export function verifyOidcJwt(token,{issuer,audience,jwks,now=Math.floor(Date.now()/1000),maxAgeSeconds=3600}){
+export function verifyOidcJwt(token,{issuer,audience,jwks,now=Math.floor(Date.now()/1000),maxAgeSeconds=3600,allowLocalLabIssuer=false}){
  if(typeof token!=='string'||token.length>12000)throw Error('OIDC token invalid');
- if(!issuer||!issuer.startsWith('https://')||!audience||!jwks||!Array.isArray(jwks.keys))throw Error('OIDC trust configuration missing');
+ const allowedLab=allowLocalLabIssuer===true&&issuer==='http://127.0.0.1:58080/realms/aifirst-lab';
+ if(!issuer||!(issuer.startsWith('https://')||allowedLab)||!audience||!jwks||!Array.isArray(jwks.keys))throw Error('OIDC trust configuration missing');
  const segments=token.split('.');if(segments.length!==3)throw Error('Invalid JWT');
  const header=JSON.parse(decode64(segments[0]).toString('utf8'));
  const claims=JSON.parse(decode64(segments[1]).toString('utf8'));

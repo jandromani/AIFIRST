@@ -31,7 +31,9 @@ export function renderDraftPack({dossier,masterKey,tenant,edition,python='python
  try{
   const input=path.join(work,'dossier.json');fs.writeFileSync(input,JSON.stringify(dossier),{mode:0o600});
   const executable=python; // fixed executable, no shell; configure runtime rather than user input
-  if(!['python3','python'].includes(executable))throw Error('Python interpreter not allowlisted');
+  const labVenv=path.resolve(dirname,'..','.aifirst-local','one-command','venv');
+  const labExecutables=[path.join(labVenv,'bin','python'),path.join(labVenv,'Scripts','python.exe')];
+  if(!['python3','python'].includes(executable)&&!labExecutables.includes(path.resolve(executable)))throw Error('Python interpreter not allowlisted');
   const result=execFileSync(executable,[path.join(dirname,'..','tools','render_enterprise.py'),input,out],{encoding:'utf8',timeout:45000,maxBuffer:1024*1024,windowsHide:true});
   const files={};for(const item of fs.readdirSync(out)){const filename=path.basename(item);if(filename!==item)throw Error('Unsafe artifact');files[filename]=fs.readFileSync(path.join(out,item));}
   if(Object.keys(files).length!==11)throw Error('Unexpected number of deliverables');
