@@ -12,6 +12,7 @@ import { loadTrustedJwks } from '../src/enterprise-security.mjs';
 import { renderDraftPack } from '../src/enterprise-reports.mjs';
 import { SyntheticJobQueue } from '../src/job-queue.mjs';
 import { integrationReadiness } from '../src/integration-readiness.mjs';
+import { evolutionHttp } from '../src/evolution-http.mjs';
 
 const __dirname=path.dirname(fileURLToPath(import.meta.url));
 const root=path.resolve(__dirname,'..','.aifirst-local');
@@ -34,8 +35,8 @@ export function makeApi(engine,enterprise=null){return http.createServer(async(r
     const u=new URL(rawUrl,'http://127.0.0.1');const p=u.pathname.split('/').filter(Boolean),method=req.method;
     // Product landing, authenticated command center and traceable operating Atlas.
     // Serve local-only static HTML with per-response nonces, no CDN dependencies or network analytics.
-    if(method==='GET'&&['/','/console','/atlas'].includes(u.pathname)){
-      const pages={'/':'index.html','/console':'pilot.html','/atlas':'atlas.html'};
+    if(method==='GET'&&['/','/console','/atlas','/evolution'].includes(u.pathname)){
+      const pages={'/':'index.html','/console':'pilot.html','/atlas':'atlas.html','/evolution':'evolution.html'};
       const nonce=crypto.randomBytes(16).toString('base64');
       const source=fs.readFileSync(path.resolve(__dirname,'..','web',pages[u.pathname]),'utf8');
       const html=source.replace(/<style(?=[\s>])/g,'<style nonce="'+nonce+'"').replace(/<script(?=[\s>])/g,'<script nonce="'+nonce+'"');
@@ -47,6 +48,7 @@ export function makeApi(engine,enterprise=null){return http.createServer(async(r
     const ctx=bearer.split('.').length===3 && enterprise?.oidc? enterprise.authenticateOidc(bearer):engine.auth(bearer);
     if(process.env.AIFIRST_REQUIRE_OIDC==='1'&&ctx.auth_method!=='verified_oidc')throw Error('OIDC authentication required');
     const post=async()=>{if(!req.headers['content-type']?.startsWith('application/json'))throw Error('application/json required');return parse(await body(req,1024*1024));};
+    if(p[1]==='evolution')return await evolutionHttp({engine,ctx,p,method,post,json:(status,data)=>json(res,status,data)});
     if(method==='GET'&&p[1]==='health')return json(res,200,engine.health(ctx));
     if(method==='GET'&&p.length===2&&p[1]==='editions'){
       engine.permitted(ctx,'admin','sponsor','auditor');
