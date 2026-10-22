@@ -15,6 +15,7 @@ import { integrationReadiness } from '../src/integration-readiness.mjs';
 import {LocalStackBridge,optionalS3FromEnv} from '../src/local-stack-bridge.mjs';
 import {scanClamd} from '../src/local-stack-adapters.mjs';
 import { evolutionHttp } from '../src/evolution-http.mjs';
+import {VerifiedTheater} from '../src/verified-theater.mjs';
 
 const __dirname=path.dirname(fileURLToPath(import.meta.url));
 const baseRoot=path.resolve(__dirname,'..','.aifirst-local');
@@ -53,6 +54,16 @@ export function makeApi(engine,enterprise=null){return http.createServer(async(r
     if(process.env.AIFIRST_REQUIRE_OIDC==='1'&&ctx.auth_method!=='verified_oidc')throw Error('OIDC authentication required');
     const post=async()=>{if(!req.headers['content-type']?.startsWith('application/json'))throw Error('application/json required');return parse(await body(req,1024*1024));};
     if(p[1]==='evolution')return await evolutionHttp({engine,ctx,p,method,post,json:(status,data)=>json(res,status,data)});
+    // Authenticated local synthetic proof. Public demos never receive private auth tokens.
+    if(p[1]==='theater'&&p[2]==='proofs'){
+      const receipts=new VerifiedTheater(engine);
+      if(method==='POST'&&p.length===3){const input=await post();if(input?.ack_synthetic_only!==true)return json(res,400,{error:'Explicit synthetic mode acknowledgement required'});return json(res,201,await receipts.run(ctx));}
+      if(method==='GET'&&p.length===3)return json(res,200,{runs:receipts.list(ctx)});
+      if(method==='GET'&&p.length===4&&p[3]==='signer')return json(res,200,receipts.keyInfo(ctx));
+      if(method==='GET'&&p.length===4)return json(res,200,receipts.find(ctx,p[3]));
+      return json(res,405,{error:'Method not allowed'});
+    }
+
     if(method==='GET'&&p[1]==='health')return json(res,200,engine.health(ctx));
     if(method==='GET'&&p.length===3&&p[1]==='lab'&&p[2]==='proof'){
       engine.permitted(ctx,'admin','auditor');
@@ -117,7 +128,7 @@ export function makeApi(engine,enterprise=null){return http.createServer(async(r
     }
     return json(res,404,{error:'Not found'});
   }catch(e){const message=String(e.message||'').slice(0,150);const invalid=/invalid|missing|bad |required|size|SHA256|mismatch|missing|not safe|unscanned|blocked|review|already|unavailable/i.test(message);
-    const status=/authentication/i.test(message)?401:/forbidden/i.test(message)?403:/not found/i.test(message)?404:invalid?400:500;
+    const status=/authentication/i.test(message)?401:/forbidden/i.test(message)?403:/not found/i.test(message)?404:/quota exceeded/i.test(message)?429:invalid?400:500;
     return json(res,status,{error:status===500?'Internal error':message});}
 });}
 

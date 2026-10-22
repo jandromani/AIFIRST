@@ -69,6 +69,20 @@ npm run preview:build    # exports dist-preview/demo.html with the rest of the s
 
 The interactive showcase is deliberately separate from the private tenant-scoped API and Evolution OS runtime. [Design and assurance notes](docs/DECISION_THEATER.md). **Nothing here is a customer result, a verified security test or a production promotion.**
 
+## Signed receipts: public experience → private software (synthetic)
+
+The public [Decision Theater](web/demo.html#private-verify) is an **offline simulator**, not a production run. When a local admin executes `npm run theater:proof`, the Node engine creates a new isolated synthetic hackathon, validates a SHA-256 file upload with an explicitly **MOCK** antivirus, exercises an independent Agent Evolution arena, and reproduces a unanimous signed DIOS vote in a separate sandboxed fixture. The local service signs only the summarized run evidence using its own Ed25519 key.
+
+```bash
+npm run pilot:init -- "Synthetic company"          # save admin token safely
+# Set AIFIRST_SYNTHETIC_DEMO=1 and AIFIRST_ADMIN_TOKEN in your local shell
+npm run theater:proof                         # no Docker, no external calls
+npm run theater:verify -- .aifirst-local/receipts/<run-id>.json
+npm run test:theater:verified
+```
+
+Or, with the local server running, open `/console` → **Diagnóstico** → **Prueba privada integral**, download the receipt, then open `/demo#private-verify` and import it. The browser checks Ed25519 **offline**. Because the receipt contains its own public key, verification proves only *integrity under that key*, **not** an externally trusted issuer. Pin the SHA-256 signer fingerprint out of band to establish a local trust anchor. The receipt explicitly disallows production release. No clients or employees are processed. [Operational detail](docs/PRIVATE_EXECUTION_PROOFS.md).
+
 ## See it right now — no Docker
 
 Both product pages and the **interactive Decision Theater** can be explored from a **safe static preview** (the private operations remain read-only):
