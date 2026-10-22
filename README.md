@@ -117,3 +117,17 @@ Read the [configuration and limits](docs/ENTERPRISE_INTEGRATIONS.md) and [revise
 - **Tests:** `npm run test:hardening` ejecuta el núcleo Node de seguridad, cola, proveedor mock y paridad de EX01–EX11. La suite completa del repositorio sigue requiriendo un checkout verificado.
 
 **No está homologado para datos de cliente ni procesamiento real de empleados.** Quedan abiertos IdP externo, KMS, DLP, sandbox de terceros, firmas legales, bancos, ERP, auditoría independiente y pruebas de infraestructura. No Vercel.
+
+
+## Product experience · AIFIRST 2026
+
+This repository now contains a separate buyer-facing [landing page](web/index.html), [Command Center](web/pilot.html) and [Operating Atlas](web/atlas.html). Run `npm run pilot:serve` and open `http://127.0.0.1:4181/`, `/console` or `/atlas`. **The server stays on loopback, not the public Internet.**
+
+The design makes the discovery → evidence → human review → roadmap sequence concrete, but never claims verified customers, employee rankings, ROI, bank payments, legal signatures, or production certification. Tenant-scoped edition selection and nine-connector readiness API are covered by real Node tests.
+
+- [UI/UX product audit](docs/UIUX_UNICORN_AUDIT.md)
+- [Web setup and accessibility limits](docs/PRODUCT_WEB_README.md)
+- [Nine connector acceptance paths](docs/CONNECTOR_NEXT_ACTIONS.md)
+- Test: `npm run test:ux` or `npm test`.
+
+A qualified IdP/KMS/DLP/ERP/bank/signature supplier, independent security review, real client workflow and cross-browser WCAG 2.2 AA testing are **not** completed by this redesign. No Vercel deployment or preview is created.

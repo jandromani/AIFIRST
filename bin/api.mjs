@@ -11,6 +11,7 @@ import { openRouterFree } from '../src/openrouter-free.mjs';
 import { loadTrustedJwks } from '../src/enterprise-security.mjs';
 import { renderDraftPack } from '../src/enterprise-reports.mjs';
 import { SyntheticJobQueue } from '../src/job-queue.mjs';
+import { integrationReadiness } from '../src/integration-readiness.mjs';
 
 const __dirname=path.dirname(fileURLToPath(import.meta.url));
 const root=path.resolve(__dirname,'..','.aifirst-local');
@@ -27,14 +28,18 @@ export function makeApi(engine,enterprise=null){return http.createServer(async(r
     const host=String(req.headers.host||'');
     if(!/^(?:127\.0\.0\.1|localhost)(?::[0-9]{1,5})?$/.test(host))return json(res,403,{error:'Host not allowlisted'});
     const origin=req.headers.origin;
-    if(origin && !(/^http:\/\/(?:127\.0\.0\.1|localhost):[0-9]{1,5}$/.test(String(origin))))return json(res,403,{error:'Cross-origin API access forbidden'});
+    if(origin && (!(/^http:\/\/(?:127\.0\.0\.1|localhost):[0-9]{1,5}$/.test(String(origin))) || new URL(String(origin)).host!==host))return json(res,403,{error:'Cross-origin API access forbidden'});
     const rawUrl=req.url||'';
     if(rawUrl.length>500||rawUrl.includes('%2f')||rawUrl.includes('%5c'))throw Error('Invalid route');
     const u=new URL(rawUrl,'http://127.0.0.1');const p=u.pathname.split('/').filter(Boolean),method=req.method;
-    if(method==='GET'&&u.pathname==='/'){
+    // Product landing, authenticated command center and traceable operating Atlas.
+    // Serve local-only static HTML with per-response nonces, no CDN dependencies or network analytics.
+    if(method==='GET'&&['/','/console','/atlas'].includes(u.pathname)){
+      const pages={'/':'index.html','/console':'pilot.html','/atlas':'atlas.html'};
       const nonce=crypto.randomBytes(16).toString('base64');
-      const html=fs.readFileSync(path.resolve(__dirname,'..','web','pilot.html'),'utf8').replace('<style>','<style nonce="'+nonce+'">').replace('<script>','<script nonce="'+nonce+'">');
-      res.writeHead(200,{'content-type':'text/html; charset=utf-8','x-content-type-options':'nosniff','cache-control':'no-store','referrer-policy':'no-referrer','x-frame-options':'DENY','content-security-policy':"default-src 'none'; script-src 'nonce-"+nonce+"'; style-src 'nonce-"+nonce+"'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"});
+      const source=fs.readFileSync(path.resolve(__dirname,'..','web',pages[u.pathname]),'utf8');
+      const html=source.replace(/<style(?=[\s>])/g,'<style nonce="'+nonce+'"').replace(/<script(?=[\s>])/g,'<script nonce="'+nonce+'"');
+      res.writeHead(200,{'content-type':'text/html; charset=utf-8','x-content-type-options':'nosniff','cache-control':'no-store','referrer-policy':'no-referrer','x-frame-options':'DENY','strict-transport-security':'max-age=0','content-security-policy':"default-src 'none'; script-src 'nonce-"+nonce+"'; style-src 'nonce-"+nonce+"'; connect-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"});
       return res.end(html);
     }
     if(!p.length||p[0]!=='v1')return json(res,404,{error:'Not found'});
@@ -43,6 +48,15 @@ export function makeApi(engine,enterprise=null){return http.createServer(async(r
     if(process.env.AIFIRST_REQUIRE_OIDC==='1'&&ctx.auth_method!=='verified_oidc')throw Error('OIDC authentication required');
     const post=async()=>{if(!req.headers['content-type']?.startsWith('application/json'))throw Error('application/json required');return parse(await body(req,1024*1024));};
     if(method==='GET'&&p[1]==='health')return json(res,200,engine.health(ctx));
+    if(method==='GET'&&p.length===2&&p[1]==='editions'){
+      engine.permitted(ctx,'admin','sponsor','auditor');
+      const editions=engine.rows('SELECT id,title,stage,created FROM editions WHERE tenant=? ORDER BY created DESC LIMIT 100',ctx.tenant);
+      return json(res,200,{editions,scope:'AUTHENTICATED_TENANT_ONLY'});
+    }
+    if(method==='GET'&&p[1]==='integrations'&&p[2]==='readiness'&&p.length===3){
+      engine.permitted(ctx,'admin','auditor');
+      return json(res,200,integrationReadiness({enterprise,env:process.env}));
+    }
     if(method==='GET'&&p.length===2&&p[1]==='queue')return json(res,200,{jobs:new SyntheticJobQueue(engine).status(ctx),execution:'SYNTHETIC_ONLY'});
     if(method==='GET'&&p[1]==='integrations'&&p[2]==='status'){engine.permitted(ctx,'admin','auditor');return json(res,200,{scope:'LOCAL_DEMO',oidc_verified_configured:Boolean(enterprise?.oidc),artifact_encryption_configured:Boolean(enterprise?.masterKey),clamav_requested:process.env.AIFIRST_ENABLE_CLAMAV==='1',openrouter_free_requested:process.env.AIFIRST_ALLOW_OPENROUTER_FREE==='1',openrouter_key_present:Boolean(process.env.OPENROUTER_API_KEY),erp_configured:Boolean(process.env.AIFIRST_ERP_ENDPOINT&&process.env.AIFIRST_ERP_API_KEY),bank_statement_verifier_configured:Boolean(enterprise?.bankVerifyKey),qualified_signature_provider_connected:false,actual_bank_api_connected:false,untrusted_code_sandbox_connected:false,production_ready:false});}
     if(method==='POST'&&p.length===2&&p[1]==='oidc-bindings'){if(!enterprise)return json(res,503,{error:'Enterprise boundary unavailable'});return json(res,201,enterprise.bindOidc(ctx,await post()));}
