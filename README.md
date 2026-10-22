@@ -107,3 +107,13 @@ npm run pilot:serve
 **Reports**: three draft PDFs, real PPTX, CSV/JSON exports across original EX01–EX11 and AES-256-GCM-wrapped ZIP encrypted as `*.zip.aif1` (requires a separate decrypt step, not password ZIP). **Money**: HTTPS ERP draft adapter, signature-validated bank statement import and payout batch suggestions; no live bank transfer, no tax-compliant invoice certification or legal signature provider connected yet.
 
 Read the [configuration and limits](docs/ENTERPRISE_INTEGRATIONS.md) and [revised gap register](docs/GAP_REGISTER.md) before enabling connections. No Vercel deployment, no production data.
+
+## Capa operativa local reforzada (22/10/2026)
+
+- **Snapshot/restore:** SQLite backup online con AES-256-GCM, checksum y restauración segura a directorio vacío. Ver [runbook](docs/CONNECTION_READINESS.md). La base de datos activa aún requiere cifrado de volumen/KMS.
+- **Security boundary:** localhost y Host/Origin explícitos, CSP con nonce; no servidor público.
+- **Free agent queue:** cola SQLite duradera, leases, retries y presupuesto por tenant; acepta exclusivamente metadatos sintéticos, no ejecuta código de participantes. `npm run queue:once` requiere credenciales locales seguras y flags de demo.
+- **Finanzas:** una referencia manual de cobro se etiqueta `PAYMENT_REFERENCE_UNVERIFIED`; no acredita dinero recibido.
+- **Tests:** `npm run test:hardening` ejecuta el núcleo Node de seguridad, cola, proveedor mock y paridad de EX01–EX11. La suite completa del repositorio sigue requiriendo un checkout verificado.
+
+**No está homologado para datos de cliente ni procesamiento real de empleados.** Quedan abiertos IdP externo, KMS, DLP, sandbox de terceros, firmas legales, bancos, ERP, auditoría independiente y pruebas de infraestructura. No Vercel.

@@ -77,3 +77,7 @@ node bin/enterprise-pack.mjs decrypt ed_<uuid>
 ```
 
 La exportación predeterminada nunca escribe las versiones PDF/PPTX descifradas en disco; la opción `decrypt` requiere acceso admin y crea un ZIP temporal **sin cifrar en almacenamiento local**, por lo que se debe retirar una vez revisado. No usar con PII real.
+
+## Security iteration 2026-10-22
+
+See [CONNECTION_READINESS.md](CONNECTION_READINESS.md). Tested offline encrypted SQLite snapshots with isolated recovery; explicit loopback Host/Origin checks and CSP nonce; durable synthetic-only queue and OpenRouter e2e adapter fix; invoice manual references labelled unverified. **Live tenant DB encryption, external KMS, banking and legally binding gates remain unverified.**

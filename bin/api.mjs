@@ -10,6 +10,7 @@ import { EnterpriseOps } from '../src/enterprise-ops.mjs';
 import { openRouterFree } from '../src/openrouter-free.mjs';
 import { loadTrustedJwks } from '../src/enterprise-security.mjs';
 import { renderDraftPack } from '../src/enterprise-reports.mjs';
+import { SyntheticJobQueue } from '../src/job-queue.mjs';
 
 const __dirname=path.dirname(fileURLToPath(import.meta.url));
 const root=path.resolve(__dirname,'..','.aifirst-local');
@@ -20,16 +21,29 @@ const parse=b=>{try{return JSON.parse(b.toString('utf8'))}catch{throw Error('Inv
 
 export function makeApi(engine,enterprise=null){return http.createServer(async(req,res)=>{
   try {
+    // Loopback alone does not prevent DNS rebinding or cross-origin form/script requests.
+    const remote=req.socket.remoteAddress||'';
+    if(!['127.0.0.1','::1','::ffff:127.0.0.1'].includes(remote))return json(res,403,{error:'Loopback access only'});
+    const host=String(req.headers.host||'');
+    if(!/^(?:127\.0\.0\.1|localhost)(?::[0-9]{1,5})?$/.test(host))return json(res,403,{error:'Host not allowlisted'});
+    const origin=req.headers.origin;
+    if(origin && !(/^http:\/\/(?:127\.0\.0\.1|localhost):[0-9]{1,5}$/.test(String(origin))))return json(res,403,{error:'Cross-origin API access forbidden'});
     const rawUrl=req.url||'';
     if(rawUrl.length>500||rawUrl.includes('%2f')||rawUrl.includes('%5c'))throw Error('Invalid route');
     const u=new URL(rawUrl,'http://127.0.0.1');const p=u.pathname.split('/').filter(Boolean),method=req.method;
-    if(method==='GET'&&u.pathname==='/'){const html=fs.readFileSync(path.resolve(__dirname,'..','web','pilot.html'),'utf8');res.writeHead(200,{'content-type':'text/html; charset=utf-8','x-content-type-options':'nosniff','cache-control':'no-store','content-security-policy':"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; frame-ancestors 'none'"});return res.end(html);}
+    if(method==='GET'&&u.pathname==='/'){
+      const nonce=crypto.randomBytes(16).toString('base64');
+      const html=fs.readFileSync(path.resolve(__dirname,'..','web','pilot.html'),'utf8').replace('<style>','<style nonce="'+nonce+'">').replace('<script>','<script nonce="'+nonce+'">');
+      res.writeHead(200,{'content-type':'text/html; charset=utf-8','x-content-type-options':'nosniff','cache-control':'no-store','referrer-policy':'no-referrer','x-frame-options':'DENY','content-security-policy':"default-src 'none'; script-src 'nonce-"+nonce+"'; style-src 'nonce-"+nonce+"'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"});
+      return res.end(html);
+    }
     if(!p.length||p[0]!=='v1')return json(res,404,{error:'Not found'});
     const bearer=(req.headers.authorization||'').replace(/^Bearer /,'');
     const ctx=bearer.split('.').length===3 && enterprise?.oidc? enterprise.authenticateOidc(bearer):engine.auth(bearer);
     if(process.env.AIFIRST_REQUIRE_OIDC==='1'&&ctx.auth_method!=='verified_oidc')throw Error('OIDC authentication required');
     const post=async()=>{if(!req.headers['content-type']?.startsWith('application/json'))throw Error('application/json required');return parse(await body(req,1024*1024));};
     if(method==='GET'&&p[1]==='health')return json(res,200,engine.health(ctx));
+    if(method==='GET'&&p.length===2&&p[1]==='queue')return json(res,200,{jobs:new SyntheticJobQueue(engine).status(ctx),execution:'SYNTHETIC_ONLY'});
     if(method==='GET'&&p[1]==='integrations'&&p[2]==='status'){engine.permitted(ctx,'admin','auditor');return json(res,200,{scope:'LOCAL_DEMO',oidc_verified_configured:Boolean(enterprise?.oidc),artifact_encryption_configured:Boolean(enterprise?.masterKey),clamav_requested:process.env.AIFIRST_ENABLE_CLAMAV==='1',openrouter_free_requested:process.env.AIFIRST_ALLOW_OPENROUTER_FREE==='1',openrouter_key_present:Boolean(process.env.OPENROUTER_API_KEY),erp_configured:Boolean(process.env.AIFIRST_ERP_ENDPOINT&&process.env.AIFIRST_ERP_API_KEY),bank_statement_verifier_configured:Boolean(enterprise?.bankVerifyKey),qualified_signature_provider_connected:false,actual_bank_api_connected:false,untrusted_code_sandbox_connected:false,production_ready:false});}
     if(method==='POST'&&p.length===2&&p[1]==='oidc-bindings'){if(!enterprise)return json(res,503,{error:'Enterprise boundary unavailable'});return json(res,201,enterprise.bindOidc(ctx,await post()));}
     if(method==='POST'&&p.length===2&&p[1]==='signing-key'){if(!enterprise)return json(res,503,{error:'Enterprise boundary unavailable'});const r=await post();return json(res,201,enterprise.registerSigner(ctx,r.public_key_pem));}
@@ -60,6 +74,7 @@ export function makeApi(engine,enterprise=null){return http.createServer(async(r
         if(!enterprise||!enterprise.masterKey)throw Error('Encrypted storage is not configured');
         return json(res,201,await enterprise.secureUpload(ctx,sub,file,await body(req),sha));
       }
+      if(method==='POST'&&p[3]==='queue'){const r=await post();return json(res,201,new SyntheticJobQueue(engine).enqueue(ctx,sub,{model:r.model,maxCostEur:r.max_cost_eur}));}
       if(method==='POST'&&p[3]==='agent'){const r=await post();return json(res,201,await engine.agentJob(ctx,sub,r.model,r.max_cost_eur));}
       if(method==='POST'&&p[3]==='evaluate'){const r=await post();return json(res,201,engine.evaluate(ctx,sub,r.score,r.artifact_id,r.notes));}
     }

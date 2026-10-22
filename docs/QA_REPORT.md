@@ -83,3 +83,16 @@ Los contratos y la presentación son reutilizables, pero la edición no está au
 - `OPENROUTER_API_KEY`, company IdP and ERP/bank secrets are not available; **live external inference, SSO connection, financial transfer and signature authority are unverified**.
 - This is a testable adapter layer, not a compliant production deployment. `node:sqlite` remains experimental on Node 22, and report generation requires Python dependencies.
 - Previous historical full repo suites still require an actual full checkout with `npm run verify:local`; do not count the 14 enterprise tests as the entire 230-component operating Atlas.
+
+## Iteración local de seguridad y conexiones · 2026-10-22
+
+Se ejecutó Node v22.16.0 sobre los módulos `runtime`, `enterprise`, `hardening`, `queue`, `openrouter-wiring` y `output-contracts`. **22/22 tests PASS** en el contenedor, con ficheros y SQLite reales. Es una **suite parcial de los nuevos componentes**, no el resultado del `npm test` completo del checkout remoto.
+
+- Backup consistente SQLite online, cifrado en repositorio local, verificación SHA-256 y restauración aislada; ninguna prueba DR fuera de la máquina.
+- Rechazo de Host/Origin sospechosos y nonce CSP sin `unsafe-inline` para consola.
+- Cola SQLite para demostración sintética con leases e idempotencia; no ejecutor sandbox de código externo ni proveedor OpenRouter real.
+- E2E mock OpenRouter gratuito con las llamadas reales de la API modeladas y límite de cuota. Corregido rechazo incorrecto de la instrucción fija sobre empleado.
+- Contratos EX01–EX11 fuente/catálogo/runtime verificados; ninguna firma G6 ni rendición fiscal asumida.
+- Referencia bancaria registrada manualmente nunca marca `PAID`; estado `PAYMENT_REFERENCE_UNVERIFIED`.
+
+**Faltan:** inferencia auténtica con API key del titular, SSO MFA real, KMS y live DB encryption, AV/DLP certificado, sandbox aislado, PDF/PPTX finales y EX09 privado, proveedor de firma y aceptación, ERP, banco real, tesorería, pentest, SLA y piloto autorizado.

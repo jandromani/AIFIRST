@@ -16,7 +16,8 @@ export function openRouterFree({apiKey=process.env.OPENROUTER_API_KEY,model='ope
   let metadata;try{metadata=JSON.parse(prompt)}catch{throw Error('Structured metadata required');}
   if(!metadata||metadata.synthetic!==true||typeof metadata!=='object'||Array.isArray(metadata)||!Array.isArray(metadata.artifacts)||metadata.artifacts.length>50)throw Error('Only synthetic structured metadata permitted');
   // Send only names, content hashes and declared rubric: never raw files, PII, participant aliases, prompts or paths.
-  const forbidden=JSON.stringify(metadata);
+  // The fixed, trusted safety instruction mentions the word 'employee'; scan only outbound user-controlled fields.
+  const forbidden=JSON.stringify({project:metadata.project,artifacts:metadata.artifacts,rubric:metadata.rubric});
   if(/\b(?:participant|employee|email|phone|iban|dni|nif|address|token|secret|credential|api_?key)\b/i.test(forbidden))throw Error('Potential personal/secret metadata blocked');
   const filtered={project:String(metadata.project??'').slice(0,120),artifacts:metadata.artifacts.map(a=>({name:String(a.name||'').slice(0,110),sha256:String(a.sha256||'').slice(0,64)})),rubric:metadata.rubric};
   if(filtered.artifacts.some(a=>!/^[a-f0-9]{64}$/.test(a.sha256)))throw Error('Invalid artifact digest');

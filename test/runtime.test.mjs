@@ -100,7 +100,7 @@ test('E: leads, contracts, invoice, finance-only manual reconciliation, awards; 
  assert.equal(bank.verified_by_bank_api,false);assert.equal(bank.money_moved,false);
  assert.throws(()=>r.reconcile(finance,inv.id,'TRANSFER-01',2500000),/UNIQUE|constraint/i);
  assert.equal(r.payout(finance,ed.id,'PRIZE','win-01',100000).money_moved,false);
- assert.equal(r.dossier(ctx,ed.id).finance.invoices[0].status,'PAID_RECORDED');
+ assert.equal(r.dossier(ctx,ed.id).finance.invoices[0].status,'PAYMENT_REFERENCE_UNVERIFIED');
 });
 
 test('HTTP auth/tenant isolation; create and retrieve edition through real local listener',async t=>{

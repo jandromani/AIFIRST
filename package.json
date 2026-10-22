@@ -23,6 +23,9 @@
     "test:pilot": "node --test test/runtime.test.mjs",
     "test:enterprise": "node --test test/runtime.test.mjs test/enterprise.test.mjs",
     "pilot:report-export": "node bin/enterprise-pack.mjs export",
-    "pilot:report-decrypt": "node bin/enterprise-pack.mjs decrypt"
+    "pilot:report-decrypt": "node bin/enterprise-pack.mjs decrypt",
+    "backup:create": "node bin/backup.mjs create",
+    "queue:once": "node bin/queue.mjs once",
+    "test:hardening": "node --test test/runtime.test.mjs test/enterprise.test.mjs test/hardening.test.mjs test/job-queue.test.mjs test/openrouter-wiring.test.mjs test/output-contracts.test.mjs"
   }
 }
