@@ -36,7 +36,15 @@ main{max-width:1540px;margin:auto;padding:0 clamp(18px,4vw,56px) 80px}.hero{disp
  <div class="board"><div class="constitution"><div class="overline">DIOS / CREENCIA VIGENTE <span id="god-version">V1</span></div><blockquote id="god-current">Improve verified outcomes rather than rankings.</blockquote><p>Esta creencia puede cambiar. Las restricciones irreductibles de privacidad, independencia y rollback no están sometidas a votación de agentes.</p></div><div class="board-head"><h3>Censo congelado · voto por agente</h3><span class="pill" id="god-tally">0 / 5 votos SÍ</span></div><div class="vote-grid" id="god-voters"></div><div class="cards"><article class="detail"><h4>Resultado constitucional</h4><p id="god-reason">Todavía no hay unanimidad.</p><p class="mono" id="god-receipt" style="margin-top:14px">—</p></article><article class="detail"><h4>Separación de poderes</h4><ul><li>El orquestador propone y no vota por otros.</li><li>Cada integrante del censo tiene derecho de veto.</li><li>El gate de seguridad está fuera de DIOS.</li><li>El cambio se puede auditar y revertir.</li></ul></article></div></div></div>
 </section>
 <section style="padding:36px 0 8px"><div class="banner"><strong>Nota de evidencia.</strong> Los tres motores calculan resultados reproducibles con fixtures sintéticos públicos. La descarga es un justificante de demostración con checksum simple, <b>no</b> una atestación criptográfica o aprobación de cliente. El motor enterprise y sus gates siguen siendo privados y no se activan aquí.</div></section>
-</main><footer class="footer"><div><strong style="color:var(--lime)">AIFIRST</strong> / Decision Theater · Demo local, sin analítica ni backend</div><div><a href="/">Producto</a><a href="/evolution">Agent Evolution OS</a><a href="/atlas">Operating Atlas</a></div></footer>
+</main><section id="private-verify" class="stage" aria-labelledby="proof-title" style="margin-top:28px;padding:28px;display:grid;gap:16px">
+ <div class="overline">04 / Provenance bridge · PRIVATE ENGINE</div>
+ <h2 id="proof-title" style="margin:0;font-size:clamp(26px,4vw,44px);letter-spacing:-.055em">Del simulador a la evidencia firmada.</h2>
+ <p class="lead" style="font-size:14px">Esta web ejecuta simulaciones públicas en tu navegador. Para contrastarlas con software real, entra al <a href="/console" style="color:var(--lime);text-decoration:underline">Command Center local</a>, abre Diagnóstico y ejecuta «Prueba privada integral». Descarga el recibo JSON y verifícalo aquí sin subir archivos a ningún servidor.</p>
+ <div class="cards" style="margin:0"><div class="detail"><h4>1 · Importar recibo del motor privado</h4><input id="proof-file" type="file" accept=".json,application/json" aria-label="Recibo JSON local" style="max-width:100%;font-size:12px"><p style="margin-top:12px">La firma Ed25519 permite detectar modificaciones. La clave pública integrada no demuestra por sí sola quién es el firmante.</p></div><div class="detail"><h4>2 · Confiar en un emisor</h4><label class="control-label" for="proof-pin">Huella SHA-256 de la clave pública (opcional)</label><input id="proof-pin" type="text" inputmode="text" autocomplete="off" maxlength="64" placeholder="64 caracteres, obtenidos fuera de banda" style="width:100%;background:#14241d;color:var(--ink);border:1px solid #496454;border-radius:8px;padding:12px;font:12px var(--mono)"><p style="margin-top:12px">Solo si la huella coincide con una conocida por otro canal se mostrará «emisor reconocido».</p></div></div>
+ <div class="button-set"><button type="button" class="cta" id="proof-verify">Verificar firma y alcance</button><button type="button" class="secondary" id="proof-clear">Limpiar</button></div>
+ <pre id="proof-result" class="detail" role="status" aria-live="polite" style="white-space:pre-wrap;overflow-wrap:anywhere;min-height:92px;margin:0">Sin recibo importado. El laboratorio público no genera firmas privadas.</pre>
+</section>
+<footer class="footer"><div><strong style="color:var(--lime)">AIFIRST</strong> / Decision Theater · Demo local, sin analítica ni backend</div><div><a href="/">Producto</a><a href="/evolution">Agent Evolution OS</a><a href="/atlas">Operating Atlas</a></div></footer>
 <script>
 (()=>{'use strict';
 const $=id=>document.getElementById(id),audit={discovery:[],arena:[],dios:[]};
@@ -75,6 +83,32 @@ function download(type,record){const bytes=JSON.stringify({schema:'aifirst.decis
 $('god-export').onclick=()=>download('dios',{version:godVersion,belief:godCurrent,proposal:beliefs[$('god-proposal').value],roster:roster.map(a=>a.id),votes:roster.map(a=>({agent:a.id,vote:votes[a.id]||'pending'})),constitutional_history:godHistory,irreducible_rules:['privacy','independent_review','rollback'],legal_signature:false,gate:'SIMULATED_ONLY',checksum:digest({version:godVersion,history:godHistory,votes})});$('dis-export').onclick=()=>download('discovery',{input:{strategy:disState.strategy,budget:disState.budget,risk:disState.risk},ranked:disState.ranked.map(x=>({id:x.id,score:x.score,eligible:x.eligible,source_refs:sources[x.id]})),decision:disState.recommendedIds,gate:'G5_PENDING_HUMAN',checksum:disState.checksum,history:audit.discovery});$('arena-export').onclick=()=>{if(!arenaState){announce('Primero ejecuta la arena.');return}download('arena',{inputs:{job:arenaState.job,candidate:arenaState.candidate,budget:arenaState.budget},incumbent:arenaState.incumbentPass,candidate:arenaState.candidatePass,safety_violations:arenaState.unsafe,qualifies:arenaState.qualifies,canary,checksum:arenaState.checksum,history:audit.arena})};
 function announce(msg){$('live').textContent=msg;}
 function setMode(mode){const key=['discovery','arena','dios'].includes(mode)?mode:'discovery';document.querySelectorAll('[data-nav]').forEach(a=>a.setAttribute('aria-current',a.dataset.nav===key?'page':'false'));for(const x of ['discovery','arena','dios'])$('panel-'+x).classList.toggle('hidden',x!==key);document.title=(key==='discovery'?'Hackathon':key==='arena'?'Agent Arena':'Replace DIOS')+' · AIFIRST Decision Theater';$('live').textContent='Laboratorio '+key+' abierto · datos 100 % sintéticos.'}
+
+// Portable Ed25519 integrity check: no uploads, no API requests, no private tokens.
+async function verifyImportedProof(){
+ const output=$('proof-result');const file=$('proof-file').files[0];
+ if(!file){output.textContent='Selecciona primero un recibo JSON exportado desde el Command Center local.';return}
+ if(file.size>30000){output.textContent='Archivo demasiado grande. Solo se admiten recibos públicos de hasta 30 KB.';return}
+ try{
+  if(!crypto?.subtle)throw Error('WebCrypto no disponible en este contexto. Abre la página en localhost o HTTPS.');
+  const receipt=JSON.parse(await file.text());if(receipt.schema!=='aifirst.theater.private_receipt.v1'||receipt.signature_algorithm!=='Ed25519'||typeof receipt.payload_json!=='string'||receipt.payload_json.length>25000)throw Error('Formato de recibo desconocido');
+  const pem=receipt.signer?.public_key_pem;if(typeof pem!=='string'||!pem.startsWith('-----BEGIN PUBLIC KEY-----'))throw Error('Clave pública ausente');
+  const binary=Uint8Array.from(atob(pem.replace(/-----[^-]+-----/g,'').replace(/\s+/g,'')),c=>c.charCodeAt(0));
+  const pub=await crypto.subtle.importKey('spki',binary,{name:'Ed25519'},false,['verify']);
+  const fingerprint=[...new Uint8Array(await crypto.subtle.digest('SHA-256',binary))].map(x=>x.toString(16).padStart(2,'0')).join('');
+  if(fingerprint!==receipt.signer.key_id)throw Error('Huella pública discordante');
+  const sig=Uint8Array.from(atob(receipt.signature_b64),c=>c.charCodeAt(0));
+  const ok=await crypto.subtle.verify({name:'Ed25519'},pub,sig,new TextEncoder().encode(receipt.payload_json));
+  if(!ok)throw Error('Firma inválida: contenido alterado o clave incorrecta');
+  const data=JSON.parse(receipt.payload_json);const pin=$('proof-pin').value.trim().toLowerCase();
+  if(pin&&!/^[0-9a-f]{64}$/.test(pin))throw Error('Huella introducida incorrecta: deben ser 64 caracteres hexadecimales');
+  const trusted=Boolean(pin&&pin===fingerprint);
+  output.textContent=[`FIRMA ED25519: VÁLIDA`, `IDENTIDAD DEL EMISOR: ${trusted?'RECONOCIDA POR HUELLA APORTADA':'NO VERIFICADA (clave autofirmada local)'}`,`HUELLA: ${fingerprint}`,`RUN: ${data.run_id}`,`ORIGEN: ${data.execution_mode}`,`DISCOVERY: ${data.discovery?.original_ex_contracts}/11 EX; G3/G4 solo LOCAL MOCK`, `ARENA: ${data.arena?.evolution_chain_valid?'cadena verificada':'sin prueba'}`,`DIOS: ${data.god?.votes}/${data.god?.eligible} firmas de agentes (prueba sintética)`,`PRODUCCIÓN: BLOQUEADA`,`AVISO: esta firma no prueba identidad legal, seguridad enterprise ni equivalencia con los resultados de los controles públicos.`].join('\n');
+ }catch(e){output.textContent='NO VALIDADO · '+String(e?.message||e)}
+}
+$('proof-verify').onclick=verifyImportedProof;
+$('proof-clear').onclick=()=>{$('proof-file').value='';$('proof-pin').value='';$('proof-result').textContent='Sin recibo importado.'};
+
 window.addEventListener('hashchange',()=>setMode(location.hash.slice(1)));
 updateDiscovery();populateVoters();$('arena-budget-out').textContent='€'+(+$('arena-budget').value/100).toFixed(2);setMode(location.hash.slice(1));
 })();
