@@ -89,3 +89,21 @@ Abrir **http://127.0.0.1:4181/** en el propio equipo. La consola no usa Vercel, 
 **A** tests reales con SQLite y API HTTP; **B** roles locales, aislamiento por tenant, uploads SHA-256 y cuarentena; **C** adaptador HTTPS configurable para gateway IA, revisión local y jurado; **D** EX01–EX11 compatibles con los nombres originales como *manifiestos*, escenarios y grafo; **E** leads, contratos, borradores de factura, registro manual de ingresos y pagos de premios pendientes. Más detalle en [fases A–E](docs/PHASES_A_E_IMPLEMENTATION.md) y [gap register](docs/GAP_REGISTER.md).
 
 **No está terminado al 100 % para producción.** Faltan SSO/MFA, seguridad real, autorización y firmas G1/G3–G7, proveedor IA verificado, renderizadores PDF/PPTX/ZIP y cobros/pagos ejecutables con banco/ERP. **Los issues siguen abiertos.**
+
+## OpenRouter Free + Enterprise Integration Layer (Oct 2026)
+
+**New code:** [OpenRouter Free adapter](src/openrouter-free.mjs), [security controls](src/enterprise-security.mjs), [OIDC and financial controls](src/enterprise-ops.mjs), [PDF/PPTX/ZIP report pack](src/enterprise-reports.mjs), [private report CLI](bin/enterprise-pack.mjs), [14 Node tests](test/enterprise.test.mjs) plus the existing 7-case pilot suite.
+
+**Default is fail closed.** OpenRouter is only enabled with `AIFIRST_SYNTHETIC_DEMO=1`, `AIFIRST_ALLOW_OPENROUTER_FREE=1` and `OPENROUTER_API_KEY`. It sends synthetic project metadata and hashes only, with a default budget of 12 free requests/day across the local app. Free service limits apply; NOT acceptable for confidential source code, employment decisions or production SLAs without provider/legal review.
+
+```bash
+npm run test:enterprise
+python3 -m pip install -r requirements-reports.txt
+# Set AIFIRST_MASTER_KEY_B64 in secret storage and initialize local tenant:
+npm run pilot:init -- "Empresa sintética"
+npm run pilot:serve
+```
+
+**Reports**: three draft PDFs, real PPTX, CSV/JSON exports across original EX01–EX11 and AES-256-GCM-wrapped ZIP encrypted as `*.zip.aif1` (requires a separate decrypt step, not password ZIP). **Money**: HTTPS ERP draft adapter, signature-validated bank statement import and payout batch suggestions; no live bank transfer, no tax-compliant invoice certification or legal signature provider connected yet.
+
+Read the [configuration and limits](docs/ENTERPRISE_INTEGRATIONS.md) and [revised gap register](docs/GAP_REGISTER.md) before enabling connections. No Vercel deployment, no production data.

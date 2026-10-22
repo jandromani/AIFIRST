@@ -73,3 +73,13 @@ Los contratos y la presentación son reutilizables, pero la edición no está au
 - **No ejecutada** la suite completa histórica `npm run verify:local` por falta de checkout de GitHub en el contenedor (DNS bloqueado). Los nuevos tests se ejecutaron desde fuentes idénticas a este commit.
 - **No** se verificó un banco, SSO corporativo, antivirus instalado, factura fiscal, API de proveedor de modelos ni G3–G7 externos.
 - Sin Vercel, GitHub Actions nuevos ni previews.
+
+## 2026-10-22 — Node 22 enterprise security and reports
+
+- Restored and executed the published Node 22 pilot code locally (7/7 earlier pilot tests).
+- Implemented enterprise extension; **14/14 real Node tests pass** combining pilot plus OpenRouter/mock HTTP, AES-GCM tamper/tenant protection, PII/secret scanning, OIDC cryptographic JWT/JWKS verification, Ed25519 signatures and role gating, signed statement import, ERP draft adapter, and actual report rendering.
+- Rendered genuine PDF files and opened EX01 with PDF renderer; verified 7-slide PPTX with python-pptx and document validity, encrypted ZIP contents digest.
+- HTTP test covers connector status, encrypted upload and refusal to accept unverified gate/reports.
+- `OPENROUTER_API_KEY`, company IdP and ERP/bank secrets are not available; **live external inference, SSO connection, financial transfer and signature authority are unverified**.
+- This is a testable adapter layer, not a compliant production deployment. `node:sqlite` remains experimental on Node 22, and report generation requires Python dependencies.
+- Previous historical full repo suites still require an actual full checkout with `npm run verify:local`; do not count the 14 enterprise tests as the entire 230-component operating Atlas.

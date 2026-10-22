@@ -6,6 +6,10 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import fs from 'node:fs';
 import { EditionRuntime,httpsModelAdapter,clamscanAdapter } from '../src/edition-runtime.mjs';
+import { EnterpriseOps } from '../src/enterprise-ops.mjs';
+import { openRouterFree } from '../src/openrouter-free.mjs';
+import { loadTrustedJwks } from '../src/enterprise-security.mjs';
+import { renderDraftPack } from '../src/enterprise-reports.mjs';
 
 const __dirname=path.dirname(fileURLToPath(import.meta.url));
 const root=path.resolve(__dirname,'..','.aifirst-local');
@@ -14,21 +18,27 @@ const maxBody=4*1024*1024;
 async function body(req,limit=maxBody){const chunks=[];let size=0;for await(const chunk of req){size+=chunk.length;if(size>limit)throw new Error('Payload too large');chunks.push(chunk)}return Buffer.concat(chunks);}
 const parse=b=>{try{return JSON.parse(b.toString('utf8'))}catch{throw Error('Invalid JSON')}};
 
-export function makeApi(engine){return http.createServer(async(req,res)=>{
+export function makeApi(engine,enterprise=null){return http.createServer(async(req,res)=>{
   try {
     const rawUrl=req.url||'';
     if(rawUrl.length>500||rawUrl.includes('%2f')||rawUrl.includes('%5c'))throw Error('Invalid route');
     const u=new URL(rawUrl,'http://127.0.0.1');const p=u.pathname.split('/').filter(Boolean),method=req.method;
     if(method==='GET'&&u.pathname==='/'){const html=fs.readFileSync(path.resolve(__dirname,'..','web','pilot.html'),'utf8');res.writeHead(200,{'content-type':'text/html; charset=utf-8','x-content-type-options':'nosniff','cache-control':'no-store','content-security-policy':"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; frame-ancestors 'none'"});return res.end(html);}
     if(!p.length||p[0]!=='v1')return json(res,404,{error:'Not found'});
-    const ctx=engine.auth((req.headers.authorization||'').replace(/^Bearer /,''));
+    const bearer=(req.headers.authorization||'').replace(/^Bearer /,'');
+    const ctx=bearer.split('.').length===3 && enterprise?.oidc? enterprise.authenticateOidc(bearer):engine.auth(bearer);
+    if(process.env.AIFIRST_REQUIRE_OIDC==='1'&&ctx.auth_method!=='verified_oidc')throw Error('OIDC authentication required');
     const post=async()=>{if(!req.headers['content-type']?.startsWith('application/json'))throw Error('application/json required');return parse(await body(req,1024*1024));};
     if(method==='GET'&&p[1]==='health')return json(res,200,engine.health(ctx));
+    if(method==='GET'&&p[1]==='integrations'&&p[2]==='status'){engine.permitted(ctx,'admin','auditor');return json(res,200,{scope:'LOCAL_DEMO',oidc_verified_configured:Boolean(enterprise?.oidc),artifact_encryption_configured:Boolean(enterprise?.masterKey),clamav_requested:process.env.AIFIRST_ENABLE_CLAMAV==='1',openrouter_free_requested:process.env.AIFIRST_ALLOW_OPENROUTER_FREE==='1',openrouter_key_present:Boolean(process.env.OPENROUTER_API_KEY),erp_configured:Boolean(process.env.AIFIRST_ERP_ENDPOINT&&process.env.AIFIRST_ERP_API_KEY),bank_statement_verifier_configured:Boolean(enterprise?.bankVerifyKey),qualified_signature_provider_connected:false,actual_bank_api_connected:false,untrusted_code_sandbox_connected:false,production_ready:false});}
+    if(method==='POST'&&p.length===2&&p[1]==='oidc-bindings'){if(!enterprise)return json(res,503,{error:'Enterprise boundary unavailable'});return json(res,201,enterprise.bindOidc(ctx,await post()));}
+    if(method==='POST'&&p.length===2&&p[1]==='signing-key'){if(!enterprise)return json(res,503,{error:'Enterprise boundary unavailable'});const r=await post();return json(res,201,enterprise.registerSigner(ctx,r.public_key_pem));}
     if(method==='POST'&&p.length===2&&p[1]==='members'){const r=await post();return json(res,201,engine.addPrincipal(ctx,r.role));}
     if(method==='POST'&&p.length===2&&p[1]==='leads')return json(res,201,engine.newLead(ctx,await post()));
     if(method==='POST'&&p.length===2&&p[1]==='editions')return json(res,201,engine.newEdition(ctx,await post()));
     if(p[1]==='editions'&&p[2]&&p.length>=3){const edition=p[2];
       if(method==='GET'&&p.length===4&&p[3]==='dossier')return json(res,200,engine.dossier(ctx,edition));
+      if(method==='GET'&&p.length===4&&p[3]==='approvals'){if(!enterprise)return json(res,503,{error:'Enterprise boundary unavailable'});engine.permitted(ctx,'admin','sponsor','auditor');return json(res,200,{approvals:enterprise.approvals(ctx,edition),legal_acceptance_pending:true});}
       if(method==='POST'&&p.length===4&&p[3]==='contracts')return json(res,201,engine.recordContract(ctx,edition,await post()));
       if(method==='POST'&&p.length===4&&p[3]==='participants'){const r=await post();return json(res,201,engine.register(ctx,edition,r.alias));}
       if(method==='POST'&&p.length===4&&p[3]==='submissions'){const r=await post();return json(res,201,engine.submit(ctx,edition,r.participant,r.title));}
@@ -36,13 +46,19 @@ export function makeApi(engine){return http.createServer(async(req,res)=>{
       if(method==='POST'&&p.length===4&&p[3]==='scenarios')return json(res,201,engine.addScenario(ctx,edition,await post()));
       if(method==='POST'&&p.length===4&&p[3]==='invoices'){const r=await post();return json(res,201,engine.invoice(ctx,edition,r.reference,r.amount_cents));}
       if(method==='POST'&&p.length===4&&p[3]==='payouts'){const r=await post();return json(res,201,engine.payout(ctx,edition,r.kind,r.reference,r.amount_cents));}
+      if(method==='GET'&&p.length===4&&p[3]==='payout-batch'){if(!enterprise)return json(res,503,{error:'Enterprise boundary unavailable'});return json(res,200,enterprise.payoutBatch(ctx,edition));}
+      if(method==='POST'&&p.length===4&&p[3]==='approvals'){if(!enterprise)return json(res,503,{error:'Enterprise boundary unavailable'});const r=await post();return json(res,201,enterprise.signGate(ctx,edition,r.gate,r.evidence_sha256,r.signature_b64));}
+      if(method==='POST'&&p.length===4&&p[3]==='report-pack'){if(!enterprise||!enterprise.masterKey)throw Error('Master encryption key required');engine.permitted(ctx,'admin','sponsor');if(process.env.AIFIRST_SYNTHETIC_DEMO!=='1')throw Error('Synthetic demo mode required');const d=engine.dossier(ctx,edition);const pack=renderDraftPack({dossier:d,masterKey:enterprise.masterKey,tenant:ctx.tenant,edition});return json(res,200,{manifest:pack.manifest,encrypted_zip_base64:pack.encryptedArchive.toString('base64'),release_allowed:false});}
     }
+    if(method==='POST'&&p[1]==='invoices'&&p[2]&&p[3]==='erp-export'&&p.length===4){engine.permitted(ctx,'finance');if(!process.env.AIFIRST_ERP_ENDPOINT||!process.env.AIFIRST_ERP_API_KEY)throw Error('ERP connector not configured');const {erpHttpsAdapter}=await import('../src/enterprise-ops.mjs');const inv=engine.own(ctx,'invoices',p[2]);const exported=await erpHttpsAdapter({endpoint:process.env.AIFIRST_ERP_ENDPOINT,apiKey:process.env.AIFIRST_ERP_API_KEY})({invoice:inv,tenant:ctx.tenant});engine.stamp(ctx,'erp.export_requested',inv.id,exported);return json(res,200,exported);}
+    if(method==='POST'&&p[1]==='invoices'&&p[2]&&p[3]==='bank-statement'&&p.length===4){if(!enterprise)return json(res,503,{error:'Enterprise boundary unavailable'});const r=await post();return json(res,201,enterprise.importBankStatement(ctx,p[2],r.statement,r.signature_b64));}
     if(method==='POST'&&p[1]==='invoices'&&p[2]&&p[3]==='reconcile'&&p.length===4){const r=await post();return json(res,201,engine.reconcile(ctx,p[2],r.bank_reference,r.amount_cents));}
     if(p[1]==='submissions'&&p[2]&&p.length===4){const sub=p[2];
       if(method==='PUT'&&p[3]==='artifact'){
         if(req.headers['content-type']!=='application/octet-stream')throw Error('binary content required');
         const file=req.headers['x-artifact-name'];const sha=req.headers['x-content-sha256'];
-        return json(res,201,await engine.upload(ctx,sub,file,await body(req),sha));
+        if(!enterprise||!enterprise.masterKey)throw Error('Encrypted storage is not configured');
+        return json(res,201,await enterprise.secureUpload(ctx,sub,file,await body(req),sha));
       }
       if(method==='POST'&&p[3]==='agent'){const r=await post();return json(res,201,await engine.agentJob(ctx,sub,r.model,r.max_cost_eur));}
       if(method==='POST'&&p[3]==='evaluate'){const r=await post();return json(res,201,engine.evaluate(ctx,sub,r.score,r.artifact_id,r.notes));}
@@ -57,16 +73,22 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   const arg=process.argv[2];
   if(!['init','serve'].includes(arg)){console.error('Usage: node bin/api.mjs init <tenant-name> | serve');process.exit(2);}
   let agent=null;
-  if(process.env.AIFIRST_MODEL_ENDPOINT&&process.env.AIFIRST_MODEL_KEY){agent=httpsModelAdapter({endpoint:process.env.AIFIRST_MODEL_ENDPOINT,apiKey:process.env.AIFIRST_MODEL_KEY});}
+  const freeConfigured=Boolean(process.env.OPENROUTER_API_KEY&&process.env.AIFIRST_SYNTHETIC_DEMO==='1'&&process.env.AIFIRST_ALLOW_OPENROUTER_FREE==='1');
+  if(!freeConfigured&&process.env.AIFIRST_MODEL_ENDPOINT&&process.env.AIFIRST_MODEL_KEY){agent=httpsModelAdapter({endpoint:process.env.AIFIRST_MODEL_ENDPOINT,apiKey:process.env.AIFIRST_MODEL_KEY});}
   const scanner=process.env.AIFIRST_ENABLE_CLAMAV==='1'?clamscanAdapter():null;
   const e=new EditionRuntime(root,{agent,scanner});
+  if(freeConfigured)e.agent=openRouterFree({apiKey:process.env.OPENROUTER_API_KEY,model:process.env.AIFIRST_FREE_MODEL||'openrouter/free',perDay:Number(process.env.AIFIRST_FREE_DAILY_LIMIT||12),db:e.db});
+  const masterKey=process.env.AIFIRST_MASTER_KEY_B64?Buffer.from(process.env.AIFIRST_MASTER_KEY_B64,'base64'):null;
+  const oidc=process.env.AIFIRST_OIDC_ISSUER&&process.env.AIFIRST_OIDC_AUDIENCE&&process.env.AIFIRST_OIDC_JWKS_FILE?
+    {issuer:process.env.AIFIRST_OIDC_ISSUER,audience:process.env.AIFIRST_OIDC_AUDIENCE,jwks:loadTrustedJwks(process.env.AIFIRST_OIDC_JWKS_FILE)}:null;
+  const enterprise=new EnterpriseOps(e,{masterKey,oidc,bankVerifyKey:process.env.AIFIRST_BANK_STATEMENT_VERIFY_KEY_PEM||null});
   if(arg==='init'){
     const name=process.argv.slice(3).join(' ')||'Synthetic pilot company';
     console.log(JSON.stringify(e.bootstrapTenant(name),null,2));e.close();
   }else{
     const host='127.0.0.1';const port=Number(process.env.AIFIRST_LOCAL_PORT||4181);
     if(!Number.isInteger(port)||port<1025||port>65535)throw Error('Invalid port');
-    const server=makeApi(e);server.listen(port,host,()=>console.log(`AIFIRST LOCAL API http://${host}:${port} — NOT INTERNET EXPOSED`));
+    const server=makeApi(e,enterprise);server.listen(port,host,()=>console.log(`AIFIRST LOCAL API http://${host}:${port} — NOT INTERNET EXPOSED`));
     for(const s of ['SIGINT','SIGTERM'])process.on(s,()=>server.close(()=>{e.close();process.exit(0)}));
   }
 }

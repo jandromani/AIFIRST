@@ -103,8 +103,8 @@ export class EditionRuntime {
     const artifacts=this.rows('SELECT name,sha,scan FROM artifacts WHERE tenant=? AND submission=?',ctx.tenant,submission);if(!artifacts.length||artifacts.some(x=>x.scan!=='CLEAN'))throw Error('Artifacts not safe');
     const rubric=JSON.parse(this.own(ctx,'editions',s.edition).rubric);
     // Only metadata and hashes are sent, never untrusted binary or participant identity.
-    const prompt=JSON.stringify({project:s.title,artifacts:artifacts.map(x=>({name:x.name,sha256:x.sha})),rubric,rule:'Return evidence-limited project observations, never employee evaluations. No invented sources.'});
-    const response=await this.agent({model,prompt,maxCostEur:budgetEur});
+    const prompt=JSON.stringify({synthetic:process.env.AIFIRST_SYNTHETIC_DEMO==='1',project:s.title,artifacts:artifacts.map(x=>({name:x.name,sha256:x.sha})),rubric,rule:'Return evidence-limited project observations, never employee evaluations. No invented sources.'});
+    const response=await this.agent({model,prompt,maxCostEur:budgetEur,tenant:ctx.tenant});
     if(!response||!clean(response.text)||!Number.isFinite(response.costEur)||response.costEur<0||response.costEur>budgetEur)throw Error('Provider returned invalid or over-budget result');
     const key='job_'+id();this.run('INSERT INTO jobs VALUES(?,?,?,?,?,?,?,?,?,?)',key,ctx.tenant,s.edition,submission,'PROJECT_DRAFT',model,'PENDING_HUMAN_REVIEW',response.costEur,JSON.stringify({text:response.text,evidence:artifacts.map(x=>x.sha)}),this.clock());
     this.stamp(ctx,'agent.run',key,{model,cost:response.costEur});return {id:key,status:'PENDING_HUMAN_REVIEW',costEur:response.costEur,external_model_invoked:true};

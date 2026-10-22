@@ -20,6 +20,9 @@
     "verify:local": "node bin/verify-local.mjs",
     "pilot:init": "node bin/api.mjs init",
     "pilot:serve": "node bin/api.mjs serve",
-    "test:pilot": "node --test test/runtime.test.mjs"
+    "test:pilot": "node --test test/runtime.test.mjs",
+    "test:enterprise": "node --test test/runtime.test.mjs test/enterprise.test.mjs",
+    "pilot:report-export": "node bin/enterprise-pack.mjs export",
+    "pilot:report-decrypt": "node bin/enterprise-pack.mjs decrypt"
   }
 }

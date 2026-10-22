@@ -57,3 +57,16 @@ Sin deploy, preview, Vercel, datos reales, decisiones laborales automáticas, ev
 - [ ] Pentest, backups, retención y autorizaciones antes de una edición con personas reales.
 
 El 100 % de cobertura del Atlas no es 100 % de capacidades productivas. Ningún issue productivo se cierra por esta implementación local.
+
+## P0 · OpenRouter Free enterprise extension
+
+- [x] Free-model fixed OpenRouter adapter (opt-in, persistent account quota, structured synthetic metadata).
+- [x] JWT/OIDC cryptographic verifier, Ed25519 gate signature validator, AES-256-GCM sealed artifacts and heuristic PII/secret scanner.
+- [x] Real offline PDF/PPTX/CSV/JSON renderer and encrypted ZIP envelope with audit manifest.
+- [x] Finance draft ERP HTTPS adapter, signed-bank-statement importer and payout batch without money movement.
+- [x] 14 real Node tests (new enterprise suite + existing pilot), PDF/PPTX inspection and one PDF visual render.
+- [ ] Configure live OpenRouter key; verify free model availability/429 behavior; never send private client data via free endpoints.
+- [ ] Connect real company OIDC/MFA, vault/KMS, encrypted DB/backups, hardened sandbox, external antivirus/DLP.
+- [ ] Real legal signature authority G1–G7, workflow of acceptance and document/tax compliance.
+- [ ] ERP issuance, PSP/bank verified reconciliation, payments to jurors/prizes, refunds, supplier compliance.
+- [ ] Final QA with real controlled tenant pilot, penetration test, audit logs/retention/legal review.
