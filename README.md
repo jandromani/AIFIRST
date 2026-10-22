@@ -8,7 +8,7 @@
 
 AIFIRST turns internal challenges into reviewable decisions — and gives existing agent teams an independent, reversible way to improve.
 
-[**Explore the product website**](web/index.html) · [**Agent Evolution OS**](web/evolution.html) · [**Operating Atlas**](web/atlas.html) · [**Run the local pilot ↓**](#run-the-real-local-pilot)
+[**Try the 3 interactive demos ↗**](web/demo.html) · [**Explore the product website**](web/index.html) · [**Agent Evolution OS**](web/evolution.html) · [**Operating Atlas**](web/atlas.html) · [**Run the local pilot ↓**](#run-the-real-local-pilot)
 
 ![Status: local research pilot](https://img.shields.io/badge/status-local%20research%20pilot-20392d?style=flat-square) ![Runtime: Node 22](https://img.shields.io/badge/runtime-Node%2022+-20392d?style=flat-square) ![Evidence: synthetic](https://img.shields.io/badge/evidence-synthetic%20only-7b6242?style=flat-square)
 
@@ -48,9 +48,30 @@ flowchart LR
 
 **The boundaries matter:** critical reviews are independent; the orchestrator cannot promote itself or appoint its own judge; external trace claims are unverified until independently reproduced; humans retain authority at consequential gates. Agents are software versions, not employees. There is no employee ranking or autonomous employment decision.
 
+## Decision Theater · 3 public interactive demos
+
+The **[Decision Theater](web/demo.html)** is a self-contained offline HTML experience. It runs entirely in the browser, with no logins, Docker, OpenRouter API calls, telemetry, cookies, CDN, or backend.
+
+| Demo | What you can change | What the demonstration proves |
+|---|---|---|
+| [Hackathon → decision](web/demo.html#discovery) | Strategy, pilot budget, risk threshold, evidence selection | Deterministic prioritization of 10 **fictional** projects; inspect source refs, blocked cases and a G5-pending recommendation |
+| [Agent Arena](web/demo.html#arena) | Agent candidate, job, budget, mock independent review | Same six synthetic fixtures, quality/safety/cost gates, simulated 10% canary and reversible rollback |
+| [Replace DIOS](web/demo.html#dios) | Constitutional proposal, five individual ballots, mock gate | A NO vote vetoes replacement; 5/5 YES plus a mock independent gate changes a versioned belief |
+
+Download a JSON receipt from Discovery or Arena with inputs, scores, and a **non-cryptographic demo checksum**. Public fixtures are visible in page source, **not a real hidden benchmark**. No agent votes are cryptographically signed in this public theater; legal and production gates remain closed.
+
+```bash
+npm run test:theater     # public contracts, integrity and static routing tests
+npm run test:theater:visual # actual Chromium interactions at 1440/390/320 px
+npm run preview:build    # exports dist-preview/demo.html with the rest of the static showcase
+# Or open web/demo.html directly in a browser; no build required.
+```
+
+The interactive showcase is deliberately separate from the private tenant-scoped API and Evolution OS runtime. [Design and assurance notes](docs/DECISION_THEATER.md). **Nothing here is a customer result, a verified security test or a production promotion.**
+
 ## See it right now — no Docker
 
-The two product pages can be explored from a **read-only, standalone static preview**:
+Both product pages and the **interactive Decision Theater** can be explored from a **safe static preview** (the private operations remain read-only):
 
 ```bash
 node bin/build-public-preview.mjs
@@ -58,7 +79,7 @@ node bin/build-public-preview.mjs
 # The preview contains no user data, login, API keys or working private backend.
 ```
 
-The static build converts route links into offline-friendly files, preserves the marketing scenario switcher and the Evolution UI tabs, and **disables every backend-dependent action**. The private console and integration lab become clear explanatory pages rather than dead links or fake working apps. When available, the generated Atlas is included as a read-only graphic.
+The static build converts routes into offline-friendly files, preserves the marketing switcher, the Evolution UI tabs **and three working synthetic demos**, and **disables every backend-dependent private action**. The private console and integration lab become clear explanatory pages rather than dead links or fake working apps. When available, the generated Atlas is included as a read-only graphic.
 
 To verify that the preview contains no private API or login interaction:
 
@@ -86,6 +107,7 @@ Open these routes **on the same computer**:
 |---|---|---|
 | `http://127.0.0.1:4181/` | Product landing | Local HTTP or static snapshot |
 | `/evolution` | Agent Evolution OS workspace | UI; actions require local tenant/token |
+| `/demo` | Decision Theater (three interactive synthetic labs) | Entirely static; no credentials |
 | `/atlas` | Navigable 20-domain design graph | Static graphic |
 | `/console` | Tenant-scoped Command Center | Private Node API required |
 | `/lab` | Recorded integration evidence | Private Node API required |

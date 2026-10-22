@@ -46,7 +46,9 @@
     "lab:offline-proof": "node bin/lab-one-command.mjs offline-proof",
     "test:lab:integrated": "node --test test/lab-one-command.test.mjs test/lab-scenario.test.mjs test/lab-api.test.mjs",
     "preview:build": "node bin/build-public-preview.mjs",
-    "test:public": "node --test test/public-preview.test.mjs"
+    "test:public": "node --test test/public-preview.test.mjs",
+    "test:theater": "node --test test/decision-theater.test.mjs",
+    "test:theater:visual": "python tools/decision_theater_smoke.py"
   },
   "optionalDependencies": {
     "pg": "^8.16.0"

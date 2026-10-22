@@ -39,8 +39,8 @@ export function makeApi(engine,enterprise=null){return http.createServer(async(r
     const u=new URL(rawUrl,'http://127.0.0.1');const p=u.pathname.split('/').filter(Boolean),method=req.method;
     // Product landing, authenticated command center and traceable operating Atlas.
     // Serve local-only static HTML with per-response nonces, no CDN dependencies or network analytics.
-    if(method==='GET'&&['/','/console','/atlas','/evolution','/lab'].includes(u.pathname)){
-      const pages={'/':'index.html','/console':'pilot.html','/atlas':'atlas.html','/evolution':'evolution.html','/lab':'lab.html'};
+    if(method==='GET'&&['/','/console','/atlas','/evolution','/lab','/demo'].includes(u.pathname)){
+      const pages={'/':'index.html','/console':'pilot.html','/atlas':'atlas.html','/evolution':'evolution.html','/lab':'lab.html','/demo':'demo.html'};
       const nonce=crypto.randomBytes(16).toString('base64');
       const source=fs.readFileSync(path.resolve(__dirname,'..','web',pages[u.pathname]),'utf8');
       const html=source.replace(/<style(?=[\s>])/g,'<style nonce="'+nonce+'"').replace(/<script(?=[\s>])/g,'<script nonce="'+nonce+'"');
