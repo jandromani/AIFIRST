@@ -1,6 +1,8 @@
 /** Local HTTP façade for Agent Evolution OS. Bound to the existing loopback-only AIFIRST API. */
 import crypto from 'node:crypto';
 import {EvolutionOS} from './evolution-os.mjs';
+import {EvolutionFabric} from './evolution-fabric.mjs';
+import {ReviewPlanner} from './evolution-review-planner.mjs';
 import {syntheticReference,orchestrateBoundedTasks,runBoundedSwarm} from './evolution-workflows.mjs';
 import {makeEvolutionOpenRouterAdapter} from './evolution-openrouter.mjs';
 const sign=(privateKey,message)=>crypto.sign(null,Buffer.from(message),privateKey).toString('base64');
@@ -54,6 +56,8 @@ export async function demoScenario(os,ctx){
 export async function evolutionHttp({engine,ctx,p,method,post,json}){
  const reply=(status,body)=>json(status,body);
  const os=new EvolutionOS(engine,{trustedEvaluator:SYNTHETIC_TRUSTED_EVALUATOR});
+ const fabric=new EvolutionFabric(engine,{evolution:os});
+ const planner=new ReviewPlanner(engine,{evolution:os});
  if(method==='GET'&&p.length===3&&p[2]==='status')return reply(200,status(engine,ctx));
  if(method==='POST'&&p.length===3&&p[2]==='init')return reply(201,os.init(ctx));
  if(method==='POST'&&p.length===3&&p[2]==='demo'){
@@ -61,12 +65,21 @@ export async function evolutionHttp({engine,ctx,p,method,post,json}){
   if(!status(engine,ctx).initialized)os.init(ctx);return reply(201,await demoScenario(os,ctx));
  }
  if(method==='GET'&&p.length===3&&p[2]==='snapshot')return reply(200,os.snapshot(ctx));
+ if(method==='GET'&&p.length===3&&p[2]==='fabric')return reply(200,fabric.health(ctx));
+ if(method==='GET'&&p.length===3&&p[2]==='improvements')return reply(200,{proposals:planner.queue(ctx)});
+ if(method==='GET'&&p.length===4&&p[2]==='candidate-feed')return reply(200,os.candidateFeed(ctx,p[3]));
+ if(method==='GET'&&p.length===3&&p[2]==='recommendations')return reply(200,os.orchestratorRecommendations(ctx));
  if(method==='GET'&&p.length===3&&p[2]==='league')return reply(200,os.league(ctx));
  if(method==='GET'&&p.length===3&&p[2]==='audit')return reply(200,os.auditChain(ctx));
  if(method==='GET'&&p.length===4&&p[2]==='mirrors')return reply(200,{channel:p[3],reports:os.reviewChannel(ctx,p[3])});
  if(method==='GET'&&p.length===4&&p[2]==='ballots')return reply(200,os.beliefTally(ctx,p[3]));
  if(method==='GET'&&p.length===4&&p[2]==='blind')return reply(200,os.blindPacket(ctx,p[3]));
  if(method==='POST'&&p.length===3){const input=await post();switch(p[2]){
+  case 'bridge':return reply(201,fabric.bridgeSubmission(ctx,input.submission,{capability:input.capability||'HACKATHON'}));
+  case 'bridge-run':{engine.permitted(ctx,'admin');const bridged=fabric.bridgeSubmission(ctx,input.submission,{capability:input.capability||'HACKATHON'});const adapter=makeEvolutionOpenRouterAdapter({db:engine.db});return reply(201,{bridge:bridged,execution:await os.executeTask(ctx,bridged.task,adapter),independent_review_required:true});}
+  case 'mirror-round':return reply(201,await fabric.mirrorRound(ctx,input.task,{mirror:input.mirror,critic:async()=>({severity:input.severity,report:input.report,signature:input.signature})}));
+  case 'job-board-tick':return reply(201,fabric.rotateJobBoard(ctx));
+  case 'improvement-proposal':return reply(201,planner.propose(ctx,input.position,{reason:input.reason,action:input.action,source:input.source}));
   case 'swarm':{engine.permitted(ctx,'admin');if(process.env.AIFIRST_SYNTHETIC_DEMO!=='1')throw Error('Synthetic swarm required');const adapter=makeEvolutionOpenRouterAdapter({db:engine.db});return reply(201,await runBoundedSwarm(os,ctx,{capabilities:input.capabilities,subject_refs:input.subject_refs,adapter,maxConcurrency:input.max_concurrency||2}));}
   case 'plan':{engine.permitted(ctx,'admin');if(process.env.AIFIRST_SYNTHETIC_DEMO!=='1')throw Error('Synthetic pipeline required');const tasks=orchestrateBoundedTasks(os,ctx,{capabilities:input.capabilities,subject_refs:input.subject_refs,adapter:async()=>({summary:'Not executed'})});return reply(201,{status:'ASSIGNED_NOT_EXECUTED',tasks:tasks.map(t=>({id:t.task.id,agent:t.agent,capability:t.task.capability})),production_release:false});}
   case 'run-task':{engine.permitted(ctx,'admin');if(process.env.AIFIRST_SYNTHETIC_DEMO!=='1')throw Error('Synthetic pipeline required');const adapter=makeEvolutionOpenRouterAdapter({db:engine.db});return reply(201,await os.executeTask(ctx,input.task,adapter));}

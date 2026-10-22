@@ -1,6 +1,6 @@
 {
   "name": "aifirst",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "description": "Evidence-first enterprise AI discovery and agent evolution operating system (local pilot)",
@@ -30,7 +30,9 @@
     "test:ux": "node --test test/ui-web.test.mjs",
     "test:ux:visual": "python tools/ux_smoke.py",
     "evolution:demo": "node bin/evolution.mjs demo",
-    "test:evolution": "node --test test/evolution.test.mjs test/evolution-http.test.mjs test/evolution-adapters.test.mjs",
-    "test:evolution:visual": "python tools/evolution_smoke.py"
+    "test:evolution": "node --test test/evolution.test.mjs test/evolution-http.test.mjs test/evolution-adapters.test.mjs test/evolution-fabric.test.mjs test/evolution-fabric-http.test.mjs",
+    "test:evolution:visual": "python tools/evolution_smoke.py",
+    "evolution:integrated": "node bin/evolution-integration-demo.mjs --json",
+    "test:evolution:extended": "node --test test/runtime.test.mjs test/enterprise.test.mjs test/hardening.test.mjs test/job-queue.test.mjs test/openrouter-wiring.test.mjs test/evolution.test.mjs test/evolution-http.test.mjs test/evolution-adapters.test.mjs test/evolution-fabric.test.mjs test/evolution-fabric-http.test.mjs"
   }
 }
