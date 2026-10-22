@@ -27,6 +27,7 @@
     "backup:create": "node bin/backup.mjs create",
     "queue:once": "node bin/queue.mjs once",
     "test:hardening": "node --test test/runtime.test.mjs test/enterprise.test.mjs test/hardening.test.mjs test/job-queue.test.mjs test/openrouter-wiring.test.mjs test/output-contracts.test.mjs",
-    "test:ux": "node --test test/ui-web.test.mjs"
+    "test:ux": "node --test test/ui-web.test.mjs",
+    "test:ux:visual": "python tools/ux_smoke.py"
   }
 }

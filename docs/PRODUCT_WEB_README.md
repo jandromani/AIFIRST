@@ -29,3 +29,9 @@ node --test test/*.test.mjs
 For browser smoke tests in an environment that permits local Chromium: navigate `/` and `/console`, test desktop and 390px, three scenario choices, login, create edition, reconnect to an old edition, 11 EX cards/search, integration readiness, keyboard navigation and axe. This environment prevented browser navigation (`ERR_BLOCKED_BY_ADMINISTRATOR`), so **render-level visual QA remains open**.
 
 For complete audit see `docs/UIUX_UNICORN_AUDIT.md`. For external connectors see `docs/CONNECTION_READINESS.md`.
+
+## Static visual smoke (no network)
+
+`npm run test:ux:visual` launches Chromium through Python Playwright, injects the HTML with `page.set_content()`, then exercises interactive scenarios, mobile navigation, EX search, horizontal-overflow and JS-error checks at 1440×900 and 390×844. Four screenshots are written to ignored `artifacts/uiux-smoke/`.
+
+In this environment all **4/4** static cases passed after a hero overflow fix. The browser's HTTP/file navigation remains blocked by local policy, so the full CSP and authenticated API browser journeys still require an unrestricted QA machine.

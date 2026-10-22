@@ -76,3 +76,17 @@ Full navigable business model. **The graph represents design**, not live instanc
 - Operational controls remain configured locally rather than verified externally. In particular OpenRouter Free is demo-only for synthetic metadata; true IdP/KMS/DLP/ERP/bank/signature connections require authorized credentials and third-party evidence.
 
 **Source of accessibility standard:** https://www.w3.org/WAI/standards-guidelines/wcag/new-in-22/.
+
+## Static Chromium smoke — supplementary evidence
+
+After the initial audit, `page.set_content()` successfully rendered the product HTML and console using Chromium without navigating over HTTP/file:// (which this environment's administrative policy blocks). **4/4 static views passed**: desktop 1440×900 and mobile 390×844, no horizontal overflow and no page JavaScript exceptions. The scenario selector, mobile menu and EX01–EX11 search were exercised. A decorative hero pseudo-element originally caused 100px desktop overflow; it was fixed (`right:-160px` → `right:0`) and retested.
+
+Reproduce locally with:
+
+```bash
+python -m pip install playwright
+python -m playwright install chromium
+npm run test:ux:visual
+```
+
+This test **does not exercise CSP/browser HTTP headers**, API/OIDC login or real service providers, and **does not prove WCAG 2.2 AA compliance**. Continue tracking authenticated Chromium/Firefox/Safari and assistive-tech reviews under issue #32.

@@ -131,3 +131,5 @@ The design makes the discovery → evidence → human review → roadmap sequenc
 - Test: `npm run test:ux` or `npm test`.
 
 A qualified IdP/KMS/DLP/ERP/bank/signature supplier, independent security review, real client workflow and cross-browser WCAG 2.2 AA testing are **not** completed by this redesign. No Vercel deployment or preview is created.
+
+Static visual checks: `npm run test:ux:visual` (requires Python Playwright + Chromium, no network or credentials). Four viewport renders passed locally; authenticated browser E2E still pending.
