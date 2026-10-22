@@ -33,6 +33,14 @@
     "test:evolution": "node --test test/evolution.test.mjs test/evolution-http.test.mjs test/evolution-adapters.test.mjs test/evolution-fabric.test.mjs test/evolution-fabric-http.test.mjs",
     "test:evolution:visual": "python tools/evolution_smoke.py",
     "evolution:integrated": "node bin/evolution-integration-demo.mjs --json",
-    "test:evolution:extended": "node --test test/runtime.test.mjs test/enterprise.test.mjs test/hardening.test.mjs test/job-queue.test.mjs test/openrouter-wiring.test.mjs test/evolution.test.mjs test/evolution-http.test.mjs test/evolution-adapters.test.mjs test/evolution-fabric.test.mjs test/evolution-fabric-http.test.mjs"
+    "test:evolution:extended": "node --test test/runtime.test.mjs test/enterprise.test.mjs test/hardening.test.mjs test/job-queue.test.mjs test/openrouter-wiring.test.mjs test/evolution.test.mjs test/evolution-http.test.mjs test/evolution-adapters.test.mjs test/evolution-fabric.test.mjs test/evolution-fabric-http.test.mjs",
+    "lab:doctor": "node bin/local-stack.mjs doctor",
+    "lab:jwks": "node bin/local-stack.mjs sync-jwks",
+    "lab:pg:migrate": "node bin/stack-migrate.mjs migrate",
+    "test:lab": "node --test test/local-stack.test.mjs test/local-stack-http.test.mjs",
+    "test:lab:visual": "python tools/lab_ui_smoke.py"
+  },
+  "optionalDependencies": {
+    "pg": "^8.16.0"
   }
 }

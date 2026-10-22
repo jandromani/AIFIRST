@@ -12,6 +12,8 @@ import { loadTrustedJwks } from '../src/enterprise-security.mjs';
 import { renderDraftPack } from '../src/enterprise-reports.mjs';
 import { SyntheticJobQueue } from '../src/job-queue.mjs';
 import { integrationReadiness } from '../src/integration-readiness.mjs';
+import {LocalStackBridge,optionalS3FromEnv} from '../src/local-stack-bridge.mjs';
+import {scanClamd} from '../src/local-stack-adapters.mjs';
 import { evolutionHttp } from '../src/evolution-http.mjs';
 
 const __dirname=path.dirname(fileURLToPath(import.meta.url));
@@ -58,6 +60,13 @@ export function makeApi(engine,enterprise=null){return http.createServer(async(r
     if(method==='GET'&&p[1]==='integrations'&&p[2]==='readiness'&&p.length===3){
       engine.permitted(ctx,'admin','auditor');
       return json(res,200,integrationReadiness({enterprise,env:process.env}));
+    }
+    if(method==='GET'&&p[1]==='stack'&&p[2]==='readiness'&&p.length===3){
+      return json(res,200,new LocalStackBridge(engine,{s3:process.env.AIFIRST_S3_ENDPOINT?optionalS3FromEnv():null}).status(ctx));
+    }
+    if(method==='POST'&&p[1]==='artifacts'&&p[2]&&p[3]==='replicate'&&p.length===4){
+      if(!enterprise?.masterKey)throw Error('Encryption required before replication');
+      return json(res,201,await new LocalStackBridge(engine,{s3:optionalS3FromEnv()}).replicateEncrypted(ctx,p[2]));
     }
     if(method==='GET'&&p.length===2&&p[1]==='queue')return json(res,200,{jobs:new SyntheticJobQueue(engine).status(ctx),execution:'SYNTHETIC_ONLY'});
     if(method==='GET'&&p[1]==='integrations'&&p[2]==='status'){engine.permitted(ctx,'admin','auditor');return json(res,200,{scope:'LOCAL_DEMO',oidc_verified_configured:Boolean(enterprise?.oidc),artifact_encryption_configured:Boolean(enterprise?.masterKey),clamav_requested:process.env.AIFIRST_ENABLE_CLAMAV==='1',openrouter_free_requested:process.env.AIFIRST_ALLOW_OPENROUTER_FREE==='1',openrouter_key_present:Boolean(process.env.OPENROUTER_API_KEY),erp_configured:Boolean(process.env.AIFIRST_ERP_ENDPOINT&&process.env.AIFIRST_ERP_API_KEY),bank_statement_verifier_configured:Boolean(enterprise?.bankVerifyKey),qualified_signature_provider_connected:false,actual_bank_api_connected:false,untrusted_code_sandbox_connected:false,production_ready:false});}
@@ -106,7 +115,10 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   let agent=null;
   const freeConfigured=Boolean(process.env.OPENROUTER_API_KEY&&process.env.AIFIRST_SYNTHETIC_DEMO==='1'&&process.env.AIFIRST_ALLOW_OPENROUTER_FREE==='1');
   if(!freeConfigured&&process.env.AIFIRST_MODEL_ENDPOINT&&process.env.AIFIRST_MODEL_KEY){agent=httpsModelAdapter({endpoint:process.env.AIFIRST_MODEL_ENDPOINT,apiKey:process.env.AIFIRST_MODEL_KEY});}
-  const scanner=process.env.AIFIRST_ENABLE_CLAMAV==='1'?clamscanAdapter():null;
+  const scanner=process.env.AIFIRST_ENABLE_CLAMD==='1' ? async(file,expectedSha)=>{
+    const data=fs.readFileSync(file);const verdict=await scanClamd(data,{port:Number(process.env.AIFIRST_CLAMD_PORT||53310)});
+    if(verdict.sha256!==expectedSha)throw Error('ClamAV input changed during scan');return verdict;
+  } : process.env.AIFIRST_ENABLE_CLAMAV==='1'?clamscanAdapter():null;
   const e=new EditionRuntime(root,{agent,scanner});
   if(freeConfigured)e.agent=openRouterFree({apiKey:process.env.OPENROUTER_API_KEY,model:process.env.AIFIRST_FREE_MODEL||'openrouter/free',perDay:Number(process.env.AIFIRST_FREE_DAILY_LIMIT||12),db:e.db});
   const masterKey=process.env.AIFIRST_MASTER_KEY_B64?Buffer.from(process.env.AIFIRST_MASTER_KEY_B64,'base64'):null;

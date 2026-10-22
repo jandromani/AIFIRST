@@ -13,3 +13,8 @@ artifacts/
 coverage/
 .DS_Store
 .aifirst-local/
+.aifirst-jwks/
+infra/.env.lab
+infra/.env.*.local
+
+!infra/.env.lab.example

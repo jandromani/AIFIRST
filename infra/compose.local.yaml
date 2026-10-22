@@ -1,0 +1,76 @@
+# LAB ONLY. All exposed ports bind to loopback; do not use as a production stack.
+name: aifirst-lab
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: aifirst
+      POSTGRES_DB: aifirst
+      POSTGRES_PASSWORD: ${AIFIRST_PG_PASSWORD:?Set AIFIRST_PG_PASSWORD outside git}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/01-keycloak.sql:/docker-entrypoint-initdb.d/01-keycloak.sql:ro
+    ports: ['127.0.0.1:55432:5432']
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U aifirst -d aifirst']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    security_opt: ['no-new-privileges:true']
+    networks: [internal]
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.8.1
+    command: ['start-dev', '--import-realm']
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${AIFIRST_KC_ADMIN_PASSWORD:?Set AIFIRST_KC_ADMIN_PASSWORD outside git}
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_DB_USERNAME: aifirst
+      KC_DB_PASSWORD: ${AIFIRST_PG_PASSWORD:?Set AIFIRST_PG_PASSWORD outside git}
+      KC_HOSTNAME: http://127.0.0.1:58080
+      KC_HTTP_ENABLED: 'true'
+    ports: ['127.0.0.1:58080:8080']
+    volumes:
+      - ./keycloak/aifirst-lab-realm.json:/opt/keycloak/data/import/aifirst-lab-realm.json:ro
+    depends_on:
+      postgres: {condition: service_healthy}
+    security_opt: ['no-new-privileges:true']
+    networks: [internal]
+
+  objectstore:
+    # Lab image: Pin this by digest after validating availability in the operator's environment.
+    image: ${AIFIRST_S3_IMAGE:-quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z}
+    command: ['server', '/data', '--console-address', ':9001']
+    environment:
+      MINIO_ROOT_USER: ${AIFIRST_S3_USER:?Set S3 user outside git}
+      MINIO_ROOT_PASSWORD: ${AIFIRST_S3_PASSWORD:?Set S3 password outside git}
+    volumes: [objectstore_data:/data]
+    ports: ['127.0.0.1:59000:9000','127.0.0.1:59001:9001']
+    security_opt: ['no-new-privileges:true']
+    networks: [internal]
+
+  openbao:
+    # Dev mode intentionally ephemeral and UNSEALED. Never use for real tenant keys.
+    image: ${AIFIRST_BAO_IMAGE:-openbao/openbao:latest}
+    command: ['server','-dev','-dev-listen-address=0.0.0.0:8200']
+    environment:
+      BAO_DEV_ROOT_TOKEN_ID: ${AIFIRST_BAO_DEV_TOKEN:?Set dev-only BAO token outside git}
+    ports: ['127.0.0.1:58200:8200']
+    cap_add: [IPC_LOCK]
+    networks: [internal]
+
+  clamav:
+    image: clamav/clamav:stable
+    volumes: [clamav_signatures:/var/lib/clamav]
+    ports: ['127.0.0.1:53310:3310']
+    security_opt: ['no-new-privileges:true']
+    networks: [internal]
+
+volumes:
+  postgres_data:
+  objectstore_data:
+  clamav_signatures:
+networks:
+  internal: {driver: bridge}
