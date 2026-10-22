@@ -20,3 +20,5 @@ infra/.env.*.local
 !infra/.env.lab.example
 dist-preview/
 dist-test-*/
+
+dist-replay-test-*/

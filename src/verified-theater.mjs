@@ -101,3 +101,17 @@ export class VerifiedTheater{
   }catch(err){this.engine.run("UPDATE theater_runs SET status='FAILED' WHERE tenant=? AND id=?",ctx.tenant,runId);throw err;}
  }
 }
+
+/** Sign a bounded synthetic replay using the *same* local signer as Theater.
+ * Signatures authenticate bytes only; the local key is not a trusted external CA.
+ */
+export function signLocalTheaterClaim(root,claim){
+ const payload_json=JSON.stringify(claim);
+ if(Buffer.byteLength(payload_json)>24000)throw Error('Claim exceeds receipt limit');
+ const key=keyStore(root);
+ const receipt={schema:'aifirst.theater.private_receipt.v1',signature_algorithm:'Ed25519',payload_json,
+  signature_b64:crypto.sign(null,Buffer.from(payload_json),key.privateKey).toString('base64'),
+  signer:{key_id:key.keyId,public_key_pem:key.publicKeyPem,claim:'LOCAL_KEY_NOT_EXTERNAL_ATTESTATION'}};
+ if(!verifyTheaterReceipt(receipt).valid)throw Error('Local signer self-check failed');
+ return receipt;
+}

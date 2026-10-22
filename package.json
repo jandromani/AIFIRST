@@ -51,7 +51,10 @@
     "test:theater:visual": "python tools/decision_theater_smoke.py",
     "test:theater:verified": "node --test test/decision-theater.test.mjs test/verified-theater.test.mjs",
     "theater:proof": "node bin/theater-proof.mjs run",
-    "theater:verify": "node bin/theater-proof.mjs verify"
+    "theater:verify": "node bin/theater-proof.mjs verify",
+    "test:replay": "node --test test/replay-studio.test.mjs",
+    "replay:proof": "node bin/replay.mjs",
+    "replay:bridge": "node bin/replay-bridge.mjs"
   },
   "optionalDependencies": {
     "pg": "^8.16.0"

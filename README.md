@@ -8,7 +8,7 @@
 
 AIFIRST turns internal challenges into reviewable decisions — and gives existing agent teams an independent, reversible way to improve.
 
-[**Try the 3 interactive demos ↗**](web/demo.html) · [**Explore the product website**](web/index.html) · [**Agent Evolution OS**](web/evolution.html) · [**Operating Atlas**](web/atlas.html) · [**Run the local pilot ↓**](#run-the-real-local-pilot)
+[**Try the 3 interactive demos ↗**](web/demo.html) · [**Replay Studio · Browser ↔ Node**](web/replay.html) · [**Explore the product website**](web/index.html) · [**Agent Evolution OS**](web/evolution.html) · [**Operating Atlas**](web/atlas.html) · [**Run the local pilot ↓**](#run-the-real-local-pilot)
 
 ![Status: local research pilot](https://img.shields.io/badge/status-local%20research%20pilot-20392d?style=flat-square) ![Runtime: Node 22](https://img.shields.io/badge/runtime-Node%2022+-20392d?style=flat-square) ![Evidence: synthetic](https://img.shields.io/badge/evidence-synthetic%20only-7b6242?style=flat-square)
 
@@ -68,6 +68,19 @@ npm run preview:build    # exports dist-preview/demo.html with the rest of the s
 ```
 
 The interactive showcase is deliberately separate from the private tenant-scoped API and Evolution OS runtime. [Design and assurance notes](docs/DECISION_THEATER.md). **Nothing here is a customer result, a verified security test or a production promotion.**
+
+## Replay Studio · Browser ↔ Node, identical synthetic decisions
+
+[**Open Replay Studio →**](web/replay.html) — change the evidence strategy, cost budget, risk ceiling, agent challenger and 5-agent DIOS votes. The *exact same public deterministic kernel* runs in a browser and in Node. Each stage explains its decisions with source IDs, vetoes and trace references. **This is NOT a hidden benchmark or an LLM evaluation.**
+
+```bash
+npm run test:replay               # tests for rule parity, tenant isolation, signatures, CSP and portable export
+npm run replay:proof              # deterministic portable input/output + SHA-256
+npm run replay:bridge > receipt.json  # fresh local Ed25519 signed replay, no Docker
+npm run preview:build            # static, inlines identical replay kernel; no API or external JS
+```
+
+The signed replay can be imported into the browser verifier and independently recomputed; compare the signer's public-key SHA-256 fingerprint out of band before trusting the issuer. Local signature integrity **does not confer production authorization**. Unlike the separate private Agent Evolution proof, the reference replay never calls model providers, never changes agent versions and never executes code. See [security and architecture](docs/REPLAY_STUDIO.md).
 
 ## Signed receipts: public experience → private software (synthetic)
 

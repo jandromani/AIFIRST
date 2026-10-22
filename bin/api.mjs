@@ -16,6 +16,7 @@ import {LocalStackBridge,optionalS3FromEnv} from '../src/local-stack-bridge.mjs'
 import {scanClamd} from '../src/local-stack-adapters.mjs';
 import { evolutionHttp } from '../src/evolution-http.mjs';
 import {VerifiedTheater} from '../src/verified-theater.mjs';
+import {ReplayStudio} from '../src/replay-studio.mjs';
 
 const __dirname=path.dirname(fileURLToPath(import.meta.url));
 const baseRoot=path.resolve(__dirname,'..','.aifirst-local');
@@ -40,19 +41,32 @@ export function makeApi(engine,enterprise=null){return http.createServer(async(r
     const u=new URL(rawUrl,'http://127.0.0.1');const p=u.pathname.split('/').filter(Boolean),method=req.method;
     // Product landing, authenticated command center and traceable operating Atlas.
     // Serve local-only static HTML with per-response nonces, no CDN dependencies or network analytics.
-    if(method==='GET'&&['/','/console','/atlas','/evolution','/lab','/demo'].includes(u.pathname)){
-      const pages={'/':'index.html','/console':'pilot.html','/atlas':'atlas.html','/evolution':'evolution.html','/lab':'lab.html','/demo':'demo.html'};
+    if(method==='GET'&&['/','/console','/atlas','/evolution','/lab','/demo','/replay'].includes(u.pathname)){
+      const pages={'/':'index.html','/console':'pilot.html','/atlas':'atlas.html','/evolution':'evolution.html','/lab':'lab.html','/demo':'demo.html','/replay':'replay.html'};
       const nonce=crypto.randomBytes(16).toString('base64');
       const source=fs.readFileSync(path.resolve(__dirname,'..','web',pages[u.pathname]),'utf8');
       const html=source.replace(/<style(?=[\s>])/g,'<style nonce="'+nonce+'"').replace(/<script(?=[\s>])/g,'<script nonce="'+nonce+'"');
-      res.writeHead(200,{'content-type':'text/html; charset=utf-8','x-content-type-options':'nosniff','cache-control':'no-store','referrer-policy':'no-referrer','x-frame-options':'DENY','strict-transport-security':'max-age=0','content-security-policy':"default-src 'none'; script-src 'nonce-"+nonce+"'; style-src 'nonce-"+nonce+"'; connect-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"});
+      res.writeHead(200,{'content-type':'text/html; charset=utf-8','x-content-type-options':'nosniff','cache-control':'no-store','referrer-policy':'no-referrer','x-frame-options':'DENY','strict-transport-security':'max-age=0','content-security-policy':"default-src 'none'; script-src 'nonce-"+nonce+"' 'self'; style-src 'nonce-"+nonce+"'; connect-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"});
       return res.end(html);
+    }
+    // Public reference algorithm only: no secrets, no user input, no dynamic files.
+    if(method==='GET'&&u.pathname==='/replay-core.mjs'){
+      const moduleSource=fs.readFileSync(path.resolve(__dirname,'..','web','replay-core.mjs'),'utf8');
+      res.writeHead(200,{'content-type':'text/javascript; charset=utf-8','cache-control':'no-store','x-content-type-options':'nosniff','content-security-policy':"default-src 'none'"});
+      return res.end(moduleSource);
     }
     if(!p.length||p[0]!=='v1')return json(res,404,{error:'Not found'});
     const bearer=(req.headers.authorization||'').replace(/^Bearer /,'');
     const ctx=bearer.split('.').length===3 && enterprise?.oidc? enterprise.authenticateOidc(bearer):engine.auth(bearer);
     if(process.env.AIFIRST_REQUIRE_OIDC==='1'&&ctx.auth_method!=='verified_oidc')throw Error('OIDC authentication required');
     const post=async()=>{if(!req.headers['content-type']?.startsWith('application/json'))throw Error('application/json required');return parse(await body(req,1024*1024));};
+    if(p[1]==='replay'&&p[2]==='runs'){
+      const studio=new ReplayStudio(engine);
+      if(method==='POST'&&p.length===3){const input=await post();return json(res,201,studio.run(ctx,input));}
+      if(method==='GET'&&p.length===3)return json(res,200,{runs:studio.list(ctx)});
+      if(method==='GET'&&p.length===4)return json(res,200,studio.find(ctx,p[3]));
+      return json(res,405,{error:'Method not allowed'});
+    }
     if(p[1]==='evolution')return await evolutionHttp({engine,ctx,p,method,post,json:(status,data)=>json(res,status,data)});
     // Authenticated local synthetic proof. Public demos never receive private auth tokens.
     if(p[1]==='theater'&&p[2]==='proofs'){

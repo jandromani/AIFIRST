@@ -1,0 +1,51 @@
+name: Replay Reference / Offline Assurance
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'web/replay*'
+      - 'src/replay-studio.mjs'
+      - 'src/verified-theater.mjs'
+      - 'bin/api.mjs'
+      - 'bin/build-public-preview.mjs'
+      - 'bin/replay.mjs'
+      - 'test/replay-studio.test.mjs'
+      - '.github/workflows/replay-reference.yml'
+  pull_request:
+    paths:
+      - 'web/replay*'
+      - 'src/replay-studio.mjs'
+      - 'src/verified-theater.mjs'
+      - 'bin/api.mjs'
+      - 'bin/build-public-preview.mjs'
+      - 'bin/replay.mjs'
+      - 'test/replay-studio.test.mjs'
+      - '.github/workflows/replay-reference.yml'
+permissions:
+  contents: read
+jobs:
+  offline-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout reviewed commit
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Configure Node 22
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22.16.0'
+      - name: Run replay kernel and tenant-bound HTTP tests
+        run: npm run test:replay
+      - name: Build static showcase with no runtime backend
+        run: npm run preview:build
+      - name: Check static public release guards
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          const p=JSON.parse(fs.readFileSync('dist-preview/PREVIEW_STATUS.json','utf8'));
+          if(!p.static_read_only||p.production_ready||p.backend_included||p.client_data_included||!p.replay_studio_included)throw Error('Unsafe preview');
+          const s=fs.readFileSync('dist-preview/replay.html','utf8');
+          if(!s.includes('function runReplay(input)')||s.includes('import {REPLAY_SCHEMA'))throw Error('Kernel not inlined');
+          JS
