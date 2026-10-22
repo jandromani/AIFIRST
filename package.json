@@ -44,7 +44,9 @@
     "lab:init": "node bin/lab-one-command.mjs init",
     "lab:stop": "node bin/lab-one-command.mjs stop",
     "lab:offline-proof": "node bin/lab-one-command.mjs offline-proof",
-    "test:lab:integrated": "node --test test/lab-one-command.test.mjs test/lab-scenario.test.mjs test/lab-api.test.mjs"
+    "test:lab:integrated": "node --test test/lab-one-command.test.mjs test/lab-scenario.test.mjs test/lab-api.test.mjs",
+    "preview:build": "node bin/build-public-preview.mjs",
+    "test:public": "node --test test/public-preview.test.mjs"
   },
   "optionalDependencies": {
     "pg": "^8.16.0"

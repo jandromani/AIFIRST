@@ -1,147 +1,167 @@
-# AIFIRST · AI First Discovery Engine
+<div align="center">
 
-> **Un hackatón interno entra. Evidencias, capacidades observadas, escenarios y roadmap salen.**
+# AIFIRST
 
-**Estado:** Operating Atlas modelado de extremo a extremo, *prototipos offline parciales*, sin producción. Repositorio público con código y datos exclusivamente ficticios. Sin Vercel, previews, CDNs ni servicios desplegados.
+### Discover what works. Evolve what delivers.
 
-## Arquitectura de la empresa: 20/20 módulos, 230/230 componentes
-Abrir localmente [Operating Atlas interactivo](web/atlas.html), regenerado desde [catálogo de requisitos](catalog/operating-model.json). Hay **171 relaciones de diseño**, **41 contratos JSON**, **8 gates G0–G7**, **11 productos de salida** y **18 tipos de vínculo del grafo de negocio**.
+**Two connected products for evidence-led enterprise AI transformation.**
 
-La [matriz de 230 nodos](catalog/node-traceability.json) enlaza cada pieza con su dueño, contrato y aceptación; [blueprint original conservado](reference/AI_FIRST_ATLAS_SPEC.original.json). **Cobertura documental ≠ producto funcionando.**
+AIFIRST turns internal challenges into reviewable decisions — and gives existing agent teams an independent, reversible way to improve.
 
-### Dominios
-- **01–05 · PREPARAR/LANZAR:** mercado y ventas, contrato, contexto empresarial, legal/personas/confianza, diseño del reto.
-- **06–12 · RECIBIR/EVALUAR:** comunicaciones, inscripción/equipos, entregas, ingesta y cuarentena, trabajos, evaluación del proyecto y evidencias de capacidad.
-- **13–16 · INTELIGENCIA/ENTREGAR/ACTIVAR:** grafo con fuentes, escenarios revisables, manifiesto ejecutivo, roadmap 30/60/90 y mediciones.
-- **17–20 · OPERAR/GOBERNAR:** delivery/staffing, plataforma segura, costes y margen, auditoría global.
+[**Explore the product website**](web/index.html) · [**Agent Evolution OS**](web/evolution.html) · [**Operating Atlas**](web/atlas.html) · [**Run the local pilot ↓**](#run-the-real-local-pilot)
 
-Todos los [procesos internos y externos 13–20](catalog/phase3-workflows.json) y [fichas individuales](docs/modules/) incluyen entradas, salidas, estados, gates, responsables, costes y pendientes.
+![Status: local research pilot](https://img.shields.io/badge/status-local%20research%20pilot-20392d?style=flat-square) ![Runtime: Node 22](https://img.shields.io/badge/runtime-Node%2022+-20392d?style=flat-square) ![Evidence: synthetic](https://img.shields.io/badge/evidence-synthetic%20only-7b6242?style=flat-square)
 
-## Probar offline (Node 20+)
-```bash
-npm test
-npm run check:catalog
-npm run check:synthetic
-npm run check:phase2
-npm run check:phase3
-npm run build:atlas
-```
-El motor no depende de APIs ni de dependencias NPM externas. Los ejemplos están en [phase2](examples/phase2) y [phase3](examples/phase3). La última ejecución del código en V8 aislado superó 18/18 comprobaciones de lógica 13–20; **no se ha ejecutado todavía una suite completa Node bajo checkout**. [Informe QA](docs/QA_REPORT.md).
+</div>
 
-## Inputs y outputs
-- [Contratos](contracts/index.json), [intake](docs/INTAKE_PLAYBOOK.md), [outputs](catalog/outputs.json), [8 gates](catalog/gates.json).
-- 13: `buildOrganizationalGraph`, `graphView` con protección de datos.
-- 14: `draftScenarios` (sin asignar personas automáticamente).
-- 15: `prepareExecutiveBundle` (Markdown trazable, revisión G6 pendiente).
-- 16: `planActivation`, `evaluatePilotOutcome` (impacto no verificado).
-- 17: `checkDeliveryOperations` (bloqueo incidentes/staffing).
-- 18: `authorizeTenantAccess` (deniega accesos reales por defecto), `retentionDryRun`.
-- 19: `calculateUnitEconomics` (precios y costes sintéticos).
-- 20: `auditOperatingAtlas` (cobertura de diseño y faltas de producción).
+> **Product truth, October 2026:** The marketing website is HTML/CSS/JavaScript. The actual product runs on Node.js, SQLite and local services. **Neither product is a public production SaaS, and AIFIRST is not deployed on Vercel.** The GitHub repository is public; its data must remain synthetic. No verified customer ROI, independent security certification, production payment, or legal sign-off is claimed.
 
-## Límites y salvaguardas
-Evaluamos soluciones, no hay ranking de empleados. Un resultado colectivo no mide el valor profesional individual. Los datos de capacidades requieren finalidad legítima, evidencia, revisión y posibilidad de corrección. Los grupos pequeños se suprimen. **Nunca** subir datos de clientes/empleados o secretos a GitHub público.
+---
 
-G3–G7 no tienen firma real ni verificación externa. No ejecutar entregas externas, asignar personas, conceder permisos ni borrar información desde este prototipo. El SaaS necesitará IAM/SSO, aislamiento, seguridad, jurisprudencia aplicable, proveedores y aprobación humana.
+## One company. Two operating systems.
 
-## Roadmap e issues
-[Backlog detallado](docs/EXECUTION_BACKLOG.md) · [Estado verificable](catalog/implementation-status.json) · [Issues abiertos hasta cierre real](https://github.com/jandromani/AIFIRST/issues). Los módulos 13–20 tienen issues #14–#21 y no están falsamente cerrados.
+| **01 / Discovery & Transformation** | **02 / Agent Evolution OS** |
+|:---|:---|
+| *Find the AI work that matters.* | *Improve the agents doing that work.* |
+| Challenge intake, secure submissions, evidence-based project evaluation, independent jury, capability aggregates, organizational graph, three scenarios and a 30/60/90-day roadmap. | Governed swarm, blind mirror reviewers, a four-day job market, hidden benchmark arenas, versioned agent promotions, reversible rollouts and a constitution (*DIOS*) amendable by a unanimous signed active roster. |
+| **Buyer:** CEO, CIO, transformation and innovation teams. | **Buyer:** platform engineering, AI operations and agent-system teams. |
+| **Output:** 11 canonical executive deliverables (EX01–EX11), presently drafts. | **Output:** auditable version-selection decisions and portable, metadata-only traces. |
 
+### What makes them one ecosystem?
 
-## Vertical Slice offline · Run 0.2
-
-**Recorrido unido con datos sintéticos:** inscripción → entrega con SHA-256 → cuarentena → evaluación provisional de proyecto → grafo de propuestas → escenarios → borrador CEO → roadmap 30/60/90 → economics → assurance.
-
-```bash
-npm run simulate:engagement   # diagnóstico sin archivos
-npm run export:engagement     # informe MD + roadmap CSV + trace y hashes, bajo artifacts/ (gitignored)
+```mermaid
+flowchart LR
+  A[Company challenge] --> B[Discovery & Transformation]
+  B --> C[Evidence + independent jury]
+  C --> D[Scenarios + 30/60/90 roadmap]
+  C -->|Synthetic, hash-only bridge| E[Agent Evolution OS]
+  F[Existing company agent pipelines] -->|Trace adapter| E
+  E --> G[Productive agents]
+  G --> H[Blind mirrors]
+  H -->|Operational critique| I[Orchestrator]
+  H -->|Governance critique| J[DIOS]
+  I --> K[Job market + shadow arena]
+  K --> L{Independent gate}
+  J --> L
+  L -->|Canary / rollback| G
 ```
 
-Fuente del flujo: [vertical-slice.json](catalog/vertical-slice.json) · [Guía y límites](docs/VERTICAL_SLICE.md) · [Definition of Done](docs/DEFINITION_OF_DONE.md) · [P0 Node E2E](https://github.com/jandromani/AIFIRST/issues/22).
+**The boundaries matter:** critical reviews are independent; the orchestrator cannot promote itself or appoint its own judge; external trace claims are unverified until independently reproduced; humans retain authority at consequential gates. Agents are software versions, not employees. There is no employee ranking or autonomous employment decision.
 
-**No interpreta las firmas sintéticas como reales ni libera G3–G7.** El borrador tampoco acredita ahorro, seguridad, privacidad ni competencias laborales. Las pruebas reales de Node, los permisos, los conectores y un piloto autorizado siguen pendientes.
+## See it right now — no Docker
 
-
-## Verificación de extremo a extremo y salida para CEO
-
-El prototipo `0.2` incorpora [un informe HTML responsive y sin dependencias externas](docs/VERTICAL_SLICE.md), así como Markdown, CSV, traza y manifiesto SHA256. Los archivos aparecen **únicamente** al solicitar la exportación, bajo `artifacts/` (ignorado por Git).
+The two product pages can be explored from a **read-only, standalone static preview**:
 
 ```bash
-npm run simulate:engagement  # imprimir simulación; sin persistir
-npm run export:engagement    # generar 5 archivos del paquete sintético
-npm run verify:local         # ejecutar Node tests, gates, E2E, Atlas y guardar evidencia
+node bin/build-public-preview.mjs
+# Open dist-preview/index.html in your browser.
+# The preview contains no user data, login, API keys or working private backend.
 ```
 
-El protocolo de QA se documenta en [VERIFY_LOCAL.md](docs/VERIFY_LOCAL.md). La ejecución completa de Node **no se ha podido efectuar en este entorno** por bloqueo de acceso a github.com desde el contenedor; el comando queda listo para el siguiente checkout con red. Ningún test concede autorización real G3–G7.
+The static build converts route links into offline-friendly files, preserves the marketing scenario switcher and the Evolution UI tabs, and **disables every backend-dependent action**. The private console and integration lab become clear explanatory pages rather than dead links or fake working apps. When available, the generated Atlas is included as a read-only graphic.
 
-## Implementación local A–E (21 oct 2026)
+To verify that the preview contains no private API or login interaction:
 
-Se ha añadido un **piloto local ejecutable con Node 22 + SQLite**, separado del simulador previo. Está pensado para pruebas con **datos ficticios**, no para desplegar sobre empleados reales.
+```bash
+npm run test:public
+```
+
+**Important:** This preview is not a deployed SaaS; preview HTML can be hosted separately once a public release is explicitly approved. Do not point a public website at the local Node API.
+
+## Run the real local pilot
+
+Requirements: **Node.js ≥22.16**. No Docker is needed for the SQLite synthetic flow.
 
 ```bash
 npm run test:pilot
+npm run test:evolution
+npm run lab:offline-proof     # Clearly flagged mock antivirus; not Docker proof
 npm run pilot:init -- "Empresa sintética"
 npm run pilot:serve
 ```
 
-Abrir **http://127.0.0.1:4181/** en el propio equipo. La consola no usa Vercel, CDN ni servicios externos. El token inicial se imprime una sola vez al ejecutar `pilot:init`.
+Open these routes **on the same computer**:
 
-**A** tests reales con SQLite y API HTTP; **B** roles locales, aislamiento por tenant, uploads SHA-256 y cuarentena; **C** adaptador HTTPS configurable para gateway IA, revisión local y jurado; **D** EX01–EX11 compatibles con los nombres originales como *manifiestos*, escenarios y grafo; **E** leads, contratos, borradores de factura, registro manual de ingresos y pagos de premios pendientes. Más detalle en [fases A–E](docs/PHASES_A_E_IMPLEMENTATION.md) y [gap register](docs/GAP_REGISTER.md).
+| Route | What you see | Availability |
+|---|---|---|
+| `http://127.0.0.1:4181/` | Product landing | Local HTTP or static snapshot |
+| `/evolution` | Agent Evolution OS workspace | UI; actions require local tenant/token |
+| `/atlas` | Navigable 20-domain design graph | Static graphic |
+| `/console` | Tenant-scoped Command Center | Private Node API required |
+| `/lab` | Recorded integration evidence | Private Node API required |
 
-**No está terminado al 100 % para producción.** Faltan SSO/MFA, seguridad real, autorización y firmas G1/G3–G7, proveedor IA verificado, renderizadores PDF/PPTX/ZIP y cobros/pagos ejecutables con banco/ERP. **Los issues siguen abiertos.**
+The Node server only binds loopback and rejects foreign Host/Origin. **Do not open it to the public internet or enter real employee/client data.** The local token should never be committed or pasted into public sites.
 
-## OpenRouter Free + Enterprise Integration Layer (Oct 2026)
-
-**New code:** [OpenRouter Free adapter](src/openrouter-free.mjs), [security controls](src/enterprise-security.mjs), [OIDC and financial controls](src/enterprise-ops.mjs), [PDF/PPTX/ZIP report pack](src/enterprise-reports.mjs), [private report CLI](bin/enterprise-pack.mjs), [14 Node tests](test/enterprise.test.mjs) plus the existing 7-case pilot suite.
-
-**Default is fail closed.** OpenRouter is only enabled with `AIFIRST_SYNTHETIC_DEMO=1`, `AIFIRST_ALLOW_OPENROUTER_FREE=1` and `OPENROUTER_API_KEY`. It sends synthetic project metadata and hashes only, with a default budget of 12 free requests/day across the local app. Free service limits apply; NOT acceptable for confidential source code, employment decisions or production SLAs without provider/legal review.
+### Full local infrastructure — *prepared, not verified here*
 
 ```bash
-npm run test:enterprise
-python3 -m pip install -r requirements-reports.txt
-# Set AIFIRST_MASTER_KEY_B64 in secret storage and initialize local tenant:
-npm run pilot:init -- "Empresa sintética"
-npm run pilot:serve
+npm run lab:full
+npm run lab:verify
 ```
 
-**Reports**: three draft PDFs, real PPTX, CSV/JSON exports across original EX01–EX11 and AES-256-GCM-wrapped ZIP encrypted as `*.zip.aif1` (requires a separate decrypt step, not password ZIP). **Money**: HTTPS ERP draft adapter, signature-validated bank statement import and payout batch suggestions; no live bank transfer, no tax-compliant invoice certification or legal signature provider connected yet.
+Those commands require Docker Compose and secrets. They intend to orchestrate **Keycloak/OIDC, PostgreSQL, OpenBao Transit, S3-compatible storage and ClamAV**, then Discovery → Evolution → report generation. Docker was unavailable in the construction environment; **passing offline tests does not prove these five services ran together**. See [lab QA](docs/LAB_ONE_COMMAND_QA.md), [one-command runbook](docs/LAB_ONE_COMMAND.md), and [connection readiness](docs/CONNECTION_READINESS.md).
 
-Read the [configuration and limits](docs/ENTERPRISE_INTEGRATIONS.md) and [revised gap register](docs/GAP_REGISTER.md) before enabling connections. No Vercel deployment, no production data.
+## What is already implemented?
 
-## Capa operativa local reforzada (22/10/2026)
+| Capability | Present | What remains unverified |
+|---|---|---|
+| Product web + Evolution UI + Operating Atlas | HTML/CSS/JS, interactive synthetic storytelling | Public production hosting, real buyer/user studies |
+| Enterprise pilot API | Node HTTP, SQLite, tenant/role checks | Production IAM, independent pen-test, HA |
+| Submissions | SHA-256, quarantine, encrypted local artifacts, scanner adapters | Genuine AV/DLP and external privacy approvals |
+| Agent Evolution OS | SQLite organization, mirrors, signed governance, hidden arenas, reversible promotions and rollbacks | External agent validation, live provider reliability, enterprise rollout |
+| Model calls | OpenRouter Free metadata-only adapter + quotas | User API key, approved provider, actual live inference and evals |
+| Reporting | Draft PDF/PPTX/CSV/JSON and encrypted bundle tooling | Audience approval, privacy permissions, legally accepted G6 |
+| Local services | Compose definitions + adapters for identity, storage, encryption, audit and scanner | Docker integration proof, migrations, backup drills and production hardening |
+| CRM & finance | Lead records, draft invoices and payment references | Real contract, VAT/ERP, regulated bank, confirmed settlement |
 
-- **Snapshot/restore:** SQLite backup online con AES-256-GCM, checksum y restauración segura a directorio vacío. Ver [runbook](docs/CONNECTION_READINESS.md). La base de datos activa aún requiere cifrado de volumen/KMS.
-- **Security boundary:** localhost y Host/Origin explícitos, CSP con nonce; no servidor público.
-- **Free agent queue:** cola SQLite duradera, leases, retries y presupuesto por tenant; acepta exclusivamente metadatos sintéticos, no ejecuta código de participantes. `npm run queue:once` requiere credenciales locales seguras y flags de demo.
-- **Finanzas:** una referencia manual de cobro se etiqueta `PAYMENT_REFERENCE_UNVERIFIED`; no acredita dinero recibido.
-- **Tests:** `npm run test:hardening` ejecuta el núcleo Node de seguridad, cola, proveedor mock y paridad de EX01–EX11. La suite completa del repositorio sigue requiriendo un checkout verificado.
+All eight gates **G0–G7** are modeled, but synthetic/local reviews are not legal authority. The architecture models **20 domains, 230 nodes and 171 links**, not 230 production-ready services. [Implementation tracker](catalog/implementation-status.json) · [Issue backlog](https://github.com/jandromani/AIFIRST/issues).
 
-**No está homologado para datos de cliente ni procesamiento real de empleados.** Quedan abiertos IdP externo, KMS, DLP, sandbox de terceros, firmas legales, bancos, ERP, auditoría independiente y pruebas de infraestructura. No Vercel.
+## The 11 executive outputs
 
+| EX | Audience / purpose | EX | Audience / purpose |
+|---|---|---|---|
+| EX01 | CEO Report | EX02 | Board Presentation |
+| EX03 | Solution Portfolio | EX04 | Aggregate Capability Atlas |
+| EX05 | Knowledge Graph | EX06 | Organization Scenario Pack |
+| EX07 | Roadmap 30/60/90 | EX08 | Technical & Risk Annex |
+| EX09 | Private participant feedback — withheld unless authorized | EX10 | Activation Bundle |
+| EX11 | Audit / Exit Bundle | | |
 
-## Product experience · AIFIRST 2026
+The current reports are **draft exports**, not final client-approved documents. See [canonical deliverables](catalog/original-deliverables.json), [enterprise pack](docs/ENTERPRISE_INTEGRATIONS.md), and [delivery gates](docs/DEFINITION_OF_DONE.md).
 
-This repository now contains a separate buyer-facing [landing page](web/index.html), [Command Center](web/pilot.html) and [Operating Atlas](web/atlas.html). Run `npm run pilot:serve` and open `http://127.0.0.1:4181/`, `/console` or `/atlas`. **The server stays on loopback, not the public Internet.**
-
-The design makes the discovery → evidence → human review → roadmap sequence concrete, but never claims verified customers, employee rankings, ROI, bank payments, legal signatures, or production certification. Tenant-scoped edition selection and nine-connector readiness API are covered by real Node tests.
-
-- [UI/UX product audit](docs/UIUX_UNICORN_AUDIT.md)
-- [Web setup and accessibility limits](docs/PRODUCT_WEB_README.md)
-- [Nine connector acceptance paths](docs/CONNECTOR_NEXT_ACTIONS.md)
-- Test: `npm run test:ux` or `npm test`.
-
-A qualified IdP/KMS/DLP/ERP/bank/signature supplier, independent security review, real client workflow and cross-browser WCAG 2.2 AA testing are **not** completed by this redesign. No Vercel deployment or preview is created.
-
-Static visual checks: `npm run test:ux:visual` (requires Python Playwright + Chromium, no network or credentials). Four viewport renders passed locally; authenticated browser E2E still pending.
-
-
-## Laboratorio end-to-end en un comando (datos sintéticos)
+## Engineering & reproducibility
 
 ```bash
-npm run lab:full         # Requiere Node >=22, Docker Compose v2 y Python 3
-npm run lab:offline-proof # Modo separado sin Docker: escáner MOCK, NO prueba los servicios
+npm test                      # Historical Node suite (full checkout)
+npm run verify:local          # Catalog, gates, synthetic flow and generated Atlas
+npm run test:hardening        # HTTP boundary, mock provider, integrity and queue
+npm run test:evolution:extended
 npm run test:lab:integrated
-npm run lab:stop
+npm run test:public           # Standalone, safe marketing preview
 ```
 
-El comando integral genera secretos locales, levanta Keycloak/PostgreSQL/S3/OpenBao/ClamAV, valida conectores, crea una edición y el swarm, evalúa una variante y produce los once informes borrador cifrados. Muestra el manifiesto por empresa en `/lab`. **El stack Docker no está validado en la máquina de construcción** (Docker no instalado); las dependencias que fallen impiden crear un manifiesto verde. No es un despliegue productivo ni opera pagos. Véase [`docs/LAB_ONE_COMMAND.md`](docs/LAB_ONE_COMMAND.md) y [`docs/LAB_ONE_COMMAND_QA.md`](docs/LAB_ONE_COMMAND_QA.md).
+Tests from earlier iterations are documented individually in [Agent Evolution QA](docs/AGENT_EVOLUTION_QA.md), [integration audit](docs/AGENT_EVOLUTION_RELEASE_AUDIT.md), [lab QA](docs/LAB_ONE_COMMAND_QA.md) and [UI/UX audit](docs/UIUX_UNICORN_AUDIT.md). **Only trust successful output from a command actually run in your checkout**; past partial checkouts were missing historical files and full Docker validation has not been completed.
+
+## Integrate Evolution OS with your own agents
+
+Start with the [portable trace contract](docs/AGENT_EVOLUTION_SDK.md). Adapters can ingest **sanitized metadata** from LangGraph, CrewAI, OpenAI Agents SDK, n8n or custom workers. A submitted trace is an *observation*, not independent proof; no external agent can approve its own promotion. The evolution engine uses separate mirror channels, hidden evaluations, gates and rollback policies.
+
+```text
+Task + criteria → productive agent → evidence/trace → blind mirror
+                                                  ↘ orchestrator improvement plan
+                          DIOS ← private governance audit
+Aspirant → blind arena → independent reviewer → canary / rollback
+```
+
+**DIOS is a versioned set of common beliefs**, not an omnipotent agent. Changing those beliefs requires a frozen active roster and **valid signatures from every eligible member**; immutable safety rules and independent release controls remain outside that vote.
+
+## Release policy
+
+- **Public static preview:** possible without Docker. No client data, tokens or operational endpoints. Not yet hosted on Vercel.
+- **Local synthetic product:** executable and testable with Node + SQLite; external provider calls are off by default.
+- **Local Docker lab:** Compose and bootstrap implemented; full five-service proof pending.
+- **Enterprise production:** **not verified**. Requires real SSO/MFA, key custody, tested containment, privacy/legal review, production observability and recovery, signed approvals and financial integrations.
+
+Want to evaluate the idea or contribute to the prototype? Start with the [Operating Atlas](web/atlas.html), the [two-product architecture](docs/AGENT_EVOLUTION_INTEGRATION.md), and [open issues](https://github.com/jandromani/AIFIRST/issues).
+
+<sub>Evidence first. No fictitious traction, invented customer logos or claims that a mock integration proves production readiness.</sub>
