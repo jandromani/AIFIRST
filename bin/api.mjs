@@ -18,6 +18,7 @@ import { evolutionHttp } from '../src/evolution-http.mjs';
 import {VerifiedTheater} from '../src/verified-theater.mjs';
 import {ReplayStudio} from '../src/replay-studio.mjs';
 import {TraceIntelligence} from '../src/trace-intelligence.mjs';
+import {CorpusIntelligence} from '../src/corpus-intelligence.mjs';
 
 const __dirname=path.dirname(fileURLToPath(import.meta.url));
 const baseRoot=path.resolve(__dirname,'..','.aifirst-local');
@@ -42,8 +43,8 @@ export function makeApi(engine,enterprise=null){return http.createServer(async(r
     const u=new URL(rawUrl,'http://127.0.0.1');const p=u.pathname.split('/').filter(Boolean),method=req.method;
     // Product landing, authenticated command center and traceable operating Atlas.
     // Serve local-only static HTML with per-response nonces, no CDN dependencies or network analytics.
-    if(method==='GET'&&['/','/console','/atlas','/evolution','/lab','/demo','/replay','/traces'].includes(u.pathname)){
-      const pages={'/':'index.html','/console':'pilot.html','/atlas':'atlas.html','/evolution':'evolution.html','/lab':'lab.html','/demo':'demo.html','/replay':'replay.html','/traces':'traces.html'};
+    if(method==='GET'&&['/','/console','/atlas','/evolution','/lab','/demo','/replay','/traces','/corpus'].includes(u.pathname)){
+      const pages={'/':'index.html','/console':'pilot.html','/atlas':'atlas.html','/evolution':'evolution.html','/lab':'lab.html','/demo':'demo.html','/replay':'replay.html','/traces':'traces.html','/corpus':'corpus.html'};
       const nonce=crypto.randomBytes(16).toString('base64');
       const source=fs.readFileSync(path.resolve(__dirname,'..','web',pages[u.pathname]),'utf8');
       const html=source.replace(/<style(?=[\s>])/g,'<style nonce="'+nonce+'"').replace(/<script(?=[\s>])/g,'<script nonce="'+nonce+'"');
@@ -67,6 +68,15 @@ export function makeApi(engine,enterprise=null){return http.createServer(async(r
       if(method==='GET'&&p.length===3)return json(res,200,{runs:studio.list(ctx)});
       if(method==='GET'&&p.length===4)return json(res,200,studio.find(ctx,p[3]));
       return json(res,405,{error:'Method not allowed'});
+    }
+    if(p[1]==='corpus'){
+      if(method!=='GET')return json(res,405,{error:'Private, read-only corpus API: import locally with the CLI'});
+      const ci=new CorpusIntelligence(engine);
+      const partition=u.searchParams.get('partition')||'arena';
+      if(p.length===3&&p[2]==='summary')return json(res,200,ci.summary(ctx,{partition}));
+      if(p.length===3&&p[2]==='runs')return json(res,200,ci.runs(ctx,{partition,limit:Number(u.searchParams.get('limit')||40),offset:Number(u.searchParams.get('offset')||0),onlyAudit:u.searchParams.get('audit')==='1'}));
+      if(p.length===3&&p[2]==='evaluations')return json(res,200,ci.evaluations(ctx,{partition,limit:Number(u.searchParams.get('limit')||70)}));
+      return json(res,404,{error:'Unknown corpus route'});
     }
     if(p[1]==='traces'){
       if(method!=='GET')return json(res,405,{error:'Read-only local trace API; import via private CLI'});

@@ -8,7 +8,7 @@
 
 AIFIRST turns internal challenges into reviewable decisions — and gives existing agent teams an independent, reversible way to improve.
 
-[**Try the 3 interactive demos ↗**](web/demo.html) · [**Replay Studio · Browser ↔ Node**](web/replay.html) · [**Explore the product website**](web/index.html) · [**Agent Evolution OS**](web/evolution.html) · [**Operating Atlas**](web/atlas.html) · [**Run the local pilot ↓**](#run-the-real-local-pilot)
+[**Try the 3 interactive demos ↗**](web/demo.html) · [**Replay Studio · Browser ↔ Node**](web/replay.html) · [**Explore the product website**](web/index.html) · [**Agent Evolution OS**](web/evolution.html) · [**Operating Atlas**](web/atlas.html) · [**Private Evidence Corpus**](web/corpus.html) · [**Run the local pilot ↓**](#run-the-real-local-pilot)
 
 ![Status: local research pilot](https://img.shields.io/badge/status-local%20research%20pilot-20392d?style=flat-square) ![Runtime: Node 22](https://img.shields.io/badge/runtime-Node%2022+-20392d?style=flat-square) ![Evidence: synthetic](https://img.shields.io/badge/evidence-synthetic%20only-7b6242?style=flat-square)
 
@@ -17,6 +17,20 @@ AIFIRST turns internal challenges into reviewable decisions — and gives existi
 > **Product truth, October 2026:** The marketing website is HTML/CSS/JavaScript. The actual product runs on Node.js, SQLite and local services. **Neither product is a public production SaaS, and AIFIRST is not deployed on Vercel.** The GitHub repository is public; its data must remain synthetic. No verified customer ROI, independent security certification, production payment, or legal sign-off is claimed.
 
 ---
+
+## Evidence Corpus · historical agent observability (October 2026)
+
+AIFIRST can now index a private, provenance-checked collection of 2,909 agent runs, 255 agent-catalog entries and 7,592 evaluation records across 105 source definitions. It does **not** upload private prompts or the source dataset. The metadata index is tenant scoped, keyed by local HMAC pseudonyms, and has a deny-by-default `arena` partition. Human-approved `study` access and actual blind candidate benchmarks are separate concerns.
+
+```bash
+# After setting AIFIRST_ADMIN_TOKEN and AIFIRST_ALLOW_CONFIDENTIAL_LOCAL_IMPORT=1
+npm run test:corpus
+npm run corpus:import -- /path/to/authorized/local/evidence-folder
+npm run corpus:summary
+npm run pilot:serve  # open http://127.0.0.1:4181/corpus
+```
+
+**Corpus delivery caveat:** the latest source package declares 277,117 events, but its `03_TRACE_EVENTS.jsonl` was not in the attachments supplied for the import. That complete event count has not been reproduced by the new importer. Moreover, 58 evaluations do not link to a known run, 162 repeat an evaluation reference and one agent identifier occurs in two catalog entries; all are preserved for provenance review. **No historic LLM run has been exactly replayed.** See [import guide and controls](docs/EVIDENCE_CORPUS.md) and [quality findings](docs/EVIDENCE_CORPUS_QA.md). The public static preview has no corpus data.
 
 ## One company. Two operating systems.
 

@@ -58,7 +58,11 @@
     "trace:import": "node bin/trace-intelligence.mjs import",
     "trace:summary": "node bin/trace-intelligence.mjs summary",
     "trace:candidates": "node bin/trace-intelligence.mjs candidates",
-    "test:traces": "node --test test/trace-intelligence.test.mjs test/trace-http.test.mjs"
+    "test:traces": "node --test test/trace-intelligence.test.mjs test/trace-http.test.mjs",
+    "corpus:import": "node bin/corpus-intelligence.mjs import",
+    "corpus:summary": "node bin/corpus-intelligence.mjs summary",
+    "corpus:runs": "node bin/corpus-intelligence.mjs runs",
+    "test:corpus": "node --test test/corpus-intelligence.test.mjs test/corpus-web-boundary.test.mjs"
   },
   "optionalDependencies": {
     "pg": "^8.16.0"
