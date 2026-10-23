@@ -116,6 +116,19 @@ npm run test:public
 
 **Important:** This preview is not a deployed SaaS; preview HTML can be hosted separately once a public release is explicitly approved. Do not point a public website at the local Node API.
 
+
+## Private Trace Intelligence — observed agent ledger (2026-10-23)
+
+AIFIRST can ingest `runs.json` + `events.jsonl` **locally** to turn actual agent activity into a tenant-isolated, HMAC-pseudonymized observability dataset. The original corpus used during development contained **1,185 runs and 237,050 events** across Codex, Claude Code and Copilot sources. **The original events and all company identifiers are confidential and are NOT committed to this repository.**
+
+- **CLI:** `npm run trace:import -- /absolute/path/runs.json /absolute/path/events.jsonl` (requires `AIFIRST_ADMIN_TOKEN` and an explicit `AIFIRST_ALLOW_CONFIDENTIAL_LOCAL_IMPORT=1` acknowledgment).
+- **Interface:** `http://127.0.0.1:4181/traces` (local API, admin/auditor/security only).
+- **Derived features:** per-system metrics, pseudonymous event timeline samples, multiagent parent-run graph, and cases prioritized for independent human/critic review.
+- **Integrity:** validates every event against the run inventory, exact counts, source digests, atomic import, tenant isolation and idempotent reimport.
+- **Honest limitations:** full raw traces are never copied; not a full replay; no agent quality rankings, benchmark labels, public case studies, or autonomous promotions. Live SQLite is NOT encrypted by this feature. Use an encrypted private volume and do not expose this API to the Internet.
+
+Guide: [`docs/TRACE_INTELLIGENCE.md`](docs/TRACE_INTELLIGENCE.md). Tests: `npm run test:traces`. Public static previews show a private-route placeholder instead of any trace data.
+
 ## Run the real local pilot
 
 Requirements: **Node.js ≥22.16**. No Docker is needed for the SQLite synthetic flow.

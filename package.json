@@ -54,7 +54,11 @@
     "theater:verify": "node bin/theater-proof.mjs verify",
     "test:replay": "node --test test/replay-studio.test.mjs",
     "replay:proof": "node bin/replay.mjs",
-    "replay:bridge": "node bin/replay-bridge.mjs"
+    "replay:bridge": "node bin/replay-bridge.mjs",
+    "trace:import": "node bin/trace-intelligence.mjs import",
+    "trace:summary": "node bin/trace-intelligence.mjs summary",
+    "trace:candidates": "node bin/trace-intelligence.mjs candidates",
+    "test:traces": "node --test test/trace-intelligence.test.mjs test/trace-http.test.mjs"
   },
   "optionalDependencies": {
     "pg": "^8.16.0"

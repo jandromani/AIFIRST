@@ -10,9 +10,9 @@ const target=path.resolve(process.argv[2]||path.join(root,'dist-preview'));
 if(target===root||target===source||!target.startsWith(root+path.sep))throw Error('Output must be an isolated directory inside this repository');
 if(fs.existsSync(target)&&fs.lstatSync(target).isSymbolicLink())throw Error('Refusing symlink output');
 const pages=['index.html','evolution.html','atlas.html','demo.html','replay.html'];
-const routes={'/':'index.html','/evolution':'evolution.html','/demo':'demo.html','/replay':'replay.html','/atlas':'atlas.html','/console':'console.html','/lab':'lab.html'};
+const routes={'/':'index.html','/evolution':'evolution.html','/demo':'demo.html','/replay':'replay.html','/atlas':'atlas.html','/console':'console.html','/lab':'lab.html','/traces':'traces.html'};
 function rewriteLinks(html){
- return html.replace(/\bhref="(\/|\/evolution|\/demo|\/replay|\/atlas|\/console|\/lab)(#[^"\s]*)?"/g,(_m,r,hash='')=>`href="${routes[r]}${hash}"`);
+ return html.replace(/\bhref="(\/|\/evolution|\/demo|\/replay|\/atlas|\/console|\/lab|\/traces)(#[^"\s]*)?"/g,(_m,r,hash='')=>`href="${routes[r]}${hash}"`);
 }
 function banner(){return `<div role="status" style="position:relative;z-index:100;padding:12px 20px;background:#d8fa80;color:#142018;font:600 14px/1.5 system-ui;text-align:center">Vista pública estática · ejemplos sintéticos · las operaciones privadas requieren el servidor local. <a style="color:#142018;text-decoration:underline" href="console.html">Ver cómo ejecutar el producto</a></div>`;}
 function render(name){
@@ -50,6 +50,7 @@ if(!included.includes('index.html')||!included.includes('evolution.html')||!incl
 if(!included.includes('atlas.html')){fs.writeFileSync(path.join(target,'atlas.html'),placeholder('Operating Atlas','El Atlas navegable solo se incluye cuando se construye desde un checkout completo; esta copia local parcial no contenía web/atlas.html.'),'utf8');}
 fs.writeFileSync(path.join(target,'console.html'),placeholder('Command Center','La consola de empresas está protegida por el API local de Node, con autenticación y almacenamiento. No existe una consola pública estática. No introduzcas tokens en esta vista.'),'utf8');
 fs.writeFileSync(path.join(target,'lab.html'),placeholder('Integration Lab','Los informes de Keycloak, S3, cifrado, antivirus y evolución se generan y consultan en el laboratorio privado; no son credenciales ni certificaciones públicas.'),'utf8');
+fs.writeFileSync(path.join(target,'traces.html'),placeholder('Trace Intelligence — solo privado','Las trazas confidenciales NO se incluyen en la web pública. Usa el piloto local autenticado y el importador CLI autorizado.'),'utf8');
 fs.writeFileSync(path.join(target,'robots.txt'),'User-agent: *\nDisallow: /\n','utf8');
 fs.writeFileSync(path.join(target,'PREVIEW_STATUS.json'),JSON.stringify({schema:'aifirst.public_preview.v1',static_read_only:true,production_ready:false,backend_included:false,client_data_included:false,atlas_included:included.includes('atlas.html'),decision_theater_included:included.includes('demo.html'),replay_studio_included:included.includes('replay.html'),public_replay_kernel_shared_with_node:true,interactive_demo_count:3,source_pages:included},null,2)+'\n');
 console.log(JSON.stringify({created:target,pages:fs.readdirSync(target),read_only:true,atlas_included:included.includes('atlas.html')},null,2));
