@@ -62,7 +62,11 @@
     "corpus:import": "node bin/corpus-intelligence.mjs import",
     "corpus:summary": "node bin/corpus-intelligence.mjs summary",
     "corpus:runs": "node bin/corpus-intelligence.mjs runs",
-    "test:corpus": "node --test test/corpus-intelligence.test.mjs test/corpus-web-boundary.test.mjs"
+    "test:corpus": "node --test test/corpus-intelligence.test.mjs test/corpus-web-boundary.test.mjs",
+    "test:history": "node --test test/historical-acceptance.test.mjs test/historical-http-boundary.test.mjs",
+    "history:import": "node bin/historical-acceptance.mjs import",
+    "history:list": "node bin/historical-acceptance.mjs list",
+    "history:case": "node bin/historical-acceptance.mjs case"
   },
   "optionalDependencies": {
     "pg": "^8.16.0"

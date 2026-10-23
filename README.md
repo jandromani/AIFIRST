@@ -241,3 +241,14 @@ Aspirant → blind arena → independent reviewer → canary / rollback
 Want to evaluate the idea or contribute to the prototype? Start with the [Operating Atlas](web/atlas.html), the [two-product architecture](docs/AGENT_EVOLUTION_INTEGRATION.md), and [open issues](https://github.com/jandromani/AIFIRST/issues).
 
 <sub>Evidence first. No fictitious traction, invented customer logos or claims that a mock integration proves production readiness.</sub>
+
+## Historical Acceptance Lab · decisions grounded in the private corpus (2026-10-23)
+
+AIFIRST now has a **private historical casebook** covering ten anonymized governance scenarios: an ordered reviewer chain, retries, factory failure, sensitive-data boundary veto, DoR/DoD and adversarial gates, injected timeout recovery, rejecting judges and an A/B prompt heuristic.
+
+- `npm run test:history` runs synthetic policy fixtures; these are not customer evidence.
+- `npm run history:import -- /path/to/private/AIFIRST_AGENT_TRACE_EVIDENCE` verifies and privately imports the ten user-authorized samples against their SHA-256 provenance (requires local admin token and `AIFIRST_ALLOW_CONFIDENTIAL_LOCAL_IMPORT=1`).
+- `npm run history:list` and `http://127.0.0.1:4181/history` show decision reasons and allowlisted aggregates to authorized local auditors.
+- A case passing historical assertions **never authorizes a promotion**: all ten remain blocked pending hidden independent benchmarks, versioned runs and explicit human gates.
+
+Read [Historical Acceptance](docs/HISTORICAL_ACCEPTANCE.md) and [QA limitations](docs/HISTORICAL_ACCEPTANCE_QA.md). The original samples, content hashes, model payloads and private SQLite are not published, and the static preview contains only a placeholder instead of this control plane.
