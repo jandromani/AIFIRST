@@ -10,7 +10,7 @@ const target=path.resolve(process.argv[2]||path.join(root,'dist-preview'));
 if(target===root||target===source||!target.startsWith(root+path.sep))throw Error('Output must be an isolated directory inside this repository');
 if(fs.existsSync(target)&&fs.lstatSync(target).isSymbolicLink())throw Error('Refusing symlink output');
 const pages=['index.html','evolution.html','atlas.html','demo.html','replay.html'];
-const routes={'/':'index.html','/evolution':'evolution.html','/demo':'demo.html','/replay':'replay.html','/atlas':'atlas.html','/console':'console.html','/lab':'lab.html','/traces':'traces.html','/corpus':'corpus.html','/history':'history.html'};
+const routes={'/':'index.html','/evolution':'evolution.html','/demo':'demo.html','/replay':'replay.html','/atlas':'atlas.html','/console':'console.html','/lab':'lab.html','/traces':'traces.html','/corpus':'corpus.html','/history':'history.html','/arena':'arena.html'};
 function rewriteLinks(html){
  return html.replace(/\bhref="(\/|\/evolution|\/demo|\/replay|\/atlas|\/console|\/lab|\/traces|\/corpus|\/history)(#[^"\s]*)?"/g,(_m,r,hash='')=>`href="${routes[r]}${hash}"`);
 }
@@ -52,6 +52,7 @@ fs.writeFileSync(path.join(target,'console.html'),placeholder('Command Center','
 fs.writeFileSync(path.join(target,'lab.html'),placeholder('Integration Lab','Los informes de Keycloak, S3, cifrado, antivirus y evolución se generan y consultan en el laboratorio privado; no son credenciales ni certificaciones públicas.'),'utf8');
 fs.writeFileSync(path.join(target,'traces.html'),placeholder('Trace Intelligence — solo privado','Las trazas confidenciales NO se incluyen en la web pública. Usa el piloto local autenticado y el importador CLI autorizado.'),'utf8');
 fs.writeFileSync(path.join(target,'corpus.html'),placeholder('Evidence Corpus','El índice de agentes, las evaluaciones y los casos reservados de arena son privados. Importa el paquete autorizado en una base local cifrada y consulta /corpus en tu servidor de AIFIRST.'),'utf8');
+fs.writeFileSync(path.join(target,'arena.html'),placeholder('Independent Arena · private shadow','Los conjuntos reservados, las firmas de los evaluadores y los resultados no están en la web pública. Ejecuta npm run arena:demo localmente.'),'utf8');
 fs.writeFileSync(path.join(target,'history.html'),placeholder('Historical Acceptance','Los casos de aceptación históricos y su resultado están protegidos por autenticación y no se exportan como datos públicos; las promociones continúan bloqueadas.'),'utf8');
 fs.writeFileSync(path.join(target,'robots.txt'),'User-agent: *\nDisallow: /\n','utf8');
 fs.writeFileSync(path.join(target,'PREVIEW_STATUS.json'),JSON.stringify({schema:'aifirst.public_preview.v1',static_read_only:true,production_ready:false,backend_included:false,client_data_included:false,atlas_included:included.includes('atlas.html'),decision_theater_included:included.includes('demo.html'),replay_studio_included:included.includes('replay.html'),public_replay_kernel_shared_with_node:true,interactive_demo_count:3,source_pages:included},null,2)+'\n');

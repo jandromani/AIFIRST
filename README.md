@@ -8,7 +8,7 @@
 
 AIFIRST turns internal challenges into reviewable decisions — and gives existing agent teams an independent, reversible way to improve.
 
-[**Try the 3 interactive demos ↗**](web/demo.html) · [**Replay Studio · Browser ↔ Node**](web/replay.html) · [**Explore the product website**](web/index.html) · [**Agent Evolution OS**](web/evolution.html) · [**Operating Atlas**](web/atlas.html) · [**Private Evidence Corpus**](web/corpus.html) · [**Run the local pilot ↓**](#run-the-real-local-pilot)
+[**Try the 3 interactive demos ↗**](web/demo.html) · [**Replay Studio · Browser ↔ Node**](web/replay.html) · [**Explore the product website**](web/index.html) · [**Agent Evolution OS**](web/evolution.html) · [**Operating Atlas**](web/atlas.html) · [**Private Evidence Corpus**](web/corpus.html) · [**Independent Shadow Arena**](web/arena.html) · [**Run the local pilot ↓**](#run-the-real-local-pilot)
 
 ![Status: local research pilot](https://img.shields.io/badge/status-local%20research%20pilot-20392d?style=flat-square) ![Runtime: Node 22](https://img.shields.io/badge/runtime-Node%2022+-20392d?style=flat-square) ![Evidence: synthetic](https://img.shields.io/badge/evidence-synthetic%20only-7b6242?style=flat-square)
 
@@ -17,6 +17,18 @@ AIFIRST turns internal challenges into reviewable decisions — and gives existi
 > **Product truth, October 2026:** The marketing website is HTML/CSS/JavaScript. The actual product runs on Node.js, SQLite and local services. **Neither product is a public production SaaS, and AIFIRST is not deployed on Vercel.** The GitHub repository is public; its data must remain synthetic. No verified customer ROI, independent security certification, production payment, or legal sign-off is claimed.
 
 ---
+
+## Independent Shadow Arena · prospective synthetic benchmark (October 2026)
+
+AIFIRST now has a **paired-evaluation engine** that gives the same **prospective synthetic** tasks to an active incumbent and a candidate. It checks registered identities, prevents reuse of known `study` fingerprints, keeps expected answers out of the agent adapter, requires an independently registered local auditor with a pinned Ed25519 public key, checks signed exact-match verdicts against deterministic oracles, and stores tamper-evident **metadata only**. Any safety violation, missing measured cost, statistical under-evidence or regression blocks an improved-candidate recommendation. Even a recommended case **never changes the productive agent or authorizes a real canary**.
+
+```bash
+npm run test:arena  # Node 22+; no Docker, no LLM API
+npm run arena:demo   # Generates its own synthetic tenant and private local token
+npm run pilot:serve  # Open http://127.0.0.1:4181/arena; token not stored in browser
+```
+
+This is an executable *acceptance harness*, not a live competition between independent foundation-model agents. The evaluator and candidates are deterministic local test doubles; holding an Ed25519 key does not itself establish external trust. Real blinded tasks, genuinely independent model execution, calibrated test suites and rollback under deployment traffic remain pending. Never publish test answers or the confidential trace corpus. Details: [Independent Arena](docs/INDEPENDENT_ARENA.md).
 
 ## Evidence Corpus · historical agent observability (October 2026)
 
